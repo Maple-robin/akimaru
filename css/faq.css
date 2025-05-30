@@ -1,0 +1,288 @@
+/*
+ * faq-hero (よくある質問ページのメインビジュアル風)
+ * ----------------------------------------
+ */
+.faq-hero {
+    background-image: url('../img/osake.png'); /* トップページのスライダー画像から流用 */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px; /* 上下の余白 */
+    margin-top: 60px; /* ヘッダーの高さ分 */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh; /* 高さの調整 */
+}
+
+.faq-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 画像の可読性を上げるためのオーバーレイ */
+    z-index: 1;
+}
+
+.faq-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-hero__title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* 文字に影をつけて見やすく */
+}
+
+.faq-hero__title .en {
+    display: block;
+    font-size: 4rem; /* PC向けサイズを基本に、スマホで調整 */
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+.faq-hero__title .ja {
+    display: block;
+    font-size: 2rem; /* PC向けサイズを基本に、スマホで調整 */
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.faq-hero__title .ja::after {
+    content: '';
+    display: block;
+    width: 60px; /* 下線の長さ */
+    height: 1px; /* 下線の太さ */
+    background-color: #C0C0C0; /* 下線の色 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.faq-hero__text {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+
+/*
+ * faq-section (Q&Aコンテンツ本体)
+ * ----------------------------------------
+ */
+.faq-section {
+    padding: 60px 0; /* 上下の余白 */
+    background-color: #fff; /* 背景色 */
+}
+
+.faq-section__inner {
+    width: 100%;
+    max-width: 900px; /* Q&Aリストの最大幅 */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 質問カテゴリ */
+.faq-category {
+    margin-bottom: 50px; /* カテゴリ間の余白 */
+}
+
+.faq-category:last-child {
+    margin-bottom: 0;
+}
+
+.faq-category__title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.8rem; /* カテゴリ見出しのサイズ */
+    font-weight: 700;
+    color: #A0522D; /* ブランドカラーを参考に */
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee; /* 下線 */
+}
+
+/* 各Q&Aアイテム */
+.faq-item {
+    background-color: #fcfcfc; /* アイテムの背景色 */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 15px; /* アイテム間の余白 */
+    overflow: hidden; /* アコーディオンの開閉時に角丸を維持 */
+}
+
+.faq-item__question {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid transparent; /* 最初は透明、開いたときに線を表示 */
+}
+
+.faq-item__question:hover {
+    background-color: #f5f5f5;
+}
+
+.faq-item__question.is-open {
+    background-color: #fff; /* 開いた時の背景色 */
+    border-bottom-color: #eee; /* 開いた時に下線を表示 */
+}
+
+.faq-item__question .q-mark {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: bold;
+    color: #A0522D;
+    font-size: 2.2rem;
+    margin-right: 10px;
+}
+
+.faq-item__question .question-text {
+    flex-grow: 1; /* 質問文がスペースを埋める */
+}
+
+/* 開閉アイコン */
+.faq-item__question .icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    flex-shrink: 0; /* 縮小しない */
+}
+
+.faq-item__question .icon::before,
+.faq-item__question .icon::after {
+    content: '';
+    position: absolute;
+    background-color: #A0522D; /* アイコンの色 */
+    transition: transform 0.3s ease;
+}
+
+.faq-item__question .icon::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.faq-item__question .icon::after {
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+}
+
+/* 開いた時のアイコン */
+.faq-item__question.is-open .icon::after {
+    transform: translateX(-50%) rotate(90deg); /* 縦棒を回転させて横棒にする */
+}
+
+/* 回答コンテンツ */
+.faq-item__answer {
+    padding: 0 20px 20px; /* 左右と下の余白 */
+    font-size: 1.6rem;
+    color: #555;
+    display: none; /* 初期状態では非表示 */
+}
+
+.faq-item__answer p {
+    margin: 0; /* 段落のデフォルトマージンをリセット */
+    padding-top: 10px; /* 上部の余白 */
+}
+
+/* お問い合わせへの導線 */
+.faq-contact-info {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px dashed #ddd; /* 破線で区切る */
+}
+
+.faq-contact-info p {
+    font-size: 1.6rem;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.faq-contact-info .btn-contact {
+    display: inline-block;
+    width: 240px; /* ボタンの幅 */
+    padding: 15px 0;
+    background-color: #A0522D; /* ブランドカラーのボタン */
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.faq-contact-info .btn-contact:hover {
+    opacity: 0.8;
+}
+
+
+/*
+ * PC (min-width: 768px)
+ * ----------------------------------------
+ */
+@media (min-width: 768px) {
+    .faq-hero {
+        height: 50vh; /* PCでの高さ調整 */
+        padding: 150px 20px;
+    }
+
+    .faq-hero__title .en {
+        font-size: 6rem;
+    }
+
+    .faq-hero__title .ja {
+        font-size: 2.8rem;
+    }
+
+    .faq-section {
+        padding: 100px 0;
+    }
+
+    .faq-category {
+        margin-bottom: 80px;
+    }
+
+    .faq-category__title {
+        font-size: 3.6rem;
+        margin-bottom: 40px;
+    }
+
+    .faq-item__question {
+        padding: 20px 30px;
+        font-size: 2rem;
+    }
+
+    .faq-item__question .q-mark {
+        font-size: 2.8rem;
+    }
+
+    .faq-item__answer {
+        padding: 0 30px 30px;
+        font-size: 1.7rem;
+    }
+
+    .faq-contact-info {
+        margin-top: 100px;
+        padding-top: 60px;
+    }
+}
