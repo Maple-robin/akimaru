@@ -17,8 +17,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.6rem;
     /* base font size */
-    margin: 0;
-    padding: 0;
 }
 
 *,
@@ -42,6 +40,8 @@ img {
 
 ul {
     list-style: none;
+    padding: 0; /* リストのデフォルトパディングをリセット */
+    margin: 0; /* リストのデフォルトマージンをリセット */
 }
 
 /*
@@ -297,31 +297,6 @@ ul {
     object-fit: cover;
 }
 
-/* Swiper ナビゲーションボタン */
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff !important;
-    opacity: 0.8;
-    width: 44px;
-    /* ボタンのサイズ */
-    height: 44px;
-    background-color: rgba(0, 0, 0, 0.3);
-    /* 半透明の黒背景 */
-    border-radius: 50%;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    font-size: 2rem !important;
-    /* 矢印のサイズ */
-    color: #fff !important;
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 /* Swiper Pagination (メインビジュアルのみドットナビゲーション) */
 .swiper-pagination-bullet {
     background: #fff !important;
@@ -344,8 +319,12 @@ ul {
  */
 .products {
     padding: 80px 0;
-    background-color: #f8f8f8;
-    /* 背景色 */
+    background-color: #f8f8f8; /* デフォルトの背景色 */
+}
+
+/* 初心者向けセクションの背景を白に */
+.beginner-friendly {
+    background-color: #fff; /* 背景色を白に変更 */
 }
 
 .products .swiper {
@@ -375,7 +354,7 @@ ul {
 
 .product-item__img-wrap {
     width: 100%;
-    height: 250px;
+    height: 200px;
     /* 画像の高さ固定 */
     overflow: hidden;
     margin-bottom: 15px;
@@ -410,9 +389,6 @@ ul {
     color: #A0522D;
     /* 価格の色 */
     margin-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: block;
 }
 
 .product-item__price span {
@@ -424,9 +400,6 @@ ul {
 .product-item__tag {
     font-size: 1.3rem;
     color: #888;
-    padding-left: 15px;
-    padding-right: 15px;
-    display: block;
 }
 
 .btn-all-products {
@@ -449,43 +422,121 @@ ul {
 }
 
 /*
+ * categories
+ * ----------------------------------------
+ */
+.categories {
+    padding: 80px 0; /* 上下の余白 */
+    text-align: center;
+    background-color: #f2f7f5; /* 初心者向けセクションの以前の背景色に変更 */
+}
+
+.categories__inner {
+    max-width: 1200px; /* コンテンツの最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 20px; /* 左右の余白 */
+}
+
+/* カテゴリーリスト */
+.category-list {
+    display: grid;
+    /* レスポンシブなグリッドレイアウト */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* アイテム間の隙間 */
+    list-style: none; /* リストのマーカーを削除 */
+    padding: 0;
+    margin-top: 50px; /* タイトルからの余白 */
+}
+
+/* 各カテゴリーカード */
+.category-card {
+    display: block;
+    width: 100%;
+    height: 100px; /* カードの高さ */
+    background-size: cover; /* 画像をカバーサイズで表示 */
+    background-position: center; /* 画像を中央に配置 */
+    background-repeat: no-repeat; /* 画像の繰り返しを禁止 */
+    border-radius: 8px; /* 角を丸くする */
+    overflow: hidden; /* 角丸からはみ出る部分を隠す */
+    position: relative;
+    text-decoration: none; /* 下線を削除 */
+    color: #fff; /* 文字色を白に */
+    display: flex;
+    align-items: center; /* テキストを垂直方向中央に */
+    justify-content: center; /* テキストを水平方向中央に */
+    transition: transform 0.3s ease; /* ホバー時のアニメーション */
+}
+
+/* カードに半透明のオーバーレイをかけることで、テキストの可読性を高める */
+.category-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 黒で半透明 */
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+/* ホバー時のスタイル */
+.category-card:hover::before {
+    background-color: rgba(0, 0, 0, 0.6); /* ホバーで少し濃く */
+}
+
+.category-card:hover {
+    transform: translateY(-5px); /* ホバーで少し持ち上がる */
+}
+
+/* カテゴリー名 */
+.category-card__name {
+    position: relative;
+    z-index: 1; /* オーバーレイより手前に表示 */
+    font-family: 'Zen Old Mincho', serif; /* 既存のフォントに合わせる */
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* 文字に影をつけて見やすく */
+}
+
+/* スマートフォンでの調整（必要であれば） */
+@media (max-width: 767px) {
+    .category-list {
+        grid-template-columns: repeat(2, 1fr); /* 2列表示 */
+        gap: 20px; /* アイテム間の隙間を調整 */
+    }
+}
+
+/*
  * footer
  * ----------------------------------------
  */
 .footer {
-    background-color: #dddddd;
+    background-color: #eeeeee;
     /* 現在の明るいベージュブラウン */
     padding: 50px 0 30px;
     /* 上下の余白 */
-    /* text-align: center; は footer__inner に移動し、より効果的に */
 }
 
 .footer__inner {
-    /* footer__inner に flexbox を適用して子要素を中央揃え */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* これで子要素（nav, sns, copyright）が中央に揃います */
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
-    /* 子要素内のテキストも中央に */
 }
-@media (max-width: 767px) {
-  .footer__inner {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
+
 .footer__nav {
     display: flex;
     flex-wrap: wrap;
+    /* スマホで折り返し */
     justify-content: center;
+    /* ナビゲーションリスト全体を中央揃え */
     margin-bottom: 30px;
-    /* width: 100%; ← これを削除またはコメントアウト */
-    width: auto;
+    width: 100%;
+    /* 親要素の幅いっぱいに広げる */
 }
 
 .footer__nav li {

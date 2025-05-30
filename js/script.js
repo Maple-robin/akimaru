@@ -38,10 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.swiper-pagination',
             clickable: true,
         },
-        // navigation: { // 矢印ボタンは削除
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev',
-        // },
     });
 
     // 商品一覧のSwiper初期化
@@ -51,11 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
         spaceBetween: 20, // スライド間の余白
         freeMode: true, // フリックで自由にスクロール
 
-        // 矢印ボタンは削除
-        // navigation: {
-        //     nextEl: '.swiper-button-next',
-        //     prevEl: '.swiper-button-prev',
-        // },
         pagination: { // ドットナビゲーションは残す
             el: '.swiper-pagination',
             clickable: true,
@@ -70,4 +61,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    // ★ここから初心者向けセクションのSwiper初期化を追加★
+    new Swiper('.mySwiperBeginners', {
+        // スマホ設定（767pxまで）
+        slidesPerView: 'auto', // CSSで幅を制御するため'auto'に設定
+        spaceBetween: 20, // スライド間の余白
+        freeMode: true, // フリックで自由にスクロール
+
+        pagination: { // ドットナビゲーションは残す
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+
+        // PC設定（768px以上）
+        breakpoints: {
+            768: {
+                slidesPerView: 3, // PCでは3枚表示
+                spaceBetween: 30, // スライド間の余白
+                freeMode: false, // PCではフリックを無効に
+            }
+        }
+    });
+    // ★ここまで初心者向けセクションのSwiper初期化を追加★
 });
