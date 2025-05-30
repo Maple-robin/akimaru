@@ -1,0 +1,406 @@
+/*
+ * product-detail.css (商品詳細ページ固有のスタイル)
+ * ----------------------------------------
+ */
+
+/* 共通のインナー幅はproducts.cssで定義されています */
+/* .common-inner { ... } */
+
+/* Breadcrumb (パンくずリスト) のスタイルもproducts.cssで定義されています */
+/* .breadcrumb { ... } */
+
+
+/* product-detail-section */
+.product-detail-section {
+    padding: 60px 0; /* スマホ時の上下の余白 */
+}
+
+.product-detail-content {
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 40px; /* 画像と情報の間の隙間 */
+    margin-bottom: 60px;
+}
+
+/* Product Gallery (メインビジュアルエリア) */
+.product-gallery {
+    width: 100%;
+}
+
+.product-gallery__main {
+    margin-bottom: 20px;
+}
+
+.product-gallery__main img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.product-gallery__thumbnails {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto; /* スマホで横スクロール可能に */
+    padding-bottom: 10px; /* スクロールバーのための余白 */
+    -webkit-overflow-scrolling: touch; /* スムーズなスクロール */
+}
+
+.product-gallery__thumbnails img {
+    width: 80px; /* サムネイルのサイズ */
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0; /* 縮まない */
+}
+
+.product-gallery__thumbnails img:hover,
+.product-gallery__thumbnails img.is-active {
+    border-color: #A0522D;
+    box-shadow: 0 0 5px rgba(160, 82, 45, 0.5);
+}
+
+/* Product Info (商品情報概要エリア) */
+.product-info {
+    width: 100%;
+}
+
+.product-info__name {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.8rem; /* スマホでの商品名サイズ */
+    font-weight: 700;
+    line-height: 1.3;
+    color: #333;
+    margin-bottom: 10px; /* 種類との間に少しマージン */
+}
+
+/* 種類 (強調されたタグのようなスタイル) */
+.product-info__type {
+    display: inline-block; /* インラインブロックにして、テキストに合わせた幅にする */
+    font-size: 1.6rem; /* 商品名より小さく、キャッチコピーより少し大きく */
+    font-weight: 600; /* 少し太く */
+    color: #fff; /* 文字色を白に */
+    background-color: #A0522D; /* ブランドのアクセントカラーを背景に */
+    border: 1px solid #A0522D; /* 背景色と同じ色の枠線 */
+    padding: 7px 15px; /* パディングを調整 */
+    border-radius: 5px; /* 丸みを持たせる */
+    margin-bottom: 15px; /* キャッチコピーとの間にマージン */
+    line-height: 1.2; /* 高さの調整 */
+}
+
+
+.product-info__catchcopy {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.product-info__price {
+    font-size: 3.2rem; /* 価格の強調 */
+    font-weight: bold;
+    color: #A0522D; /* 価格の色 */
+    margin-bottom: 5px;
+}
+
+.product-info__price span {
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #666;
+}
+
+.product-info__tax-note {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+/* ECサイトへのリンク */
+.product-external-link {
+    margin-bottom: 30px;
+}
+
+.btn-to-ec-site {
+    display: block; /* ブロック要素にして幅いっぱいに */
+    width: 100%;
+    max-width: 350px; /* ボタンの最大幅を制限 */
+    margin: 0 auto 10px; /* 中央寄せと下マージン */
+    padding: 15px 30px;
+    background-color: #A0522D; /* ECサイトへのボタンの色 */
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影を追加して目立たせる */
+}
+
+.btn-to-ec-site:hover {
+    background-color: #8B4513; /* ホバー時の色 */
+}
+
+.product-info__stock {
+    font-size: 1.4rem;
+    color: #666; /* 在庫情報の色を統一 */
+    font-weight: 500;
+    text-align: center; /* 中央寄せ */
+}
+
+.product-info__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* タグの共通スタイル (種類からは切り離す) */
+.product-info__tags li {
+    font-size: 1.3rem;
+    color: #888;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: #f5f5f5;
+}
+
+
+/* Product Description (商品詳細説明エリア) */
+/* product-description クラスは共通化のため、アコーディオンアイテムのタイトルに適用 */
+/* .product-description { margin-bottom: 60px; } は削除 */
+
+/* .section-titleはtop.cssで定義されています */
+/* .section-title { ... } */
+
+.product-description__title,
+.paired-snacks__title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem; /* セクション見出しサイズ */
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* アコーディオンの見出しは下線なしにする */
+.product-accordion-item__title {
+    margin-bottom: 0; /* 下線と間隔調整 */
+    padding-bottom: 0; /* 下線と間隔調整 */
+    border-bottom: none; /* 下線を削除 */
+    cursor: pointer; /* カーソルをポインターに */
+    display: flex; /* アイコン配置のため */
+    justify-content: space-between; /* アイコンを右端に */
+    align-items: center;
+    padding: 15px 0; /* クリックしやすいようにパディングを追加 */
+    border-top: 1px solid #eee; /* 各アイテムの間に区切り線 */
+}
+.product-accordion-item:last-of-type .product-accordion-item__title {
+    border-bottom: 1px solid #eee; /* 最後のアイテムに下線 */
+}
+
+/* アコーディオンアイコン */
+.accordion-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+.accordion-icon::before,
+.accordion-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #A0522D;
+    transition: transform 0.3s ease;
+}
+.accordion-icon::before {
+    width: 12px;
+    height: 2px;
+}
+.accordion-icon::after {
+    width: 2px;
+    height: 12px;
+}
+
+/* 閉じている状態でのアイコン */
+.product-accordion-item.is-closed .accordion-icon::before {
+    transform: translate(-50%, -50%) rotate(0deg); /* 横棒 */
+}
+.product-accordion-item.is-closed .accordion-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg); /* 縦棒 (横棒と重ねてプラス記号) */
+}
+
+/* 開いている状態でのアイコン */
+.product-accordion-item:not(.is-closed) .accordion-icon::after {
+    transform: translate(-50%, -50%) rotate(0deg) scaleY(0); /* 縦棒を非表示 */
+}
+
+
+/* アコーディオンコンテンツ */
+.product-accordion-item__content p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+.product-accordion-item__content p:last-of-type {
+    margin-bottom: 0;
+}
+.product-accordion-item__content {
+    padding-top: 10px; /* 見出しとの間の余白 */
+    padding-bottom: 20px; /* コンテンツの下の余白 */
+}
+
+
+/* Paired Snacks (相性のいいおつまみエリア) */
+.paired-snacks {
+    margin-top: 60px; /* アコーディオンセクションとの間の余白 */
+    margin-bottom: 60px;
+    position: relative; /* ページネーションの配置のため */
+}
+
+/* Swiperコンテナの余白調整 */
+.paired-snacks-swiper {
+    padding: 0; /* 左右の矢印を削除したので、paddingをリセット */
+}
+
+/* 各スライド（商品アイテム）のスタイル */
+.paired-snacks-swiper .swiper-slide {
+    height: auto; /* 高さを自動調整 */
+    display: flex; /* product-itemの中央揃え用 */
+    justify-content: center;
+    align-items: flex-start; /* 上寄せ */
+}
+
+.paired-snacks-swiper .product-item {
+    width: 100%; /* スライド内のproduct-itemが幅いっぱいに広がるように */
+    height: 100%; /* 親要素の高さに合わせる */
+}
+
+/* Swiperナビゲーションボタン（矢印）のスタイルを非表示に */
+.paired-snacks .swiper-button-prev,
+.paired-snacks .swiper-button-next {
+    display: none; /* 矢印を完全に非表示 */
+}
+
+/* Swiperページネーション（ドット）のスタイル調整 */
+.paired-snacks .swiper-pagination {
+    position: relative; /* ページネーションをスライダーの下に配置するためにrelativeにする */
+    margin-top: 30px; /* スライダーとページネーションの間の余白 */
+    bottom: auto; /* Swiperデフォルトのbottomをリセット */
+    top: auto; /* Swiperデフォルトのtopをリセット */
+    transform: none; /* Swiperデフォルトのtransformをリセット */
+}
+
+.paired-snacks .swiper-pagination-bullet {
+    background-color: #ccc; /* 通常のドットの色 */
+    opacity: 1;
+}
+
+.paired-snacks .swiper-pagination-bullet-active {
+    background-color: #A0522D; /* アクティブなドットの色 */
+}
+
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    .product-detail-section {
+        padding: 100px 0; /* PC時の上下の余白 */
+    }
+
+    .product-detail-content {
+        flex-direction: row; /* PCでは横並び */
+        gap: 60px;
+    }
+
+    .product-gallery {
+        width: 50%; /* PCでの画像エリアの幅 */
+        flex-shrink: 0;
+    }
+    .product-gallery__thumbnails {
+        overflow-x: visible; /* PCではスクロール不要 */
+        padding-bottom: 0;
+        justify-content: flex-start;
+    }
+    .product-gallery__thumbnails img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .product-info {
+        width: 50%; /* PCでの情報エリアの幅 */
+    }
+
+    .product-info__name {
+        font-size: 4.2rem;
+    }
+
+    /* 種類 */
+    .product-info__type {
+        font-size: 1.8rem; /* PCでの種類サイズ */
+        padding: 8px 20px; /* PCでのパディングを調整 */
+        margin-bottom: 20px;
+    }
+
+    .product-info__catchcopy {
+        font-size: 1.8rem;
+    }
+
+    .product-info__price {
+        font-size: 4.8rem;
+    }
+    .product-info__price span {
+        font-size: 2rem;
+    }
+
+    .product-external-link {
+        text-align: left; /* PCでは左寄せ */
+    }
+    .btn-to-ec-site {
+        margin: 0 0 10px 0; /* PCでは左寄せで下マージン */
+        width: auto; /* PCで幅自動 */
+        max-width: 350px; /* 最大幅は維持 */
+        padding: 18px 40px;
+    }
+    .product-info__stock {
+        text-align: left; /* PCでは左寄せ */
+    }
+
+    .product-info__tags li {
+        font-size: 1.4rem;
+    }
+
+    /* Product Description, Paired Snacks */
+    /* product-description マージン調整は product-accordion-item に移動 */
+    /* .product-description { margin-bottom: 100px; } は削除 */
+
+    .product-description__title,
+    .paired-snacks__title {
+        font-size: 3.2rem;
+        margin-bottom: 40px;
+        padding-bottom: 15px;
+    }
+
+    /* アコーディオン見出しPC調整 */
+    .product-accordion-item__title {
+        padding: 20px 0; /* PCでのパディングを調整 */
+    }
+
+    .product-description p {
+        font-size: 1.7rem;
+    }
+
+    /* SwiperページネーションのPCでの位置調整 */
+    .paired-snacks {
+        margin-top: 100px; /* PCでのアコーディオンセクションとの間の余白 */
+        margin-bottom: 100px;
+    }
+    .paired-snacks .swiper-pagination {
+        margin-top: 40px; /* PCでのページネーションの余白 */
+    }
+}
