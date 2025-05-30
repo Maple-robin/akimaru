@@ -17,6 +17,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.6rem;
     /* base font size */
+    margin: 0;
+    padding: 0;
 }
 
 *,
@@ -373,7 +375,7 @@ ul {
 
 .product-item__img-wrap {
     width: 100%;
-    height: 200px;
+    height: 250px;
     /* 画像の高さ固定 */
     overflow: hidden;
     margin-bottom: 15px;
@@ -408,6 +410,9 @@ ul {
     color: #A0522D;
     /* 価格の色 */
     margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
 }
 
 .product-item__price span {
@@ -419,6 +424,9 @@ ul {
 .product-item__tag {
     font-size: 1.3rem;
     color: #888;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: block;
 }
 
 .btn-all-products {
@@ -445,7 +453,7 @@ ul {
  * ----------------------------------------
  */
 .footer {
-    background-color: #E8D9C8;
+    background-color: #dddddd;
     /* 現在の明るいベージュブラウン */
     padding: 50px 0 30px;
     /* 上下の余白 */
@@ -465,16 +473,19 @@ ul {
     text-align: center;
     /* 子要素内のテキストも中央に */
 }
-
+@media (max-width: 767px) {
+  .footer__inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 .footer__nav {
     display: flex;
     flex-wrap: wrap;
-    /* スマホで折り返し */
     justify-content: center;
-    /* ナビゲーションリスト全体を中央揃え */
     margin-bottom: 30px;
-    width: 100%;
-    /* 親要素の幅いっぱいに広げる */
+    /* width: 100%; ← これを削除またはコメントアウト */
+    width: auto;
 }
 
 .footer__nav li {
