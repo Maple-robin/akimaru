@@ -1,0 +1,333 @@
+/* base */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.6rem;
+}
+
+button {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* common */
+.footer__inner {
+    width: 100%;
+    max-width: 1100px; /* PCでの最大幅 */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header */
+.header {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0; /* 左右のパディングを0にして、innerで制御 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* ヘッダー自体は常に100%幅 */
+    z-index: 999;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between; /* ロゴとナビゲーションを左右に配置 */
+    align-items: center;
+    height: 60px;
+    width: 100%; /* innerは親要素の100%幅 */
+    max-width: 1100px; /* innerのコンテンツの最大幅を制限 */
+    margin: 0 auto; /* innerを中央寄せ */
+    padding: 0 20px; /* innerの左右パディング */
+}
+
+.header__logo a {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap; /* テキストが改行されないように */
+}
+
+.header__nav .nav__list {
+    display: flex; /* PC表示では常にフレックス表示 */
+    gap: 20px; /* ナビゲーション間のスペース */
+    flex-wrap: wrap; /* 画面幅が狭い場合に改行されるように */
+    justify-content: flex-end; /* ナビゲーション項目を右寄せ */
+}
+
+.header__nav .nav__list li a {
+    font-size: 1.5rem;
+    color: #555; /* ナビゲーションリンクの色 */
+    transition: color 0.3s ease;
+    white-space: nowrap; /* ナビゲーション項目が改行されないように */
+}
+
+.header__nav .nav__list li a:hover {
+    color: #000; /* ホバー時の色 */
+}
+
+/* main content adjustment */
+main {
+    margin-top: 60px; /* ヘッダーの高さ分マージン */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* Admin Page Specific Styles (Common for all admin pages) */
+.admin-container {
+    width: 100%;
+    max-width: 800px; /* 返信ページは少し狭く */
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.admin-page-title {
+    text-align: center;
+    margin-bottom: 80px; /* PC時のタイトル下マージン */
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+}
+
+.admin-page-title .en {
+    display: block;
+    font-size: 4.8rem; /* PC時の英語タイトルサイズ */
+    color: #000;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+.admin-page-title .ja {
+    display: block;
+    font-size: 2.2rem; /* PC時の日本語タイトルサイズ */
+    color: #555;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.admin-page-title .ja::after {
+    content: '';
+    display: block;
+    width: 60px; /* PC時の下線幅 */
+    height: 1px;
+    background-color: #C0C0C0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+/* Inquiry Details Section */
+.inquiry-details-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.inquiry-item {
+    margin-bottom: 20px;
+}
+
+.inquiry-item:last-child {
+    margin-bottom: 0;
+}
+
+.inquiry-label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.inquiry-value {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 1.5rem;
+    color: #555;
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    word-break: break-word; /* Break long words */
+}
+
+/* Reply Form Section */
+.reply-form-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+textarea#reply-content {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group label {
+    font-weight: 400; /* Radio button labels can be lighter */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0; /* Override form-group label margin */
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.2); /* Make radio buttons slightly larger */
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #A0522D; /* Brand color for submit button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #8B4513; /* Darker shade on hover */
+}
+
+
+/* footer */
+.footer {
+    background-color: #eeeeee;
+    padding: 50px 0 30px;
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.footer__nav li {
+    margin: 5px 15px;
+}
+
+.footer__nav li a {
+    font-size: 1.4rem;
+    color: #444;
+    transition: color 0.3s ease;
+}
+
+.footer__nav li a:hover {
+    color: #000;
+}
+
+/* SNSセクションのスタイル */
+.footer__sns {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer__sns a {
+    display: inline-block;
+}
+
+.footer__sns img {
+    width: 28px;
+    height: 28px;
+    transition: opacity 0.3s ease;
+}
+
+.footer__sns img:hover {
+    opacity: 0.7;
+}
+
+.footer__copyright {
+    font-size: 1.2rem;
+    color: #666;
+    width: 100%;
+}
