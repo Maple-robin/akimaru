@@ -204,13 +204,41 @@ main {
     padding: 0 10px; /* 左右の余白 */
 }
 
+/* ページタイトル (section-titleのスタイルを適用) */
 .page-title {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 3.2rem;
-    font-weight: 500;
-    color: #333;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* スマホ時の見出し下の余白 */
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+}
+
+.page-title .en {
+    display: block;
+    font-size: 2.8rem; /* 英語タイトルサイズ */
+    color: #000;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+.page-title .ja {
+    display: block;
+    font-size: 1.6rem; /* 日本語タイトルサイズ */
+    color: #555;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 10px; /* 下線との余白 */
+}
+
+.page-title .ja::after {
+    content: '';
+    display: block;
+    width: 30px; /* 下線の長さ */
+    height: 1px; /* 下線の太さ */
+    background-color: #C0C0C0; /* 下線の色 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
 }
 
 /* プロフィールセクション */
@@ -574,6 +602,23 @@ main {
     .posts-list {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* PCでは複数列に */
     }
+
+    /* PC時のページタイトル調整 */
+    .page-title {
+        margin-bottom: 80px; /* PC時の見出し下の余白 */
+    }
+
+    .page-title .en {
+        font-size: 4.8rem;
+    }
+
+    .page-title .ja {
+        font-size: 2.2rem;
+    }
+
+    .page-title .ja::after {
+        width: 60px;
+    }
 }
 
 /* スマートフォン向けの追加調整 (既存のメディアクエリに統合) */
@@ -582,10 +627,20 @@ main {
         padding: 0 10px; /* モバイルでのパディング調整 */
     }
 
+    /* モバイル時のページタイトル調整 */
     .page-title {
-        font-size: 2.8rem;
+        font-size: 2.8rem; /* 英語タイトルサイズ */
         margin-bottom: 30px;
     }
+
+    .page-title .en {
+        font-size: 2.8rem; /* 英語タイトルサイズ */
+    }
+
+    .page-title .ja {
+        font-size: 1.6rem; /* 日本語タイトルサイズ */
+    }
+
 
     .profile-section {
         padding: 20px;
