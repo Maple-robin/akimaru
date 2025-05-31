@@ -1,36 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const spMenu = document.querySelector('.sp-menu');
-    // const spMenuCloseButton = document.querySelector('.sp-menu__close-button'); // 削除
-    const spCategoryToggle = document.querySelector('.sp-menu__category-toggle');
-    const spSubList = document.querySelector('.sp-menu__sub-list');
 
-    // ハンバーガーメニューの開閉
     if (hamburgerMenu && spMenu) {
         hamburgerMenu.addEventListener('click', function() {
             hamburgerMenu.classList.toggle('is-active');
             spMenu.classList.toggle('is-active');
-            // メニューが開いたらbodyにoverflow: hidden;を適用してスクロールを止める
             document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
         });
-
-        // 閉じるボタンのクリックイベント (削除)
-        // if (spMenuCloseButton) { // 条件分岐も不要
-        //     spMenuCloseButton.addEventListener('click', function() {
-        //         hamburgerMenu.classList.remove('is-active');
-        //         spMenu.classList.remove('is-active');
-        //         document.body.classList.remove('no-scroll');
-        //     });
-        // }
     }
 
-    // 商品カテゴリのサブメニュー開閉
-    if (spCategoryToggle && spSubList) {
-        spCategoryToggle.addEventListener('click', function() {
-            spCategoryToggle.classList.toggle('is-open');
-            spSubList.classList.toggle('is-open');
+    // 複数カテゴリトグル対応
+    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
+    spCategoryToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            this.classList.toggle('is-open');
+            const subList = this.querySelector('.sp-menu__sub-list');
+            if (subList) {
+                subList.classList.toggle('is-open');
+            }
         });
-    }
+    });
 
     // タブ切り替え機能 (既存のまま)
     const tabButtons = document.querySelectorAll('.tab-button');

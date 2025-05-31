@@ -241,35 +241,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // ハンバーガーメニューの要素を取得
     const hamburger = document.querySelector('.hamburger-menu');
     const spMenu = document.querySelector('.sp-menu');
-    const spCategoryToggle = document.querySelector('.sp-menu__category-toggle');
-    const spSubList = document.querySelector('.sp-menu__sub-list');
 
     // ハンバーガーアイコンがクリックされた時の処理
-    if (hamburger && spMenu) { // 要素が存在することを確認
+    if (hamburger && spMenu) {
         hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を切り替える
-            spMenu.classList.toggle('is-active'); // メニュー本体の表示/非表示を切り替える
-
-            // メニューが開いたときにbodyにスクロール禁止クラスを追加（オプション）
+            hamburger.classList.toggle('is-active');
+            spMenu.classList.toggle('is-active');
             // document.body.classList.toggle('no-scroll');
         });
 
-        // メニュー項目をクリックしたらメニューを閉じる（オプション）
         const spMenuItems = document.querySelectorAll('.sp-menu__list a');
         spMenuItems.forEach(item => {
             item.addEventListener('click', function () {
-                hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元の形に戻す
-                spMenu.classList.remove('is-active'); // メニューを非表示にする
-                // document.body.classList.remove('no-scroll'); // スクロール禁止を解除（オプション）
+                hamburger.classList.remove('is-active');
+                spMenu.classList.remove('is-active');
+                // document.body.classList.remove('no-scroll');
             });
         });
     }
 
     // 商品カテゴリのサブメニュー開閉
-    if (spCategoryToggle && spSubList) {
-        spCategoryToggle.addEventListener('click', function() {
-            spCategoryToggle.classList.toggle('is-open');
-            spSubList.classList.toggle('is-open');
+    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
+    spCategoryToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            this.classList.toggle('is-open');
+            const subList = this.querySelector('.sp-menu__sub-list');
+            if (subList) {
+                subList.classList.toggle('is-open');
+            }
         });
-    }
+    });
 });

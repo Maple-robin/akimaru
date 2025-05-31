@@ -3,8 +3,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const spMenu = document.querySelector('.sp-menu');
-    const spCategoryToggle = document.querySelector('.sp-menu__category-toggle');
-    const spSubList = document.querySelector('.sp-menu__sub-list');
 
     // ハンバーガーメニューの開閉
     if (hamburgerMenu && spMenu) {
@@ -15,13 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 商品カテゴリのサブメニュー開閉
-    if (spCategoryToggle && spSubList) {
-        spCategoryToggle.addEventListener('click', function () {
-            spCategoryToggle.classList.toggle('is-open');
-            spSubList.classList.toggle('is-open');
+    // 複数カテゴリトグル対応
+    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
+    spCategoryToggles.forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            this.classList.toggle('is-open');
+            const subList = this.querySelector('.sp-menu__sub-list');
+            if (subList) {
+                subList.classList.toggle('is-open');
+            }
         });
-    }
+    });
 
     // --- ここから下は既存のSwiper初期化などを残す場合 ---
     new Swiper('.mySwiperHero', {
