@@ -19,7 +19,6 @@ body {
     display: flex; /* bodyをフレックスコンテナにする */
     flex-direction: column; /* 子要素を縦に並べる */
     min-height: 100vh; /* bodyがビューポートの高さ全体を占めるようにする */
-    /* justify-contentとalign-itemsはmain要素でログインコンテナを中央寄せするために削除 */
 }
 
 *, *:before, *:after {
@@ -187,10 +186,8 @@ ul {
 
 /* main content adjustment */
 main {
-    /* --- スクロールなしで全体表示するための修正 --- */
     margin-top: 60px; /* 固定ヘッダーの高さ分、コンテンツを下にずらす */
     flex-grow: 1; /* main要素が残りの垂直スペースをすべて埋めるようにする */
-    /* 以前のpadding-top, padding-bottom, min-height: calc(...) は不要 */
 
     display: flex; /* ログインコンテナをmain内で中央に配置 */
     justify-content: center;
@@ -200,8 +197,8 @@ main {
 }
 
 
-/* ログインコンテナ */
-.login-container {
+/* 新規登録コンテナ (login-containerと共通のスタイル) */
+.signup-container {
     background-color: #fff; /* 白い背景 */
     padding: 40px;
     border-radius: 8px; /* 角丸 */
@@ -211,8 +208,8 @@ main {
     text-align: center;
 }
 
-/* ロゴ */
-.login-logo {
+/* ロゴ (signup-logoとして調整) */
+.signup-logo {
     font-family: 'Zen Old Mincho', serif; /* 和文フォント */
     font-size: 3.2rem;
     font-weight: 500;
@@ -220,8 +217,8 @@ main {
     margin-bottom: 30px;
 }
 
-/* フォーム */
-.login-form {
+/* フォーム (signup-formとして調整) */
+.signup-form {
     display: flex;
     flex-direction: column; /* 要素を縦に並べる */
 }
@@ -252,8 +249,19 @@ main {
     box-shadow: 0 0 5px rgba(160, 82, 45, 0.3); /* 軽い影 */
 }
 
-/* ボタン */
-.login-button {
+/* エラーメッセージのスタイル */
+.error-message {
+    color: #d9534f; /* 赤色でエラー表示 */
+    font-size: 1.3rem;
+    margin-top: 5px;
+    text-align: left;
+    display: block; /* デフォルトで非表示にする場合は none に */
+    /* display: none; */
+}
+
+
+/* ボタン (signup-buttonとして調整) */
+.signup-button {
     background-color: #555; /* メインサイトのボタン色に合わせた背景色 */
     color: #fff; /* 白い文字 */
     padding: 12px 20px;
@@ -262,23 +270,23 @@ main {
     transition: background-color 0.3s ease; /* ホバー時のアニメーション */
 }
 
-.login-button:hover {
+.signup-button:hover {
     background-color: #333; /* ホバー時の背景色 */
 }
 
-/* リンク */
-.login-links {
+/* リンク (signup-linksとして調整) */
+.signup-links {
     margin-top: 20px;
     font-size: 1.4rem;
     color: #777;
 }
 
-.login-links a {
+.signup-links a {
     color: #777;
     margin: 0 10px; /* リンク間の余白 */
 }
 
-.login-links a:hover {
+.signup-links a:hover {
     color: #A0522D; /* ホバー時の色 */
 }
 
@@ -286,7 +294,6 @@ main {
 .footer {
     background-color: #eeeeee; /* 現在の明るいベージュブラウン */
     padding: 50px 0 30px; /* 上下の余白 */
-    /* mainのflex-grow:1により、フッターは自動的に下部に配置される */
 }
 
 .footer__inner {
@@ -389,11 +396,11 @@ main {
 
 /* スマートフォン向けの追加調整 (既存のメディアクエリに統合) */
 @media (max-width: 600px) {
-    .login-container {
+    .signup-container {
         padding: 30px; /* モバイルでのパディング調整 */
     }
 
-    .login-logo {
+    .signup-logo {
         font-size: 2.8rem;
         margin-bottom: 20px;
     }
@@ -402,14 +409,14 @@ main {
         margin-bottom: 15px;
     }
 
-    .login-links {
+    .signup-links {
         margin-top: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .login-links a {
+    .signup-links a {
         margin: 5px 0;
     }
 }
