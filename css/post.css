@@ -1,0 +1,151 @@
+/* * post.css
+ * 投稿作成ページ専用スタイル
+ * ----------------------------------------
+ */
+
+.post-creation-section {
+    padding: 80px 0;
+    /* 上下の余白 */
+    background-color: #f8f8f8;
+    /* 背景色をデフォルトに合わせる */
+}
+
+.post-form-container {
+    width: 100%;
+    max-width: 800px;
+    /* フォームの最大幅 */
+    margin: 60px auto 0;
+    /* ヘッダーの高さ分調整 + 中央寄せ + 下の余白はセクションのpaddingに任せる */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* section-titleはtop.cssに定義済みのためここでは不要 */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    font-family: 'Zen Old Mincho', serif;
+    /* 和文フォント */
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    /* 日本語フォント */
+    box-sizing: border-box;
+    /* paddingとborderをwidthに含める */
+}
+
+.form-group textarea {
+    min-height: 250px;
+    /* ある程度の高さを確保 */
+    resize: vertical;
+    /* 縦方向のみリサイズ可能に */
+}
+
+.form-actions {
+    display: flex;             /* Flexboxを有効にする */
+    flex-direction: column;    /* アイテムを縦方向に並べる */
+    align-items: center;       /* 横方向の中央に揃える */
+    margin-top: 30px;
+}
+
+.form-actions button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    /* ホバーアニメーション */
+    width: 100%;               /* ボタンの幅を親要素に合わせる */
+    max-width: 250px;          /* ボタンの最大幅を制限（任意） */
+    margin-bottom: 20px;       /* 各ボタンの下に20pxのスペース */
+    margin-left: 0;            /* 不要なマージンをリセット */
+    margin-right: 0;           /* 不要なマージンをリセット */
+}
+
+.form-actions .submit-btn {
+    background-color: #A0522D;
+    /* ブランドカラーを使用 */
+    color: #fff;
+    /* 投稿ボタンを1番目（上）に配置 */
+    order: 1;
+}
+
+.form-actions .submit-btn:hover {
+    background-color: #8B4513;
+    /* ホバーで少し濃く */
+}
+
+.form-actions .cancel-btn {
+    background-color: #ccc;
+    color: #333;
+    /* キャンセルボタンを2番目（下）に配置 */
+    order: 2;
+}
+
+.form-actions .cancel-btn:hover {
+    background-color: #bbb;
+}
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    .post-creation-section {
+        padding: 120px 0;
+    }
+
+    .post-form-container {
+        padding: 40px;
+        margin-top: 80px; /* PCヘッダーの高さ調整 */
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea {
+        font-size: 1.6rem;
+    }
+
+    .form-actions button {
+        padding: 15px 30px;
+        font-size: 1.7rem;
+        max-width: 300px; /* PCでのボタンの最大幅を調整（任意） */
+    }
+}
+
+
+/* スマートフォンでの調整 (max-width: 767px) */
+@media (max-width: 767px) {
+    .post-creation-section {
+        padding: 40px 0; /* スマホでのセクションパディング調整 */
+    }
+
+    .post-form-container {
+        margin-top: 80px;
+        /* スマホ時のヘッダー下の余白調整 */
+        padding: 15px;
+        /* スマホ時のパディング調整 */
+    }
+
+    .form-actions {
+        /* flex-direction: column; と align-items: center; は共通で適用済み */
+    }
+
+    .form-actions button {
+        /* width: 100%; や max-width、margin-bottom も共通で適用済み */
+    }
+}
