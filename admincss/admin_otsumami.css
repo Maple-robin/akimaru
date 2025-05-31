@@ -1,0 +1,292 @@
+/*
+ * admin_otsumami.css
+ * おつまみ管理一覧ページ固有のスタイル
+ * ----------------------------------------
+ */
+
+/* データ一覧テーブル */
+.admin-otsumami-list {
+    margin-top: 40px; /* ページタイトルとの間隔 */
+}
+
+.table-container {
+    overflow-x: auto; /* テーブルが横にはみ出る場合にスクロール可能に */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* ボーダーの結合 */
+    font-size: 1.6rem;
+    min-width: 950px; /* テーブルの最小幅を少し広めに設定し、はみ出したらスクロール */
+}
+
+.data-table th,
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: middle; /* セルの内容を中央に */
+    white-space: normal; /* セル内のテキストは必要に応じて改行を許可 */
+}
+
+/* 特定の列の幅を設定 (調整可能) */
+.data-table th:nth-child(1), /* おつまみレシピ */
+.data-table td:nth-child(1) {
+    width: 25%; /* テキストが多いため広めに */
+    min-width: 180px;
+}
+.data-table th:nth-child(2), /* 合うお酒の種類 */
+.data-table td:nth-child(2),
+.data-table th:nth-child(3), /* 合うお酒のカテゴリ */
+.data-table td:nth-child(3) {
+    width: 12%;
+    min-width: 100px;
+}
+.data-table th:nth-child(4), /* 商品ID */
+.data-table td:nth-child(4) {
+    width: 8%;
+    min-width: 70px;
+}
+.data-table th:nth-child(5), /* おつまみ名 */
+.data-table td:nth-child(5) {
+    width: 15%;
+    min-width: 120px;
+}
+.data-table th:nth-child(6), /* おつまみ画像 */
+.data-table td:nth-child(6) {
+    width: 8%;
+    min-width: 80px; /* 画像のサイズに合わせる */
+    text-align: center; /* 画像を中央寄せ */
+}
+.data-table th:nth-child(7), /* おつまみリンク */
+.data-table td:nth-child(7) {
+    width: 8%;
+    min-width: 70px;
+}
+.data-table th:nth-child(8), /* 操作 */
+.data-table td:nth-child(8) {
+    width: 12%; /* ボタン2つ分の幅を確保 */
+    min-width: 150px; /* 編集・削除ボタンが並ぶのに十分な幅 */
+    white-space: nowrap; /* ボタンの列は改行させない */
+    text-align: center; /* ボタン群をセル内で中央寄せ */
+}
+
+
+.data-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap; /* ヘッダーのテキストが改行されないように */
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none; /* 最後の行の下線はなし */
+}
+
+.data-table tbody tr:hover {
+    background-color: #f9f9f9; /* ホバー時の背景色 */
+}
+
+.product-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; /* 画像の表示方法 */
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+/* 操作ボタンをFlexboxで横並びにするためのスタイル */
+.action-buttons {
+    display: flex; /* Flexコンテナにする */
+    gap: 8px; /* ボタン間のスペース */
+    justify-content: center; /* ボタンを中央寄せ */
+    align-items: center; /* 垂直方向も中央寄せ */
+    flex-wrap: nowrap; /* ボタンが折り返さないようにする */
+}
+
+
+/* テーブル内のボタン */
+.btn-sm {
+    display: inline-block; /* Flexアイテムなのでこれは必須ではないが、念のため残す */
+    padding: 8px 15px;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap; /* ボタンテキストの改行防止 */
+    /* margin: 0 4px; Flexboxのgapで間隔を管理するので不要 */
+}
+
+.btn-edit {
+    background-color: #5bc0de; /* 水色 */
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #d9534f; /* 赤色 */
+    color: #fff;
+}
+
+
+/* 新しいおつまみを登録するボタンエリア */
+.add-otsumami-button-area {
+    text-align: center;
+    margin-top: 60px; /* 一覧との間隔 */
+    margin-bottom: 40px; /* フッターとの間隔 */
+}
+
+/* 新しいおつまみ登録ボタンのスタイル (影・エフェクトなし) */
+.btn-add-new {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* 中央寄せ */
+    padding: 20px 50px; /* パディングを大きく */
+    font-size: 2.6rem; /* フォントサイズを大きく */
+    font-weight: bold;
+    background-color: #A0522D; /* メインカラー */
+    color: #fff;
+    border: 3px solid #8B4513; /* 太いボーダーでボタンらしさを強調 */
+    border-radius: 8px; /* 角丸は残しつつ自然に */
+    cursor: pointer;
+}
+
+.btn-icon {
+    font-size: 3.5rem; /* アイコンのサイズを大きく */
+    margin-right: 15px; /* アイコンとテキストの間隔を広げる */
+    line-height: 1;
+}
+
+
+/* ヘッダーの現在のページ表示 */
+.admin-nav__list li a.is-current {
+    color: #A0522D; /* 現在のページの色 */
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .table-container {
+        padding: 15px;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 12px;
+        font-size: 1.5rem;
+    }
+    .product-thumb {
+        width: 50px;
+        height: 50px;
+    }
+    .btn-add-new {
+        padding: 18px 40px;
+        font-size: 2.2rem;
+        border-radius: 6px;
+    }
+    .btn-icon {
+        font-size: 3.0rem;
+        margin-right: 12px;
+    }
+    /* レスポンシブ時の操作列の幅調整 */
+    .data-table th:nth-child(8),
+    .data-table td:nth-child(8) {
+        min-width: 130px; /* ボタンが並ぶのに十分な幅 */
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-otsumami-list {
+        margin-top: 30px;
+    }
+    .table-container {
+        padding: 10px;
+    }
+    .data-table {
+        font-size: 1.4rem;
+        min-width: 700px; /* スマホでも最低限の幅を確保 */
+    }
+    .data-table th,
+    .data-table td {
+        padding: 8px;
+    }
+    .product-thumb {
+        width: 40px;
+        height: 40px;
+    }
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 1.2rem;
+    }
+    .add-otsumami-button-area {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .btn-add-new {
+        padding: 15px 30px;
+        font-size: 1.8rem;
+        border-width: 2px; /* スマホではボーダーを少し細く */
+        border-radius: 5px;
+    }
+    .btn-icon {
+        font-size: 2.4rem;
+        margin-right: 10px;
+    }
+    /* レスポンシブ時の操作列の幅調整 */
+    .data-table th:nth-child(8),
+    .data-table td:nth-child(8) {
+        min-width: 120px; /* ボタンが並ぶのに十分な幅 */
+    }
+    /* 各列の幅を相対的に調整 */
+    .data-table th:nth-child(1),
+    .data-table td:nth-child(1) { min-width: 150px; }
+    .data-table th:nth-child(2),
+    .data-table td:nth-child(2),
+    .data-table th:nth-child(3),
+    .data-table td:nth-child(3) { min-width: 80px; }
+    .data-table th:nth-child(4),
+    .data-table td:nth-child(4) { min-width: 60px; }
+    .data-table th:nth-child(5),
+    .data-table td:nth-child(5) { min-width: 100px; }
+    .data-table th:nth-child(6),
+    .data-table td:nth-child(6) { min-width: 60px; }
+    .data-table th:nth-child(7),
+    .data-table td:nth-child(7) { min-width: 60px; }
+}
+
+@media (max-width: 480px) {
+    .data-table {
+        min-width: 600px; /* さらに小さい画面でも最低限の幅を確保 */
+    }
+    .btn-add-new {
+        width: 90%;
+        max-width: 300px;
+        font-size: 1.8rem;
+        padding: 12px 20px;
+    }
+    .btn-icon {
+        font-size: 2.2rem;
+        margin-right: 8px;
+    }
+    /* さらに小さい画面での操作列の幅調整 */
+    .data-table th:nth-child(8),
+    .data-table td:nth-child(8) {
+        min-width: 110px; /* ボタンが並ぶのに最低限の幅 */
+    }
+    /* 各列の幅をさらに調整 */
+    .data-table th:nth-child(1),
+    .data-table td:nth-child(1) { min-width: 120px; }
+    .data-table th:nth-child(2),
+    .data-table td:nth-child(2),
+    .data-table th:nth-child(3),
+    .data-table td:nth-child(3) { min-width: 70px; }
+    .data-table th:nth-child(4),
+    .data-table td:nth-child(4) { min-width: 50px; }
+    .data-table th:nth-child(5),
+    .data-table td:nth-child(5) { min-width: 80px; }
+    .data-table th:nth-child(6),
+    .data-table td:nth-child(6) { min-width: 50px; }
+    .data-table th:nth-child(7),
+    .data-table td:nth-child(7) { min-width: 50px; }
+}

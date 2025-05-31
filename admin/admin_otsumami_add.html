@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUR BRAND | 新しいおつまみを登録</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../admincss/admin.css">
+    <link rel="stylesheet" href="../admincss/admin_otsumami_add.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="admin-header__inner">
+            <h1 class="admin-header__logo">
+                <a href="admin.html">OUR BRAND 管理者ページ</a>
+            </h1>
+            <nav class="admin-header__nav">
+                <ul class="admin-nav__list">
+                    <li><a href="admin_liquor_list.html">お酒管理</a></li>
+                    <li><a href="admin_otsumami_list.html" class="is-current">おつまみ管理</a></li>
+                    <li><a href="#">ユーザー管理</a></li>
+                    <li><a href="#">投稿管理</a></li>
+                    <li><a href="#">お問い合わせ管理</a></li>
+                    <li><a href="#">FAQ登録</a></li>
+                    <li><a href="#">通報管理</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-main__inner">
+            <h2 class="admin-page-title">新しいおつまみを登録</h2>
+
+            <section class="admin-section admin-otsumami-add-form">
+                <form action="#" method="post" enctype="multipart/form-data" class="admin-form">
+                    <div class="form-group">
+                        <label for="otsumami_name">おつまみ名 <span class="required">必須</span></label>
+                        <input type="text" id="otsumami_name" name="otsumami_name" required maxlength="128">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="otsumami_img_pass">おつまみ画像 <span class="required">必須</span></label>
+                        <input type="file" id="otsumami_img_pass" name="otsumami_img_pass" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="combi_type">合うお酒の種類 <span class="required">必須</span></label>
+                        <select id="combi_type" name="combi_type" required>
+                            <option value="">選択してください</option>
+                            <option value="ビール">ビール</option>
+                            <option value="日本酒">日本酒</option>
+                            <option value="ワイン">ワイン</option>
+                            <option value="ウイスキー">ウイスキー</option>
+                            <option value="焼酎">焼酎</option>
+                            <option value="その他">その他</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="combi_category">合うお酒のカテゴリ <span class="required">必須</span></label>
+                        <select id="combi_category" name="combi_category" required>
+                            <option value="">選択してください</option>
+                            <option value="甘口">甘口</option>
+                            <option value="辛口">辛口</option>
+                            <option value="さっぱり">さっぱり</option>
+                            <option value="濃厚">濃厚</option>
+                            <option value="スパイシー">スパイシー</option>
+                            <option value="ヘルシー">ヘルシー</option>
+                            <option value="定番">定番</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="otsumami_text">おつまみレシピ／説明 <span class="required">必須</span></label>
+                        <textarea id="otsumami_text" name="otsumami_text" rows="6" required maxlength="200"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="liquor_name">お酒名</label>
+                        <input type="text" id="liquor_name" name="liquor_name" maxlength="128" placeholder="関連するお酒の名称を入力してください（任意）">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="otsumami_link">おつまみリンク</label>
+                        <input type="url" id="otsumami_link" name="otsumami_link" maxlength="128" placeholder="例: https://example.com/otsumami_page">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-lg">このおつまみを登録する</button>
+                    </div>
+                </form>
+            </section>
+
+            <div class="back-to-list-button-area">
+                <a href="admin_otsumami_list.html" class="btn btn-secondary btn-back-to-list">
+                    おつまみ管理一覧に戻る
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="admin-footer__inner">
+            <p class="admin-footer__copyright">© OUR BRAND Admin All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
