@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUR BRAND | 新しいお酒を登録</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../admincss/admin.css">
+    <link rel="stylesheet" href="../admincss/admin_products_add.css"> </head>
+<body>
+
+    <header class="admin-header">
+        <div class="admin-header__inner">
+            <h1 class="admin-header__logo">
+                <a href="admin.html">OUR BRAND 管理者ページ</a>
+            </h1>
+            <nav class="admin-header__nav">
+                <ul class="admin-nav__list">
+                    <li><a href="admin_liquor_list.html" class="is-current">お酒管理</a></li> <li><a href="#">おつまみ管理</a></li>
+                    <li><a href="#">ユーザー管理</a></li>
+                    <li><a href="#">投稿管理</a></li>
+                    <li><a href="#">お問い合わせ管理</a></li>
+                    <li><a href="#">FAQ登録</a></li>
+                    <li><a href="#">通報管理</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-main__inner">
+            <h2 class="admin-page-title">新しいお酒を登録</h2>
+
+            <section class="admin-section admin-liquor-add-form">
+                <form action="#" method="post" enctype="multipart/form-data" class="admin-form">
+                    <div class="form-group">
+                        <label for="product_name">商品名 <span class="required">必須</span></label>
+                        <input type="text" id="product_name" name="product_name" required maxlength="32">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_img">商品画像 <span class="required">必須</span></label>
+                        <input type="file" id="product_img" name="product_img" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_type">種類 <span class="required">必須</span></label>
+                        <select id="product_type" name="product_type" required>
+                            <option value="">選択してください</option>
+                            <option value="ビール">ビール</option>
+                            <option value="ハイボール">ハイボール</option>
+                            <option value="カクテル">カクテル</option>
+                            <option value="ワイン">ワイン</option>
+                            <option value="日本酒">日本酒</option>
+                            <option value="ウイスキー">ウイスキー</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_category">カテゴリ <span class="required">必須</span></label>
+                        <select id="product_category" name="product_category" required>
+                            <option value="">選択してください</option>
+                            <option value="初心者向け">初心者向け</option>
+                            <option value="甘口">甘口</option>
+                            <option value="辛口">辛口</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_description">商品説明</label>
+                        <textarea id="product_description" name="product_description" rows="6" maxlength="256"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_link">商品リンク</label>
+                        <input type="url" id="product_link" name="product_link" maxlength="128" placeholder="例: https://example.com/product_page">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-lg">このお酒を登録する</button>
+                    </div>
+                </form>
+            </section>
+
+            <div class="back-to-list-button-area">
+                <a href="admin_liquor_list.html" class="btn btn-secondary btn-back-to-list">
+                    お酒管理一覧に戻る
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="admin-footer__inner">
+            <p class="admin-footer__copyright">© OUR BRAND Admin All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
