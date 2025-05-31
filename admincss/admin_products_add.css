@@ -1,0 +1,197 @@
+/*
+ * admin_liquor_add.css
+ * 新しいお酒を登録するページ固有のスタイル
+ * ----------------------------------------
+ */
+
+/* フォームの基本スタイル */
+.admin-liquor-add-form {
+    margin-top: 40px; /* ページタイトルとの間隔 */
+}
+
+.admin-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */ /* 影を削除 */
+    max-width: 800px; /* フォームの最大幅を調整 */
+    margin: 0 auto 60px; /* 中央配置と下の余白 */
+}
+
+.form-group {
+    margin-bottom: 25px; /* 各入力グループの下の余白 */
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-group .required {
+    color: #d9534f; /* 赤色で「必須」を表示 */
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    color: #555;
+    background-color: #fcfcfc;
+    /* transition: border-color 0.3s ease, box-shadow 0.3s ease; */ /* 動きを削除 */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="url"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #A0522D; /* フォーカス時のボーダー色 */
+    /* box-shadow: 0 0 0 3px rgba(160, 82, 45, 0.2); */ /* 影を削除 */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* 縦方向のみリサイズ可能に */
+    min-height: 120px; /* 最小高さを設定 */
+}
+
+/* ファイル入力フィールドの調整 */
+.form-group input[type="file"] {
+    padding: 10px 15px;
+    background-color: #f0f0f0; /* 背景色を変更して視覚的に分かりやすく */
+}
+
+
+/* ボタンのスタイル（登録ボタン） */
+.form-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* transition: background-color 0.3s ease, transform 0.3s ease; */ /* 動きを削除 */
+    white-space: nowrap; /* ボタン内のテキストが改行されないように */
+}
+
+.btn-primary {
+    background-color: #A0522D; /* メインカラー */
+    color: #fff;
+    border: 3px solid #8B4513; /* 太いボーダー */
+    border-radius: 8px; /* 角丸 */
+}
+
+/* .btn-primary:hover { background-color: #A0522D; } */ /* 動きを削除 */
+
+.btn-lg {
+    padding: 15px 40px; /* 大きめのボタン */
+    font-size: 2.2rem;
+}
+
+/* 戻るボタンエリア */
+.back-to-list-button-area {
+    text-align: center;
+    margin-top: 40px; /* フォームとの間隔 */
+    margin-bottom: 40px; /* フッターとの間隔 */
+}
+
+/* 戻るボタンのスタイル */
+.btn-secondary {
+    background-color: #6c757d; /* グレー系の色 */
+    color: #fff;
+    border: 3px solid #5a6268; /* 太いボーダー */
+    border-radius: 8px; /* 角丸 */
+    padding: 15px 40px; /* 登録ボタンと同じくらいのサイズ */
+    font-size: 2.2rem; /* 登録ボタンと同じくらいのフォントサイズ */
+}
+
+/* .btn-secondary:hover { background-color: #6c757d; } */ /* 動きを削除 */
+
+
+/* ヘッダーの現在のページ表示 */
+.admin-nav__list li a.is-current {
+    color: #A0522D; /* 現在のページの色 */
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .admin-form {
+        padding: 30px;
+    }
+    .form-group label {
+        font-size: 1.7rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 1.6rem;
+    }
+    .btn-lg {
+        padding: 12px 30px;
+        font-size: 2.0rem;
+    }
+    .btn-secondary {
+        padding: 12px 30px;
+        font-size: 2.0rem;
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-form {
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group label {
+        font-size: 1.6rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 1.5rem;
+    }
+    .btn-lg {
+        padding: 10px 25px;
+        font-size: 1.8rem;
+    }
+    .back-to-list-button-area {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .back-to-list-button-area .btn-secondary {
+        width: 90%; /* 小さい画面ではボタンを全幅に */
+        max-width: 300px; /* 最大幅も設定 */
+        padding: 10px 25px;
+        font-size: 1.8rem;
+        border-width: 2px; /* スマホではボーダーを少し細く */
+        border-radius: 5px;
+    }
+    .form-actions .btn-primary {
+        width: 90%; /* 小さい画面ではボタンを全幅に */
+        max-width: 300px; /* 最大幅も設定 */
+        padding: 10px 25px;
+        font-size: 1.8rem;
+        border-width: 2px; /* スマホではボーダーを少し細く */
+        border-radius: 5px;
+    }
+}
