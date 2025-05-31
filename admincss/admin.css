@@ -1,0 +1,391 @@
+/*
+ * base
+ * ----------------------------------------
+ */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f4f7f6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.8rem; /* 基本フォントサイズを大きく調整 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+ * common / utilities for admin
+ * ----------------------------------------
+ */
+.admin-main__inner,
+.admin-footer__inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px; /* 左右の余白を調整 */
+}
+
+.admin-page-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px; /* 余白を調整 */
+    font-size: 3.6rem; /* タイトルサイズを大きく */
+}
+
+.admin-section-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    font-size: 3.2rem; /* タイトルサイズを大きく */
+    margin-top: 60px; /* 余白を調整 */
+    margin-bottom: 40px; /* 余白を調整 */
+}
+
+/*
+ * admin-header (Fixed on top, Full-width)
+ * ----------------------------------------
+ */
+.admin-header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px 0; /* 上下パディングを調整 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.admin-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px; /* ヘッダーの高さを調整 */
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px; /* 左右パディングを調整 */
+}
+
+.admin-header__logo a {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.8rem; /* ロゴのフォントサイズを大きく */
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+}
+
+.admin-header__nav {
+    flex-grow: 1;
+    margin-left: 40px; /* 間隔を調整 */
+}
+
+.admin-nav__list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px; /* メニュー間隔を調整 */
+}
+
+.admin-nav__list li a {
+    font-size: 1.7rem; /* メニューのフォントサイズを大きく */
+    font-weight: 500;
+    color: #555;
+    padding: 10px 0; /* パディングを調整 */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.admin-nav__list li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px; /* 下線を太く */
+    background-color: #A0522D;
+    transition: transform 0.3s ease;
+}
+
+.admin-nav__list li a:hover {
+    color: #A0522D;
+}
+
+.admin-nav__list li a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/*
+ * admin-main (Main content area)
+ * ----------------------------------------
+ */
+.admin-main {
+    padding: 100px 0 80px; /* 上下パディングを調整 */
+    margin-top: 70px; /* ヘッダー固定分のマージンを調整 */
+    flex-grow: 1;
+}
+
+/* Summary Cards */
+.admin-summary {
+    margin-bottom: 60px; /* 余白を調整 */
+}
+
+.admin-summary__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* カード最小幅を調整 */
+    gap: 30px; /* ギャップを調整 */
+}
+
+.admin-summary__card {
+    background-color: #fff;
+    border-radius: 8px; /* 角丸を調整 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 30px; /* パディングを調整 */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-summary__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.admin-summary__card h3 {
+    font-size: 2.2rem; /* タイトルサイズを大きく */
+    color: #666;
+    margin-bottom: 15px; /* 余白を調整 */
+    font-weight: normal;
+}
+
+.admin-summary__count {
+    font-size: 5.2rem; /* カウントのフォントサイズを大きく */
+    font-weight: bold;
+    color: #A0522D;
+    margin-bottom: 20px; /* 余白を調整 */
+}
+
+.admin-summary__link {
+    display: inline-block;
+    font-size: 1.6rem; /* リンクのフォントサイズを大きく */
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    padding: 10px 20px; /* パディングを調整 */
+    border-radius: 5px; /* 角丸を調整 */
+    transition: all 0.3s ease;
+}
+
+.admin-summary__link:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* Quick Links */
+.admin-quick-links {
+    margin-top: 60px; /* 余白を調整 */
+}
+
+.quick-link__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* リンク最小幅を調整 */
+    gap: 25px; /* ギャップを調整 */
+}
+
+.quick-link__list li a {
+    display: block;
+    background-color: #e0e6e4;
+    padding: 25px; /* パディングを調整 */
+    border-radius: 8px;
+    font-size: 2.0rem; /* フォントサイズを大きく */
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quick-link__list li a:hover {
+    background-color: #d1d8d6;
+    transform: translateY(-3px);
+}
+
+/*
+ * admin-footer
+ * ----------------------------------------
+ */
+.admin-footer {
+    background-color: #eeeeee;
+    padding: 20px 0; /* 上下パディングを調整 */
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.admin-footer__copyright {
+    font-size: 1.3rem; /* フォントサイズを調整 */
+    color: #666;
+}
+
+
+/*
+ * Media Queries for responsive adjustments
+ * ----------------------------------------
+ */
+@media (max-width: 1200px) {
+    .admin-nav__list {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .admin-nav__list {
+        gap: 15px;
+    }
+    .admin-header__logo a {
+        font-size: 2.4rem;
+    }
+    .admin-summary__grid {
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 25px;
+    }
+    .quick-link__list {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+    .admin-main__inner,
+    .admin-footer__inner,
+    .admin-header__inner {
+        padding: 0 15px;
+    }
+    .admin-page-title {
+        font-size: 3.2rem;
+    }
+    .admin-section-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1.6rem; /* スマホ時の基本フォントサイズ */
+    }
+
+    .admin-header {
+        position: static;
+        padding: 10px 0;
+        height: auto;
+    }
+
+    .admin-header__inner {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .admin-header__logo {
+        margin-bottom: 10px;
+    }
+    .admin-header__logo a {
+        font-size: 2.2rem;
+    }
+
+    .admin-header__nav {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .admin-nav__list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px;
+    }
+    .admin-nav__list li a {
+        font-size: 1.5rem;
+        padding: 8px 0;
+    }
+
+    .admin-main {
+        margin-top: 0;
+        padding: 40px 0;
+    }
+
+    .admin-main__inner,
+    .admin-footer__inner {
+        padding: 0 15px;
+    }
+
+    .admin-page-title,
+    .admin-section-title {
+        font-size: 2.8rem; /* スマホ時のタイトルサイズ */
+        margin-bottom: 30px;
+    }
+    .admin-section-title {
+        margin-top: 40px;
+    }
+
+    .admin-summary__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .admin-summary__card {
+        padding: 25px;
+    }
+    .admin-summary__card h3 {
+        font-size: 2.0rem;
+    }
+    .admin-summary__count {
+        font-size: 4.8rem;
+    }
+    .admin-summary__link {
+        font-size: 1.5rem;
+        padding: 8px 20px;
+    }
+
+    .admin-quick-links {
+        margin-top: 30px;
+    }
+    .quick-link__list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .quick-link__list li a {
+        padding: 20px;
+        font-size: 1.8rem;
+    }
+
+    .admin-footer {
+        padding: 15px 0;
+    }
+    .admin-footer__copyright {
+        font-size: 1.2rem;
+    }
+}
