@@ -1,0 +1,196 @@
+/*
+ * admin_liquor_list.css
+ * お酒管理一覧ページ固有のスタイル
+ * ----------------------------------------
+ */
+
+/* データ一覧テーブル */
+.admin-liquor-list {
+    margin-top: 40px; /* ページタイトルとの間隔 */
+}
+
+.table-container {
+    overflow-x: auto; /* テーブルが横にはみ出る場合にスクロール可能に */
+    background-color: #fff;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */ /* 影を削除 */
+    padding: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* ボーダーの結合 */
+    font-size: 1.6rem;
+    min-width: 800px; /* テーブルの最小幅を設定し、はみ出したらスクロール */
+}
+
+.data-table th,
+.data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    vertical-align: middle; /* セルの内容を中央に */
+}
+
+.data-table th {
+    background-color: #f5f5f5;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap; /* ヘッダーのテキストが改行されないように */
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none; /* 最後の行の下線はなし */
+}
+
+.data-table tbody tr:hover {
+    background-color: #f9f9f9; /* ホバー時の背景色 */
+}
+
+.product-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; /* 画像の表示方法 */
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+/* テーブル内のボタン */
+.btn-sm {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: 0 4px; /* ボタン間の余白 */
+}
+
+.btn-edit {
+    background-color: #5bc0de; /* 水色 */
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #d9534f; /* 赤色 */
+    color: #fff;
+}
+
+
+/* 新しいお酒を登録するボタンエリア */
+.add-liquor-button-area {
+    text-align: center;
+    margin-top: 60px; /* 一覧との間隔 */
+    margin-bottom: 40px; /* フッターとの間隔 */
+}
+
+/* 修正箇所: 新しいお酒登録ボタンのスタイル (影・エフェクトなし) */
+.btn-add-new {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* 中央寄せ */
+    padding: 20px 50px; /* パディングを大きく */
+    font-size: 2.6rem; /* フォントサイズを大きく */
+    font-weight: bold;
+    background-color: #A0522D; /* メインカラー */
+    color: #fff;
+    border: 3px solid #8B4513; /* 太いボーダーでボタンらしさを強調 */
+    border-radius: 8px; /* 角丸は残しつつ自然に */
+    /* box-shadow: none; */ /* 影を完全に削除 */
+    cursor: pointer;
+}
+
+.btn-icon {
+    font-size: 3.5rem; /* アイコンのサイズを大きく */
+    margin-right: 15px; /* アイコンとテキストの間隔を広げる */
+    line-height: 1;
+    /* text-shadow: none; */ /* アイコンの影を完全に削除 */
+}
+
+
+/* ヘッダーの現在のページ表示 (admin.cssにもあるが、こちらで上書き) */
+.admin-nav__list li a.is-current {
+    color: #A0522D; /* 現在のページの色 */
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .table-container {
+        padding: 15px;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 12px;
+        font-size: 1.5rem;
+    }
+    .product-thumb {
+        width: 50px;
+        height: 50px;
+    }
+    .btn-add-new {
+        padding: 18px 40px;
+        font-size: 2.2rem;
+        border-radius: 6px;
+    }
+    .btn-icon {
+        font-size: 3.0rem;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-liquor-list {
+        margin-top: 30px;
+    }
+    .table-container {
+        padding: 10px;
+    }
+    .data-table {
+        font-size: 1.4rem;
+        min-width: 600px;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 8px;
+    }
+    .product-thumb {
+        width: 40px;
+        height: 40px;
+    }
+    .btn-sm {
+        padding: 5px 10px;
+        font-size: 1.2rem;
+    }
+    .add-liquor-button-area {
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+    .btn-add-new {
+        padding: 15px 30px;
+        font-size: 1.8rem;
+        border-width: 2px; /* スマホではボーダーを少し細く */
+        border-radius: 5px;
+    }
+    .btn-icon {
+        font-size: 2.4rem;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .data-table {
+        min-width: 450px;
+    }
+    .btn-add-new {
+        width: 90%;
+        max-width: 300px;
+        font-size: 1.8rem;
+        padding: 12px 20px;
+    }
+    .btn-icon {
+        font-size: 2.2rem;
+        margin-right: 8px;
+    }
+}
