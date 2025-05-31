@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header class="header">
@@ -30,11 +31,34 @@
     </header>
 
     <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
         <ul class="sp-menu__list">
-            <li><a href="#">商品一覧</a></li>
-            <li><a href="#">お問い合わせ</a></li>
-            <li><a href="#">プライバシーポリシー</a></li>
-            <li><a href="#">特定商取引法に基づく表記</a></li>
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="#">ビール</a></li>
+                    <li><a href="#">ハイボール</a></li>
+                    <li><a href="#">カクテル</a></li>
+                    <li><a href="#">ワイン</a></li>
+                    <li><a href="#">日本酒</a></li>
+                    <li><a href="#">ウイスキー</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="#">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="#">マイページ</a></li>
+        </ul>
+        <div class="sp-menu__divider"></div>
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="#">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="#">お問い合わせ</a></li>
         </ul>
     </nav>
 
