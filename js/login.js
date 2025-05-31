@@ -21,28 +21,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ハンバーガーメニューの要素を取得
-    const hamburger = document.querySelector('.hamburger-menu');
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
     const spMenu = document.querySelector('.sp-menu');
+    const spCategoryToggle = document.querySelector('.sp-menu__category-toggle');
+    const spSubList = document.querySelector('.sp-menu__sub-list');
 
-    // ハンバーガーアイコンがクリックされた時の処理
-    if (hamburger && spMenu) { // 要素が存在することを確認
-        hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('is-active'); // ハンバーガーアイコンの形を切り替える
-            spMenu.classList.toggle('is-active'); // メニュー本体の表示/非表示を切り替える
-
-            // メニューが開いたときにbodyにスクロール禁止クラスを追加（オプション）
-            // body.classList.toggle('no-scroll');
+    // ハンバーガーメニューの開閉
+    if (hamburgerMenu && spMenu) {
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('is-active');
+            spMenu.classList.toggle('is-active');
+            document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
         });
+    }
 
-        // メニュー項目をクリックしたらメニューを閉じる（オプション）
-        // これにより、メニューを開いて項目を選択した後に自動的にメニューが閉じます。
-        const spMenuItems = document.querySelectorAll('.sp-menu__list a');
-        spMenuItems.forEach(item => {
-            item.addEventListener('click', function () {
-                hamburger.classList.remove('is-active'); // ハンバーガーアイコンを元の形に戻す
-                spMenu.classList.remove('is-active'); // メニューを非表示にする
-                // body.classList.remove('no-scroll'); // スクロール禁止を解除（オプション）
-            });
+    // 商品カテゴリのサブメニュー開閉
+    if (spCategoryToggle && spSubList) {
+        spCategoryToggle.addEventListener('click', function() {
+            spCategoryToggle.classList.toggle('is-open');
+            spSubList.classList.toggle('is-open');
         });
     }
 });

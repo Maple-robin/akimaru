@@ -19,6 +19,11 @@ body {
     /* base font size */
 }
 
+/* スクロール禁止用クラス */
+body.no-scroll {
+    overflow: hidden;
+}
+
 *,
 *:before,
 *:after {
@@ -40,8 +45,10 @@ img {
 
 ul {
     list-style: none;
-    padding: 0; /* リストのデフォルトパディングをリセット */
-    margin: 0; /* リストのデフォルトマージンをリセット */
+    padding: 0;
+    /* リストのデフォルトパディングをリセット */
+    margin: 0;
+    /* リストのデフォルトマージンをリセット */
 }
 
 /*
@@ -221,23 +228,19 @@ ul {
     left: 0;
     width: 100%;
     height: 100vh;
-    /* 画面いっぱいに */
     background-color: rgba(255, 255, 255, 0.95);
-    /* 半透明の背景 */
     z-index: 990;
-    /* ハンバーガーアイコンより下 */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     visibility: hidden;
-    /* 最初は非表示 */
     opacity: 0;
-    /* 最初は透明 */
     transition: all 0.4s ease;
-    /* 表示アニメーション */
     transform: translateX(100%);
-    /* 右からスライドイン */
+    /* 修正点: ヘッダーの高さ分だけパディングを追加 */
+    padding: 110px 0 20px; /* 上部を80pxに変更 (ヘッダー高さ約60px + 上部の余白) */
 }
+
 
 /* メニューのアクティブ状態 */
 .sp-menu.is-active {
@@ -249,13 +252,84 @@ ul {
     /* 通常位置へ */
 }
 
+/* sp-menu__header */
+.sp-menu__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 40px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* MyPage 準拠のログインエリア */
+.sp-menu__login {
+    font-size: 2rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sp-menu__login .fas {
+    font-size: 2.4rem;
+    color: #555;
+}
+
+/* sp-menu__search */
+.sp-menu__search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 40px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sp-menu__search input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 1.8rem;
+    background-color: transparent;
+    color: #333;
+}
+
+.sp-menu__search button {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* sp-menu__list */
 .sp-menu__list {
-    text-align: center;
+    text-align: left;
+    width: 100%;
+    padding: 0 40px;
+}
+
+/* sp-menu__list--bottom */
+.sp-menu__list--bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
 }
 
 .sp-menu__list li {
     margin-bottom: 25px;
-    /* メニュー項目間のスペース */
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    padding: 0;
+    border-bottom: none;
 }
 
 .sp-menu__list li:last-child {
@@ -263,12 +337,9 @@ ul {
 }
 
 .sp-menu__list li a {
-    font-size: 2.2rem;
-    /* メニュー項目の文字サイズ */
-    font-weight: 500;
-    color: #333;
     display: block;
     padding: 10px 0;
+    color: #333;
 }
 
 .sp-menu__list li a:hover {
@@ -276,6 +347,68 @@ ul {
     /* ホバー時の色 */
 }
 
+/* sp-menu__category-toggle (カテゴリ開閉) */
+.sp-menu__category-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.sp-menu__category-toggle .category-icon {
+    font-size: 1.6rem;
+    transition: transform 0.3s ease;
+}
+
+.sp-menu__category-toggle.is-open .category-icon {
+    transform: rotate(180deg);
+}
+
+.sp-menu__sub-list {
+    max-height: 0;
+    /* 修正: 初期状態では高さを0に */
+    overflow: hidden;
+    /* 修正: 隠す */
+    transition: max-height 0.4s ease-out;
+    /* 修正: スムーズなアニメーション */
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.sp-menu__sub-list.is-open {
+    max-height: 200px;
+    /* 修正: 開いたときに適切な高さを設定 */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sp-menu__sub-list li {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    border-bottom: none;
+}
+
+.sp-menu__sub-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sp-menu__sub-list li a {
+    color: #555;
+}
+
+.sp-menu__sub-list li a:hover {
+    color: #A0522D;
+}
+
+/* sp-menu__divider */
+.sp-menu__divider {
+    display: none;
+}
 
 /*
  * main-visual (Swiper.js)
@@ -319,12 +452,14 @@ ul {
  */
 .products {
     padding: 80px 0;
-    background-color: #f8f8f8; /* デフォルトの背景色 */
+    background-color: #f8f8f8;
+    /* デフォルトの背景色 */
 }
 
 /* 初心者向けセクションの背景を白に */
 .beginner-friendly {
-    background-color: #fff; /* 背景色を白に変更 */
+    background-color: #fff;
+    /* 背景色を白に変更 */
 }
 
 .products .swiper {
@@ -426,15 +561,20 @@ ul {
  * ----------------------------------------
  */
 .categories {
-    padding: 80px 0; /* 上下の余白 */
+    padding: 80px 0;
+    /* 上下の余白 */
     text-align: center;
-    background-color: #f2f7f5; /* 初心者向けセクションの以前の背景色に変更 */
+    background-color: #f2f7f5;
+    /* 初心者向けセクションの以前の背景色に変更 */
 }
 
 .categories__inner {
-    max-width: 1200px; /* コンテンツの最大幅 */
-    margin: 0 auto; /* 中央寄せ */
-    padding: 0 20px; /* 左右の余白 */
+    max-width: 1200px;
+    /* コンテンツの最大幅 */
+    margin: 0 auto;
+    /* 中央寄せ */
+    padding: 0 20px;
+    /* 左右の余白 */
 }
 
 /* カテゴリーリスト */
@@ -442,29 +582,43 @@ ul {
     display: grid;
     /* レスポンシブなグリッドレイアウト */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; /* アイテム間の隙間 */
-    list-style: none; /* リストのマーカーを削除 */
+    gap: 30px;
+    /* アイテム間の隙間 */
+    list-style: none;
+    /* リストのマーカーを削除 */
     padding: 0;
-    margin-top: 50px; /* タイトルからの余白 */
+    margin-top: 50px;
+    /* タイトルからの余白 */
 }
 
 /* 各カテゴリーカード */
 .category-card {
     display: block;
     width: 100%;
-    height: 100px; /* カードの高さ */
-    background-size: cover; /* 画像をカバーサイズで表示 */
-    background-position: center; /* 画像を中央に配置 */
-    background-repeat: no-repeat; /* 画像の繰り返しを禁止 */
-    border-radius: 8px; /* 角を丸くする */
-    overflow: hidden; /* 角丸からはみ出る部分を隠す */
+    height: 100px;
+    /* カードの高さ */
+    background-size: cover;
+    /* 画像をカバーサイズで表示 */
+    background-position: center;
+    /* 画像を中央に配置 */
+    background-repeat: no-repeat;
+    /* 画像の繰り返しを禁止 */
+    border-radius: 8px;
+    /* 角を丸くする */
+    overflow: hidden;
+    /* 角丸からはみ出る部分を隠す */
     position: relative;
-    text-decoration: none; /* 下線を削除 */
-    color: #fff; /* 文字色を白に */
+    text-decoration: none;
+    /* 下線を削除 */
+    color: #fff;
+    /* 文字色を白に */
     display: flex;
-    align-items: center; /* テキストを垂直方向中央に */
-    justify-content: center; /* テキストを水平方向中央に */
-    transition: transform 0.3s ease; /* ホバー時のアニメーション */
+    align-items: center;
+    /* テキストを垂直方向中央に */
+    justify-content: center;
+    /* テキストを水平方向中央に */
+    transition: transform 0.3s ease;
+    /* ホバー時のアニメーション */
 }
 
 /* カードに半透明のオーバーレイをかけることで、テキストの可読性を高める */
@@ -475,34 +629,43 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* 黒で半透明 */
-    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 黒で半透明 */
+    transition: background-color 0.3s ease;
+    /* ホバー時のアニメーション */
 }
 
 /* ホバー時のスタイル */
 .category-card:hover::before {
-    background-color: rgba(0, 0, 0, 0.6); /* ホバーで少し濃く */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* ホバーで少し濃く */
 }
 
 .category-card:hover {
-    transform: translateY(-5px); /* ホバーで少し持ち上がる */
+    transform: translateY(-5px);
+    /* ホバーで少し持ち上がる */
 }
 
 /* カテゴリー名 */
 .category-card__name {
     position: relative;
-    z-index: 1; /* オーバーレイより手前に表示 */
-    font-family: 'Zen Old Mincho', serif; /* 既存のフォントに合わせる */
+    z-index: 1;
+    /* オーバーレイより手前に表示 */
+    font-family: 'Zen Old Mincho', serif;
+    /* 既存のフォントに合わせる */
     font-size: 24px;
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* 文字に影をつけて見やすく */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    /* 文字に影をつけて見やすく */
 }
 
 /* スマートフォンでの調整（必要であれば） */
 @media (max-width: 767px) {
     .category-list {
-        grid-template-columns: repeat(2, 1fr); /* 2列表示 */
-        gap: 20px; /* アイテム間の隙間を調整 */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2列表示 */
+        gap: 20px;
+        /* アイテム間の隙間を調整 */
     }
 }
 

@@ -241,6 +241,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ハンバーガーメニューの要素を取得
     const hamburger = document.querySelector('.hamburger-menu');
     const spMenu = document.querySelector('.sp-menu');
+    const spCategoryToggle = document.querySelector('.sp-menu__category-toggle');
+    const spSubList = document.querySelector('.sp-menu__sub-list');
 
     // ハンバーガーアイコンがクリックされた時の処理
     if (hamburger && spMenu) { // 要素が存在することを確認
@@ -260,6 +262,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 spMenu.classList.remove('is-active'); // メニューを非表示にする
                 // document.body.classList.remove('no-scroll'); // スクロール禁止を解除（オプション）
             });
+        });
+    }
+
+    // 商品カテゴリのサブメニュー開閉
+    if (spCategoryToggle && spSubList) {
+        spCategoryToggle.addEventListener('click', function() {
+            spCategoryToggle.classList.toggle('is-open');
+            spSubList.classList.toggle('is-open');
         });
     }
 });
