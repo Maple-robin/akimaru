@@ -33,13 +33,25 @@
 
     <main class="admin-main">
         <div class="admin-main__inner">
-            <h2 class="admin-page-title">FAQ登録</h2>
+            <h2 class="admin-page-title">FAQを登録</h2>
 
             <section class="admin-section admin-faq-add-form">
                 <form action="#" method="post" class="admin-form">
                     <div class="form-group">
                         <label for="faq_title">タイトル <span class="required">必須</span></label>
                         <input type="text" id="faq_title" name="faq_title" required maxlength="128">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="faq_category">質問のカテゴリ <span class="required">必須</span></label>
+                        <select id="faq_category" name="faq_category" required>
+                            <option value="">選択してください</option>
+                            <option value="このサイトについて">このサイトについて</option>
+                            <option value="ログイン・会員登録について">ログイン・会員登録について</option>
+                            <option value="お酒の情報について">お酒の情報について</option>
+                            <option value="投稿について">投稿について</option>
+                            <option value="その他">その他</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

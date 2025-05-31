@@ -5,7 +5,7 @@
  */
 
 /* フォームの基本スタイル */
-.admin-faq-add-form { /* クラス名を変更 */
+.admin-faq-add-form {
     margin-top: 40px; /* ページタイトルとの間隔 */
 }
 
@@ -36,7 +36,8 @@
 }
 
 .form-group input[type="text"],
-.form-group textarea { /* input[type="file"]やselectは不要なので削除 */
+.form-group textarea,
+.form-group select { /* selectを追加 */
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
@@ -47,7 +48,8 @@
 }
 
 .form-group input[type="text"]:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus { /* selectを追加 */
     border-color: #A0522D; /* フォーカス時のボーダー色 */
     outline: none;
 }
@@ -118,7 +120,8 @@
         font-size: 1.7rem;
     }
     .form-group input,
-    .form-group textarea {
+    .form-group textarea,
+    .form-group select { /* selectを追加 */
         font-size: 1.6rem;
     }
     .btn-lg {
@@ -144,7 +147,8 @@
         font-size: 1.6rem;
     }
     .form-group input,
-    .form-group textarea {
+    .form-group select,
+    .form-group textarea { /* selectを追加 */
         font-size: 1.5rem;
     }
     .btn-lg {
@@ -156,19 +160,19 @@
         margin-bottom: 30px;
     }
     .back-to-list-button-area .btn-secondary {
-        width: 90%; /* 小さい画面ではボタンを全幅に */
-        max-width: 300px; /* 最大幅も設定 */
+        width: 90%;
+        max-width: 300px;
         padding: 10px 25px;
         font-size: 1.8rem;
-        border-width: 2px; /* スマホではボーダーを少し細く */
+        border-width: 2px;
         border-radius: 5px;
     }
     .form-actions .btn-primary {
-        width: 90%; /* 小さい画面ではボタンを全幅に */
-        max-width: 300px; /* 最大幅も設定 */
+        width: 90%;
+        max-width: 300px;
         padding: 10px 25px;
         font-size: 1.8rem;
-        border-width: 2px; /* スマホではボーダーを少し細く */
+        border-width: 2px;
         border-radius: 5px;
     }
 }
