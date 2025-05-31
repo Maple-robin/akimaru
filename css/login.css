@@ -1,0 +1,382 @@
+/* base */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8; /* 商品セクションの背景色に合わせた明るい背景 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.6rem; /* 基本フォントサイズ */
+    margin: 0; /* bodyのデフォルトマージンをリセット */
+    padding: 0; /* bodyのデフォルトパディングをリセット */
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; /* box-sizingを継承 */
+}
+
+a {
+    text-decoration: none; /* リンクの下線を削除 */
+    color: inherit; /* 親要素の文字色を継承 */
+}
+
+input {
+    font-family: 'Noto Sans JP', sans-serif; /* 入力フィールドのフォント */
+    font-size: 1.6rem;
+}
+
+button {
+    font-family: 'Noto Sans JP', sans-serif; /* ボタンのフォント */
+    font-size: 1.6rem;
+    cursor: pointer; /* カーソルをポインターに */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* utility */
+.pc-only {
+    display: none;
+}
+
+/* common */
+.header,
+.footer__inner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header */
+.header {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    position: fixed; /* ヘッダー固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* 最前面に */
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* ヘッダーの高さ */
+}
+
+.header__logo a {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.header__nav .nav__list {
+    display: none; /* スマホでは非表示 */
+}
+
+/* ハンバーガーメニューアイコン */
+.hamburger-menu {
+    display: block; /* スマホで表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* メニュー本体より上に */
+    width: 48px; /* タップしやすさ考慮 */
+    height: 48px;
+    display: flex; /* 中央寄せ用 */
+    flex-direction: column; /* 縦並び */
+    justify-content: center; /* 縦方向中央 */
+    align-items: center; /* 横方向中央 */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 28px; /* 線の幅 */
+    height: 2px; /* 線の太さ */
+    background-color: #333;
+    margin-bottom: 6px; /* 線間のスペース */
+    transition: 0.3s; /* アニメーション */
+    position: relative; /* transformの基準 */
+}
+
+.hamburger-menu span:last-child {
+    margin-bottom: 0;
+}
+
+/* ハンバーガーメニューのアクティブ状態 */
+.hamburger-menu.is-active span:nth-of-type(1) {
+    transform: translateY(8px) rotate(45deg); /* 上の線を回転 */
+}
+
+.hamburger-menu.is-active span:nth-of-type(2) {
+    opacity: 0; /* 中央の線を非表示 */
+}
+
+.hamburger-menu.is-active span:nth-of-type(3) {
+    transform: translateY(-8px) rotate(-45deg); /* 下の線を回転 */
+}
+
+/* スマホ用メニュー本体 */
+.sp-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* 画面いっぱいに */
+    background-color: rgba(255, 255, 255, 0.95); /* 半透明の背景 */
+    z-index: 990; /* ハンバーガーアイコンより下 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* 最初は非表示 */
+    opacity: 0; /* 最初は透明 */
+    transition: all 0.4s ease; /* 表示アニメーション */
+    transform: translateX(100%); /* 右からスライドイン */
+}
+
+/* メニューのアクティブ状態 */
+.sp-menu.is-active {
+    visibility: visible; /* 表示 */
+    opacity: 1; /* 不透明 */
+    transform: translateX(0); /* 通常位置へ */
+}
+
+.sp-menu__list {
+    text-align: center;
+}
+
+.sp-menu__list li {
+    margin-bottom: 25px; /* メニュー項目間のスペース */
+}
+
+.sp-menu__list li:last-child {
+    margin-bottom: 0;
+}
+
+.sp-menu__list li a {
+    font-size: 2.2rem; /* メニュー項目の文字サイズ */
+    font-weight: 500;
+    color: #333;
+    display: block;
+    padding: 10px 0;
+}
+
+.sp-menu__list li a:hover {
+    color: #A0522D; /* ホバー時の色 */
+}
+
+/* main content adjustment */
+main {
+    padding-top: 60px; /* ヘッダーの高さ分、コンテンツを下にずらす */
+    padding-bottom: 50px; /* フッターとの間に余白 */
+    min-height: calc(100vh - 60px - 50px); /* ヘッダーとフッターを除いた最小高さ */
+    display: flex; /* ログインコンテナをmain内で中央に配置 */
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* パディングを高さ計算に含める */
+}
+
+
+/* ログインコンテナ */
+.login-container {
+    background-color: #fff; /* 白い背景 */
+    padding: 40px;
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 軽い影 */
+    width: 100%;
+    max-width: 400px; /* 最大幅 */
+    text-align: center;
+}
+
+/* ロゴ */
+.login-logo {
+    font-family: 'Zen Old Mincho', serif; /* 和文フォント */
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* フォーム */
+.login-form {
+    display: flex;
+    flex-direction: column; /* 要素を縦に並べる */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* ラベルと入力フィールドを左揃えに */
+}
+
+.form-group label {
+    display: block; /* ラベルをブロック要素に */
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%; /* 幅を100%に */
+    padding: 12px 15px;
+    border: 1px solid #ccc; /* 薄いボーダー */
+    border-radius: 4px;
+    box-sizing: border-box; /* パディングとボーダーを幅に含める */
+}
+
+.form-group input:focus {
+    outline: none; /* フォーカス時のアウトラインを削除 */
+    border-color: #A0522D; /* メインサイトのホバー色に合わせたボーダー色 */
+    box-shadow: 0 0 5px rgba(160, 82, 45, 0.3); /* 軽い影 */
+}
+
+/* ボタン */
+.login-button {
+    background-color: #555; /* メインサイトのボタン色に合わせた背景色 */
+    color: #fff; /* 白い文字 */
+    padding: 12px 20px;
+    border: none; /* ボーダーなし */
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.login-button:hover {
+    background-color: #333; /* ホバー時の背景色 */
+}
+
+/* リンク */
+.login-links {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #777;
+}
+
+.login-links a {
+    color: #777;
+    margin: 0 10px; /* リンク間の余白 */
+}
+
+.login-links a:hover {
+    color: #A0522D; /* ホバー時の色 */
+}
+
+/* footer */
+.footer {
+    background-color: #eeeeee; /* 現在の明るいベージュブラウン */
+    padding: 50px 0 30px; /* 上下の余白 */
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap; /* スマホで折り返し */
+    justify-content: center; /* ナビゲーションリスト全体を中央揃え */
+    margin-bottom: 30px;
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+}
+
+.footer__nav li {
+    margin: 5px 15px; /* 各項目の余白 */
+}
+
+.footer__nav li a {
+    font-size: 1.4rem;
+    color: #444; /* ナビゲーションリンクの色も調整 */
+    transition: color 0.3s ease;
+}
+
+.footer__nav li a:hover {
+    color: #000; /* ホバー時の色も調整 */
+}
+
+.footer__copyright {
+    font-size: 1.2rem;
+    color: #666; /* コピーライトの色も調整 */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+}
+
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    /* utility */
+    .pc-only {
+        display: inline;
+    }
+
+    /* header */
+    .header__nav .nav__list {
+        display: flex; /* PCで表示 */
+        gap: 40px; /* ナビゲーション間のスペース */
+    }
+
+    .header__nav .nav__list li a {
+        font-size: 1.5rem;
+    }
+
+    .hamburger-menu {
+        display: none; /* PCで非表示 */
+    }
+
+    .sp-menu {
+        display: none; /* PCではスマホメニューを非表示 */
+    }
+
+    /* footer */
+    .footer {
+        padding: 80px 0;
+    }
+
+    .footer__nav li {
+        margin: 0 20px;
+    }
+}
+
+/* スマートフォン向けの追加調整 (既存のメディアクエリに統合) */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 30px; /* モバイルでのパディング調整 */
+    }
+
+    .login-logo {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .login-links {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column; /* モバイルではリンクを縦に並べる */
+        align-items: center;
+    }
+
+    .login-links a {
+        margin: 5px 0; /* モバイルでのリンク間の余白 */
+    }
+}

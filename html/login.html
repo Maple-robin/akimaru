@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="#">OUR BRAND</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="#">商品一覧</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+                <button class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <ul class="sp-menu__list">
+            <li><a href="#">商品一覧</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">特定商取引法に基づく表記</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="login-container">
+            <h1 class="login-logo">OUR BRAND</h1>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">ユーザー名またはメールアドレス</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="login-button">ログイン</button>
+                <div class="login-links">
+                    <a href="#">パスワードを忘れた場合</a>
+                    <a href="#">新規登録はこちら</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+            </ul>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/login.js"></script>
+</body>
+</html>
