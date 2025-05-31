@@ -1,0 +1,655 @@
+/* base */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8; /* 商品セクションの背景色に合わせた明るい背景 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.6rem; /* 基本フォントサイズ */
+    margin: 0; /* bodyのデフォルトマージンをリセット */
+    padding: 0; /* bodyのデフォルトパディングをリセット */
+    box-sizing: border-box;
+
+    display: flex; /* bodyをフレックスコンテナにする */
+    flex-direction: column; /* 子要素を縦に並べる */
+    min-height: 100vh; /* bodyがビューポートの高さ全体を占めるようにする */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; /* box-sizingを継承 */
+}
+
+a {
+    text-decoration: none; /* リンクの下線を削除 */
+    color: inherit; /* 親要素の文字色を継承 */
+}
+
+input {
+    font-family: 'Noto Sans JP', sans-serif; /* 入力フィールドのフォント */
+    font-size: 1.6rem;
+}
+
+button {
+    font-family: 'Noto Sans JP', sans-serif; /* ボタンのフォント */
+    font-size: 1.6rem;
+    cursor: pointer; /* カーソルをポインターに */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* utility */
+.pc-only {
+    display: none;
+}
+
+/* common */
+.header,
+.footer__inner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header */
+.header {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    position: fixed; /* ヘッダー固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* 最前面に */
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* ヘッダーの高さ */
+}
+
+.header__logo a {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.header__nav .nav__list {
+    display: none; /* スマホでは非表示 */
+}
+
+/* ハンバーガーメニューアイコン */
+.hamburger-menu {
+    display: block; /* スマホで表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1000; /* メニュー本体より上に */
+    width: 48px; /* タップしやすさ考慮 */
+    height: 48px;
+    display: flex; /* 中央寄せ用 */
+    flex-direction: column; /* 縦並び */
+    justify-content: center; /* 縦方向中央 */
+    align-items: center; /* 横方向中央 */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 28px; /* 線の幅 */
+    height: 2px; /* 線の太さ */
+    background-color: #333;
+    margin-bottom: 6px; /* 線間のスペース */
+    transition: 0.3s; /* アニメーション */
+    position: relative; /* transformの基準 */
+}
+
+.hamburger-menu span:last-child {
+    margin-bottom: 0;
+}
+
+/* ハンバーガーメニューのアクティブ状態 */
+.hamburger-menu.is-active span:nth-of-type(1) {
+    transform: translateY(8px) rotate(45deg); /* 上の線を回転 */
+}
+
+.hamburger-menu.is-active span:nth-of-type(2) {
+    opacity: 0; /* 中央の線を非表示 */
+}
+
+.hamburger-menu.is-active span:nth-of-type(3) {
+    transform: translateY(-8px) rotate(-45deg); /* 下の線を回転 */
+}
+
+/* スマホ用メニュー本体 */
+.sp-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* 画面いっぱいに */
+    background-color: rgba(255, 255, 255, 0.95); /* 半透明の背景 */
+    z-index: 990; /* ハンバーガーアイコンより下 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* 最初は非表示 */
+    opacity: 0; /* 最初は透明 */
+    transition: all 0.4s ease; /* 表示アニメーション */
+    transform: translateX(100%); /* 右からスライドイン */
+}
+
+/* メニューのアクティブ状態 */
+.sp-menu.is-active {
+    visibility: visible; /* 表示 */
+    opacity: 1; /* 不透明 */
+    transform: translateX(0); /* 通常位置へ */
+}
+
+.sp-menu__list {
+    text-align: center;
+}
+
+.sp-menu__list li {
+    margin-bottom: 25px; /* メニュー項目間のスペース */
+}
+
+.sp-menu__list li:last-child {
+    margin-bottom: 0;
+}
+
+.sp-menu__list li a {
+    font-size: 2.2rem; /* メニュー項目の文字サイズ */
+    font-weight: 500;
+    color: #333;
+    display: block;
+    padding: 10px 0;
+}
+
+.sp-menu__list li a:hover {
+    color: #A0522D; /* ホバー時の色 */
+}
+
+/* main content adjustment */
+main {
+    margin-top: 60px; /* 固定ヘッダーの高さ分、コンテンツを下にずらす */
+    flex-grow: 1; /* main要素が残りの垂直スペースをすべて埋めるようにする */
+
+    display: flex; /* コンテンツをmain内で中央に配置 */
+    flex-direction: column; /* タイトルとリストを縦並び */
+    align-items: center; /* 横方向中央 */
+    padding: 20px; /* mainコンテンツエリアの一般的なパディング */
+    box-sizing: border-box;
+    overflow-y: auto; /* 投稿が多い場合にスクロール可能にする */
+}
+
+/* マイページコンテナ */
+.mypage-container {
+    width: 100%;
+    max-width: 800px; /* 投稿カードの最大幅に合わせる */
+    margin: 20px auto;
+    padding: 0 10px; /* 左右の余白 */
+}
+
+.page-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* プロフィールセクション */
+.profile-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 3px solid #A0522D; /* ブランドカラーのボーダー */
+}
+
+.profile-username {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.profile-birthday {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.profile-bio {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    text-align: left; /* 自己紹介文は左揃え */
+    max-height: 150px; /* 一定の高さに制限 */
+    overflow-y: auto; /* 溢れたらスクロール */
+    padding-right: 5px; /* スクロールバーのための余白 */
+}
+
+.edit-profile-button {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover {
+    background-color: #333;
+}
+
+/* タブセクション */
+.posts-section {
+    margin-bottom: 40px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #777;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent; /* 非アクティブ時の下線 */
+}
+
+.tab-button.active {
+    color: #A0522D; /* アクティブ時の色 */
+    border-bottom: 3px solid #A0522D; /* アクティブ時の下線 */
+}
+
+.tab-button:hover:not(.active) {
+    color: #333;
+}
+
+.tab-content {
+    display: none; /* 初期状態では非表示 */
+}
+
+.tab-content.active {
+    display: block; /* アクティブ時に表示 */
+}
+
+/* 投稿カード (posts.cssから流用) */
+.posts-list {
+    display: grid; /* グリッドレイアウトでカードを配置 */
+    gap: 30px; /* カード間のスペース */
+    padding-bottom: 20px; /* タブコンテンツ内の余白 */
+}
+
+.post-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative; /* メニューボタンの基準 */
+}
+
+.post-user-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    background-color: #eee; /* デフォルトの背景 */
+}
+
+.post-title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    flex-grow: 1; /* タイトルが残りのスペースを埋める */
+}
+
+.post-content {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 20px;
+    white-space: pre-wrap; /* 改行を反映 */
+    word-break: break-word; /* 長い単語の途中で改行 */
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end; /* アクションボタンを右寄せ */
+    align-items: center;
+    gap: 15px; /* ボタン間のスペース */
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: auto; /* コンテンツが短い場合でも下に配置 */
+}
+
+/* メニューボタン */
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 2.0rem;
+    color: #999;
+    padding: 5px;
+    position: relative; /* ドロップダウンの基準 */
+}
+
+.menu-button:hover {
+    color: #555;
+}
+
+/* メニュードロップダウン */
+.menu-dropdown {
+    position: absolute;
+    top: 100%; /* ボタンのすぐ下 */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    z-index: 100;
+    display: none; /* 初期状態では非表示 */
+}
+
+.menu-dropdown.is-active {
+    display: block; /* アクティブ時に表示 */
+}
+
+.menu-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-dropdown ul li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.menu-dropdown ul li a:hover {
+    background-color: #f5f5f5;
+    color: #A0522D;
+}
+
+/* グッド・バッドボタン */
+.reaction-button {
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #555;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.reaction-button.good {
+    color: #28a745; /* 緑色 */
+    border-color: #28a745;
+}
+.reaction-button.good:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+.reaction-button.good.active {
+    background-color: #28a745;
+    color: #fff;
+}
+
+
+.reaction-button.bad {
+    color: #dc3545; /* 赤色 */
+    border-color: #dc3545;
+}
+.reaction-button.bad:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+.reaction-button.bad.active {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.reaction-button span {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+
+/* footer */
+.footer {
+    background-color: #eeeeee; /* 現在の明るいベージュブラウン */
+    padding: 50px 0 30px; /* 上下の余白 */
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap; /* スマホで折り返し */
+    justify-content: center; /* ナビゲーションリスト全体を中央揃え */
+    margin-bottom: 30px;
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+}
+
+.footer__nav li {
+    margin: 5px 15px; /* 各項目の余白 */
+}
+
+.footer__nav li a {
+    font-size: 1.4rem;
+    color: #444; /* ナビゲーションリンクの色も調整 */
+    transition: color 0.3s ease;
+}
+
+.footer__nav li a:hover {
+    color: #000; /* ホバー時の色も調整 */
+}
+
+/* SNSセクションのスタイル */
+.footer__sns {
+    margin-bottom: 30px; /* SNSアイコンの下の余白 */
+    width: 100%;
+    display: flex; /* アイコンを横並びにする */
+    justify-content: center; /* 中央揃え */
+    gap: 20px; /* アイコン間のスペース */
+}
+
+.footer__sns a {
+    display: inline-block;
+}
+
+.footer__sns img {
+    width: 28px; /* SNSアイコンサイズ */
+    height: 28px;
+    transition: opacity 0.3s ease;
+}
+
+.footer__sns img:hover {
+    opacity: 0.7;
+}
+
+.footer__copyright {
+    font-size: 1.2rem;
+    color: #666; /* コピーライトの色も調整 */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+}
+
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    /* utility */
+    .pc-only {
+        display: inline;
+    }
+
+    /* header */
+    .header__nav .nav__list {
+        display: flex;
+        gap: 40px;
+    }
+
+    .header__nav .nav__list li a {
+        font-size: 1.5rem;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    .sp-menu {
+        display: none;
+    }
+
+    /* footer */
+    .footer {
+        padding: 80px 0;
+    }
+
+    .footer__nav li {
+        margin: 0 20px;
+    }
+
+    .posts-list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* PCでは複数列に */
+    }
+}
+
+/* スマートフォン向けの追加調整 (既存のメディアクエリに統合) */
+@media (max-width: 600px) {
+    .mypage-container {
+        padding: 0 10px; /* モバイルでのパディング調整 */
+    }
+
+    .page-title {
+        font-size: 2.8rem;
+        margin-bottom: 30px;
+    }
+
+    .profile-section {
+        padding: 20px;
+    }
+
+    .profile-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-username {
+        font-size: 2.0rem;
+    }
+
+    .profile-birthday {
+        font-size: 1.4rem;
+    }
+
+    .profile-bio {
+        font-size: 1.5rem;
+    }
+
+    .edit-profile-button {
+        font-size: 1.4rem;
+        padding: 8px 15px;
+    }
+
+    .tabs {
+        margin-bottom: 20px;
+    }
+
+    .tab-button {
+        font-size: 1.6rem;
+        padding: 12px 20px;
+    }
+
+    .posts-list {
+        gap: 20px;
+    }
+
+    .post-card {
+        padding: 20px;
+    }
+
+    .post-user-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .post-title {
+        font-size: 1.6rem;
+    }
+
+    .post-content {
+        font-size: 1.5rem;
+    }
+
+    .reaction-button {
+        padding: 6px 12px;
+        font-size: 1.3rem;
+    }
+
+    .reaction-button span {
+        font-size: 1.3rem;
+    }
+}
