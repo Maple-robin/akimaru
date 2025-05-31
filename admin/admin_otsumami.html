@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUR BRAND | おつまみ管理（一覧）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../admincss/admin.css">
+    <link rel="stylesheet" href="../admincss/admin_otsumami.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="admin-header__inner">
+            <h1 class="admin-header__logo">
+                <a href="admin.html">OUR BRAND 管理者ページ</a>
+            </h1>
+            <nav class="admin-header__nav">
+                <ul class="admin-nav__list">
+                    <li><a href="admin_liquor_list.html">お酒管理</a></li>
+                    <li><a href="admin_otsumami_list.html" class="is-current">おつまみ管理</a></li>
+                    <li><a href="#">ユーザー管理</a></li>
+                    <li><a href="#">投稿管理</a></li>
+                    <li><a href="#">お問い合わせ管理</a></li>
+                    <li><a href="#">FAQ登録</a></li>
+                    <li><a href="#">通報管理</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-main__inner">
+            <h2 class="admin-page-title">おつまみ管理</h2>
+
+            <section class="admin-section admin-otsumami-list">
+                <h3 class="admin-section-title">登録済みおつまみデータ一覧</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>おつまみレシピ</th>
+                                <th>合うお酒の種類</th>
+                                <th>合うお酒のカテゴリ</th>
+                                <th>商品ID</th>
+                                <th>おつまみ名</th>
+                                <th>おつまみ画像</th>
+                                <th>おつまみリンク</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>クリームチーズと生ハムを乗せたクラッカー。</td>
+                                <td>ワイン</td>
+                                <td>軽め、フルーティー</td>
+                                <td>PRD001</td>
+                                <td>生ハムとクリームチーズクラッカー</td>
+                                <td><img src="https://via.placeholder.com/60x60?text=Cracker" alt="生ハムとクリームチーズクラッカー" class="product-thumb"></td>
+                                <td><a href="#" target="_blank">商品ページ</a></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm btn-edit">編集</button>
+                                        <button class="btn btn-sm btn-delete">削除</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>鶏むね肉とブロッコリーを蒸し、ポン酢とごま油で和える。</td>
+                                <td>ビール</td>
+                                <td>さっぱり</td>
+                                <td>PRD002</td>
+                                <td>蒸し鶏とブロッコリーの和え物</td>
+                                <td><img src="https://via.placeholder.com/60x60?text=SteamedChicken" alt="蒸し鶏とブロッコリーの和え物" class="product-thumb"></td>
+                                <td><a href="#" target="_blank">商品ページ</a></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm btn-edit">編集</button>
+                                        <button class="btn btn-sm btn-delete">削除</button>
+                                    </div>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>タコとキュウリを一口大に切り、わさび醤油で和える。</td>
+                                <td>日本酒</td>
+                                <td>辛口、淡麗</td>
+                                <td>PRD003</td>
+                                <td>タコとキュウリのわさび和え</td>
+                                <td><img src="https://via.placeholder.com/60x60?text=Octopus" alt="タコとキュウリのわさび和え" class="product-thumb"></td>
+                                <td><a href="#" target="_blank">商品ページ</a></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm btn-edit">編集</button>
+                                        <button class="btn btn-sm btn-delete">削除</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="add-otsumami-button-area">
+                <a href="admin_otsumami_add.html" class="btn btn-primary btn-add-new">
+                    <span class="btn-icon">＋</span> 新しいおつまみを登録する
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="admin-footer">
+        <div class="admin-footer__inner">
+            <p class="admin-footer__copyright">© OUR BRAND Admin All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
