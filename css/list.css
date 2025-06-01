@@ -89,7 +89,7 @@ ul {
 
 /* ハンバーガーメニューアイコン */
 .hamburger-menu {
-    display: block;
+    display: block; /* スマホで表示 */
     background: none;
     border: none;
     cursor: pointer;
@@ -567,8 +567,8 @@ main {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+    text-align: left; /* ←ここをcenter→leftに修正 */
+    overflow: hidden;
 }
 
 .product-card__image {
@@ -617,7 +617,7 @@ main {
     padding: 5px 10px;
     border-radius: 15px;
     margin-top: auto; /* Push tag to bottom */
-    align-self: center; /* Center tag horizontally */
+    align-self: flex-start; /* ←center→flex-startに修正 */
 }
 
 /* Product List View Specific Styles */
@@ -632,7 +632,7 @@ main {
     display: flex;
     flex-direction: row; /* Change to row for list view */
     align-items: center;
-    text-align: left; /* Align text to left */
+    text-align: left; /* リストアイテム全体を左揃え */
     padding: 15px;
 }
 
@@ -648,22 +648,26 @@ main {
     flex-grow: 1; /* Allow details to take remaining space */
     display: flex;
     flex-direction: column;
+    text-align: left; /* ★追加: 詳細コンテンツのテキストを左揃えに */
 }
 
 .product-list-item .product-card__title {
     margin-bottom: 5px;
+    text-align: left; /* ★追加: タイトルを左揃えに */
 }
 
 .product-list-item .product-card__volume {
     margin-bottom: 5px;
+    text-align: left; /* ★追加: ボリュームを左揃えに */
 }
 
 .product-list-item .product-card__price {
     margin-bottom: 5px;
+    text-align: left; /* ★追加: 価格を左揃えに */
 }
 
 .product-list-item .product-card__tag {
-    align-self: flex-start; /* Align tag to start in list view */
+    align-self: flex-start; /* ★変更: タグを左揃えに */
 }
 
 
@@ -894,209 +898,11 @@ main {
 
     .product-list-item .product-card__details {
         width: 100%;
+        text-align: left; /* モバイルリスト表示でも左揃えを維持 */
     }
 
     .product-list-item .product-card__tag {
-        align-self: center; /* Center tag on mobile list view */
+        align-self: flex-start; /* モバイルリスト表示でも左揃えを維持 */
         margin-top: 10px;
-    }
-}
-
-/* --- ハンバーガーメニュー・sp-menu関連 --- */
-.hamburger-menu {
-    display: block;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    position: relative;
-    z-index: 1000;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.hamburger-menu span {
-    display: block;
-    width: 28px;
-    height: 2px;
-    background-color: #333;
-    margin-bottom: 6px;
-    transition: 0.3s;
-    position: relative;
-}
-.hamburger-menu span:last-child {
-    margin-bottom: 0;
-}
-.hamburger-menu.is-active span:nth-of-type(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.hamburger-menu.is-active span:nth-of-type(2) {
-    opacity: 0;
-}
-.hamburger-menu.is-active span:nth-of-type(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.sp-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
-    z-index: 990;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.4s ease;
-    transform: translateX(100%);
-    padding: 90px 0 20px;
-}
-.sp-menu.is-active {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-}
-.sp-menu__header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    padding: 0 40px 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-}
-.sp-menu__login {
-    font-size: 2rem;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.sp-menu__login .fas {
-    font-size: 2.4rem;
-    color: #555;
-}
-.sp-menu__search {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 0 40px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    margin-bottom: 30px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-.sp-menu__search input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    padding: 12px;
-    font-size: 1.8rem;
-    background-color: transparent;
-    color: #333;
-}
-.sp-menu__search button {
-    background: none;
-    border: none;
-    padding: 8px 10px;
-    color: #888;
-    font-size: 2rem;
-    cursor: pointer;
-}
-.sp-menu__list {
-    text-align: left;
-    width: 100%;
-    padding: 0 40px;
-}
-.sp-menu__list--bottom {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
-.sp-menu__list li {
-    margin-bottom: 25px;
-    font-size: 2rem;
-    font-weight: 500;
-    color: #333;
-    display: block;
-    padding: 0;
-    border-bottom: none;
-}
-.sp-menu__list li:last-child {
-    margin-bottom: 0;
-}
-.sp-menu__list li a {
-    display: block;
-    padding: 10px 0;
-    color: #333;
-}
-.sp-menu__list li a:hover {
-    color: #A0522D;
-}
-.sp-menu__category-toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #333;
-    cursor: pointer;
-    padding: 10px 0;
-}
-.sp-menu__category-toggle .category-icon {
-    font-size: 1.6rem;
-    transition: transform 0.3s ease;
-}
-.sp-menu__category-toggle.is-open .category-icon {
-    transform: rotate(180deg);
-}
-.sp-menu__sub-list {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    text-align: left;
-    padding-left: 20px;
-    margin-top: 15px;
-    border-top: 1px solid #eee;
-    padding-top: 15px;
-}
-.sp-menu__sub-list.is-open {
-    max-height: 200px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-.sp-menu__sub-list li {
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-    border-bottom: none;
-}
-.sp-menu__sub-list li:last-child {
-    margin-bottom: 0;
-}
-.sp-menu__sub-list li a {
-    color: #555;
-}
-.sp-menu__sub-list li a:hover {
-    color: #A0522D;
-}
-.sp-menu__divider {
-    display: none;
-}
-
-/* PC用メディアクエリ */
-@media (min-width: 768px) {
-    .hamburger-menu {
-        display: none;
-    }
-    .sp-menu {
-        display: none;
-    }
-    .header__nav .nav__list {
-        display: flex;
-        gap: 40px;
     }
 }
