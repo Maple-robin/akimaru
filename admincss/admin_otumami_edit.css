@@ -40,6 +40,7 @@
 
 .edit-form input[type="text"]:focus,
 .edit-form input[type="url"]:focus,
+.form-group input[type="file"],
 .edit-form select:focus,
 .edit-form textarea:focus {
     border-color: #A0522D; /* フォーカス時の色 */
@@ -49,6 +50,11 @@
 .edit-form textarea {
     resize: vertical; /* 垂直方向のみリサイズ可能 */
     min-height: 100px;
+}
+
+.form-group input[type="file"] {
+    padding: 10px 15px;
+    background-color: #f0f0f0; /* 背景色を変更して視覚的に分かりやすく */
 }
 
 /* 必須タグ */

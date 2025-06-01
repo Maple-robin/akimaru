@@ -40,8 +40,13 @@
                 <h3 class="admin-section-title">おつまみ情報を編集</h3>
                 <form id="otumamiEditForm" class="edit-form">
                     <div class="form-group">
-                        <label for="otumamiName">おつまみレシピ<span class="required-tag">必須</span></label>
+                        <label for="otumamiName">おつまみ名<span class="required-tag">必須</span></label>
                         <input type="text" id="otumamiName" name="otumamiName" required placeholder="例: クリームチーズと生ハムを乗せたクラッカー。">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="otsumami_img_pass">おつまみ画像 <span class="required-tag">必須</span></label>
+                        <input type="file" id="otsumami_img_pass" name="otsumami_img_pass" accept="image/*" required>
                     </div>
 
                     <div class="form-group">
@@ -71,18 +76,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="otumamiName">おつまみ名<span class="required-tag">必須</span></label>
-                        <input type="text" id="otumamiName" name="otumamiName" required placeholder="例: クリームチーズと生ハムをのクラッカー">
+                        <label for="otsumami_text">おつまみレシピ／説明 <span class="required-tag">必須</span></label>
+                        <textarea id="otsumami_text" name="otsumami_text" rows="6" required maxlength="200"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="otumamiImage">画像ファイル <span class="required-tag">必須</span></label>
-                        <input type="file" id="otumamiImage" name="otumamiImage" accept="image/png, image/jpeg, image/gif" required>
-                        <div class="image-preview" id="imagePreview">
-                            <img src="https://placehold.co/100x100/E0E0E0/333333?text=No+Image" alt="画像プレビュー" class="preview-thumb" id="previewThumb">
-                        </div>
+                        <label for="liquor_name">お酒名</label>
+                        <input type="text" id="liquor_name" name="liquor_name" maxlength="128" placeholder="関連するお酒の名称を入力してください（任意）">
                     </div>
-
 
                     <div class="form-group">
                         <label for="otumamiLink">おつまみリンクURL <span class="required-tag">必須</span></label>
