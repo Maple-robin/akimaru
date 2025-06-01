@@ -45,8 +45,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="productImage">画像ファイル</label>
-                        <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg, image/gif">
+                        <label for="productImage">画像ファイル <span class="required-tag">必須</span></label>
+                        <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg, image/gif" required>
                         <div class="image-preview" id="imagePreview">
                             <img src="https://placehold.co/100x100/E0E0E0/333333?text=No+Image" alt="画像プレビュー" class="preview-thumb" id="previewThumb">
                         </div>
@@ -79,13 +79,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="productDescription">商品説明</label>
-                        <textarea id="productDescription" name="productDescription" rows="5" placeholder="お酒の特徴や詳細を記入してください。"></textarea>
+                        <label for="productDescription">商品説明 <span class="required-tag">必須</span></label>
+                        <textarea id="productDescription" name="productDescription" rows="5" required placeholder="お酒の特徴や詳細を記入してください。"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="productLink">商品リンクURL</label>
-                        <input type="url" id="productLink" name="productLink" placeholder="例: https://shop.example.com/item123">
+                        <label for="productLink">商品リンクURL <span class="required-tag">必須</span></label>
+                        <input type="url" id="productLink" name="productLink" required placeholder="例: https://shop.example.com/item123">
                     </div>
 
                     <div class="form-actions">

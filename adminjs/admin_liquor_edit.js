@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // デフォルトのフォーム送信を防止
 
-        // ここでフォームデータのバリデーションを行うことができます
+        // ここでフォームデータのバリデーションを行います
         if (!productNameInput.value.trim()) {
             showMessageBox('商品名を入力してください。');
             return;
@@ -43,6 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
             showMessageBox('カテゴリを選択してください。');
             return;
         }
+        // 追加された必須項目に対するバリデーション
+        if (!productDescriptionTextarea.value.trim()) {
+            showMessageBox('商品説明を入力してください。');
+            return;
+        }
+        if (!productLinkInput.value.trim()) {
+            showMessageBox('商品リンクURLを入力してください。');
+            return;
+        }
+
 
         // フォームデータを取得 (実際のアプリケーションではこれをサーバーに送信します)
         const liquorData = {
