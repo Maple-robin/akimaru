@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../css/top.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header__inner">
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="#">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li><a href="post.html">新規投稿</a></li>
+                </ul>
+                <button class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <ul class="sp-menu__list">
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="#">ビール</a></li>
+                    <li><a href="#">ハイボール</a></li>
+                    <li><a href="#">カクテル</a></li>
+                    <li><a href="#">ワイン</a></li>
+                    <li><a href="#">日本酒</a></li>
+                    <li><a href="#">ウイスキー</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__category-toggle">
+                商品タグ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="#">初心者向け</a></li>
+                    <li><a href="#">甘口</a></li>
+                    <li><a href="#">辛口</a></li>
+                    <li><a href="#">度数低め</a></li>
+                    <li><a href="#">度数高め</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="#">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="#">マイページ</a></li>
+        </ul>
+        <div class="sp-menu__divider"></div>
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="#">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-form-container">
+                <h2 class="section-title">
+                    <span class="en">CONTACT US</span>
+                    <span class="ja">( お問い合わせ )</span>
+                </h2>
+                <form action="#" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <label for="contact-title">件名</label>
+                        <input type="text" id="contact-title" name="contact_title" placeholder="お問い合わせの件名を入力してください" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-content">お問い合わせ内容</label>
+                        <textarea id="contact-content" name="contact_content" placeholder="こちらにお問い合わせ内容を入力してください" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn">キャンセル</button>
+                        <button type="submit" class="submit-btn">送信する</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li><a href="#">商品一覧</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+            </ul>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+
+</html>
