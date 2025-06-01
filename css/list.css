@@ -147,7 +147,7 @@ ul {
     opacity: 0;
     transition: all 0.4s ease;
     transform: translateX(100%);
-    padding: 90px 0 20px;
+    padding: 110px 0 20px;
 }
 
 /* メニューのアクティブ状態 */
