@@ -20,7 +20,8 @@
                 <ul class="nav__list pc-only">
                     <li><a href="#">商品一覧</a></li>
                     <li><a href="#">お問い合わせ</a></li>
-                    <li><a href="#">マイページ</a></li> </ul>
+                    <li><a href="#">マイページ</a></li>
+                </ul>
                 <button class="hamburger-menu">
                     <span></span>
                     <span></span>
@@ -120,7 +121,10 @@
                     <p class="error-message" id="content-error"></p>
                 </div>
 
-                <button type="submit" class="submit-button">通報する</button>
+                <div class="form-actions">
+                    <button type="submit" class="submit-button">通報する</button>
+                    <button type="button" class="cancel-button" onclick="history.back()">キャンセル</button>
+                </div>
                 <p class="success-message" id="success-message"></p>
             </form>
         </div>
