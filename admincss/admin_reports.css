@@ -215,6 +215,29 @@ main {
     background-color: #c82333;
 }
 
+/* テーブル全体の横スクロールを防ぐ */
+table {
+    table-layout: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    border-collapse: collapse;
+}
+
+/* テーブルの親要素にも横スクロール禁止を明示 */
+.table-wrapper, .table-container {
+    overflow-x: visible !important;
+    max-width: 100% !important;
+}
+
+/* セル内で折り返し */
+.post-content-cell,
+.report-content-cell {
+    white-space: normal !important;
+    word-break: break-all !important;
+    max-width: 300px; /* 必要に応じて調整 */
+}
+
 /* footer */
 .footer {
     background-color: #eeeeee;
