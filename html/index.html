@@ -25,7 +25,7 @@
             </h1>
             <nav class="header__nav">
                 <ul class="nav__list pc-only">
-                    <li><a href="index.html">商品一覧</a></li>
+                    <li><a href="products_list.html">商品一覧</a></li>
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
                 <button class="hamburger-menu">
@@ -52,26 +52,24 @@
             <li class="sp-menu__category-toggle">
                 商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
                 <ul class="sp-menu__sub-list">
-                    <li><a href="beer.html">ビール</a></li>
-                    <li><a href="highball.html">ハイボール</a></li>
-                    <li><a href="cocktail.html">カクテル</a></li>
-                    <li><a href="wine.html">ワイン</a></li>
-                    <li><a href="Japanese_sake.html">日本酒</a></li>
-                    <li><a href="whisky.html">ウイスキー</a></li>
+                    <li><a href="products_list.html?category=ビール">ビール</a></li>
+                    <li><a href="products_list.html?category=ハイボール">ハイボール</a></li>
+                    <li><a href="products_list.html?category=カクテル">カクテル</a></li>
+                    <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                    <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                    <li><a href="products_list.html?category=ウイスキー">ウイスキー</a></li>
                 </ul>
             </li>
-            <!-- ↓ここから追加 -->
             <li class="sp-menu__category-toggle">
                 商品タグ <i class="fas fa-chevron-down category-icon"></i>
                 <ul class="sp-menu__sub-list">
-                    <li><a href="ranking.html">初心者向け</a></li>
-                    <li><a href="ranking.html">甘口</a></li>
-                    <li><a href="ranking.html">辛口</a></li>
-                    <li><a href="ranking.html">度数低め</a></li>
-                    <li><a href="ranking.html">度数高め</a></li>
+                    <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
+                    <li><a href="products_list.html?tag=甘口">甘口</a></li>
+                    <li><a href="products_list.html?tag=辛口">辛口</a></li>
+                    <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
+                    <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
                 </ul>
             </li>
-            <!-- ↑ここまで追加 -->
             <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
             <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
         </ul>
@@ -160,7 +158,7 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <a href="ranking.html" class="btn-all-products">ランキング一覧を見る</a>
+                <a href="products_list.html?sort=ranking" class="btn-all-products">ランキング一覧を見る</a>
             </div>
         </section>
 
@@ -225,7 +223,7 @@
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-                <a href="first_timers.html" class="btn-all-products">初心者向け一覧を見る</a>
+                <a href="products_list.html?tag=初心者向け" class="btn-all-products">初心者向け一覧を見る</a>
             </div>
         </section>
         <section class="categories">
@@ -236,37 +234,37 @@
                 </h2>
                 <ul class="category-list">
                     <li class="category-list__item">
-                        <a href="beer.html" class="category-card"
+                        <a href="products_list.html?category=ビール" class="category-card"
                             style="background-image: url('https://placehold.co/400x200/FFD700/000000?text=BEER');">
                             <h3 class="category-card__name">ビール</h3>
                         </a>
                     </li>
                     <li class="category-list__item">
-                        <a href="highball.html" class="category-card"
+                        <a href="products_list.html?category=ハイボール" class="category-card"
                             style="background-image: url('https://placehold.co/400x200/A0522D/FFFFFF?text=HIGHBALL');">
                             <h3 class="category-card__name">ハイボール</h3>
                         </a>
                     </li>
                     <li class="category-list__item">
-                        <a href="cocktail.html" class="category-card"
+                        <a href="products_list.html?category=カクテル" class="category-card"
                             style="background-image: url('https://placehold.co/400x200/6A5ACD/FFFFFF?text=COCKTAIL');">
                             <h3 class="category-card__name">カクテル</h3>
                         </a>
                     </li>
                     <li class="category-list__item">
-                        <a href="wine.html" class="category-card"
+                        <a href="products_list.html?category=ワイン" class="category-card"
                             style="background-image: url('https://placehold.co/400x200/8B0000/FFFFFF?text=WINE');">
                             <h3 class="category-card__name">ワイン</h3>
                         </a>
                     </li>
                     <li class="category-list__item">
-                        <a href="Japanese_sake.html" class="category-card"
+                        <a href="products_list.html?category=日本酒" class="category-card"
                             style="background-image: url('https://placehold.co/400x200/F0F8FF/000000?text=SAKE');">
                             <h3 class="category-card__name">日本酒</h3>
                         </a>
                     </li>
                     <li class="category-list__item">
-                        <a href="whisky.html" class="category-card"
+                        <a href="products_list.html?category=ウイスキー" class="category-card"
                             style="background-image: url('https://placehold.co/400x200/D2B48C/000000?text=WHISKY');">
                             <h3 class="category-card__name">ウイスキー</h3>
                         </a>
@@ -279,7 +277,7 @@
     <footer class="footer">
         <div class="footer__inner">
             <ul class="footer__nav">
-                <li><a href="index.html">商品一覧</a></li>
+                <li><a href="products_list.html">商品一覧</a></li>
                 <li><a href="contact.html">お問い合わせ</a></li>
                 <li><a href="#">プライバシーポリシー</a></li>
             </ul>

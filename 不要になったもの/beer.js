@@ -254,18 +254,31 @@ document.addEventListener('DOMContentLoaded', function() {
         applyFiltersAndSort(); // フィルターとソートを適用して再レンダリング
     });
 
-    // グリッド表示ボタンのイベントリスナー
-    displayGridButton.addEventListener('click', () => {
-        displayGridButton.classList.add('active');
-        displayListButton.classList.remove('active');
-        applyFiltersAndSort(); // 新しい表示モードで再レンダリング
+    // デフォルトをリスト表示にする
+    // const productList = document.getElementById('product-list');
+    const displayGridBtn = document.getElementById('display-grid');
+    const displayListBtn = document.getElementById('display-list');
+
+    // 最初にリスト表示を有効化
+    productList.classList.remove('product-grid');
+    productList.classList.add('product-list');
+    displayGridBtn.classList.remove('active');
+    displayListBtn.classList.add('active');
+
+    // グリッド表示ボタン
+    displayGridBtn.addEventListener('click', function() {
+        productList.classList.remove('product-list');
+        productList.classList.add('product-grid');
+        displayListBtn.classList.remove('active');
+        displayGridBtn.classList.add('active');
     });
 
-    // リスト表示ボタンのイベントリスナー
-    displayListButton.addEventListener('click', () => {
-        displayListButton.classList.add('active');
-        displayGridButton.classList.remove('active');
-        applyFiltersAndSort(); // 新しい表示モードで再レンダリング
+    // リスト表示ボタン
+    displayListBtn.addEventListener('click', function() {
+        productList.classList.remove('product-grid');
+        productList.classList.add('product-list');
+        displayGridBtn.classList.remove('active');
+        displayListBtn.classList.add('active');
     });
 
     // 初期レンダリング
