@@ -50,9 +50,7 @@ ul {
 .products__inner,
 .footer__inner {
     width: 100%;
-    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 .section-title {
     text-align: center;
@@ -319,6 +317,9 @@ ul {
     background-color: #f8f8f8;
 }
 .beginner-friendly {
+    background-color: #fff;
+}
+.products:not(.beginner-friendly) {
     background-color: #fff;
 }
 .products .swiper {

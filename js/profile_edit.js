@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (userIconInput && profileIconPreview && btnChangeIcon) {
         // ボタンクリックでファイル選択をトリガー
-        btnChangeIcon.addEventListener('click', () => {
+        btnChangeIcon.addEventListener('click', (e) => {
+            e.preventDefault();
             userIconInput.click();
         });
 
