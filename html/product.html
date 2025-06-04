@@ -234,13 +234,11 @@
     <script src="../js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // カルーセル（Swiper）の初期化
+            // Swiper初期化（既存）
             const pairedSwiper = new Swiper('.paired-snacks-swiper', {
                 slidesPerView: 1.2,
                 spaceBetween: 20,
-                centeredSlides: true, // アクティブなスライドを中央に配置
-                // loop: true, // 無限ループを無効にするため削除
-
+                centeredSlides: true,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -254,36 +252,37 @@
                 }
             });
 
-            // アコーディオン機能
+            // アコーディオン（既存）
             const accordionItems = document.querySelectorAll('.product-accordion-item');
-
             accordionItems.forEach(item => {
                 const title = item.querySelector('.product-accordion-item__title');
                 const content = item.querySelector('.product-accordion-item__content');
-
-                // 初期状態でコンテンツの高さを0に設定
                 content.style.height = '0';
                 content.style.overflow = 'hidden';
-                content.style.transition = 'height 0.3s ease-out'; // アニメーション
-
+                content.style.transition = 'height 0.3s ease-out';
                 title.addEventListener('click', () => {
-                    // is-closed クラスをトグル
                     item.classList.toggle('is-closed');
-
                     if (item.classList.contains('is-closed')) {
-                        // 閉じる場合
                         content.style.height = '0';
                     } else {
-                        // 開く場合
-                        // スクロール高さを利用して高さを設定
                         content.style.height = content.scrollHeight + 'px';
                     }
                 });
             });
 
-            // 初期ロード時に、すべての product-accordion-item が閉じている状態でアイコンが表示されるように
-            // product.css で初期状態を設定するため、ここでは特に処理は不要ですが、
-            // もし初期表示で開いてしまっていたら、上記のcontent.style.height = '0'で対応できます。
+            // ★画像切り替え機能
+            const mainImg = document.querySelector('.product-gallery__main img');
+            const thumbs = document.querySelectorAll('.product-gallery__thumbnails img');
+            thumbs.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // メイン画像をサムネイル画像に切り替え
+                    mainImg.src = this.src;
+                    mainImg.alt = this.alt;
+                    // サムネイルのis-activeクラス切り替え
+                    thumbs.forEach(t => t.classList.remove('is-active'));
+                    this.classList.add('is-active');
+                });
+            });
         });
     </script>
 </body>
