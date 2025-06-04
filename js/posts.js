@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="menu-button">⋮</button>
                     <div class="menu-dropdown">
                         <ul>
-                            <li><a href="#" class="report-action" data-post-id="${post.id}">通報する</a></li>
+                            <li><a href="" class="report-action" data-post-id="${post.id}">通報する</a></li>
                             <li><a href="#">シェア</a></li>
                             </ul>
                     </div>
@@ -107,11 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('click', function(event) {
                 event.preventDefault(); // リンクのデフォルト動作を防ぐ
                 const postId = this.dataset.postId;
-                // alert() の代わりにカスタムメッセージボックスを使用
-                displayMessage(`投稿ID: ${postId} を通報しました。`, 'info');
-                // 実際のアプリケーションでは、ここでサーバーサイドに通報リクエストを送信
-                // ドロップダウンを閉じる
-                this.closest('.menu-dropdown').classList.remove('is-active');
+                // report.htmlに遷移（投稿IDをクエリパラメータで渡す）
+                window.location.href = `report.html?postId=${encodeURIComponent(postId)}`;
             });
         });
 
