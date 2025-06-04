@@ -1,0 +1,429 @@
+/*
+ * cart.css (カートページ固有のスタイル)
+ * ----------------------------------------
+ */
+
+/* トップバナーのスタイルを削除 */
+/* .top-banner { ... } */
+
+/* ヘッダーのスタイルを削除 */
+/* .header { ... } */
+/* .header__inner { ... } */
+/* .header__logo { ... } */
+/* .header__logo img { ... } */
+/* .header__nav { ... } */
+/* .header__icons { ... } */
+/* .header__icon-link { ... } */
+/* .cart-icon-link .cart-count { ... } */
+
+/* 共通のインナー幅やヘッダー、フッターなどはtop.cssやproduct.cssで定義されています */
+
+.cart-section {
+    padding: 80px 0 30px; /* スマホ時の上部の余白を増やし、下部は維持 */
+    background-color: #f8f8f8; /* 全体の背景色 */
+}
+
+.cart-section__inner {
+    max-width: 600px; /* カート内容の最大幅を画像に合わせて調整 */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; /* 左右の余白 */
+}
+
+.section-title {
+    font-family: 'Noto Sans JP', sans-serif; /* 画像に合わせてフォントを変更 */
+    font-size: 2.2rem; /* セクション見出しサイズ */
+    font-weight: 500; /* 太さ調整 */
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px; /* 下マージン調整 */
+    border-bottom: none; /* 下線削除 */
+}
+
+/* 「お買い物を続ける」ボタン（上部） */
+.btn-continue-shopping-top {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #A0522D; /* ブランドカラーに合わせる */
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding: 10px 0;
+}
+
+.btn-continue-shopping-top i {
+    margin-right: 5px;
+    font-size: 1.2rem;
+}
+
+/* カートアイテムリスト */
+.cart-items {
+    background-color: #fff; /* 背景色 */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 8px; /* 角丸 */
+    margin-bottom: 30px;
+    overflow: hidden; /* 角丸に合わせたはみ出し対策 */
+}
+
+/* 各カートアイテム */
+.cart-item {
+    display: flex;
+    align-items: flex-start; /* 上寄せ */
+    padding: 15px; /* 内側の余白 */
+    border-bottom: 1px solid #eee; /* アイテム間の区切り線 */
+    gap: 15px; /* 画像と詳細の間のスペース */
+    position: relative; /* 削除アイコンの配置のため */
+}
+
+.cart-item:last-child {
+    border-bottom: none; /* 最後のアイテムの下線はなし */
+}
+
+.cart-item__image {
+    flex-shrink: 0;
+    width: 80px; /* 画像のサイズ */
+    height: 80px;
+    border-radius: 4px; /* 角丸 */
+    overflow: hidden;
+    border: 1px solid #eee; /* 画像の枠線 */
+}
+
+.cart-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item__details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* 詳細内の行間を詰める */
+}
+
+.cart-item__name {
+    font-family: 'Noto Sans JP', sans-serif; /* 画像に合わせてフォントを変更 */
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cart-item__volume {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.cart-item__size { /* 新しく追加された200mlの表示用 */
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.cart-item__price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333; /* 価格の色を画像に合わせる */
+    margin-bottom: 10px;
+}
+
+/* 数量コントロール */
+.cart-item__quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0; /* ボタンと入力フィールドの間の隙間をなくす */
+    border: 1px solid #ddd; /* 全体を囲む枠線 */
+    border-radius: 4px;
+    width: fit-content; /* 内容に合わせた幅 */
+}
+
+.quantity-minus,
+.quantity-plus {
+    background-color: #fff;
+    border: none; /* 個別のボタンの枠線はなし */
+    width: 35px;
+    height: 35px;
+    font-size: 2rem; /* サイズ調整 */
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-minus:hover,
+.quantity-plus:hover {
+    background-color: #f0f0f0;
+}
+
+.quantity-input {
+    width: 40px; /* 幅調整 */
+    padding: 0; /* パディングなし */
+    height: 35px; /* 高さ調整 */
+    text-align: center;
+    border: none; /* 個別の入力フィールドの枠線はなし */
+    border-left: 1px solid #ddd; /* 左右の区切り線 */
+    border-right: 1px solid #ddd;
+    font-size: 1.6rem;
+    -moz-appearance: textfield;
+    outline: none; /* フォーカス時のアウトラインを消す */
+}
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* 削除ボタン（ゴミ箱アイコン） */
+.cart-item__remove {
+    background: none;
+    border: none;
+    color: #999; /* アイコンの色 */
+    font-size: 1.8rem; /* サイズ調整 */
+    cursor: pointer;
+    position: absolute; /* 親要素に対して絶対配置 */
+    top: 15px; /* 右上配置 */
+    right: 15px;
+    transition: color 0.2s ease;
+}
+
+.cart-item__remove:hover {
+    color: #dc3545; /* ホバーで赤く */
+}
+
+/* カート合計とボタン */
+.cart-summary {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px; /* 内側の余白 */
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* 影を薄く */
+}
+
+.cart-summary__shipping-info {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: right; /* 右寄せ */
+}
+
+.cart-summary__subtotal {
+    display: flex;
+    justify-content: flex-end; /* 右寄せ */
+    align-items: baseline;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.cart-summary__subtotal p:first-child {
+    margin-right: 10px; /* 「小計」と金額の間にスペース */
+}
+
+.cart-summary__subtotal .subtotal-price {
+    color: #333; /* 金額の色を画像に合わせる */
+    font-size: 2.2rem; /* 金額のサイズ */
+}
+.cart-summary__subtotal .subtotal-price span {
+    font-size: 1.4rem; /* JPYのサイズ */
+    font-weight: normal;
+    color: #666; /* JPYの色 */
+}
+
+.cart-summary__tax-info {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: right; /* 右寄せ */
+}
+
+/* 配送希望日・時間 */
+.cart-delivery-options {
+    margin-bottom: 30px;
+    text-align: left; /* 左寄せ */
+}
+
+.delivery-option {
+    margin-bottom: 15px;
+}
+
+.delivery-option label {
+    display: block;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.delivery-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    color: #555;
+    background-color: #fff;
+    -webkit-appearance: none; /* デフォルトの矢印を非表示 */
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7.41%208.59L12%2013.17l4.59-4.58L18%2010l-6%206-6-6z%22%2F%3E%3C%2Fsvg%3E'); /* カスタム矢印 */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+.delivery-select:focus {
+    outline: none;
+    border-color: #A0522D;
+    box-shadow: 0 0 0 2px rgba(160, 82, 45, 0.2);
+}
+
+
+.btn-checkout {
+    display: block;
+    width: 100%;
+    max-width: 350px; /* ボタンの最大幅を制限 */
+    margin: 0 auto;
+    padding: 15px 30px;
+    background-color: #A0522D; /* 画像の色に合わせる */
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-checkout:hover {
+    background-color: #8B4513;
+}
+
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    /* トップバナーのスタイルを削除 */
+    /* .top-banner { ... } */
+
+    /* ヘッダーのスタイルを削除 */
+    /* .header__inner { ... } */
+    /* .header__logo img { ... } */
+    /* .header__icon-link { ... } */
+    /* .cart-icon-link .cart-count { ... } */
+
+    .cart-section {
+        padding: 100px 0; /* PC時の上部の余白を調整 */
+    }
+
+    .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+    }
+
+    .btn-continue-shopping-top {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .cart-item {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .cart-item__image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cart-item__details {
+        flex-direction: column; /* PCでも縦並びを維持 */
+        align-items: flex-start; /* 左寄せ */
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
+    .cart-item__name {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+    .cart-item__volume {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+    }
+    .cart-item__size {
+        font-size: 1.4rem;
+        margin-bottom: 0;
+    }
+
+    .cart-item__price {
+        font-size: 1.8rem;
+        text-align: left; /* 左寄せ */
+        margin-bottom: 0;
+    }
+
+    .cart-item__quantity-controls {
+        justify-content: flex-start; /* 左寄せ */
+    }
+
+    .quantity-minus,
+    .quantity-plus {
+        width: 40px;
+        height: 40px;
+        font-size: 2.2rem;
+    }
+    .quantity-input {
+        width: 50px;
+        height: 40px;
+        font-size: 1.8rem;
+    }
+
+    .cart-item__remove {
+        font-size: 2rem;
+        top: 20px;
+        right: 20px;
+    }
+
+    .cart-summary {
+        padding: 35px;
+    }
+
+    .cart-summary__shipping-info {
+        font-size: 1.4rem;
+    }
+
+    .cart-summary__subtotal {
+        font-size: 2rem;
+    }
+    .cart-summary__subtotal .subtotal-price {
+        font-size: 2.6rem;
+    }
+    .cart-summary__subtotal .subtotal-price span {
+        font-size: 1.5rem;
+    }
+
+    .cart-summary__tax-info {
+        font-size: 1.4rem;
+    }
+
+    .delivery-option label {
+        font-size: 1.5rem;
+    }
+    .delivery-select {
+        font-size: 1.7rem;
+    }
+
+    .btn-checkout {
+        max-width: 400px;
+        padding: 18px 40px;
+        font-size: 2rem;
+    }
+}

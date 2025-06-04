@@ -245,8 +245,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (currentSortOrder === 'newest') {
             filteredProducts.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-        } else if (currentSortOrder === 'oldest') {
-            filteredProducts.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate));
+        } else if (currentSortOrder === 'highest_price') { // ★変更点: 高い順
+            filteredProducts.sort((a, b) => b.price - a.price);
+        } else if (currentSortOrder === 'lowest_price') { // ★変更点: 安い順
+            filteredProducts.sort((a, b) => a.price - b.price);
         } else if (currentSortOrder === 'ranking') {
             filteredProducts.sort((a, b) => b.rankingScore - a.rankingScore);
         }
@@ -328,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 3. ランキング順が選択されており、かつ特定のカテゴリやタグが単一で選択されていない場合
         // (カテゴリが「すべて」であるか、何も選択されていない場合)
         else if (currentSortOrder === 'ranking' && currentFilters.tags.length === 0 && 
-                 (currentFilters.categories.length === 0 || currentFilters.categories.includes('すべて'))) {
+                     (currentFilters.categories.length === 0 || currentFilters.categories.includes('すべて'))) {
             enTitle = "RANKING";
             jaTitle = "( ランキング一覧 )";
         }
@@ -372,8 +374,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     allCheckbox.checked = false;
                 }
                 const checkedCategories = Array.from(document.querySelectorAll('#filter-overlay input[name="category"]:checked'))
-                                             .map(cb => cb.value)
-                                             .filter(value => value !== 'すべて');
+                                                 .map(cb => cb.value)
+                                                 .filter(value => value !== 'すべて');
                 if (checkedCategories.length === 0 && allCheckbox) {
                     allCheckbox.checked = true;
                 }
@@ -383,6 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sortButton.addEventListener('click', () => {
         // ソートパネルを開くときに、現在のソート状態をラジオボタンに反映
+        // 値が変更されているため、セレクタも更新
         document.querySelector(`#sort-overlay input[name="sort_order"][value="${currentSortOrder}"]`).checked = true;
         sortOverlay.classList.add('is-active');
         document.body.classList.add('no-scroll');

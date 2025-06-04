@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ビールランキング | OUR BRAND</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../css/products_list.css">
 </head>
+
 <body>
     <header class="header">
         <div class="header__inner">
@@ -53,7 +57,8 @@
                     <li><a href="products_list.html?category=ウイスキー">ウイスキー</a></li>
                 </ul>
             </li>
-            <li class="sp-menu__category-toggle"><!-- ←ここを修正 -->
+            <li class="sp-menu__category-toggle">
+                <!-- ←ここを修正 -->
                 商品タグ <i class="fas fa-chevron-down category-icon"></i>
                 <ul class="sp-menu__sub-list">
                     <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
@@ -133,9 +138,10 @@
                         <button class="close-button" id="sort-close-button"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="sort-panel__content">
-                        <label><input type="radio" name="sort_order" value="newest" checked> 新しい順</label>
-                        <label><input type="radio" name="sort_order" value="oldest"> 古い順</label>
-                        <label><input type="radio" name="sort_order" value="ranking"> ランキング順</label>
+                        <label><input type="radio" name="sort_order" value="newest"> 新しい順</label>
+                        <label><input type="radio" name="sort_order" value="highest_price"> 価格の高い順</label>
+                        <label><input type="radio" name="sort_order" value="lowest_price"> 価格の安い順</label>
+                        <label><input type="radio" name="sort_order" value="ranking" checked> ランキング順</label>
                         <button class="apply-sort-button">並び替える</button>
                     </div>
                 </div>
@@ -143,7 +149,7 @@
 
             <section class="ranking-list-section">
                 <div class="product-grid" id="product-list">
-                    </div>
+                </div>
             </section>
         </div>
     </main>
@@ -166,4 +172,5 @@
 
     <script src="../js/products_list.js"></script>
 </body>
+
 </html>

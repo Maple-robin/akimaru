@@ -55,7 +55,6 @@
                     <li><a href="products_list.html?category=ウイスキー">ウイスキー</a></li>
                 </ul>
             </li>
-            <!-- ↓ここから追加 -->
             <li class="sp-menu__category-toggle">
                 商品タグ <i class="fas fa-chevron-down category-icon"></i>
                 <ul class="sp-menu__sub-list">
@@ -66,7 +65,6 @@
                     <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
                 </ul>
             </li>
-            <!-- ↑ここまで追加 -->
             <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
             <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
         </ul>
@@ -106,10 +104,10 @@
                         <p class="product-info__tax-note">※送料別途</p>
 
                         <div class="product-external-link">
-                            <a href="https://your-ec-site.com/product-detail/xxxx" target="_blank" class="btn-to-ec-site">
-                                ECサイトで購入する
-                            </a>
-                            <p class="product-info__stock">在庫状況はECサイトをご確認ください</p>
+                            <!-- ボタンのテキストとリンクを変更 -->
+                            <button id="add-to-cart-btn" class="btn-to-ec-site">
+                                カートに入れる
+                            </button>
                         </div>
 
                         <ul class="product-info__tags">
@@ -281,9 +279,17 @@
                 });
             });
 
-            // 初期ロード時に、すべての product-accordion-item が閉じている状態でアイコンが表示されるように
-            // product.css で初期状態を設定するため、ここでは特に処理は不要ですが、
-            // もし初期表示で開いてしまっていたら、上記のcontent.style.height = '0'で対応できます。
+            // 「カートに入れる」ボタンのクリックイベント
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', function() {
+                    // ここではシンプルにアラートを表示するだけですが、
+                    // 実際にはカートに商品を追加する処理（例: LocalStorageへの保存）を行います。
+                    alert('「純米大吟醸 麗し乃雫」をカートに追加しました！');
+                    // カートページへ遷移する場合
+                    // window.location.href = 'cart.html';
+                });
+            }
         });
     </script>
 </body>
