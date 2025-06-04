@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../admincss/admin.css">
-    <link rel="stylesheet" href="../admincss/admin_products_add.css"> </head>
+    <link rel="stylesheet" href="../admincss/admin_products_add.css">
+</head>
 <body>
 
     <header class="admin-header">
@@ -18,8 +19,7 @@
             </h1>
             <nav class="admin-header__nav">
                 <ul class="admin-nav__list">
-                    <li><a href="admin_products_add.html" >お酒管理</a></li>
-                    <li><a href="admin_otsumami.html">おつまみ管理</a></li>
+                    <li><a href="admin_products.html" class="is-current">お酒管理</a></li> <li><a href="admin_otsumami.html">おつまみ管理</a></li>
                     <li><a href="admin_users.html">ユーザー管理</a></li>
                     <li><a href="admin_posts.html">投稿管理</a></li>
                     <li><a href="admin_inquiries.html">お問い合わせ管理</a></li>
@@ -42,8 +42,23 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="product_img">商品画像 <span class="required">必須</span></label>
-                        <input type="file" id="product_img" name="product_img" accept="image/*" required>
+                        <label for="main_image">メイン画像 <span class="required">必須</span></label>
+                        <input type="file" id="main_image" name="main_image" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub_image_1">サブ画像1</label>
+                        <input type="file" id="sub_image_1" name="sub_image_1" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub_image_2">サブ画像2</label>
+                        <input type="file" id="sub_image_2" name="sub_image_2" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub_image_3">サブ画像3</label>
+                        <input type="file" id="sub_image_3" name="sub_image_3" accept="image/*">
                     </div>
 
                     <div class="form-group">
@@ -86,8 +101,7 @@
             </section>
 
             <div class="back-to-list-button-area">
-                <a href="admin_liquor_list.html" class="btn btn-secondary btn-back-to-list">
-                    お酒管理一覧に戻る
+                <a href="admin_products.html" class="btn btn-secondary btn-back-to-list"> お酒管理一覧に戻る
                 </a>
             </div>
 

@@ -40,7 +40,7 @@
     width: 100%;
     border-collapse: collapse; /* ボーダーの結合 */
     font-size: var(--font-size-base);
-    min-width: 800px; /* テーブルの最小幅を設定し、はみ出したらスクロール */
+    min-width: 1200px; /* ★変更: テーブルの最小幅を増やしました。必要に応じて調整してください。 */
 }
 
 .data-table th,
@@ -157,6 +157,9 @@
     .btn-icon {
         margin-right: 12px;
     }
+    .data-table {
+        min-width: 1000px; /* ★変更: テーブルの最小幅を増やしました。必要に応じて調整してください。 */
+    }
 }
 
 @media (max-width: 768px) {
@@ -173,7 +176,7 @@
         padding: 10px;
     }
     .data-table {
-        min-width: 600px;
+        min-width: 900px; /* ★変更: テーブルの最小幅を増やしました。必要に応じて調整してください。 */
     }
     .data-table th,
     .data-table td {
@@ -206,7 +209,7 @@
         --font-size-icon-lg: 2.2rem;
     }
     .data-table {
-        min-width: 450px;
+        min-width: 750px; /* ★変更: テーブルの最小幅を増やしました。必要に応じて調整してください。 */
     }
     .btn-add-new {
         width: 90%;
