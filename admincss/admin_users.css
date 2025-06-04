@@ -4,25 +4,27 @@
  * ----------------------------------------
  */
 
-/* base */
+/* base - admin.cssの定義に合わせる */
 html {
     font-size: 62.5%; /* 1rem = 10px */
+    height: 100%; /* admin.cssに合わせる */
 }
 
 body {
     font-family: 'Noto Sans JP', sans-serif;
-    line-height: 1.6;
+    line-height: 1.5; /* admin.cssに合わせる */
     color: #333;
-    background-color: #f8f8f8;
+    background-color: #f4f7f6; /* admin.cssに合わせる */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* admin.cssに合わせる */
+    height: 100%; /* admin.cssに合わせる */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    /* display: flex; を削除 */
+    /* flex-direction: column; を削除 */
+    min-height: 100vh; /* admin.cssに合わせる */
 }
 
 *, *:before, *:after {
@@ -72,68 +74,21 @@ ul {
     --font-size-icon-lg: 3.5rem;
 }
 
-/* ヘッダー共通スタイル */
-.admin-header {
-    background-color: var(--white);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    padding: 15px 0; /* 左右のパディングを0にして、innerで制御 */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* ヘッダー自体は常に100%幅 */
-    z-index: 999;
-}
-
-.admin-header__inner {
-    display: flex;
-    justify-content: space-between; /* ロゴとナビゲーションを左右に配置 */
-    align-items: center;
-    height: 60px;
-    width: 100%; /* innerは親要素の100%幅 */
-    max-width: 1100px; /* innerのコンテンツの最大幅を制限 */
-    margin: 0 auto; /* innerを中央寄せ */
-    padding: 0 20px; /* innerの左右パディング */
-}
-
-.admin-header__logo a {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: var(--text-color-dark);
-    white-space: nowrap; /* テキストが改行されないように */
-}
-
-.admin-header__nav .admin-nav__list {
-    display: flex; /* PC表示では常にフレックス表示 */
-    gap: 20px; /* ナビゲーション間のスペース */
-    flex-wrap: wrap; /* 画面幅が狭い場合に改行されるように */
-    justify-content: flex-end; /* ナビゲーション項目を右寄せ */
-}
-
-.admin-header__nav .admin-nav__list li a {
-    font-size: 1.5rem;
-    color: #555; /* ナビゲーションリンクの色 */
-    transition: color 0.3s ease;
-    white-space: nowrap; /* ナビゲーション項目が改行されないように */
-}
-
-.admin-header__nav .admin-nav__list li a:hover {
-    color: var(--text-color-dark); /* ホバー時の色 */
-}
-
 /* ヘッダーの現在のページ表示 */
+/* このスタイルはadmin_users.cssに置いておくのが適切です */
 .admin-nav__list li a.is-current {
     color: var(--primary-color); /* 現在のページの色 */
 }
 
 /* メインコンテンツ調整 */
 .admin-main {
-    margin-top: 60px; /* ヘッダーの高さ分マージン */
+    /* admin.cssのmargin-top: 70px; に合わせる */
+    margin-top: 70px; /* admin.cssのPC時のメインコンテンツマージンに合わせる */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px; /* admin.cssにはpadding: 100px 0 80px; があるため、ここで調整 */
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -194,10 +149,6 @@ ul {
 .table-container {
     /* admin-table-section が overflow-x: auto を持つため、別途 table-container は不要だが、
        既存の構造を維持するため残し、スタイルは適用しない */
-    /* overflow-x: auto; */
-    /* background-color: var(--white); */
-    /* border-radius: 8px; */
-    /* padding: 20px; */
 }
 
 .data-table {
@@ -265,7 +216,7 @@ ul {
 /* フッター共通スタイル */
 .admin-footer {
     background-color: #eeeeee;
-    padding: 50px 0 30px;
+    padding: 50px 0 30px; /* この値はおつまみ側で調整済みなので維持 */
 }
 
 .admin-footer__inner {
@@ -287,6 +238,9 @@ ul {
 
 /* レスポンシブ対応 */
 @media (max-width: 1024px) {
+    .admin-main {
+        margin-top: 70px; /* PCと同じマージンを維持、admin.cssに倣う */
+    }
     .admin-page-title {
         margin-bottom: 60px;
     }
@@ -314,25 +268,8 @@ ul {
 }
 
 @media (max-width: 768px) {
-    .admin-header__inner {
-        height: 50px;
-    }
-    .admin-header__logo a {
-        font-size: 2rem;
-    }
-    .admin-header__nav .admin-nav__list {
-        gap: 15px;
-    }
-    .admin-header__nav .admin-nav__list li a {
-        font-size: 1.4rem;
-    }
     .admin-main {
-        margin-top: 50px;
-        padding: 15px;
-    }
-    .admin-main__inner {
-        margin: 15px auto;
-        padding: 0 5px;
+        margin-top: 0; /* admin.cssのスマホ時のマージンに合わせる */
     }
     .admin-page-title {
         margin-bottom: 40px;
@@ -364,25 +301,8 @@ ul {
 }
 
 @media (max-width: 480px) {
-    .admin-header__inner {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 15px;
-    }
-    .admin-header__logo {
-        margin-bottom: 10px;
-    }
-    .admin-header__nav .admin-nav__list {
-        justify-content: center;
-        width: 100%;
-        gap: 10px;
-    }
-    .admin-header__nav .admin-nav__list li {
-        flex-basis: 45%; /* 2列表示 */
-        text-align: center;
-    }
     .admin-main {
-        padding: 10px;
+        margin-top: 0; /* admin.cssのスマホ時のマージンに合わせる */
     }
     .admin-page-title .en {
         font-size: 2.8rem;
