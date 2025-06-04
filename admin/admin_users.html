@@ -3,61 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユーザー管理 | OUR BRAND 管理者ページ</title>
+    <title>OUR BRAND | ユーザー管理</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../admincss/admin.css">
     <link rel="stylesheet" href="../admincss/admin_users.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header__inner">
-            <h1 class="header__logo">
-                <a href="#">OUR BRAND 管理者ページ</a>
+    <header class="admin-header">
+        <div class="admin-header__inner">
+            <h1 class="admin-header__logo">
+                <a href="admin.html">OUR BRAND 管理者ページ</a>
             </h1>
-            <nav class="header__nav">
-                <ul class="nav__list">
-                    <li><a href="#">お酒管理</a></li>
-                    <li><a href="#">おつまみ管理</a></li>
-                    <li><a href="#">ユーザー管理</a></li>
-                    <li><a href="#">投稿管理</a></li>
-                    <li><a href="#">お問い合わせ管理</a></li>
-                    <li><a href="#">FAQ登録</a></li>
-                    <li><a href="#">通報管理</a></li>
+            <nav class="admin-header__nav">
+                <ul class="admin-nav__list">
+                    <li><a href="admin_products.html">お酒管理</a></li>
+                    <li><a href="admin_otsumami.html">おつまみ管理</a></li>
+                    <li><a href="admin_users.html" class="is-current">ユーザー管理</a></li>
+                    <li><a href="admin_posts.html">投稿管理</a></li>
+                    <li><a href="admin_inquiries.html">お問い合わせ管理</a></li>
+                    <li><a href="admin_faq.html">FAQ登録</a></li>
+                    <li><a href="admin_reports.html">通報管理</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="admin-container">
-            <h1 class="admin-page-title">
+    <main class="admin-main">
+        <div class="admin-main__inner">
+            <h2 class="admin-page-title">
                 <span class="en">USER MANAGEMENT</span>
                 <span class="ja">( ユーザー管理 )</span>
-            </h1>
+            </h2>
 
-            <section class="admin-table-section">
-                <table class="admin-table">
-                    <thead>
-                        <tr>
-                            <th>ユーザー名</th>
-                            <th>メールアドレス</th>
-                            <th>誕生日</th>
-                            <th>年齢</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody id="user-management-table-body">
+            <section class="admin-section admin-table-section">
+                <h3 class="admin-section-title">登録済みユーザーデータ一覧</h3>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ユーザー名</th>
+                                <th>メールアドレス</th>
+                                <th>誕生日</th>
+                                <th>年齢</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-management-table-body">
+                            <tr>
+                                <td>テストユーザー１</td>
+                                <td>test1@example.com</td>
+                                <td>1990/01/15</td>
+                                <td>35</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-sm btn-edit">編集</a>
+                                        <button class="btn btn-sm btn-delete">削除</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>テストユーザー２</td>
+                                <td>test2@example.com</td>
+                                <td>1985/05/20</td>
+                                <td>40</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="#" class="btn btn-sm btn-edit">編集</a>
+                                        <button class="btn btn-sm btn-delete">削除</button>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
-                </table>
+                    </table>
+                </div>
             </section>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer__inner">
-            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+    <footer class="admin-footer">
+        <div class="admin-footer__inner">
+            <p class="admin-footer__copyright">© OUR BRAND Admin All Rights Reserved.</p>
         </div>
     </footer>
 

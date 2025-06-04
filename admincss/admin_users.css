@@ -1,3 +1,9 @@
+/*
+ * admin_users.css
+ * ユーザー管理一覧ページ固有のスタイル
+ * ----------------------------------------
+ */
+
 /* base */
 html {
     font-size: 62.5%; /* 1rem = 10px */
@@ -45,19 +51,30 @@ ul {
     margin: 0;
 }
 
-/* common */
-/* .header に適用されていた max-width と margin: 0 auto; を削除 */
-/* これにより、.header 自体は常に画面幅いっぱいに広がる */
-.footer__inner {
-    width: 100%;
-    max-width: 1100px; /* PCでの最大幅 */
-    margin: 0 auto;
-    padding: 0 20px;
+/* 共通変数 */
+:root {
+    /* カラーパレット */
+    --primary-color: #A0522D; /* メインカラー (登録ボタンなど) */
+    --primary-dark-color: #8B4513; /* メインカラーの濃い色 (登録ボタンのボーダーなど) */
+    --edit-button-color: #5bc0de; /* 編集ボタンの水色 */
+    --delete-button-color: #d9534f; /* 削除ボタンの赤色 */
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --border-color-light: #eee;
+    --background-color-light: #f5f5f5;
+    --background-color-hover: #f9f9f9;
+    --white: #fff;
+
+    /* フォントサイズ */
+    --font-size-base: 1.6rem;
+    --font-size-button-sm: 1.4rem;
+    --font-size-button-lg: 2.6rem;
+    --font-size-icon-lg: 3.5rem;
 }
 
-/* header */
-.header {
-    background-color: #fff;
+/* ヘッダー共通スタイル */
+.admin-header {
+    background-color: var(--white);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     padding: 15px 0; /* 左右のパディングを0にして、innerで制御 */
     position: fixed;
@@ -67,7 +84,7 @@ ul {
     z-index: 999;
 }
 
-.header__inner {
+.admin-header__inner {
     display: flex;
     justify-content: space-between; /* ロゴとナビゲーションを左右に配置 */
     align-items: center;
@@ -78,34 +95,39 @@ ul {
     padding: 0 20px; /* innerの左右パディング */
 }
 
-.header__logo a {
+.admin-header__logo a {
     font-family: 'Zen Old Mincho', serif;
     font-size: 2.4rem;
     font-weight: bold;
-    color: #333;
+    color: var(--text-color-dark);
     white-space: nowrap; /* テキストが改行されないように */
 }
 
-.header__nav .nav__list {
+.admin-header__nav .admin-nav__list {
     display: flex; /* PC表示では常にフレックス表示 */
     gap: 20px; /* ナビゲーション間のスペース */
     flex-wrap: wrap; /* 画面幅が狭い場合に改行されるように */
     justify-content: flex-end; /* ナビゲーション項目を右寄せ */
 }
 
-.header__nav .nav__list li a {
+.admin-header__nav .admin-nav__list li a {
     font-size: 1.5rem;
     color: #555; /* ナビゲーションリンクの色 */
     transition: color 0.3s ease;
     white-space: nowrap; /* ナビゲーション項目が改行されないように */
 }
 
-.header__nav .nav__list li a:hover {
-    color: #000; /* ホバー時の色 */
+.admin-header__nav .admin-nav__list li a:hover {
+    color: var(--text-color-dark); /* ホバー時の色 */
 }
 
-/* main content adjustment */
-main {
+/* ヘッダーの現在のページ表示 */
+.admin-nav__list li a.is-current {
+    color: var(--primary-color); /* 現在のページの色 */
+}
+
+/* メインコンテンツ調整 */
+.admin-main {
     margin-top: 60px; /* ヘッダーの高さ分マージン */
     flex-grow: 1;
     display: flex;
@@ -116,14 +138,14 @@ main {
     overflow-y: auto;
 }
 
-/* Admin Page Specific Styles (Common for all admin pages) */
-.admin-container {
+.admin-main__inner {
     width: 100%;
     max-width: 1000px; /* Wider for admin table */
     margin: 20px auto;
     padding: 0 10px;
 }
 
+/* 管理ページタイトル */
 .admin-page-title {
     text-align: center;
     margin-bottom: 80px; /* PC時のタイトル下マージン */
@@ -160,69 +182,93 @@ main {
     bottom: 0;
 }
 
+/* データテーブルセクション */
 .admin-table-section {
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
     overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
 }
 
-.admin-table {
+.table-container {
+    /* admin-table-section が overflow-x: auto を持つため、別途 table-container は不要だが、
+       既存の構造を維持するため残し、スタイルは適用しない */
+    /* overflow-x: auto; */
+    /* background-color: var(--white); */
+    /* border-radius: 8px; */
+    /* padding: 20px; */
+}
+
+.data-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    min-width: 600px; /* テーブルが横にはみ出る場合にスクロール可能に */
 }
 
-.admin-table th,
-.admin-table td {
+.data-table th,
+.data-table td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #eee;
-    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border-color-light);
+    font-size: var(--font-size-base); /* 1.4remは共通のフォントサイズと異なるため調整 */
+    vertical-align: middle; /* セルの内容を中央に */
 }
 
-.admin-table th {
-    background-color: #f0f0f0;
+.data-table th {
+    background-color: var(--background-color-light);
     font-weight: 600;
-    color: #555;
+    color: var(--text-color-dark);
     white-space: nowrap; /* Prevent wrapping of table headers */
 }
 
-.admin-table tbody tr:hover {
-    background-color: #f5f5f5;
+.data-table tbody tr:hover {
+    background-color: var(--background-color-hover);
 }
 
-/* No specific post-content-cell for user table, but keeping it for consistency if needed */
-/* .admin-table .post-content-cell {
-    max-width: 300px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
+.data-table tbody tr:last-child td {
+    border-bottom: none; /* 最後の行の下線はなし */
+}
 
-.admin-table .delete-button {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 8px 12px;
+/* 操作ボタンをFlexboxで横並びにするためのスタイル */
+.action-buttons {
+    display: flex;
+    gap: 8px; /* ボタン間のスペース */
+    justify-content: center; /* ボタンを中央寄せ */
+    align-items: center; /* 垂直方向も中央寄せ */
+    white-space: nowrap; /* ボタンが折り返さないようにする */
+}
+
+/* テーブル内のボタン */
+.btn-sm {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: var(--font-size-button-sm);
     border: none;
     border-radius: 5px;
-    font-size: 1.3rem;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
     white-space: nowrap;
+    text-decoration: none; /* リンクボタンの下線を除去 */
 }
 
-.admin-table .delete-button:hover {
-    background-color: #c82333;
+.btn-edit {
+    background-color: var(--edit-button-color); /* 水色 */
+    color: var(--text-color-light);
 }
 
-/* footer */
-.footer {
+.btn-delete {
+    background-color: var(--delete-button-color); /* 赤色 */
+    color: var(--text-color-light);
+}
+
+/* フッター共通スタイル */
+.admin-footer {
     background-color: #eeeeee;
     padding: 50px 0 30px;
 }
 
-.footer__inner {
+.admin-footer__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -233,53 +279,127 @@ main {
     text-align: center;
 }
 
-.footer__nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.footer__nav li {
-    margin: 5px 15px;
-}
-
-.footer__nav li a {
-    font-size: 1.4rem;
-    color: #444;
-    transition: color 0.3s ease;
-}
-
-.footer__nav li a:hover {
-    color: #000;
-}
-
-/* SNSセクションのスタイル */
-.footer__sns {
-    margin-bottom: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.footer__sns a {
-    display: inline-block;
-}
-
-.footer__sns img {
-    width: 28px;
-    height: 28px;
-    transition: opacity 0.3s ease;
-}
-
-.footer__sns img:hover {
-    opacity: 0.7;
-}
-
-.footer__copyright {
+.admin-footer__copyright {
     font-size: 1.2rem;
     color: #666;
     width: 100%;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1024px) {
+    .admin-page-title {
+        margin-bottom: 60px;
+    }
+    .admin-page-title .en {
+        font-size: 4rem;
+    }
+    .admin-page-title .ja {
+        font-size: 2rem;
+    }
+    .admin-table-section {
+        padding: 15px;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 10px 12px;
+        font-size: 1.5rem;
+    }
+    .data-table {
+        min-width: 500px;
+    }
+    .btn-sm {
+        padding: 7px 12px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-header__inner {
+        height: 50px;
+    }
+    .admin-header__logo a {
+        font-size: 2rem;
+    }
+    .admin-header__nav .admin-nav__list {
+        gap: 15px;
+    }
+    .admin-header__nav .admin-nav__list li a {
+        font-size: 1.4rem;
+    }
+    .admin-main {
+        margin-top: 50px;
+        padding: 15px;
+    }
+    .admin-main__inner {
+        margin: 15px auto;
+        padding: 0 5px;
+    }
+    .admin-page-title {
+        margin-bottom: 40px;
+    }
+    .admin-page-title .en {
+        font-size: 3.2rem;
+    }
+    .admin-page-title .ja {
+        font-size: 1.8rem;
+    }
+    .admin-page-title .ja::after {
+        width: 50px;
+    }
+    .admin-table-section {
+        padding: 10px;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 8px 10px;
+        font-size: 1.4rem;
+    }
+    .data-table {
+        min-width: 400px;
+    }
+    .btn-sm {
+        padding: 6px 10px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-header__inner {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+    }
+    .admin-header__logo {
+        margin-bottom: 10px;
+    }
+    .admin-header__nav .admin-nav__list {
+        justify-content: center;
+        width: 100%;
+        gap: 10px;
+    }
+    .admin-header__nav .admin-nav__list li {
+        flex-basis: 45%; /* 2列表示 */
+        text-align: center;
+    }
+    .admin-main {
+        padding: 10px;
+    }
+    .admin-page-title .en {
+        font-size: 2.8rem;
+    }
+    .admin-page-title .ja {
+        font-size: 1.6rem;
+    }
+    .data-table {
+        min-width: 350px;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 6px 8px;
+        font-size: 1.3rem;
+    }
+    .btn-sm {
+        padding: 5px 8px;
+        font-size: 1.1rem;
+    }
 }
