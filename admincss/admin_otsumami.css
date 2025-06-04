@@ -10,17 +10,17 @@
 }
 
 .table-container {
-    overflow-x: auto; /* テーブルが横にはみ出る場合にスクロール可能に */
+    /* overflow-x: auto; */ /* 横スクロールを不要にするためコメントアウト */
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
 }
 
 .data-table {
-    width: 100%;
+    width: 100%; /* 親要素の幅に合わせて100%に */
     border-collapse: collapse; /* ボーダーの結合 */
     font-size: 1.6rem;
-    min-width: 950px; /* テーブルの最小幅を少し広めに設定し、はみ出したらスクロール */
+    min-width: unset; /* 最小幅の指定を解除して、100%幅で収まるようにする */
 }
 
 .data-table th,
@@ -32,44 +32,54 @@
     white-space: normal; /* セル内のテキストは必要に応じて改行を許可 */
 }
 
-/* 特定の列の幅を設定 (調整可能) */
+/* 各列の幅を設定 (横スクロールなしで収まるように調整) */
 .data-table th:nth-child(1), /* おつまみレシピ */
 .data-table td:nth-child(1) {
-    width: 25%; /* テキストが多いため広めに */
-    min-width: 180px;
+    width: 25%; /* テキスト量が多いので広め */
+    max-width: 250px; /* 必要に応じて最大幅を設定 */
 }
 .data-table th:nth-child(2), /* 合うお酒の種類 */
-.data-table td:nth-child(2),
+.data-table td:nth-child(2) {
+    width: 8%;
+    max-width: 100px;
+}
 .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
 .data-table td:nth-child(3) {
-    width: 12%;
-    min-width: 100px;
-}
-.data-table th:nth-child(4), /* 商品ID */
-.data-table td:nth-child(4) {
     width: 8%;
-    min-width: 70px;
+    max-width: 100px;
+}
+.data-table th:nth-child(4), /* お酒名 */
+.data-table td:nth-child(4) {
+    width: 10%;
+    max-width: 120px;
 }
 .data-table th:nth-child(5), /* おつまみ名 */
 .data-table td:nth-child(5) {
-    width: 15%;
-    min-width: 120px;
+    width: 10%;
+    max-width: 120px;
 }
-.data-table th:nth-child(6), /* おつまみ画像 */
-.data-table td:nth-child(6) {
-    width: 8%;
-    min-width: 80px; /* 画像のサイズに合わせる */
+.data-table th:nth-child(6), /* メイン画像 */
+.data-table td:nth-child(6),
+.data-table th:nth-child(7), /* サブ画像1 */
+.data-table td:nth-child(7),
+.data-table th:nth-child(8), /* サブ画像2 */
+.data-table td:nth-child(8),
+.data-table th:nth-child(9), /* サブ画像3 */
+.data-table td:nth-child(9) {
+    width: 4%; /* 画像は小さく表示し、極力幅を抑える */
+    min-width: 50px; /* 画像が潰れすぎない最小幅 */
     text-align: center; /* 画像を中央寄せ */
+    padding: 8px; /* 画像セルはパディングを少し小さく */
 }
-.data-table th:nth-child(7), /* おつまみリンク */
-.data-table td:nth-child(7) {
-    width: 8%;
-    min-width: 70px;
+.data-table th:nth-child(10), /* おつまみリンク */
+.data-table td:nth-child(10) {
+    width: 5%;
+    max-width: 80px;
 }
-.data-table th:nth-child(8), /* 操作 */
-.data-table td:nth-child(8) {
-    width: 12%; /* ボタン2つ分の幅を確保 */
-    min-width: 150px; /* 編集・削除ボタンが並ぶのに十分な幅 */
+.data-table th:nth-child(11), /* 操作 */
+.data-table td:nth-child(11) {
+    width: 8%; /* ボタン2つ分の幅を確保 */
+    min-width: 130px; /* 編集・削除ボタンが並ぶのに十分な幅 */
     white-space: nowrap; /* ボタンの列は改行させない */
     text-align: center; /* ボタン群をセル内で中央寄せ */
 }
@@ -189,10 +199,44 @@
         font-size: 3.0rem;
         margin-right: 12px;
     }
-    /* レスポンシブ時の操作列の幅調整 */
-    .data-table th:nth-child(8),
-    .data-table td:nth-child(8) {
-        min-width: 130px; /* ボタンが並ぶのに十分な幅 */
+    /* 各列の幅を調整 */
+    .data-table th:nth-child(1), /* おつまみレシピ */
+    .data-table td:nth-child(1) {
+        width: 25%;
+    }
+    .data-table th:nth-child(2), /* 合うお酒の種類 */
+    .data-table td:nth-child(2),
+    .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
+    .data-table td:nth-child(3) {
+        width: 8%;
+    }
+    .data-table th:nth-child(4), /* お酒名 */
+    .data-table td:nth-child(4) {
+        width: 10%;
+    }
+    .data-table th:nth-child(5), /* おつまみ名 */
+    .data-table td:nth-child(5) {
+        width: 10%;
+    }
+    .data-table th:nth-child(6), /* メイン画像 */
+    .data-table td:nth-child(6),
+    .data-table th:nth-child(7), /* サブ画像1 */
+    .data-table td:nth-child(7),
+    .data-table th:nth-child(8), /* サブ画像2 */
+    .data-table td:nth-child(8),
+    .data-table th:nth-child(9), /* サブ画像3 */
+    .data-table td:nth-child(9) {
+        width: 4%;
+        min-width: 40px; /* 小さい画面での最小幅 */
+    }
+    .data-table th:nth-child(10), /* おつまみリンク */
+    .data-table td:nth-child(10) {
+        width: 5%;
+    }
+    .data-table th:nth-child(11), /* 操作 */
+    .data-table td:nth-child(11) {
+        width: 8%;
+        min-width: 120px;
     }
 }
 
@@ -205,7 +249,7 @@
     }
     .data-table {
         font-size: 1.4rem;
-        min-width: 700px; /* スマホでも最低限の幅を確保 */
+        /* min-width を削除して幅をコンテンツに任せる */
     }
     .data-table th,
     .data-table td {
@@ -233,31 +277,50 @@
         font-size: 2.4rem;
         margin-right: 10px;
     }
-    /* レスポンシブ時の操作列の幅調整 */
-    .data-table th:nth-child(8),
-    .data-table td:nth-child(8) {
-        min-width: 120px; /* ボタンが並ぶのに十分な幅 */
-    }
     /* 各列の幅を相対的に調整 */
-    .data-table th:nth-child(1),
-    .data-table td:nth-child(1) { min-width: 150px; }
-    .data-table th:nth-child(2),
+    .data-table th:nth-child(1), /* おつまみレシピ */
+    .data-table td:nth-child(1) {
+        width: 28%; /* より多くのスペースを確保 */
+    }
+    .data-table th:nth-child(2), /* 合うお酒の種類 */
     .data-table td:nth-child(2),
-    .data-table th:nth-child(3),
-    .data-table td:nth-child(3) { min-width: 80px; }
-    .data-table th:nth-child(4),
-    .data-table td:nth-child(4) { min-width: 60px; }
-    .data-table th:nth-child(5),
-    .data-table td:nth-child(5) { min-width: 100px; }
-    .data-table th:nth-child(6),
-    .data-table td:nth-child(6) { min-width: 60px; }
-    .data-table th:nth-child(7),
-    .data-table td:nth-child(7) { min-width: 60px; }
+    .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
+    .data-table td:nth-child(3) {
+        width: 7%;
+    }
+    .data-table th:nth-child(4), /* お酒名 */
+    .data-table td:nth-child(4) {
+        width: 9%;
+    }
+    .data-table th:nth-child(5), /* おつまみ名 */
+    .data-table td:nth-child(5) {
+        width: 9%;
+    }
+    .data-table th:nth-child(6), /* メイン画像 */
+    .data-table td:nth-child(6),
+    .data-table th:nth-child(7), /* サブ画像1 */
+    .data-table td:nth-child(7),
+    .data-table th:nth-child(8), /* サブ画像2 */
+    .data-table td:nth-child(8),
+    .data-table th:nth-child(9), /* サブ画像3 */
+    .data-table td:nth-child(9) {
+        width: 4%;
+        min-width: 35px;
+    }
+    .data-table th:nth-child(10), /* おつまみリンク */
+    .data-table td:nth-child(10) {
+        width: 5%;
+    }
+    .data-table th:nth-child(11), /* 操作 */
+    .data-table td:nth-child(11) {
+        width: 8%;
+        min-width: 100px; /* ボタンが最低限並ぶ幅 */
+    }
 }
 
 @media (max-width: 480px) {
     .data-table {
-        min-width: 600px; /* さらに小さい画面でも最低限の幅を確保 */
+        /* min-width を削除 */
     }
     .btn-add-new {
         width: 90%;
@@ -269,24 +332,60 @@
         font-size: 2.2rem;
         margin-right: 8px;
     }
-    /* さらに小さい画面での操作列の幅調整 */
-    .data-table th:nth-child(8),
-    .data-table td:nth-child(8) {
-        min-width: 110px; /* ボタンが並ぶのに最低限の幅 */
+    /* 各列の幅をさらに調整 (より厳しく調整) */
+    .data-table th:nth-child(1), /* おつまみレシピ */
+    .data-table td:nth-child(1) {
+        width: 25%;
+        font-size: 1.3rem; /* 文字を小さく */
     }
-    /* 各列の幅をさらに調整 */
-    .data-table th:nth-child(1),
-    .data-table td:nth-child(1) { min-width: 120px; }
-    .data-table th:nth-child(2),
+    .data-table th:nth-child(2), /* 合うお酒の種類 */
     .data-table td:nth-child(2),
-    .data-table th:nth-child(3),
-    .data-table td:nth-child(3) { min-width: 70px; }
-    .data-table th:nth-child(4),
-    .data-table td:nth-child(4) { min-width: 50px; }
-    .data-table th:nth-child(5),
-    .data-table td:nth-child(5) { min-width: 80px; }
-    .data-table th:nth-child(6),
-    .data-table td:nth-child(6) { min-width: 50px; }
-    .data-table th:nth-child(7),
-    .data-table td:nth-child(7) { min-width: 50px; }
+    .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
+    .data-table td:nth-child(3) {
+        width: 7%;
+        font-size: 1.3rem;
+    }
+    .data-table th:nth-child(4), /* お酒名 */
+    .data-table td:nth-child(4) {
+        width: 9%;
+        font-size: 1.3rem;
+    }
+    .data-table th:nth-child(5), /* おつまみ名 */
+    .data-table td:nth-child(5) {
+        width: 9%;
+        font-size: 1.3rem;
+    }
+    .data-table th:nth-child(6), /* メイン画像 */
+    .data-table td:nth-child(6),
+    .data-table th:nth-child(7), /* サブ画像1 */
+    .data-table td:nth-child(7),
+    .data-table th:nth-child(8), /* サブ画像2 */
+    .data-table td:nth-child(8),
+    .data-table th:nth-child(9), /* サブ画像3 */
+    .data-table td:nth-child(9) {
+        width: 4%;
+        min-width: 30px; /* さらに小さく */
+        padding: 5px; /* パディングも小さく */
+    }
+    .product-thumb {
+        width: 30px;
+        height: 30px;
+    }
+    .data-table th:nth-child(10), /* おつまみリンク */
+    .data-table td:nth-child(10) {
+        width: 5%;
+        font-size: 1.3rem;
+    }
+    .data-table th:nth-child(11), /* 操作 */
+    .data-table td:nth-child(11) {
+        width: 8%;
+        min-width: 90px;
+    }
+    .btn-sm {
+        padding: 4px 8px;
+        font-size: 1.1rem;
+    }
+    .action-buttons {
+        gap: 4px; /* ボタン間のスペースを狭める */
+    }
 }
