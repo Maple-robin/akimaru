@@ -97,22 +97,49 @@ ul {
     z-index: 999;
 }
 .header__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Flexboxを有効にする */
+    justify-content: space-between; /* 子要素を両端に配置し、間にスペースを均等に分配 */
+    align-items: center; /* 垂直方向の中央揃え */
     height: 60px;
 }
-.header__logo a {
+.header__logo {
     font-family: 'Zen Old Mincho', serif;
     font-size: 2.4rem;
     font-weight: bold;
     color: #333;
+    flex-grow: 1; /* 残りのスペースを埋めるように拡張 */
+    text-align: center; /* ロゴのテキストを中央に寄せる */
+}
+.header__logo a {
+    color: #333;
+}
+
+/* ヘッダーナビゲーションのスタイル */
+.header__nav {
+    display: flex; /* ナビゲーションリストとアイコンを横並びにする */
+    align-items: center;
+    gap: 15px; /* アイコンとPCナビ間のスペース */
 }
 .header__nav .nav__list {
-    display: none;
+    display: none; /* デフォルトで非表示 (スマホ用) */
 }
+/* ヘッダーアイコンのコンテナ */
+.header__icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* アイコン間のスペース */
+}
+.header__icon-link {
+    color: #333;
+    font-size: 2.0rem; /* アイコンサイズを調整 */
+    transition: color 0.3s ease;
+}
+.header__icon-link:hover {
+    color: #A0522D; /* ホバー時の色 */
+}
+
 .hamburger-menu {
-    display: block;
+    display: block; /* デフォルトで表示 (スマホ用) */
     background: none;
     border: none;
     cursor: pointer;
@@ -151,8 +178,10 @@ ul {
 ----------------------------------------*/
 .sp-menu {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100vh;
+    top: 0; /* Changed from right:0 to left:0 */
+    left: 0; /* Changed from right:0 to left:0 */
+    width: 100%;
+    height: 100vh;
     background-color: rgba(255,255,255,0.95);
     z-index: 990;
     display: flex;
@@ -161,7 +190,7 @@ ul {
     visibility: hidden;
     opacity: 0;
     transition: all 0.4s ease;
-    transform: translateX(100%);
+    transform: translateX(-100%); /* Leftからスライドインするように変更 */
     padding: 110px 0 20px;
 }
 .sp-menu.is-active {
@@ -268,7 +297,7 @@ ul {
     padding-top: 15px;
 }
 .sp-menu__sub-list.is-open {
-    max-height: 200px;
+    max-height: 200px; /* 必要に応じて調整 */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -527,13 +556,17 @@ ul {
     .section-title .en { font-size: 4.8rem; }
     .section-title .ja { font-size: 2.2rem; }
     .section-title .ja::after { width: 60px; }
+
     .header__nav .nav__list {
-        display: flex;
+        display: flex; /* PCではナビゲーションリストを表示 */
         gap: 40px;
     }
-    .header__nav .nav__list li a { font-size: 1.5rem; }
-    .hamburger-menu { display: none; }
-    .sp-menu { display: none; }
+    .header__icons {
+        display: flex; /* PCでもアイコンを表示 */
+        gap: 25px;
+    }
+    .hamburger-menu { display: none; } /* PCではハンバーガーメニューを非表示 */
+    .sp-menu { display: none; } /* PCではスマホメニューを非表示 */
     .main-visual { height: 80vh; }
     .products { padding: 120px 0; }
     .products .swiper {
@@ -561,6 +594,8 @@ ul {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
+    /* スマホ版では、header__innerのFlexboxによって自動的に配置されるため、
+       明示的なorderプロパティは不要になりました。 */
 }
 
 /* 商品名・価格・タグを同じ位置で左揃えに */

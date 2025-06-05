@@ -93,3 +93,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // cart.htmlでscript.jsを読み込むことで動作します。
     // ここではcart.js固有のロジックのみを記述します。
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const checkoutBtn = document.querySelector('.btn-checkout');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'checkout.html';
+        });
+    }
+});
