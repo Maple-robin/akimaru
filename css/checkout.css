@@ -1,0 +1,903 @@
+/*
+ * checkout.css (決済ページ固有のスタイル)
+ * ----------------------------------------
+ */
+
+/* ベーススタイル */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* 全体の背景色を少し薄めに */
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px; /* ベースフォントサイズを小さく */
+}
+
+a {
+    color: #A0522D; /* ブランドカラーのリンク */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* ヘッダー */
+.header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header__logo {
+    font-size: 2.2rem; /* 2.4rem から調整 */
+    font-weight: 700;
+    margin: 0;
+}
+
+.header__logo a {
+    color: #333;
+}
+
+/* メインコンテナ */
+.checkout-main {
+    padding: 0; /* モバイルでは上部に余白なし */
+}
+
+.checkout-container {
+    max-width: 100%; /* モバイルでは画面幅いっぱいに */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* スマートフォンでは縦並び */
+    gap: 0; /* セクション間の余白は各セクションで管理 */
+    padding: 0; /* 左右の余白は各セクションで管理 */
+}
+
+/* セクションタイトル */
+.section-title {
+    font-size: 2rem; /* 2.2rem から調整 */
+    font-weight: 500;
+    margin-bottom: 30px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.section-title-alt { /* 注文概要のタイトル */
+    font-size: 1.8rem; /* 2rem から調整 */
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee; /* 画像に合わせて追加 */
+}
+
+/* 決済フォームセクション */
+.checkout-form-section {
+    background-color: #fff;
+    padding: 20px; /* モバイルのパディング調整 */
+    border-radius: 0; /* 角丸なし */
+    box-shadow: none; /* シャドウなし */
+    flex: 1;
+}
+
+/* エクスプレスチェックアウト */
+.express-checkout {
+    margin-bottom: 25px; /* 余白調整 */
+    padding-bottom: 25px; /* 下部にボーダーの代わりのパディング */
+    border-bottom: 1px solid #eee; /* 画像に合わせたボーダー */
+}
+
+.express-checkout h3 {
+    font-size: 1.4rem; /* 1.5rem から調整 */
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-align: center; /* 中央寄せ */
+}
+
+.express-buttons {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.express-button {
+    width: 100%; /* 幅いっぱい */
+    padding: 12px 18px; /* パディングを増やす */
+    border-radius: 8px; /* 角丸を増やす */
+    font-size: 1.4rem; /* 大きめに */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* シャドウを追加 */
+}
+
+.express-button.shop-pay {
+    background-color: #5a31f4;
+    color: #fff;
+    border-color: #5a31f4;
+}
+.express-button.shop-pay:hover {
+    background-color: #4a28d1;
+}
+
+.express-button.paypal {
+    background-color: #fff; /* 背景を白に */
+    color: #0070ba; /* 文字色をPayPalカラーに */
+    border-color: #0070ba; /* ボーダー色をPayPalカラーに */
+}
+.express-button.paypal:hover {
+    background-color: #f0f0f0;
+}
+
+.express-button.gpay {
+    background-color: #fff;
+    color: #333;
+    border-color: #ccc;
+}
+.express-button.gpay:hover {
+    background-color: #f0f0f0;
+}
+
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ddd;
+    z-index: 0;
+}
+
+.divider-text {
+    background-color: #fff;
+    padding: 0 10px;
+    position: relative;
+    z-index: 1;
+    font-size: 1.2rem; /* 1.4rem から調整 */
+    color: #666;
+}
+
+/* 各セクションのヘッダー */
+.contact-info, .delivery-address, .shipping-method, .payment-method, .save-info-section {
+    padding-top: 25px; /* 上部に余白 */
+    padding-bottom: 25px; /* 下部に余白 */
+    border-bottom: 1px solid #eee; /* 下線 */
+}
+.checkout-form-section > div:last-of-type { /* 最後のセクションの下線はなし */
+    border-bottom: none;
+}
+
+.contact-info h3, .delivery-address h3, .shipping-method h3, .payment-method h3, .save-info-section h3 {
+    font-size: 1.5rem; /* 1.6rem から調整 */
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.section-header-with-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 15px;
+}
+
+.login-link {
+    font-size: 1.3rem; /* 1.4rem から調整 */
+}
+
+
+/* フォームグループ共通 */
+.form-group {
+    margin-bottom: 15px;
+    position: relative; /* アイコン配置用 */
+}
+
+.form-group label.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.form-group input[type="email"],
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group select {
+    width: 100%;
+    padding: 12px 10px; /* パディング調整 */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.4rem; /* 1.6rem から調整 */
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    color: #333;
+}
+
+.form-group select {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7.41%208.59L12%2013.17l4.59-4.58L18%2010l-6%206-6-6z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* アイコン位置調整 */
+    background-size: 14px; /* サイズ調整 */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #A0522D;
+    box-shadow: 0 0 0 2px rgba(160, 82, 45, 0.2);
+}
+
+.form-row {
+    display: flex;
+    gap: 15px; /* 横並びの隙間 */
+    margin-bottom: 15px;
+}
+
+.form-row .half-width, .form-row .third-width {
+    flex: 1; /* 等しい幅 */
+}
+
+/* inputの右側アイコン */
+.input-icon-right {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.2rem; /* 1.4rem から調整 */
+}
+
+/* 携帯電話のヘルプアイコン */
+.form-group .help-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%; /* inputの高さにもよるので調整 */
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.2rem; /* 1.4rem から調整 */
+    cursor: pointer;
+}
+
+/* チェックボックス */
+.checkbox-group, .shipping-option, .billing-address-option, .payment-option-paypal, .payment-option-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem; /* 1.5rem から調整 */
+    color: #555;
+    cursor: pointer;
+    position: relative; /* PayPalロゴ配置用 */
+}
+
+.checkbox-group input[type="checkbox"],
+.shipping-option input[type="radio"],
+.billing-address-option input[type="checkbox"],
+.payment-option-paypal input[type="radio"],
+.payment-option-header input[type="radio"] {
+    margin-right: 8px; /* マージン調整 */
+    transform: scale(1.1); /* サイズ調整 */
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* 配送方法 */
+.shipping-method {
+    margin-bottom: 0; /* 各セクションでパディング管理のため */
+}
+
+.shipping-info-placeholder {
+    font-size: 1.3rem; /* 1.4rem から調整 */
+    color: #666;
+    text-align: center;
+    padding: 15px; /* パディング調整 */
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* 支払い方法 */
+.payment-method {
+    margin-bottom: 0;
+}
+
+.payment-note {
+    font-size: 1.2rem; /* 1.3rem から調整 */
+    color: #666;
+    margin-bottom: 15px; /* マージン調整 */
+}
+
+.payment-card-form {
+    background-color: #f8f8f8; /* カードフォームの背景色 */
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden; /* 子要素の角丸に影響しないように */
+}
+
+.payment-option-header {
+    padding: 12px 18px; /* パディング調整 */
+    background-color: #fff;
+    border-bottom: 1px solid #eee; /* 区切り線 */
+    font-weight: 500;
+    justify-content: space-between;
+}
+
+.payment-option-header label {
+    flex-grow: 1; /* ラベルがスペースを占める */
+}
+
+.card-icons {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Gap調整 */
+}
+.card-icons i {
+    font-size: 1.8rem; /* 2rem から調整 */
+    color: #666;
+}
+.card-icons span {
+    font-size: 1.2rem; /* 1.3rem から調整 */
+    color: #666;
+}
+
+.card-form-details {
+    padding: 18px; /* フォームのパディング調整 */
+}
+
+/* 有効期限とセキュリティコードを縦並びにするための追加スタイル */
+.payment-card-form .card-form-details .form-row {
+    flex-direction: column; /* 縦並びにする */
+    gap: 0; /* 縦並びになったのでgapをリセット */
+}
+
+.payment-card-form .card-form-details .form-row .form-group.half-width {
+    width: 100%; /* 幅を100%にする */
+    flex: none; /* flexの継承を解除 */
+    margin-bottom: 12px; /* 各フォームグループ間のマージン調整 */
+}
+
+/* 最後のフォームグループの下マージンは不要 */
+.payment-card-form .card-form-details .form-row .form-group.half-width:last-child {
+    margin-bottom: 0;
+}
+
+
+.payment-option-paypal {
+    position: relative;
+    min-height: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    flex-direction: row;
+    background: #fff;
+    border: 1px solid #0070ba;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    width: fit-content;         /* ボタンの幅を内容に合わせる */
+    max-width: 340px;
+    margin: 0 auto 16px auto;
+    overflow: hidden;
+    gap: 12px;                  /* ロゴとテキストの間隔 */
+}
+
+.paypal-label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-left: 0;
+    line-height: 1;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.paypal-logo {
+    height: 100px;         /* ロゴだけ大きく */
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+    flex-shrink: 0;
+    pointer-events: none;
+    z-index: 2;
+    position: relative;
+    top: 0;
+    right: 0;
+    max-width: 100px;
+    object-fit: contain;
+}
+.billing-address-fields.hidden {
+    display: none;
+}
+
+.billing-address-fields h4 {
+    font-size: 1.4rem; /* 1.5rem から調整 */
+    font-weight: 500;
+    margin-top: 15px; /* マージン調整 */
+    margin-bottom: 12px; /* マージン調整 */
+}
+
+/* 情報保存セクション */
+.save-info-section {
+    padding-top: 20px; /* パディング調整 */
+    padding-bottom: 20px; /* パディング調整 */
+    border-bottom: 1px solid #eee;
+}
+
+.phone-save-group {
+    margin-top: 12px; /* マージン調整 */
+}
+
+.phone-input-with-prefix {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.phone-input-with-prefix .country-code {
+    background-color: #f8f8f8;
+    padding: 12px 10px; /* パディング調整 */
+    font-size: 1.4rem; /* 1.6rem から調整 */
+    border-right: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.phone-input-with-prefix input {
+    border: none;
+    flex-grow: 1;
+    padding: 12px 10px; /* パディング調整 */
+}
+
+.security-info {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Gap調整 */
+    font-size: 1.2rem; /* 1.3rem から調整 */
+    color: #666;
+    margin-top: 12px; /* マージン調整 */
+}
+
+.security-info i {
+    color: #888;
+}
+
+.shop-logo-small {
+    font-size: 1.3rem; /* 1.4rem から調整 */
+    font-weight: bold;
+    color: #5a31f4; /* Shop Payのロゴ色 */
+    text-transform: lowercase;
+}
+
+
+/* 決済アクション */
+.checkout-actions {
+    display: flex;
+    flex-direction: column-reverse; /* ボタンが下、戻るリンクが上 */
+    gap: 10px; /* Gap調整 */
+    margin-top: 25px; /* マージン調整 */
+}
+
+.link-back-to-cart {
+    font-size: 1.4rem; /* 1.5rem から調整 */
+    color: #A0522D;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 中央寄せ */
+}
+
+.link-back-to-cart i {
+    margin-right: 6px; /* マージン調整 */
+    font-size: 1.2rem; /* 1.3rem から調整 */
+}
+
+.button-primary {
+    background-color: #127ed7; /* 画像の青色のボタン */
+    color: #fff;
+    padding: 15px 20px; /* 大きめに */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.6rem; /* 1.8rem から調整 */
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%; /* 幅いっぱい */
+}
+
+.button-primary:hover {
+    background-color: #0e6bbd;
+}
+
+/* 注文概要セクション (モバイル上部/PC右側) */
+.order-summary-section {
+    background-color: #f8f8f8; /* 背景色 */
+    /* モバイルではシャドウなし、PCではシャドウあり */
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.order-summary-section.mobile-only {
+    /* モバイルのみに適用 */
+    padding: 0;
+    border-bottom: 1px solid #eee; /* ヘッダーとの区切り線 */
+}
+
+.order-summary-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 18px; /* パディング調整 */
+    background-color: #e0e0e0; /* モバイルヘッダーの背景色 */
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.5rem; /* 1.6rem から調整 */
+    font-weight: 500;
+    cursor: pointer;
+    color: #333;
+}
+
+.order-summary-toggle .toggle-text {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Gap調整 */
+}
+
+.order-summary-toggle .toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.order-summary-toggle.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.order-summary-toggle .total-price-mobile {
+    font-weight: bold;
+    color: #333;
+}
+
+.order-summary-content {
+    padding: 18px; /* パディング調整 */
+    background-color: #f8f8f8; /* 展開時の背景色 */
+    /* 追加: 内容がはみ出さないように */
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden; /* 横方向のはみ出しを隠す */
+}
+
+.order-summary-content.hidden {
+    display: none;
+}
+
+.order-summary-section .section-title-alt {
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 12px; /* パディング調整 */
+    margin-bottom: 18px; /* マージン調整 */
+}
+
+.product-list {
+    margin-bottom: 18px; /* マージン調整 */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px; /* パディング調整 */
+}
+
+.order-product-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px; /* マージン調整 */
+    gap: 12px; /* Gap調整 */
+}
+
+.order-product-item__image {
+    flex-shrink: 0;
+    width: 50px; /* 画像サイズ調整 */
+    height: 50px; /* 画像サイズ調整 */
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    position: relative; /* 数量バッジのため */
+}
+
+.order-product-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-product-item__quantity-badge {
+    position: absolute;
+    top: -6px; /* 位置調整 */
+    right: -6px; /* 位置調整 */
+    background-color: #666;
+    color: #fff;
+    font-size: 1rem; /* 1.1rem から調整 */
+    width: 18px; /* サイズ調整 */
+    height: 18px; /* サイズ調整 */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.order-product-item__details {
+    flex-grow: 1;
+}
+
+.order-product-item__name {
+    font-size: 1.4rem; /* 1.5rem から調整 */
+    font-weight: 500;
+    margin-bottom: 4px; /* マージン調整 */
+}
+
+.order-product-item__volume {
+    font-size: 1.2rem; /* 1.3rem から調整 */
+    color: #666;
+}
+
+.order-product-item__price {
+    font-size: 1.4rem; /* 1.5rem から調整 */
+    font-weight: bold;
+    text-align: right;
+    flex-shrink: 0; /* 価格が縮まないように */
+}
+
+/* 割引コード */
+.discount-code {
+    display: flex;
+    gap: 8px; /* Gap調整 */
+    margin-bottom: 18px; /* マージン調整 */
+}
+
+.discount-code input {
+    flex-grow: 1;
+    min-width: 0; /* 追加: フレックスアイテムが内容より小さくなることを許可 */
+    padding: 10px; /* パディング調整 */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.4rem; /* 1.6rem から調整 */
+}
+
+.discount-code button {
+    flex-shrink: 0; /* 追加: ボタンが縮まないようにする */
+    background-color: #666;
+    color: #fff;
+    padding: 10px 18px; /* パディング調整 */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem; /* 1.6rem から調整 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.discount-code button:hover {
+    background-color: #555;
+}
+
+/* 価格内訳 */
+.price-breakdown {
+    padding-top: 12px; /* パディング調整 */
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px; /* マージン調整 */
+    font-size: 1.5rem; /* 1.6rem から調整 */
+    color: #555;
+}
+
+.price-item span:last-child {
+    font-weight: 500;
+    color: #333;
+}
+
+.total-price-item {
+    font-size: 1.8rem; /* 2rem から調整 */
+    font-weight: bold;
+    color: #333;
+    margin-top: 18px; /* マージン調整 */
+    padding-top: 12px; /* パディング調整 */
+    border-top: 1px solid #ddd;
+}
+
+.total-price-item span:last-child {
+    font-size: 2rem; /* 2.2rem から調整 */
+}
+
+.tax-info-summary {
+    font-size: 1.2rem; /* 1.3rem から調整 */
+    color: #666;
+    text-align: right;
+    margin-top: 8px; /* マージン調整 */
+}
+
+/* フッター */
+.footer {
+    background-color: #f5f5f5; /* 背景色 */
+    color: #666; /* 文字色 */
+    padding: 18px 0; /* パディング調整 */
+    text-align: center;
+    font-size: 1.3rem; /* 1.4rem から調整 */
+    border-top: 1px solid #eee; /* 上線 */
+}
+
+.footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer__nav {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px 0; /* マージン調整 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px; /* Gap調整 */
+}
+
+.footer__nav li a {
+    color: #666; /* フッターリンク色 */
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.footer__nav li a:hover {
+    opacity: 1;
+}
+
+.footer__copyright {
+    font-size: 1.2rem; /* 1.3rem から調整 */
+    opacity: 0.8;
+}
+
+/* モバイルとPCでの表示制御 */
+.mobile-only {
+    display: block; /* モバイルでは表示 */
+}
+
+.pc-only {
+    display: none; /* モバイルでは非表示 */
+}
+
+
+/* レスポンシブデザイン */
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    .checkout-main {
+        padding: 30px 0; /* PCでは上部に余白調整 */
+    }
+    .checkout-container {
+        flex-direction: row; /* PCでは横並び */
+        gap: 30px; /* Gap調整 */
+        max-width: 900px; /* PCでは最大幅調整 */
+        padding: 0 15px; /* PCでは左右に余白調整 */
+    }
+
+    .checkout-form-section {
+        flex: 3; /* フォームセクションを広く */
+        padding: 30px; /* パディング調整 */
+        border-radius: 8px; /* 角丸あり */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* シャドウあり */
+    }
+
+    /* PC用の注文概要セクション */
+    .order-summary-section.pc-only {
+        flex: 2; /* 注文概要セクションを狭く */
+        padding: 30px; /* パディング調整 */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* シャドウあり */
+        border-radius: 8px; /* 角丸あり */
+        display: block; /* PCでは表示 */
+        background-color: #f8f8f8; /* 背景色 */
+    }
+
+    /* モバイル用の注文概要セクションはPCで非表示 */
+    .order-summary-section.mobile-only {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2.4rem; /* 2.8rem から調整 */
+    }
+
+    .section-title-alt {
+        font-size: 2rem; /* 2.2rem から調整 */
+    }
+
+    .express-buttons {
+        flex-direction: row; /* PCではボタンを横並び */
+        flex-wrap: nowrap; /* PCではボタンを折り返さない */
+        gap: 8px; /* Gap調整 */
+    }
+
+    .express-button {
+        flex: 1 1 0%; /* 等しい幅に */
+        width: auto; /* width:100%を上書き */
+    }
+
+    .form-row {
+        gap: 15px; /* Gap調整 */
+    }
+
+    .checkout-actions {
+        flex-direction: row; /* PCでは横並び */
+        justify-content: space-between;
+    }
+
+    .link-back-to-cart {
+        justify-content: flex-start; /* 左寄せに戻す */
+    }
+
+    .button-primary {
+        width: auto; /* 幅を自動調整 */
+    }
+
+    /* 各セクションの下線はPCでは不要（セクション全体にシャドウがあるため） */
+    .contact-info, .delivery-address, .shipping-method, .payment-method, .save-info-section {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+
+    /* ただし、区切り線は必要 */
+    .contact-info, .delivery-address, .shipping-method, .payment-method {
+        padding-bottom: 20px; /* パディング調整 */
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px; /* 下に余白調整 */
+    }
+
+    .payment-method {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    .save-info-section {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .order-summary-footer-mobile {
+        display: none; /* PCではモバイル用フッターを非表示 */
+    }
+
+    .footer {
+        background-color: #333; /* PCフッターの背景色 */
+        color: #fff; /* PCフッターの文字色 */
+        border-top: none;
+    }
+    .footer__nav li a {
+        color: #fff;
+    }
+}
