@@ -6,57 +6,57 @@
 
 /* データ一覧テーブル */
 .admin-otsumami-list {
-    margin-top: 40px; /* ページタイトルとの間隔 */
+    margin-top: 50px; /* ページタイトルとの間隔を少し広げる */
 }
 
 .table-container {
-    /* overflow-x: auto; */ /* 横スクロールを不要にするためコメントアウト */
+    /* overflow-x: auto; */
     background-color: #fff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 30px; /* テーブルコンテナのパディングを広げる */
 }
 
 .data-table {
-    width: 100%; /* 親要素の幅に合わせて100%に */
-    border-collapse: collapse; /* ボーダーの結合 */
+    width: 100%;
+    border-collapse: collapse;
     font-size: 1.6rem;
-    min-width: unset; /* 最小幅の指定を解除して、100%幅で収まるようにする */
+    min-width: unset;
 }
 
 .data-table th,
 .data-table td {
-    padding: 15px;
+    padding: 18px 15px; /* セルの上下パディングを広げる */
     border-bottom: 1px solid #eee;
     text-align: left;
-    vertical-align: middle; /* セルの内容を中央に */
-    white-space: normal; /* セル内のテキストは必要に応じて改行を許可 */
+    vertical-align: middle;
+    white-space: normal;
 }
 
 /* 各列の幅を設定 (横スクロールなしで収まるように調整) */
 .data-table th:nth-child(1), /* おつまみレシピ */
 .data-table td:nth-child(1) {
-    width: 25%; /* テキスト量が多いので広め */
-    max-width: 250px; /* 必要に応じて最大幅を設定 */
+    width: 25%;
+    max-width: 300px;
 }
 .data-table th:nth-child(2), /* 合うお酒の種類 */
 .data-table td:nth-child(2) {
     width: 8%;
-    max-width: 100px;
+    max-width: 120px;
 }
 .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
 .data-table td:nth-child(3) {
-    width: 8%;
-    max-width: 100px;
+    width: 10%;
+    max-width: 150px;
 }
 .data-table th:nth-child(4), /* お酒名 */
 .data-table td:nth-child(4) {
     width: 10%;
-    max-width: 120px;
+    max-width: 150px;
 }
 .data-table th:nth-child(5), /* おつまみ名 */
 .data-table td:nth-child(5) {
-    width: 10%;
-    max-width: 120px;
+    width: 12%;
+    max-width: 180px;
 }
 .data-table th:nth-child(6), /* メイン画像 */
 .data-table td:nth-child(6),
@@ -66,10 +66,10 @@
 .data-table td:nth-child(8),
 .data-table th:nth-child(9), /* サブ画像3 */
 .data-table td:nth-child(9) {
-    width: 4%; /* 画像は小さく表示し、極力幅を抑える */
-    min-width: 50px; /* 画像が潰れすぎない最小幅 */
-    text-align: center; /* 画像を中央寄せ */
-    padding: 8px; /* 画像セルはパディングを少し小さく */
+    width: 3%;
+    min-width: 40px;
+    text-align: center;
+    padding: 10px 8px; /* 画像セルのパディングを調整 */
 }
 .data-table th:nth-child(10), /* おつまみリンク */
 .data-table td:nth-child(10) {
@@ -78,10 +78,10 @@
 }
 .data-table th:nth-child(11), /* 操作 */
 .data-table td:nth-child(11) {
-    width: 8%; /* ボタン2つ分の幅を確保 */
-    min-width: 130px; /* 編集・削除ボタンが並ぶのに十分な幅 */
-    white-space: nowrap; /* ボタンの列は改行させない */
-    text-align: center; /* ボタン群をセル内で中央寄せ */
+    width: 8%;
+    min-width: 130px;
+    white-space: nowrap;
+    text-align: center;
 }
 
 
@@ -89,54 +89,53 @@
     background-color: #f5f5f5;
     font-weight: 600;
     color: #333;
-    white-space: nowrap; /* ヘッダーのテキストが改行されないように */
+    white-space: nowrap;
 }
 
 .data-table tbody tr:last-child td {
-    border-bottom: none; /* 最後の行の下線はなし */
+    border-bottom: none;
 }
 
 .data-table tbody tr:hover {
-    background-color: #f9f9f9; /* ホバー時の背景色 */
+    background-color: #f9f9f9;
 }
 
 .product-thumb {
     width: 60px;
     height: 60px;
-    object-fit: cover; /* 画像の表示方法 */
+    object-fit: cover;
     border-radius: 4px;
     border: 1px solid #eee;
 }
 
 /* 操作ボタンをFlexboxで横並びにするためのスタイル */
 .action-buttons {
-    display: flex; /* Flexコンテナにする */
-    gap: 8px; /* ボタン間のスペース */
-    justify-content: center; /* ボタンを中央寄せ */
-    align-items: center; /* 垂直方向も中央寄せ */
-    flex-wrap: nowrap; /* ボタンが折り返さないようにする */
+    display: flex;
+    gap: 12px; /* ボタン間のスペースを広げる */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 
 /* テーブル内のボタン */
 .btn-sm {
-    display: inline-block; /* Flexアイテムなのでこれは必須ではないが、念のため残す */
-    padding: 8px 15px;
-    font-size: 1.4rem;
+    display: inline-block;
+    padding: 10px 18px; /* ボタンのパディングを広げる */
+    font-size: 1.5rem; /* ボタンのフォントサイズを少し大きく */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    white-space: nowrap; /* ボタンテキストの改行防止 */
-    /* margin: 0 4px; Flexboxのgapで間隔を管理するので不要 */
+    white-space: nowrap;
 }
 
 .btn-edit {
-    background-color: #5bc0de; /* 水色 */
+    background-color: #5bc0de;
     color: #fff;
 }
 
 .btn-delete {
-    background-color: #d9534f; /* 赤色 */
+    background-color: #d9534f;
     color: #fff;
 }
 
@@ -144,46 +143,46 @@
 /* 新しいおつまみを登録するボタンエリア */
 .add-otsumami-button-area {
     text-align: center;
-    margin-top: 60px; /* 一覧との間隔 */
-    margin-bottom: 40px; /* フッターとの間隔 */
+    margin-top: 80px; /* 一覧との間隔をさらに広げる */
+    margin-bottom: 60px; /* フッターとの間隔を広げる */
 }
 
 /* 新しいおつまみ登録ボタンのスタイル (影・エフェクトなし) */
 .btn-add-new {
     display: inline-flex;
     align-items: center;
-    justify-content: center; /* 中央寄せ */
-    padding: 20px 50px; /* パディングを大きく */
-    font-size: 2.6rem; /* フォントサイズを大きく */
+    justify-content: center;
+    padding: 25px 60px; /* パディングをさらに大きく */
+    font-size: 2.8rem; /* フォントサイズを大きく */
     font-weight: bold;
-    background-color: #A0522D; /* メインカラー */
+    background-color: #A0522D;
     color: #fff;
-    border: 3px solid #8B4513; /* 太いボーダーでボタンらしさを強調 */
-    border-radius: 8px; /* 角丸は残しつつ自然に */
+    border: 3px solid #8B4513;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 .btn-icon {
-    font-size: 3.5rem; /* アイコンのサイズを大きく */
-    margin-right: 15px; /* アイコンとテキストの間隔を広げる */
+    font-size: 4.0rem; /* アイコンのサイズを大きく */
+    margin-right: 20px; /* アイコンとテキストの間隔を広げる */
     line-height: 1;
 }
 
 
 /* ヘッダーの現在のページ表示 */
 .admin-nav__list li a.is-current {
-    color: #A0522D; /* 現在のページの色 */
+    color: #A0522D;
 }
 
 
 /* レスポンシブ対応 */
 @media (max-width: 1024px) {
     .table-container {
-        padding: 15px;
+        padding: 20px; /* パディングを調整 */
     }
     .data-table th,
     .data-table td {
-        padding: 12px;
+        padding: 15px 12px; /* パディングを調整 */
         font-size: 1.5rem;
     }
     .product-thumb {
@@ -191,137 +190,144 @@
         height: 50px;
     }
     .btn-add-new {
-        padding: 18px 40px;
-        font-size: 2.2rem;
-        border-radius: 6px;
+        padding: 20px 50px;
+        font-size: 2.4rem;
     }
     .btn-icon {
-        font-size: 3.0rem;
-        margin-right: 12px;
+        font-size: 3.5rem;
+        margin-right: 15px;
     }
     /* 各列の幅を調整 */
-    .data-table th:nth-child(1), /* おつまみレシピ */
+    .data-table th:nth-child(1),
     .data-table td:nth-child(1) {
         width: 25%;
     }
-    .data-table th:nth-child(2), /* 合うお酒の種類 */
-    .data-table td:nth-child(2),
-    .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
-    .data-table td:nth-child(3) {
+    .data-table th:nth-child(2),
+    .data-table td:nth-child(2) {
         width: 8%;
     }
-    .data-table th:nth-child(4), /* お酒名 */
+    .data-table th:nth-child(3),
+    .data-table td:nth-child(3) {
+        width: 10%;
+    }
+    .data-table th:nth-child(4),
     .data-table td:nth-child(4) {
         width: 10%;
     }
-    .data-table th:nth-child(5), /* おつまみ名 */
+    .data-table th:nth-child(5),
     .data-table td:nth-child(5) {
-        width: 10%;
+        width: 12%;
     }
-    .data-table th:nth-child(6), /* メイン画像 */
+    .data-table th:nth-child(6),
     .data-table td:nth-child(6),
-    .data-table th:nth-child(7), /* サブ画像1 */
+    .data-table th:nth-child(7),
     .data-table td:nth-child(7),
-    .data-table th:nth-child(8), /* サブ画像2 */
+    .data-table th:nth-child(8),
     .data-table td:nth-child(8),
-    .data-table th:nth-child(9), /* サブ画像3 */
+    .data-table th:nth-child(9),
     .data-table td:nth-child(9) {
-        width: 4%;
-        min-width: 40px; /* 小さい画面での最小幅 */
+        width: 3%;
+        min-width: 35px;
+        padding: 10px 5px; /* パディングを調整 */
     }
-    .data-table th:nth-child(10), /* おつまみリンク */
+    .data-table th:nth-child(10),
     .data-table td:nth-child(10) {
         width: 5%;
     }
-    .data-table th:nth-child(11), /* 操作 */
+    .data-table th:nth-child(11),
     .data-table td:nth-child(11) {
         width: 8%;
         min-width: 120px;
+    }
+    .action-buttons {
+        gap: 10px; /* ボタン間のスペースを調整 */
+    }
+    .btn-sm {
+        padding: 8px 15px; /* ボタンのパディングを調整 */
+        font-size: 1.4rem;
     }
 }
 
 @media (max-width: 768px) {
     .admin-otsumami-list {
-        margin-top: 30px;
+        margin-top: 40px;
     }
     .table-container {
-        padding: 10px;
-    }
-    .data-table {
-        font-size: 1.4rem;
-        /* min-width を削除して幅をコンテンツに任せる */
+        padding: 15px; /* パディングを調整 */
     }
     .data-table th,
     .data-table td {
-        padding: 8px;
+        padding: 12px 10px; /* パディングを調整 */
+        font-size: 1.4rem;
     }
     .product-thumb {
         width: 40px;
         height: 40px;
     }
     .btn-sm {
-        padding: 5px 10px;
-        font-size: 1.2rem;
+        padding: 6px 12px; /* ボタンのパディングを調整 */
+        font-size: 1.3rem;
     }
     .add-otsumami-button-area {
-        margin-top: 40px;
-        margin-bottom: 30px;
+        margin-top: 60px;
+        margin-bottom: 40px;
     }
     .btn-add-new {
-        padding: 15px 30px;
-        font-size: 1.8rem;
-        border-width: 2px; /* スマホではボーダーを少し細く */
-        border-radius: 5px;
+        padding: 18px 40px;
+        font-size: 2.0rem;
     }
     .btn-icon {
-        font-size: 2.4rem;
-        margin-right: 10px;
+        font-size: 3.0rem;
+        margin-right: 12px;
     }
     /* 各列の幅を相対的に調整 */
-    .data-table th:nth-child(1), /* おつまみレシピ */
+    .data-table th:nth-child(1),
     .data-table td:nth-child(1) {
-        width: 28%; /* より多くのスペースを確保 */
+        width: 25%;
     }
-    .data-table th:nth-child(2), /* 合うお酒の種類 */
-    .data-table td:nth-child(2),
-    .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
+    .data-table th:nth-child(2),
+    .data-table td:nth-child(2) {
+        width: 8%;
+    }
+    .data-table th:nth-child(3),
     .data-table td:nth-child(3) {
-        width: 7%;
+        width: 10%;
     }
-    .data-table th:nth-child(4), /* お酒名 */
+    .data-table th:nth-child(4),
     .data-table td:nth-child(4) {
-        width: 9%;
+        width: 10%;
     }
-    .data-table th:nth-child(5), /* おつまみ名 */
+    .data-table th:nth-child(5),
     .data-table td:nth-child(5) {
-        width: 9%;
+        width: 10%;
     }
-    .data-table th:nth-child(6), /* メイン画像 */
+    .data-table th:nth-child(6),
     .data-table td:nth-child(6),
-    .data-table th:nth-child(7), /* サブ画像1 */
+    .data-table th:nth-child(7),
     .data-table td:nth-child(7),
-    .data-table th:nth-child(8), /* サブ画像2 */
+    .data-table th:nth-child(8),
     .data-table td:nth-child(8),
-    .data-table th:nth-child(9), /* サブ画像3 */
+    .data-table th:nth-child(9),
     .data-table td:nth-child(9) {
-        width: 4%;
-        min-width: 35px;
+        width: 3%;
+        min-width: 30px;
+        padding: 8px 5px; /* パディングを調整 */
     }
-    .data-table th:nth-child(10), /* おつまみリンク */
+    .data-table th:nth-child(10),
     .data-table td:nth-child(10) {
         width: 5%;
     }
-    .data-table th:nth-child(11), /* 操作 */
+    .data-table th:nth-child(11),
     .data-table td:nth-child(11) {
         width: 8%;
-        min-width: 100px; /* ボタンが最低限並ぶ幅 */
+        min-width: 100px;
+    }
+    .action-buttons {
+        gap: 8px; /* ボタン間のスペースを調整 */
     }
 }
 
 @media (max-width: 480px) {
-    .data-table {
-        /* min-width を削除 */
-    }
     .btn-add-new {
         width: 90%;
         max-width: 300px;
@@ -333,59 +339,61 @@
         margin-right: 8px;
     }
     /* 各列の幅をさらに調整 (より厳しく調整) */
-    .data-table th:nth-child(1), /* おつまみレシピ */
+    .data-table th,
+    .data-table td {
+        font-size: 1.1rem; /* 全体的にフォントサイズをさらに小さく */
+        padding: 6px 4px; /* パディングも全体的に小さく */
+    }
+    .data-table th:nth-child(1),
     .data-table td:nth-child(1) {
-        width: 25%;
-        font-size: 1.3rem; /* 文字を小さく */
+        width: 20%;
     }
-    .data-table th:nth-child(2), /* 合うお酒の種類 */
-    .data-table td:nth-child(2),
-    .data-table th:nth-child(3), /* 合うお酒のカテゴリ */
+    .data-table th:nth-child(2),
+    .data-table td:nth-child(2) {
+        width: 8%;
+    }
+    .data-table th:nth-child(3),
     .data-table td:nth-child(3) {
-        width: 7%;
-        font-size: 1.3rem;
+        width: 10%;
     }
-    .data-table th:nth-child(4), /* お酒名 */
+    .data-table th:nth-child(4),
     .data-table td:nth-child(4) {
         width: 9%;
-        font-size: 1.3rem;
     }
-    .data-table th:nth-child(5), /* おつまみ名 */
+    .data-table th:nth-child(5),
     .data-table td:nth-child(5) {
-        width: 9%;
-        font-size: 1.3rem;
+        width: 10%;
     }
-    .data-table th:nth-child(6), /* メイン画像 */
+    .data-table th:nth-child(6),
     .data-table td:nth-child(6),
-    .data-table th:nth-child(7), /* サブ画像1 */
+    .data-table th:nth-child(7),
     .data-table td:nth-child(7),
-    .data-table th:nth-child(8), /* サブ画像2 */
+    .data-table th:nth-child(8),
     .data-table td:nth-child(8),
-    .data-table th:nth-child(9), /* サブ画像3 */
+    .data-table th:nth-child(9),
     .data-table td:nth-child(9) {
-        width: 4%;
-        min-width: 30px; /* さらに小さく */
-        padding: 5px; /* パディングも小さく */
+        width: 3%;
+        min-width: 25px;
+        padding: 5px 2px; /* パディングをさらに小さく */
     }
     .product-thumb {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
     }
-    .data-table th:nth-child(10), /* おつまみリンク */
+    .data-table th:nth-child(10),
     .data-table td:nth-child(10) {
         width: 5%;
-        font-size: 1.3rem;
     }
-    .data-table th:nth-child(11), /* 操作 */
+    .data-table th:nth-child(11),
     .data-table td:nth-child(11) {
         width: 8%;
-        min-width: 90px;
+        min-width: 80px;
     }
     .btn-sm {
-        padding: 4px 8px;
-        font-size: 1.1rem;
+        padding: 3px 6px;
+        font-size: 1rem;
     }
     .action-buttons {
-        gap: 4px; /* ボタン間のスペースを狭める */
+        gap: 2px;
     }
 }
