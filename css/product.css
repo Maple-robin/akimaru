@@ -29,12 +29,20 @@
 
 .product-gallery__main {
     margin-bottom: 20px;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* 例: 4:3比率。お好みで調整可 */
+    background: #faf7f3; /* 画像が小さい場合の背景色 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .product-gallery__main img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover; /* 枠いっぱいに表示し、ズレを防ぐ */
+    display: block;
 }
 
 .product-gallery__thumbnails {
@@ -367,58 +375,159 @@
 
 /* お気に入りボタン */
 .product-info__favorite {
-    margin-bottom: 20px; /* 数量選択との間に余白 */
-    text-align: center; /* 中央寄せ */
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
 }
 
 .btn-favorite {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center; /* テキストが中央にくるように調整 */
-    gap: 8px;
-    padding: 12px 25px;
-    background-color: #A0522D; /* 初期背景色を茶色に */
-    color: #fff; /* 初期文字色を白に */
-    border: 1px solid #A0522D; /* 枠線も茶色に */
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background-color: #A0522D;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 500;
+    border: 1px solid #A0522D;
     border-radius: 5px;
-    font-size: 1.6rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    
-    width: 220px; /* スマホでのボタンの幅 */
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 未お気に入り状態でのホバー時の色 */
-.btn-favorite:not(.is-favorited):hover {
-    background-color: #8B4513; /* ホバーで少し濃い茶色に */
-    color: #fff; /* ホバーで白文字を維持 */
-}
-
-/* お気に入り登録済み状態のスタイル */
-.btn-favorite.is-favorited {
-    background-color: #fff; /* 登録済みは背景が白 */
-    color: #A0522D; /* 登録済みは文字が茶色 */
-    border-color: #A0522D; /* 登録済みは枠線が茶色 */
-}
-
-/* お気に入り登録済み状態でのホバー時のスタイル (再反転) */
-.btn-favorite.is-favorited:hover {
-    background-color: #F8F8F8; /* ホバーで少しグレーがかった白背景に */
-    color: #A0522D; /* ホバーで茶色文字を維持 */
-    border-color: #A0522D; /* ホバーで枠線も茶色のまま */
-}
-
-/* アイコンの色は親要素に合わせる */
 .btn-favorite i {
     font-size: 1.8rem;
-    color: inherit; /* アイコンの色は親要素のcolorを継承 */
-    
-    /* アイコンの幅を固定する */
-    width: 20px; /* アイコンの実際のサイズに合わせて調整 */
-    text-align: center; /* アイコンを中央に配置 */
-    flex-shrink: 0; /* アイコンが縮まないようにする */
+    color: inherit;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 8px;
 }
 
+.btn-favorite:not(.is-favorited):hover {
+    background-color: #8B4513;
+    color: #fff;
+}
+
+.btn-favorite.is-favorited {
+    background-color: #fff;
+    color: #A0522D;
+    border-color: #A0522D;
+}
+
+.btn-favorite.is-favorited:hover {
+    background-color: #F8F8F8;
+    color: #A0522D;
+    border-color: #A0522D;
+}
+
+@media (min-width: 768px) {
+    .product-info__favorite {
+        text-align: left;
+        width: auto;
+    }
+    .btn-favorite {
+        width: auto;
+        max-width: 350px;
+        padding: 18px 40px;
+    }
+}
+
+/* --- ボタン・数量コントロールの幅・余白を完全統一 --- */
+
+/* ボタンと数量コントロールをまとめるラッパー */
+.product-info__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px; /* ボタン・数量コントロール間の余白を統一 */
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 30px auto;
+}
+
+/* 数量＋カート・お気に入りの各ブロックも幅を統一 */
+.product-quantity-add-to-cart,
+.product-info__favorite {
+    width: 100%;
+    max-width: 350px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 数量コントロールとカートボタンの間も統一 */
+    align-items: center;
+}
+
+/* 数量コントロール・ボタン幅を完全統一 */
+.product-quantity-controls,
+.btn-to-ec-site,
+.btn-favorite {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+}
+
+/* ボタンデザイン統一 */
+.btn-to-ec-site,
+.btn-favorite {
+    padding: 15px 30px;
+    font-size: 1.7rem;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #A0522D;
+    background-color: #A0522D;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-to-ec-site:hover,
+.btn-favorite:not(.is-favorited):hover {
+    background-color: #8B4513;
+}
+
+.btn-favorite.is-favorited {
+    background-color: #fff;
+    color: #A0522D;
+    border-color: #A0522D;
+}
+
+.btn-favorite.is-favorited:hover {
+    background-color: #F8F8F8;
+    color: #A0522D;
+    border-color: #A0522D;
+}
+
+@media (min-width: 768px) {
+    .product-info__buttons {
+        align-items: flex-start;
+        margin: 0 0 30px 0;
+    }
+    .product-quantity-add-to-cart,
+    .product_info__favorite {
+        align-items: flex-start;
+    }
+    .product-quantity-controls,
+    .btn-to-ec-site,
+    .btn-favorite {
+        width: 350px;
+        max-width: 350px;
+    }
+}
 
 /* PC (min-width: 768px) */
 @media (min-width: 768px) {
@@ -452,7 +561,7 @@
         padding: 100px 0; /* PC時の上下の余白 */
     }
 
-    .product-detail-content {
+    .product-detail_content {
         flex-direction: row; /* PCでは横並び */
         gap: 60px;
     }
