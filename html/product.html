@@ -103,6 +103,12 @@
                         <p class="product-info__price">¥ 5,800<span>(税込)</span></p>
                         <p class="product-info__tax-note">※送料別途</p>
 
+                        <div class="product-info__favorite">
+                            <button class="btn-favorite">
+                                <i class="far fa-heart"></i> <span class="favorite-text">お気に入りに追加</span>
+                            </button>
+                        </div>
+
                         <div class="product-quantity-add-to-cart">
                             <div class="product-quantity-controls">
                                 <button class="quantity-minus" data-id="product-detail-qty">-</button>
@@ -303,7 +309,7 @@
             if (addToCartBtn) {
                 addToCartBtn.addEventListener('click', function() {
                     const selectedQuantity = parseInt(quantityInput.value);
-                    alert(`「純米大吟醸 麗し乃雫」を${selectedQuantity}個カートに追加しました！`);
+                    // alert(`「純米大吟醸 麗し乃雫」を${selectedQuantity}個カートに追加しました！`); // ポップアップ削除
                     // 実際にはカートに商品と数量を追加する処理（例: LocalStorageへの保存）を行います。
                     // window.location.href = 'cart.html';
                 });
@@ -321,6 +327,38 @@
                     this.classList.add('is-active');
                 });
             });
+
+            // ★修正済み：お気に入りボタンのクリックイベント (alert削除済み)
+            const favoriteBtn = document.querySelector('.btn-favorite');
+            if (favoriteBtn) {
+                favoriteBtn.addEventListener('click', function() {
+                    this.classList.toggle('is-favorited');
+                    const icon = this.querySelector('i');
+                    const favoriteTextSpan = this.querySelector('.favorite-text'); // span要素を取得
+
+                    if (this.classList.contains('is-favorited')) {
+                        icon.classList.remove('far'); // far (outline) を削除
+                        icon.classList.add('fas'); // fas (solid) を追加
+                        if (favoriteTextSpan) { // span要素が見つかった場合
+                            favoriteTextSpan.textContent = 'お気に入り済み'; // spanのテキストを更新
+                        } else {
+                            // 万が一spanが見つからない場合のフォールバック
+                            this.innerHTML = '<i class="fas fa-heart"></i> <span class="favorite-text">お気に入り済み</span>';
+                        }
+                        // alert('お気に入りに登録しました！'); // ポップアップ削除
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                         if (favoriteTextSpan) { // span要素が見つかった場合
+                            favoriteTextSpan.textContent = 'お気に入りに追加'; // spanのテキストを更新
+                        } else {
+                            // 万が一spanが見つからない場合のフォールバック
+                            this.innerHTML = '<i class="far fa-heart"></i> <span class="favorite-text">お気に入りに追加</span>';
+                        }
+                        // alert('お気に入りから削除しました。'); // ポップアップ削除
+                    }
+                });
+            }
         });
     </script>
 </body>

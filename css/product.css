@@ -365,6 +365,61 @@
     margin: 0;
 }
 
+/* お気に入りボタン */
+.product-info__favorite {
+    margin-bottom: 20px; /* 数量選択との間に余白 */
+    text-align: center; /* 中央寄せ */
+}
+
+.btn-favorite {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* テキストが中央にくるように調整 */
+    gap: 8px;
+    padding: 12px 25px;
+    background-color: #A0522D; /* 初期背景色を茶色に */
+    color: #fff; /* 初期文字色を白に */
+    border: 1px solid #A0522D; /* 枠線も茶色に */
+    border-radius: 5px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    width: 220px; /* スマホでのボタンの幅 */
+}
+
+/* 未お気に入り状態でのホバー時の色 */
+.btn-favorite:not(.is-favorited):hover {
+    background-color: #8B4513; /* ホバーで少し濃い茶色に */
+    color: #fff; /* ホバーで白文字を維持 */
+}
+
+/* お気に入り登録済み状態のスタイル */
+.btn-favorite.is-favorited {
+    background-color: #fff; /* 登録済みは背景が白 */
+    color: #A0522D; /* 登録済みは文字が茶色 */
+    border-color: #A0522D; /* 登録済みは枠線が茶色 */
+}
+
+/* お気に入り登録済み状態でのホバー時のスタイル (再反転) */
+.btn-favorite.is-favorited:hover {
+    background-color: #F8F8F8; /* ホバーで少しグレーがかった白背景に */
+    color: #A0522D; /* ホバーで茶色文字を維持 */
+    border-color: #A0522D; /* ホバーで枠線も茶色のまま */
+}
+
+/* アイコンの色は親要素に合わせる */
+.btn-favorite i {
+    font-size: 1.8rem;
+    color: inherit; /* アイコンの色は親要素のcolorを継承 */
+    
+    /* アイコンの幅を固定する */
+    width: 20px; /* アイコンの実際のサイズに合わせて調整 */
+    text-align: center; /* アイコンを中央に配置 */
+    flex-shrink: 0; /* アイコンが縮まないようにする */
+}
+
+
 /* PC (min-width: 768px) */
 @media (min-width: 768px) {
     /* 数量コントロールとカートに入れるボタンのコンテナ */
@@ -391,11 +446,8 @@
         height: 45px; /* PCでの高さ調整 */
         font-size: 2rem; /* PCでのサイズ調整 */
     }
-}
 
-
-/* PC (min-width: 768px) */
-@media (min-width: 768px) {
+    /* PC (min-width: 768px) */
     .product-detail-section {
         padding: 100px 0; /* PC時の上下の余白 */
     }
@@ -489,5 +541,16 @@
     }
     .paired-snacks .swiper-pagination {
         margin-top: 40px; /* PCでのページネーションの余白 */
+    }
+
+    /* お気に入りボタン PC用調整 */
+    @media (min-width: 768px) {
+        .product-info__favorite {
+            text-align: left;
+        }
+        .btn-favorite {
+            padding: 15px 30px;
+            width: 240px; /* PCでの幅 */
+        }
     }
 }
