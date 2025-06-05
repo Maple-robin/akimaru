@@ -17,23 +17,36 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="header__inner">
-            <h1 class="header__logo">
-                <a href="index.html">OUR BRAND</a>
-            </h1>
-            <nav class="header__nav">
-                <ul class="nav__list pc-only">
-                    <li><a href="products.html">商品一覧</a></li>
-                </ul>
-                <button class="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
+    <!-- 共通ヘッダー：index.htmlからコピー -->
+<header class="header">
+    <div class="header__inner">
+        <!-- ハンバーガーメニューを左端に配置 -->
+        <button class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <!-- ロゴを中央に配置 -->
+        <h1 class="header__logo">
+            <a href="index.html">OUR BRAND</a>
+        </h1>
+        <!-- ナビゲーションとアイコンを右端に配置 -->
+        <nav class="header__nav">
+            <ul class="nav__list pc-only">
+                <li><a href="products_list.html">商品一覧</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+            <div class="header__icons">
+                <a href="wishlist.html" class="header__icon-link">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="cart.html" class="header__icon-link">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
 
     <nav class="sp-menu">
         <div class="sp-menu__header">

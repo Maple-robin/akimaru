@@ -11,25 +11,38 @@
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/top.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <!-- 共通ヘッダー：index.htmlからコピー -->
     <header class="header">
         <div class="header__inner">
+            <!-- ハンバーガーメニューを左端に配置 -->
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ロゴを中央に配置 -->
             <h1 class="header__logo">
                 <a href="index.html">OUR BRAND</a>
             </h1>
+            <!-- ナビゲーションとアイコンを右端に配置 -->
             <nav class="header__nav">
                 <ul class="nav__list pc-only">
                     <li><a href="products_list.html">商品一覧</a></li>
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
-                <button class="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -115,7 +128,7 @@
         </div>
     </footer>
 
-    <script src="../js/login.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>
