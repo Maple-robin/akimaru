@@ -332,6 +332,13 @@ main {
     width: 100%;
     max-width: 400px; /* 最大幅 */
     text-align: center;
+
+    /* ヘッダー下にフォームが隠れないように余白を追加 */
+    margin-top: 40px; /* ヘッダーの高さ分だけ下げる（必要に応じて調整） */
+    /* 既存の中央寄せなどがあれば残してOK */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* ロゴ */
