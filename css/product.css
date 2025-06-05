@@ -305,6 +305,93 @@
 .paired-snacks .swiper-pagination-bullet-active {
     background-color: #A0522D; /* アクティブなドットの色 */
 }
+/* 数量コントロールとカートに入れるボタンのコンテナ */
+.product-quantity-add-to-cart {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 10px; /* 数量コントロールとボタンの間の隙間を画像に合わせて調整 */
+    align-items: center; /* 中央寄せ */
+}
+
+/* 数量コントロール */
+.product-quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0; /* ボタンと入力フィールドの間の隙間をなくす */
+    border: 1px solid #A0522D; /* 全体を囲む枠線 */
+    border-radius: 4px;
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+    max-width: 350px; /* ボタンの最大幅に合わせる */
+}
+
+.product-quantity-controls .quantity-minus,
+.product-quantity-controls .quantity-plus {
+    background-color: #fff;
+    border: none; /* 個別のボタンの枠線はなし */
+    width: 40px; /* サイズ調整 */
+    height: 40px; /* サイズ調整 */
+    font-size: 2.2rem; /* サイズ調整 */
+    font-weight: normal;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.product-quantity-controls .quantity-minus:hover,
+.product-quantity-controls .quantity-plus:hover {
+    background-color: #f0f0f0;
+}
+
+.product-quantity-controls .quantity-input {
+    flex-grow: 1; /* 残りの幅を埋める */
+    padding: 0; /* パディングなし */
+    height: 40px; /* 高さ調整 */
+    text-align: center;
+    border: none; /* 個別の入力フィールドの枠線はなし */
+    border-left: 1px solid #A0522D; /* 左右の区切り線 */
+    border-right: 1px solid #A0522D;
+    font-size: 1.8rem;
+    -moz-appearance: textfield;
+    outline: none; /* フォーカス時のアウトラインを消す */
+}
+/* Chrome, Safari, Edge, Operaで矢印を非表示 */
+.product-quantity-controls .quantity-input::-webkit-outer-spin-button,
+.product-quantity-controls .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    /* 数量コントロールとカートに入れるボタンのコンテナ */
+    .product-quantity-add-to-cart {
+        flex-direction: row; /* PCでは横並び */
+        justify-content: flex-start; /* 左寄せ */
+        gap: 20px; /* 数量コントロールとボタンの間の隙間 */
+    }
+
+    .product-quantity-controls {
+        width: auto; /* PCで幅自動 */
+        max-width: none; /* 最大幅制限を解除 */
+    }
+
+    .product-quantity-controls .quantity-minus,
+    .product-quantity-controls .quantity-plus {
+        width: 45px; /* PCでのサイズ調整 */
+        height: 45px; /* PCでのサイズ調整 */
+        font-size: 2.5rem; /* PCでのサイズ調整 */
+    }
+
+    .product-quantity-controls .quantity-input {
+        width: 70px; /* PCでの幅調整 */
+        height: 45px; /* PCでの高さ調整 */
+        font-size: 2rem; /* PCでのサイズ調整 */
+    }
+}
 
 
 /* PC (min-width: 768px) */

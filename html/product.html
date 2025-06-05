@@ -103,8 +103,12 @@
                         <p class="product-info__price">¥ 5,800<span>(税込)</span></p>
                         <p class="product-info__tax-note">※送料別途</p>
 
-                        <div class="product-external-link">
-                            <!-- ボタンのテキストとリンクを変更 -->
+                        <div class="product-quantity-add-to-cart">
+                            <div class="product-quantity-controls">
+                                <button class="quantity-minus" data-id="product-detail-qty">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" data-id="product-detail-qty">
+                                <button class="quantity-plus" data-id="product-detail-qty">+</button>
+                            </div>
                             <button id="add-to-cart-btn" class="btn-to-ec-site">
                                 カートに入れる
                             </button>
@@ -268,14 +272,39 @@
                 });
             });
 
+            // 数量コントロールのイベントリスナー設定 (商品詳細ページ用)
+            const quantityMinusBtn = document.querySelector('.product-quantity-controls .quantity-minus');
+            const quantityPlusBtn = document.querySelector('.product-quantity-controls .quantity-plus');
+            const quantityInput = document.querySelector('.product-quantity-controls .quantity-input');
+
+            if (quantityMinusBtn && quantityPlusBtn && quantityInput) {
+                quantityMinusBtn.addEventListener('click', function() {
+                    let quantity = parseInt(quantityInput.value);
+                    if (quantity > 1) {
+                        quantityInput.value = quantity - 1;
+                    }
+                });
+
+                quantityPlusBtn.addEventListener('click', function() {
+                    let quantity = parseInt(quantityInput.value);
+                    quantityInput.value = quantity + 1;
+                });
+
+                quantityInput.addEventListener('change', function() {
+                    let quantity = parseInt(this.value);
+                    if (isNaN(quantity) || quantity < 1) {
+                        this.value = 1;
+                    }
+                });
+            }
+
             // 「カートに入れる」ボタンのクリックイベント
             const addToCartBtn = document.getElementById('add-to-cart-btn');
             if (addToCartBtn) {
                 addToCartBtn.addEventListener('click', function() {
-                    // ここではシンプルにアラートを表示するだけですが、
-                    // 実際にはカートに商品を追加する処理（例: LocalStorageへの保存）を行います。
-                    alert('「純米大吟醸 麗し乃雫」をカートに追加しました！');
-                    // カートページへ遷移する場合
+                    const selectedQuantity = parseInt(quantityInput.value);
+                    alert(`「純米大吟醸 麗し乃雫」を${selectedQuantity}個カートに追加しました！`);
+                    // 実際にはカートに商品と数量を追加する処理（例: LocalStorageへの保存）を行います。
                     // window.location.href = 'cart.html';
                 });
             }
