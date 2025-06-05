@@ -77,6 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // ページロード時に初回合計金額を計算
     updateCartSummary();
 
+    // 配送希望日カレンダーの初期設定
+    const deliveryDateInput = document.getElementById('delivery-date');
+    if (deliveryDateInput) {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // 月は0から始まるため+1
+        const day = String(today.getDate()).padStart(2, '0');
+        const minDate = `${year}-${month}-${day}`;
+
+        deliveryDateInput.setAttribute('min', minDate);
+    }
+
     // 共通のハンバーガーメニューとSPメニューのJSがscript.jsにあるため、
     // cart.htmlでscript.jsを読み込むことで動作します。
     // ここではcart.js固有のロジックのみを記述します。

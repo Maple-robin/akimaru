@@ -9,9 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- 実際のプロジェクトではパスを適切に設定してください -->
     <link rel="stylesheet" href="../css/top.css">
     <link rel="stylesheet" href="../css/product.css">
-    <link rel="stylesheet" href="../css/cart.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -91,7 +93,6 @@
                         </div>
                         <div class="cart-item__details">
                             <h3 class="cart-item__name">【販売再開】イセ ポメロモ ヒート</h3>
-                            <p class="cart-item__volume">(200ml/720ml)</p>
                             <p class="cart-item__size">200ml</p>
                             <p class="cart-item__price">¥ 1,750</p>
                             <div class="cart-item__quantity-controls">
@@ -117,9 +118,8 @@
                     <div class="cart-delivery-options">
                         <div class="delivery-option">
                             <label for="delivery-date">配送希望日</label>
-                            <select id="delivery-date" class="delivery-select">
-                                <option value="none">希望なし</option>
-                                </select>
+                            <!-- ここを<input type="date">に変更 -->
+                            <input type="date" id="delivery-date" class="delivery-select">
                         </div>
                         <div class="delivery-option">
                             <label for="delivery-time">配送希望時間</label>
@@ -160,6 +160,7 @@
         </div>
     </footer>
 
+    <!-- 実際のプロジェクトではパスを適切に設定してください -->
     <script src="../js/script.js"></script>
     <script src="../js/cart.js"></script>
 </body>

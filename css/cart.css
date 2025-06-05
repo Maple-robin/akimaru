@@ -269,9 +269,12 @@
     font-size: 1.6rem;
     color: #555;
     background-color: #fff;
+    /* input[type="date"]の場合、デフォルトの矢印を非表示にする設定は不要な場合があります */
     -webkit-appearance: none; /* デフォルトの矢印を非表示 */
     -moz-appearance: none;
     appearance: none;
+    /* input[type="date"]の場合、カスタム矢印はカレンダーアイコンと重複する可能性があるので、
+       必要に応じて調整してください。今回はそのまま残します。 */
     background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7.41%208.59L12%2013.17l4.59-4.58L18%2010l-6%206-6-6z%22%2F%3E%3C%2Fsvg%3E'); /* カスタム矢印 */
     background-repeat: no-repeat;
     background-position: right 10px center;
