@@ -230,11 +230,6 @@
         width: 8%;
         min-width: 120px;
     }
-    .data-table th:nth-child(11),
-    .data-table td:nth-child(11) {
-        width: 8%;
-        min-width: 130px;
-    }
     .action-buttons {
         gap: 10px; /* ボタン間のスペースを調整 */
     }
@@ -276,7 +271,7 @@
         font-size: 3.0rem;
         margin-right: 12px;
     }
-    /* 各列の幅を相対的に調整 */
+    /* 各列の幅を調整 */
     .data-table th:nth-child(1),
     .data-table td:nth-child(1) {
         width: 25%;
@@ -310,14 +305,7 @@
         padding: 10px 5px; /* パディングを調整 */
     }
     .data-table th:nth-child(10),
-    .data-table td:nth-child(10) {
-        width: 8%;
-    }
-    .data-table th:nth-child(11),
-    .data-table td:nth-child(11) {
-        width: 8%;
-        min-width: 130px;
-    }
+    .data-table td:nth-child(10) { width: 8%; }
     .action-buttons {
         gap: 8px; /* ボタン間のスペースを調整 */
     }
@@ -373,9 +361,7 @@
         padding: 5px 2px; /* パディングをさらに小さく */
     }
     .data-table th:nth-child(10),
-    .data-table td:nth-child(10) {
-        width: 8%;
-    }
+    .data-table td:nth-child(10) { width: 8%; }
     .data-table th:nth-child(11),
     .data-table td:nth-child(11) {
         width: 8%;

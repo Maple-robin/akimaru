@@ -63,6 +63,23 @@ ul {
     font-size: 3.6rem; /* タイトルサイズを大きく */
 }
 
+.admin-page-title .en {
+    font-size: 4.8rem;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.admin-page-title .ja {
+    font-size: 2.2rem;
+    color: #555;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
 .admin-section-title {
     font-family: 'Zen Old Mincho', serif;
     font-weight: 500;
@@ -144,6 +161,10 @@ ul {
 
 .admin-nav__list li a:hover::after {
     transform: translateX(-50%) scaleX(1);
+}
+
+.admin-nav__list li a.is-current {
+    color: #A0522D;
 }
 
 /*
@@ -288,6 +309,12 @@ ul {
     .admin-page-title {
         font-size: 3.2rem;
     }
+    .admin-page-title .en {
+        font-size: 3.2rem;
+    }
+    .admin-page-title .ja {
+        font-size: 1.6rem;
+    }
     .admin-section-title {
         font-size: 2.8rem;
     }
@@ -346,6 +373,12 @@ ul {
     .admin-section-title {
         font-size: 2.8rem; /* スマホ時のタイトルサイズ */
         margin-bottom: 30px;
+    }
+    .admin-page-title .en {
+        font-size: 2.2rem;
+    }
+    .admin-page-title .ja {
+        font-size: 1.2rem;
     }
     .admin-section-title {
         margin-top: 40px;

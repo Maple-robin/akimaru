@@ -213,6 +213,24 @@ ul {
     color: var(--text-color-light);
 }
 
+/* 投稿管理(admin_posts.css)の削除ボタンと同じ見た目にする */
+.btn.btn-sm.btn-delete,
+button.btn.btn-sm.btn-delete {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+    padding: 8px 12px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 1.3rem !important;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn.btn-sm.btn-delete:hover,
+button.btn.btn-sm.btn-delete:hover {
+    background-color: #c82333 !important;
+}
+
 /* フッター共通スタイル */
 .admin-footer {
     background-color: #eeeeee;

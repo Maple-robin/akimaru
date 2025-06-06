@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${user.email}</td>
                 <td>${user.birthday}</td>
                 <td>${age}歳</td>
-                <td><button class="delete-button" data-id="${user.id}">削除</button></td>
+                <td><button class="btn btn-sm btn-delete" data-id="${user.id}">削除</button></td>
             `;
             userTableBody.appendChild(row);
         });
 
         // Add event listeners for delete buttons
-        document.querySelectorAll('.delete-button').forEach(button => {
+        document.querySelectorAll('.btn-delete').forEach(button => {
             button.addEventListener('click', function() {
                 const userId = this.dataset.id;
                 // IMPORTANT: Replace window.confirm with a custom modal UI for better user experience and iframe compatibility.
