@@ -20,14 +20,14 @@
 
 .cart-section {
     padding: 80px 0 30px; /* スマホ時の上部の余白を増やし、下部は維持 */
-    background-color: #f8f8f8; /* 全体の背景色 */
+    background-color: #fff; /* 全体の背景色を純粋な白に変更 */
 }
 
 .cart-section__inner {
-    max-width: 600px; /* カート内容の最大幅を画像に合わせて調整 */
+    max-width: 750px; /* カート内容の最大幅をさらに広げ、左右に余裕を持たせる */
     margin-left: auto;
     margin-right: auto;
-    padding: 0 20px; /* 左右の余白 */
+    padding: 0; /* ← ここを0に変更 */
 }
 
 .section-title {
@@ -40,15 +40,22 @@
     border-bottom: none; /* 下線削除 */
 }
 
-/* 「お買い物を続ける」ボタン（上部） */
+/* 「お買い物を続ける」ボタン（上部）のラッパーと線 */
+.cart-links-top {
+    border-top: 1px solid #ccc; /* 線を#cccに調整 */
+    padding-top: 8px; /* 線とボタンの間の余白をさらに削減 */
+    margin-bottom: 8px; /* ボタンと次の要素の間の余白をさらに削減 */
+    text-align: center; /* ボタンを中央寄せにする */
+}
+
 .btn-continue-shopping-top {
-    display: flex;
+    display: inline-flex; /* 中央寄せのためにinline-flexに変更 */
     align-items: center;
     font-size: 1.4rem;
     color: #A0522D; /* ブランドカラーに合わせる */
     text-decoration: none;
-    margin-bottom: 20px;
     padding: 10px 0;
+    margin-bottom: 0; /* 親要素に移管したので削除 */
 }
 
 .btn-continue-shopping-top i {
@@ -56,23 +63,41 @@
     font-size: 1.2rem;
 }
 
-/* カートアイテムリスト */
-.cart-items {
-    background-color: #fff; /* 背景色 */
-    border: 1px solid #ddd; /* 枠線 */
-    border-radius: 8px; /* 角丸 */
+/* カートアイテムとサマリーを囲む新しいコンテナ */
+.cart-main-container {
+    background-color: #fff; /* 背景色を統一 */
+    border: none; /* 枠線を削除 */
+    border-radius: 8px; /* 角丸を統一 */
     margin-bottom: 30px;
     overflow: hidden; /* 角丸に合わせたはみ出し対策 */
+    border-top: 1px solid #ccc; /* 商品のカードの上に線を#cccに調整 */
+}
+
+
+/* カートアイテムリスト */
+.cart-items {
+    /* 以前の.cart-itemsに適用されていた背景色、枠線、角丸、下マージンはcart-main-containerに移動 */
+    margin-bottom: 0; /* cart-main-containerに移管 */
+    border: none; /* cart-main-containerに移管 */
+    border-radius: 0; /* cart-main-containerに移管 */
+    width: 100%;
+    /* max-widthや中央寄せの指定があれば削除 */
+    margin: 0;
+    padding: 0;
+    /* display: block; でもOK */
 }
 
 /* 各カートアイテム */
 .cart-item {
     display: flex;
     align-items: flex-start; /* 上寄せ */
-    padding: 15px; /* 内側の余白 */
-    border-bottom: 1px solid #eee; /* アイテム間の区切り線 */
+    padding: 15px 20px; /* 上下15px、左右20pxの余白に調整 */
+    border-bottom: 1px solid #eee; /* アイテム間の区切り線を元の薄さに戻す */
     gap: 15px; /* 画像と詳細の間のスペース */
     position: relative; /* 削除アイコンの配置のため */
+    width: 100%;
+    box-sizing: border-box;
+    /* 既存のpaddingやgapはそのままでもOK */
 }
 
 .cart-item:last-child {
@@ -197,12 +222,13 @@
 
 /* カート合計とボタン */
 .cart-summary {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background-color: #fff; /* cart-main-containerに移動したため、白背景は不要だが残す */
+    border: none; /* cart-main-containerに移管 */
+    border-radius: 0; /* cart-main-containerに移管 */
     padding: 25px; /* 内側の余白 */
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* 影を薄く */
+    box-shadow: none; /* cart-main-containerに移管 */
+    border-top: 1px solid #ccc; /* アイテムとサマリーの間の区切り線を#cccに調整 */
 }
 
 .cart-summary__shipping-info {
@@ -264,7 +290,7 @@
 .delivery-select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* 線を元の濃さに戻す */
     border-radius: 4px;
     font-size: 1.6rem;
     color: #555;
@@ -274,7 +300,7 @@
     -moz-appearance: none;
     appearance: none;
     /* input[type="date"]の場合、カスタム矢印はカレンダーアイコンと重複する可能性があるので、
-       必要に応じて調整してください。今回はそのまま残します。 */
+        必要に応じて調整してください。今回はそのまま残します。 */
     background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M7.41%208.59L12%2013.17l4.59-4.58L18%2010l-6%206-6-6z%22%2F%3E%3C%2Fsvg%3E'); /* カスタム矢印 */
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -318,6 +344,7 @@
     /* .top-banner { ... } */
 
     /* ヘッダーのスタイルを削除 */
+    /* .header { ... } */
     /* .header__inner { ... } */
     /* .header__logo img { ... } */
     /* .header__icon-link { ... } */
@@ -332,14 +359,35 @@
         margin-bottom: 40px;
     }
 
-    .btn-continue-shopping-top {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
+    .cart-links-top {
+        padding-top: 10px; /* PCでの線とボタンの間に余白を調整 */
+        margin-bottom: 10px;
     }
 
+    .btn-continue-shopping-top {
+        font-size: 1.5rem;
+    }
+
+    /* PC版ではグリッドレイアウトで左右に配置 */
+    .cart-main-container {
+        display: block; /* グリッドを解除して1カラムに */
+        /* または grid-template-columns: 1fr; でもOK */
+    }
+
+    .cart-items {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+
     .cart-item {
-        padding: 20px;
+        padding: 20px 25px; /* PCでも左右の余白を統一して増やす */
         gap: 20px;
+        width: 100%;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .cart-item__image {
@@ -397,6 +445,9 @@
 
     .cart-summary {
         padding: 35px;
+        border-top: none; /* PCでは上線不要 */
+        max-width: 400px;
+        margin: 40px auto 0 auto;
     }
 
     .cart-summary__shipping-info {

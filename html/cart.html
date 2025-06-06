@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <!-- 実際のプロジェクトではパスを適切に設定してください -->
     <link rel="stylesheet" href="../css/top.css">
     <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="../css/cart.css">
@@ -17,20 +16,16 @@
 </head>
 <body>
 
-    <!-- 共通ヘッダー：index.htmlからコピー -->
-<header class="header">
+    <header class="header">
     <div class="header__inner">
-        <!-- ハンバーガーメニューを左端に配置 -->
         <button class="hamburger-menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-        <!-- ロゴを中央に配置 -->
         <h1 class="header__logo">
             <a href="index.html">OUR BRAND</a>
         </h1>
-        <!-- ナビゲーションとアイコンを右端に配置 -->
         <nav class="header__nav">
             <ul class="nav__list pc-only">
                 <li><a href="products_list.html">商品一覧</a></li>
@@ -95,61 +90,80 @@
             <div class="cart-section__inner common-inner">
                 <h2 class="section-title">買い物かご</h2>
 
-                <a href="products.html" class="btn-continue-shopping-top">
-                    <i class="fas fa-chevron-left"></i> お買い物を続ける
-                </a>
-
-                <div class="cart-items" id="cart-items-container">
-                    <div class="cart-item">
-                        <div class="cart-item__image">
-                            <img src="../img/gingerale.png" alt="イセ ポメロモ ヒート">
-                        </div>
-                        <div class="cart-item__details">
-                            <h3 class="cart-item__name">【販売再開】イセ ポメロモ ヒート</h3>
-                            <p class="cart-item__size">200ml</p>
-                            <p class="cart-item__price">¥ 1,750</p>
-                            <div class="cart-item__quantity-controls">
-                                <button class="quantity-minus" data-id="product-1">-</button>
-                                <input type="number" class="quantity-input" value="1" min="1" data-id="product-1">
-                                <button class="quantity-plus" data-id="product-1">+</button>
-                            </div>
-                        </div>
-                        <button class="cart-item__remove" data-id="product-1">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                    </div>
+                <div class="cart-links-top"> <a href="product.html" class="btn-continue-shopping-top">
+                        <i class="fas fa-chevron-left"></i> お買い物を続ける
+                    </a>
                 </div>
 
-                <div class="cart-summary">
-                    <p class="cart-summary__shipping-info">税込 5,200 円 以上 購入 で 送料 無料 に なり ます。</p>
-                    <div class="cart-summary__subtotal">
-                        <p>小計</p>
-                        <p class="subtotal-price" id="total-price">¥ 1,750<span> JPY</span></p>
-                    </div>
-                    <p class="cart-summary__tax-info">送料と税金はチェックアウト時に計算されます</p>
-
-                    <div class="cart-delivery-options">
-                        <div class="delivery-option">
-                            <label for="delivery-date">配送希望日</label>
-                            <!-- ここを<input type="date">に変更 -->
-                            <input type="date" id="delivery-date" class="delivery-select">
+                <div class="cart-main-container"> <div class="cart-items" id="cart-items-container">
+                        <div class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="../img/gingerale.png" alt="イセ ポメロモ ヒート">
+                            </div>
+                            <div class="cart-item__details">
+                                <h3 class="cart-item__name">【販売再開】イセ ポメロモ ヒート</h3>
+                                <p class="cart-item__size">200ml</p>
+                                <p class="cart-item__price">¥ 1,750</p>
+                                <div class="cart-item__quantity-controls">
+                                    <button class="quantity-minus" data-id="product-1">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1" data-id="product-1">
+                                    <button class="quantity-plus" data-id="product-1">+</button>
+                                </div>
+                            </div>
+                            <button class="cart-item__remove" data-id="product-1">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
                         </div>
-                        <div class="delivery-option">
-                            <label for="delivery-time">配送希望時間</label>
-                            <select id="delivery-time" class="delivery-select">
-                                <option value="none">希望しない</option>
-                                <option value="am">午前中</option>
-                                <option value="12-14">12時〜14時</option>
-                                <option value="14-16">14時〜16時</option>
-                                <option value="16-18">16時〜18時</option>
-                                <option value="18-20">18時〜20時</option>
-                                <option value="18-21">18時〜21時</option>
-                                <option value="19-21">19時〜21時</option>
-                            </select>
+                        <div class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="../img/berry.png" alt="セレンディピティ・レモン">
+                            </div>
+                            <div class="cart-item__details">
+                                <h3 class="cart-item__name">セレンディピティ・レモン</h3>
+                                <p class="cart-item__size">300ml</p>
+                                <p class="cart-item__price">¥ 2,500</p>
+                                <div class="cart-item__quantity-controls">
+                                    <button class="quantity-minus" data-id="product-2">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1" data-id="product-2">
+                                    <button class="quantity-plus" data-id="product-2">+</button>
+                                </div>
+                            </div>
+                            <button class="cart-item__remove" data-id="product-2">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
                         </div>
                     </div>
 
-                    <button class="btn-checkout">チェックアウト</button>
+                    <div class="cart-summary">
+                        <p class="cart-summary__shipping-info">税込 5,200 円 以上 購入 で 送料 無料 に なり ます。</p>
+                        <div class="cart-summary__subtotal">
+                            <p>小計</p>
+                            <p class="subtotal-price" id="total-price">¥ 4,250<span> JPY</span></p>
+                        </div>
+                        <p class="cart-summary__tax-info">送料と税金はチェックアウト時に計算されます</p>
+
+                        <div class="cart-delivery-options">
+                            <div class="delivery-option">
+                                <label for="delivery-date">配送希望日</label>
+                                <input type="date" id="delivery-date" class="delivery-select">
+                            </div>
+                            <div class="delivery-option">
+                                <label for="delivery-time">配送希望時間</label>
+                                <select id="delivery-time" class="delivery-select">
+                                    <option value="none">希望しない</option>
+                                    <option value="am">午前中</option>
+                                    <option value="12-14">12時〜14時</option>
+                                    <option value="14-16">14時〜16時</option>
+                                    <option value="16-18">16時〜18時</option>
+                                    <option value="18-20">18時〜20時</option>
+                                    <option value="18-21">18時〜21時</option>
+                                    <option value="19-21">19時〜21時</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button class="btn-checkout">チェックアウト</button>
+                    </div>
                 </div>
 
             </div>
@@ -173,7 +187,6 @@
         </div>
     </footer>
 
-    <!-- 実際のプロジェクトではパスを適切に設定してください -->
     <script src="../js/script.js"></script>
     <script src="../js/cart.js"></script>
 </body>
