@@ -66,18 +66,13 @@
 .data-table td:nth-child(8),
 .data-table th:nth-child(9), /* サブ画像3 */
 .data-table td:nth-child(9) {
-    width: 3%;
+    width: 4%;
     min-width: 40px;
     text-align: center;
     padding: 10px 8px; /* 画像セルのパディングを調整 */
 }
-.data-table th:nth-child(10), /* おつまみリンク */
+.data-table th:nth-child(10), /* 操作 */
 .data-table td:nth-child(10) {
-    width: 5%;
-    max-width: 80px;
-}
-.data-table th:nth-child(11), /* 操作 */
-.data-table td:nth-child(11) {
     width: 8%;
     min-width: 130px;
     white-space: nowrap;
@@ -226,18 +221,19 @@
     .data-table td:nth-child(8),
     .data-table th:nth-child(9),
     .data-table td:nth-child(9) {
-        width: 3%;
+        width: 4%;
         min-width: 35px;
         padding: 10px 5px; /* パディングを調整 */
     }
     .data-table th:nth-child(10),
     .data-table td:nth-child(10) {
-        width: 5%;
+        width: 8%;
+        min-width: 120px;
     }
     .data-table th:nth-child(11),
     .data-table td:nth-child(11) {
         width: 8%;
-        min-width: 120px;
+        min-width: 130px;
     }
     .action-buttons {
         gap: 10px; /* ボタン間のスペースを調整 */
@@ -309,18 +305,18 @@
     .data-table td:nth-child(8),
     .data-table th:nth-child(9),
     .data-table td:nth-child(9) {
-        width: 3%;
-        min-width: 30px;
-        padding: 8px 5px; /* パディングを調整 */
+        width: 4%;
+        min-width: 35px;
+        padding: 10px 5px; /* パディングを調整 */
     }
     .data-table th:nth-child(10),
     .data-table td:nth-child(10) {
-        width: 5%;
+        width: 8%;
     }
     .data-table th:nth-child(11),
     .data-table td:nth-child(11) {
         width: 8%;
-        min-width: 100px;
+        min-width: 130px;
     }
     .action-buttons {
         gap: 8px; /* ボタン間のスペースを調整 */
@@ -376,13 +372,9 @@
         min-width: 25px;
         padding: 5px 2px; /* パディングをさらに小さく */
     }
-    .product-thumb {
-        width: 25px;
-        height: 25px;
-    }
     .data-table th:nth-child(10),
     .data-table td:nth-child(10) {
-        width: 5%;
+        width: 8%;
     }
     .data-table th:nth-child(11),
     .data-table td:nth-child(11) {

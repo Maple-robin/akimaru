@@ -1,18 +1,28 @@
 /* プロフィール編集セクション全体 */
 .profile-edit-section {
-    padding: 30px 20px; /* 上下の余白を増やし、左右は共通のパディングに合わせる */
-    margin-bottom: 60px; /* フッターとの間隔を確保 */
+    padding: 0;
+    margin-bottom: 60px;
 }
 
 /* プロフィール編集コンテナ（フォームのラッパー） */
 .profile-edit-container {
-    width: 100%;
-    max-width: 680px; /* フォームの最大幅を少し広げる */
-    margin: 0 auto;
-    background-color: #ffffff; /* 明示的に背景色を設定 */
-    border-radius: 12px; /* 全体の角丸を少し大きく */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* 影を柔らかく、深めに */
-    padding: 40px; /* コンテナ全体のパディング */
+    display: none;
+}
+
+/* 新たに内側ラッパーを追加（HTML側も <div class="profile-edit-inner"> で囲む） */
+.profile-edit-inner {
+    background-color: #fff;
+    border-radius: 10px; /* ← 12pxから10pxに変更 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* ← 0 8px 30px ... から変更 */
+    padding: 30px;
+    max-width: 800px; /* ← MyPageの.profile-sectionと同じ最大幅を指定 */
+    margin: 0 auto;   /* ← 中央寄せ */
+}
+
+@media (max-width: 600px) {
+    .profile-edit-inner {
+        padding: 15px;
+    }
 }
 
 /* 各入力項目ブロック */
@@ -34,11 +44,11 @@
 /* ラベルのスタイル */
 .edit-label {
     display: block;
-    font-size: 1.5rem; /* ラベルのフォントサイズを微調整 */
-    font-weight: 600; /* 少し太くして視認性を高める */
-    color: #444; /* ラベルの色を調整 */
-    margin-bottom: 12px; /* ラベルと入力フィールドの間隔 */
-    letter-spacing: 0.02em; /* 文字間を少し開ける */
+    font-size: 2.2rem;      /* さらに大きく */
+    font-weight: 800;       /* より太く */
+    color: #222;            /* ベーシックな濃いグレーに戻す */
+    margin-bottom: 18px;    /* 下の余白も広げる */
+    letter-spacing: 0.04em; /* 文字間も少し広げる */
 }
 
 /* 入力フィールドとテキストエリア */
@@ -111,7 +121,7 @@
     color: #fff;
     padding: 10px 25px; /* パディングを調整 */
     border: none;
-    border-radius: 25px; /* より丸いボタンに */
+    border-radius: 8px; /* より丸いボタンに */
     font-size: 1.5rem;
     font-weight: 500;
     cursor: pointer;
@@ -145,7 +155,7 @@
 .btn-cancel-profile {
     padding: 14px 35px; /* パディングを増やす */
     border: none;
-    border-radius: 30px; /* さらに丸く */
+    border-radius: 8px; /* さらに丸く */
     font-size: 1.8rem; /* フォントサイズを大きく */
     font-weight: 600; /* 少し太く */
     cursor: pointer;
@@ -179,12 +189,12 @@
 /* モバイル向けの調整 (既存のブレイクポイントを調整) */
 @media (max-width: 767px) { /* PC向けのmin-width: 768pxに対応 */
     .profile-edit-section {
-        padding: 20px 15px; /* モバイルでのパディング */
+        padding: 0 10px; /* モバイルもマイページと統一 */
         margin-bottom: 40px;
     }
 
     .profile-edit-container {
-        padding: 25px 20px; /* モバイルでのコンテナパディング */
+        padding: 0; /* モバイルも0に */
     }
 
     .profile-edit-item {
@@ -193,8 +203,8 @@
     }
 
     .edit-label {
-        font-size: 1.4rem;
-        margin-bottom: 8px;
+        font-size: 1.7rem;
+        margin-bottom: 12px;
     }
 
     .edit-input,

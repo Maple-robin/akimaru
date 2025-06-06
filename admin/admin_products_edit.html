@@ -8,8 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../admincss/admin.css">
-    <link rel="stylesheet" href="../admincss/admin_products.css">
-    <link rel="stylesheet" href="../admincss/admin_liquor_edit.css">
+    <link rel="stylesheet" href="../admincss/admin_products_add.css">
 </head>
 <body>
 
@@ -37,69 +36,71 @@
             <h2 class="admin-page-title">お酒データ編集</h2>
 
             <section class="admin-section admin-liquor-edit-form">
-                <h3 class="admin-section-title">お酒情報を編集</h3>
-                <form id="liquorEditForm" class="edit-form">
+                <form action="#" method="post" enctype="multipart/form-data" class="admin-form">
                     <div class="form-group">
-                        <label for="productName">商品名 <span class="required-tag">必須</span></label>
-                        <input type="text" id="productName" name="productName" required placeholder="例: アサヒスーパードライ">
+                        <label for="product_name">商品名 <span class="required">必須</span></label>
+                        <input type="text" id="product_name" name="product_name" required maxlength="32">
                     </div>
 
                     <div class="form-group">
-                        <label for="productImage">画像ファイル <span class="required-tag">必須</span></label>
-                        <input type="file" id="productImage" name="productImage" accept="image/png, image/jpeg, image/gif" required>
-                        <div class="image-preview" id="imagePreview">
-                            <img src="https://placehold.co/100x100/E0E0E0/333333?text=No+Image" alt="画像プレビュー" class="preview-thumb" id="previewThumb">
-                        </div>
+                        <label for="main_image">メイン画像 <span class="required">必須</span></label>
+                        <input type="file" id="main_image" name="main_image" accept="image/*" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="productType">種類 <span class="required-tag">必須</span></label>
-                        <select id="productType" name="productType" required>
+                        <label for="sub_image_1">サブ画像1</label>
+                        <input type="file" id="sub_image_1" name="sub_image_1" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub_image_2">サブ画像2</label>
+                        <input type="file" id="sub_image_2" name="sub_image_2" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sub_image_3">サブ画像3</label>
+                        <input type="file" id="sub_image_3" name="sub_image_3" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product_type">種類 <span class="required">必須</span></label>
+                        <select id="product_type" name="product_type" required>
                             <option value="">選択してください</option>
                             <option value="ビール">ビール</option>
-                            <option value="ウイスキー">ウイスキー</option>
-                            <option value="日本酒">日本酒</option>
+                            <option value="ハイボール">ハイボール</option>
+                            <option value="カクテル">カクテル</option>
                             <option value="ワイン">ワイン</option>
-                            <option value="焼酎">焼酎</option>
-                            <option value="その他">その他</option>
+                            <option value="日本酒">日本酒</option>
+                            <option value="ウイスキー">ウイスキー</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="productCategory">カテゴリ <span class="required-tag">必須</span></label>
-                        <select id="productCategory" name="productCategory" required>
+                        <label for="product_category">カテゴリ <span class="required">必須</span></label>
+                        <select id="product_category" name="product_category" required>
                             <option value="">選択してください</option>
                             <option value="初心者向け">初心者向け</option>
                             <option value="甘口">甘口</option>
                             <option value="辛口">辛口</option>
-                            <option value="フルーティー">フルーティー</option>
-                            <option value="重厚">重厚</option>
-                            <option value="限定品">限定品</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="productDescription">商品説明 <span class="required-tag">必須</span></label>
-                        <textarea id="productDescription" name="productDescription" rows="5" required placeholder="お酒の特徴や詳細を記入してください。"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="productLink">商品リンクURL <span class="required-tag">必須</span></label>
-                        <input type="url" id="productLink" name="productLink" required placeholder="例: https://shop.example.com/item123">
+                        <label for="product_description">商品説明 <span class="required">必須</span></label>
+                        <textarea id="product_description" name="product_description" rows="6" maxlength="256"></textarea>
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary btn-save">変更を保存</button>
-                        <button type="button" class="btn btn-secondary btn-cancel" onclick="window.history.back();">キャンセル</button>
+                        <button type="submit" class="btn btn-primary btn-lg">変更を保存</button>
                     </div>
                 </form>
             </section>
 
-            <div id="messageBox" class="message-box hidden">
-                <p id="messageText"></p>
-                <button class="message-box-close" onclick="document.getElementById('messageBox').classList.add('hidden');">×</button>
+            <div class="back-to-list-button-area">
+                <a href="admin_products.html" class="btn btn-secondary btn-back-to-list">
+                    お酒管理一覧に戻る
+                </a>
             </div>
-
         </div>
     </main>
 

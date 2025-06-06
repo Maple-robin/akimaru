@@ -423,7 +423,7 @@ main {
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px; /* ← ここを20pxから8pxに変更（おつまみ・編集ページと統一） */
     font-size: 1.5rem;
     transition: background-color 0.3s ease;
 }
