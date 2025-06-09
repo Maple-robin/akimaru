@@ -45,93 +45,18 @@ ul {
     margin: 0;
 }
 
-/* common */
-.footer__inner {
-    width: 100%;
-    max-width: 1100px; /* PCでの最大幅 */
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* header */
-.header {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    padding: 15px 0; /* 左右のパディングを0にして、innerで制御 */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; /* ヘッダー自体は常に100%幅 */
-    z-index: 999;
-}
-
-.header__inner {
-    display: flex;
-    justify-content: space-between; /* ロゴとナビゲーションを左右に配置 */
-    align-items: center;
-    height: 60px;
-    width: 100%; /* innerは親要素の100%幅 */
-    max-width: 1100px; /* innerのコンテンツの最大幅を制限 */
-    margin: 0 auto; /* innerを中央寄せ */
-    padding: 0 20px; /* innerの左右パディング */
-}
-
-.header__logo a {
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 2.4rem;
-    font-weight: bold;
-    color: #333;
-    white-space: nowrap; /* テキストが改行されないように */
-}
-
-.header__nav .nav__list {
-    display: flex; /* PC表示では常にフレックス表示 */
-    gap: 20px; /* ナビゲーション間のスペース */
-    flex-wrap: wrap; /* 画面幅が狭い場合に改行されるように */
-    justify-content: flex-end; /* ナビゲーション項目を右寄せ */
-}
-
-.header__nav .nav__list li a {
-    font-size: 1.5rem;
-    color: #555; /* ナビゲーションリンクの色 */
-    transition: color 0.3s ease;
-    white-space: nowrap; /* ナビゲーション項目が改行されないように */
-}
-
-.header__nav .nav__list li a:hover {
-    color: #000; /* ホバー時の色 */
-}
-
-/* main content adjustment */
-main {
-    margin-top: 60px; /* ヘッダーの高さ分マージン */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-}
-
-/* Admin Page Specific Styles (Common for all admin pages) */
-.admin-container {
-    width: 100%;
-    max-width: 1000px; /* Wider for admin table */
-    margin: 20px auto;
-    padding: 0 10px;
-}
+/* ページ固有のスタイルのみ記述。共通クラス(admin-container, admin-main, admin-footer__inner等)は記述しない */
 
 .admin-page-title {
     text-align: center;
-    margin-bottom: 80px; /* PC時のタイトル下マージン */
-    font-family: 'Zen Old Mincho', serif;
+    margin-top: 0;         /* ← 追加 */
+    margin-bottom: 80px;
     font-weight: 500;
 }
 
 .admin-page-title .en {
     display: block;
-    font-size: 4.8rem; /* PC時の英語タイトルサイズ */
+    font-size: 4.8rem;
     color: #000;
     letter-spacing: 0.1em;
     margin-bottom: 5px;
@@ -139,7 +64,7 @@ main {
 
 .admin-page-title .ja {
     display: block;
-    font-size: 2.2rem; /* PC時の日本語タイトルサイズ */
+    font-size: 2.2rem;
     color: #555;
     letter-spacing: 0.05em;
     position: relative;
@@ -149,7 +74,7 @@ main {
 .admin-page-title .ja::after {
     content: '';
     display: block;
-    width: 60px; /* PC時の下線幅 */
+    width: 60px;
     height: 1px;
     background-color: #C0C0C0;
     position: absolute;
@@ -163,7 +88,7 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
+    overflow-x: auto;
 }
 
 .admin-table {
@@ -184,7 +109,7 @@ main {
     background-color: #f0f0f0;
     font-weight: 600;
     color: #555;
-    white-space: nowrap; /* Prevent wrapping of table headers */
+    white-space: nowrap;
 }
 
 .admin-table tbody tr:hover {
@@ -193,19 +118,19 @@ main {
 
 /* Inquiry specific styles */
 .admin-table .inquiry-content-cell {
-    max-width: 300px; /* Limit width for content */
+    max-width: 300px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .admin-table .status-pending {
-    color: #FFA500; /* Orange for pending */
+    color: #FFA500;
     font-weight: 500;
 }
 
 .admin-table .status-replied {
-    color: #28a745; /* Green for replied */
+    color: #28a745;
     font-weight: 500;
 }
 
@@ -222,72 +147,4 @@ main {
 
 .admin-table .reply-button:hover {
     background-color: #0056b3;
-}
-
-/* footer */
-.footer {
-    background-color: #eeeeee;
-    padding: 50px 0 30px;
-}
-
-.footer__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.footer__nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.footer__nav li {
-    margin: 5px 15px;
-}
-
-.footer__nav li a {
-    font-size: 1.4rem;
-    color: #444;
-    transition: color 0.3s ease;
-}
-
-.footer__nav li a:hover {
-    color: #000;
-}
-
-/* SNSセクションのスタイル */
-.footer__sns {
-    margin-bottom: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.footer__sns a {
-    display: inline-block;
-}
-
-.footer__sns img {
-    width: 28px;
-    height: 28px;
-    transition: opacity 0.3s ease;
-}
-
-.footer__sns img:hover {
-    opacity: 0.7;
-}
-
-.footer__copyright {
-    font-size: 1.2rem;
-    color: #666;
-    width: 100%;
 }
