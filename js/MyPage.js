@@ -1,19 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const spMenu = document.querySelector('.sp-menu');
 
     if (hamburgerMenu && spMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            hamburgerMenu.classList.toggle('is-active');
-            spMenu.classList.toggle('is-active');
-            document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
+        hamburgerMenu.addEventListener('click', function () {
+            hamburgerMenu.classList.toggle('is-active'); // メニューアイコンの状態を切り替え
+            spMenu.classList.toggle('is-active'); // メニューの表示/非表示を切り替え
         });
     }
 
     // 複数カテゴリトグル対応
     const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
     spCategoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function () {
             this.classList.toggle('is-open');
             const subList = this.querySelector('.sp-menu__sub-list');
             if (subList) {
@@ -101,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // いいね/よくないねボタンのイベントリスナー
         const reactionButtons = postCard.querySelectorAll('.reaction-button');
         reactionButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const type = this.dataset.type;
                 const postId = post.id;
                 let countSpan = this.querySelector('span');
