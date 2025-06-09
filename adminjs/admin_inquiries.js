@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const inquiryId = this.dataset.id;
                 // In a real application, this would navigate to a reply page or open a reply modal
                 console.log(`Inquiry ID: ${inquiryId} の返信ページへ移動します。`);
-                // IMPORTANT: Replace alert with a custom message box UI.
-                alert(`お問い合わせID: ${inquiryId} の返信ページへ移動しました。（この機能は開発中です）`);
+                // 返信ページへ遷移（例: admin_inquiry_reply.html?id=問い合わせID）
+                window.location.href = `admin_inquiry_reply.html?id=${encodeURIComponent(inquiryId)}`;
             });
         });
     }

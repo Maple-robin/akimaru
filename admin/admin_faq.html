@@ -19,13 +19,13 @@
             </h1>
             <nav class="admin-header__nav">
                 <ul class="admin-nav__list">
-                    <li><a href="admin_liquor_list.html">お酒管理</a></li>
-                    <li><a href="admin_otsumami_list.html">おつまみ管理</a></li>
-                    <li><a href="#">ユーザー管理</a></li>
-                    <li><a href="#">投稿管理</a></li>
-                    <li><a href="#">お問い合わせ管理</a></li>
-                    <li><a href="admin_faq_list.html" class="is-current">FAQ登録</a></li>
-                    <li><a href="#">通報管理</a></li>
+                    <li><a href="admin_products.html">お酒管理</a></li>
+                    <li><a href="admin_otsumami.html">おつまみ管理</a></li>
+                    <li><a href="admin_users.html">ユーザー管理</a></li>
+                    <li><a href="admin_posts.html">投稿管理</a></li>
+                    <li><a href="admin_inquiries.html">お問い合わせ管理</a></li>
+                    <li><a href="admin_faq.html" class="is-current">FAQ管理</a></li>
+                    <li><a href="admin_reports.html">通報管理</a></li>
                 </ul>
             </nav>
         </div>
@@ -33,46 +33,52 @@
 
     <main class="admin-main">
         <div class="admin-main__inner">
-            <h2 class="admin-page-title">FAQ管理</h2>
+            <h2 class="admin-page-title">
+                <span class="en">FAQ MANAGEMENT</span>
+                <span class="ja">( FAQ管理 )</span>
+            </h2>
 
             <section class="admin-section admin-faq-list">
-                <h3 class="admin-section-title">登録済みFAQデータ一覧</h3>
                 <div class="table-container">
                     <table class="data-table">
                         <thead>
                             <tr>
                                 <th>タイトル</th>
-                                <th>質問のカテゴリ</th> <th>内容</th>
+                                <th>質問のカテゴリ</th>
+                                <th>内容</th>
                                 <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>注文の変更・キャンセルはできますか？</td>
-                                <td>このサイトについて</td> <td>ご注文完了後の内容変更やキャンセルは、原則として承っておりません。お間違えのないようご注意ください。</td>
+                                <td>このサイトについて</td>
+                                <td>ご注文完了後の内容変更やキャンセルは、原則として承っておりません。お間違えのないようご注意ください。</td>
                                 <td>
                                     <div class="action-buttons">
-                                        <button class="btn btn-sm btn-edit">編集</button>
+                                        <a href="admin_faq_edit.html" class="btn btn-sm btn-edit">編集</a>
                                         <button class="btn btn-sm btn-delete">削除</button>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>パスワードを忘れました</td>
-                                <td>ログイン・会員登録について</td> <td>ログイン画面の「パスワードをお忘れの方はこちら」より、再設定手続きを行ってください。</td>
+                                <td>ログイン・会員登録について</td>
+                                <td>ログイン画面の「パスワードをお忘れの方はこちら」より、再設定手続きを行ってください。</td>
                                 <td>
                                     <div class="action-buttons">
-                                        <button class="btn btn-sm btn-edit">編集</button>
+                                        <a href="admin_faq_edit.html" class="btn btn-sm btn-edit">編集</a>
                                         <button class="btn btn-sm btn-delete">削除</button>
                                     </div>
                                 </td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td>お酒の選び方がわかりません</td>
-                                <td>お酒の情報について</td> <td>当サイトでは、お酒の好みや気分に合わせた選び方のガイドを公開しています。ぜひご参照ください。</td>
+                                <td>お酒の情報について</td>
+                                <td>当サイトでは、お酒の好みや気分に合わせた選び方のガイドを公開しています。ぜひご参照ください。</td>
                                 <td>
                                     <div class="action-buttons">
-                                        <button class="btn btn-sm btn-edit">編集</button>
+                                        <a href="admin_faq_edit.html" class="btn btn-sm btn-edit">編集</a>
                                         <button class="btn btn-sm btn-delete">削除</button>
                                     </div>
                                 </td>
