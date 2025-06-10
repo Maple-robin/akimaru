@@ -329,11 +329,38 @@ main {
 
 .page-title {
     font-family: 'Zen Old Mincho', serif;
-    font-size: 3.2rem;
-    font-weight: 500;
-    color: #333;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.page-title .en {
+    display: block;
+    font-size: 3.2rem;
+    color: #000;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+.page-title .ja {
+    display: block;
+    font-size: 1.8rem;
+    color: #333;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.page-title .ja::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background-color: #C0C0C0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
 }
 
 /* 新規投稿ボタンのラッパー */
