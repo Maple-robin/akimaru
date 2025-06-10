@@ -49,6 +49,11 @@ ul {
     display: none;
 }
 
+/* 非表示用ユーティリティ */
+.hidden {
+    display: none !important;
+}
+
 /* common */
 .header,
 .footer__inner {
@@ -307,12 +312,12 @@ ul {
 
 /* main content adjustment */
 main {
-    margin-top: 60px; /* ヘッダーの高さ分 */
+    margin-top: 0; /* ← ここを0に変更 */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 0;
     box-sizing: border-box;
     overflow-y: auto;
 }
@@ -322,10 +327,12 @@ main {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 40px;
+    padding: 55px 0; /* ← ここを55pxに */
     width: 100%;
     max-width: 600px; /* Form width */
     box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* ページタイトル (マイページと同じスタイル) */
@@ -444,66 +451,59 @@ textarea#report-content.error {
 /* ボタンを囲むdivのスタイル */
 .form-actions {
     display: flex;
-    flex-direction: column; /* スマートフォンでは縦に並べる */
-    gap: 15px; /* ボタン間のスペース */
-    margin-top: 30px; /* フォームグループとの間隔 */
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    align-items: center; /* 中央寄せ */
 }
 
-.submit-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #A0522D; /* Brand color */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #8B4513; /* Darker shade on hover */
-}
-
-/* キャンセルボタンのスタイルを追加 */
+.submit-button,
 .cancel-button {
     display: block;
     width: 100%;
-    padding: 15px;
-    background-color: #6c757d; /* グレー系の色 */
+    max-width: 350px;      /* 商品ページと同じ最大幅 */
+    padding: 15px 30px;    /* 商品ページと同じパディング */
+    font-size: 1.7rem;     /* 商品ページと同じフォントサイズ */
+    border-radius: 5px;
+    font-weight: 700;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.submit-button {
+    background-color: #A0522D; /* 商品ページと同じ色 */
     color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 1.8rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
+}
+.submit-button:hover {
+    background-color: #8B4513; /* ホバー時の色 */
 }
 
+.cancel-button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    transition: background-color 0.3s;
+}
 .cancel-button:hover {
-    background-color: #5a6268; /* ホバーで少し暗く */
+    background-color: #bbb;
 }
 
-.error-message {
-    color: #dc3545;
-    font-size: 1.3rem;
-    margin-top: 8px;
-    margin-bottom: 0;
-    display: none; /* Hidden by default */
-}
-
-.success-message {
-    color: #28a745;
-    font-size: 1.5rem;
-    text-align: center;
-    margin-top: 20px;
-    display: none; /* Hidden by default */
-}
-
-.hidden {
-    display: none !important;
+/* PC時のボタン配置 */
+@media (min-width: 768px) {
+    .form-actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+    .submit-button,
+    .cancel-button {
+        width: 100%;
+        max-width: 350px;  /* PCでも最大幅350px */
+        padding: 15px 30px;
+        font-size: 1.7rem;
+    }
 }
 
 /* footer */
@@ -639,50 +639,36 @@ textarea#report-content.error {
         width: 48%; /* ボタンの幅を調整 */
         max-width: 250px; /* 必要に応じて最大幅を設定 */
     }
+
+    /* PC時の余白調整 */
+    .report-container {
+        padding: 40px;
+        margin-top: 80px; /* PCヘッダー分の余白 */
+    }
 }
 
 /* スマートフォン向けの追加調整 (既存のメディアクエリに統合) */
 @media (max-width: 600px) {
     .report-container {
-        padding: 30px 20px;
-        max-width: 100%; /* Full width on mobile */
+        padding-left: 15px;   /* 横余白を追加 */
+        padding-right: 15px;
+        padding-top: 45 px;
+        padding-bottom: 45px;
+        margin-top: 60px;
+        max-width: 100%;
+        box-sizing: border-box;
     }
+}
 
-    /* モバイル時のページタイトル調整 */
-    .page-title {
-        font-size: 2.8rem;
-        margin-bottom: 30px;
-    }
-
-    .page-title .en {
-        font-size: 2.8rem;
-    }
-
-    .page-title .ja {
-        font-size: 1.6rem;
-    }
-
-    .form-group {
-        margin-bottom: 25px;
-    }
-
-    .form-label {
-        font-size: 1.6rem;
-        margin-bottom: 10px;
-    }
-
-    .radio-options {
-        gap: 10px;
-    }
-
-    /* スマホでのボタン間隔とサイズ調整 */
-    .form-actions {
-        gap: 12px;
-    }
-
-    .submit-button,
-    .cancel-button {
-        font-size: 1.6rem;
-        padding: 12px;
+/* PC向けの余白調整 */
+@media (min-width: 601px) {
+    .report-container {
+        padding-left: 40px;   /* お問い合わせと同じ余白感 */
+        padding-right: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin-top: 80px;
+        max-width: 600px;
+        box-sizing: border-box;
     }
 }
