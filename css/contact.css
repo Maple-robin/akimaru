@@ -65,23 +65,18 @@
 }
 
 .form-actions button {
-    padding: 12px 25px;
-    border: none;
+    width: 100%;
+    max-width: 350px;      /* 商品・報告ページと同じ最大幅に統一 */
+    padding: 15px 30px;    /* 商品・報告ページと同じパディングに統一 */
+    font-size: 1.7rem;     /* 商品・報告ページと同じフォントサイズに統一 */
     border-radius: 5px;
-    font-size: 1.6rem;
+    border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, opacity 0.3s ease;
-    /* ホバーアニメーション */
-    width: 100%;
-    /* ボタンの幅を親要素に合わせる */
-    max-width: 250px;
-    /* ボタンの最大幅を制限（任意） */
     margin-bottom: 20px;
-    /* 各ボタンの下に20pxのスペース */
     margin-left: 0;
-    /* 不要なマージンをリセット */
     margin-right: 0;
-    /* 不要なマージンをリセット */
+    /* フォントファミリー等は既存のまま */
 }
 
 .form-actions .submit-btn {
@@ -127,10 +122,10 @@
     }
 
     .form-actions button {
+        width: 100%;
+        max-width: 350px;
         padding: 15px 30px;
         font-size: 1.7rem;
-        max-width: 300px;
-        /* PCでのボタンの最大幅を調整（任意） */
     }
 }
 
