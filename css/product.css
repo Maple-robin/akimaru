@@ -28,8 +28,8 @@
 }
 
 .product-gallery__main {
-    aspect-ratio: unset;
     width: 100%;
+    max-width: 400px;
     height: 500px;
     background: #faf7f3;
     display: flex;
@@ -37,14 +37,14 @@
     justify-content: center;
     overflow: hidden;
     margin: 0 auto 20px auto;
-    /* max-width: 600px; など大きめにするか削除 */
 }
 
 .product-gallery__main img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 枠いっぱいに表示し、ズレを防ぐ */
+    object-fit: cover;   /* coverに変更で余白なし */
     display: block;
+    background: #faf7f3;
 }
 
 .product-gallery__thumbnails {
