@@ -143,19 +143,19 @@ ul {
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 990;
-    display: flex;
+    display: none; /* 初期状態で非表示 */
     flex-direction: column;
     align-items: center;
     visibility: hidden;
     opacity: 0;
     transition: all 0.4s ease;
     transform: translateX(100%);
-    /* 修正点: ヘッダーの高さ分だけパディングを追加 */
-    padding: 110px 0 20px; /* 上部を80pxに変更 (ヘッダー高さ約60px + 上部の余白) */
+    padding: 110px 0 20px;
 }
 
 /* メニューのアクティブ状態 */
 .sp-menu.is-active {
+    display: flex; /* メニューを表示 */
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
