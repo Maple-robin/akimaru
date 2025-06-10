@@ -364,66 +364,69 @@ main {
 /* Controls Section (Filter, Sort, Display Mode) */
 .controls-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 30px;
-    padding: 10px 0;
+    gap: 0;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    padding: 0;
+    background: #fff;
 }
 
 .filter-sort-buttons {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    border: 1px solid #d8cbb6;
+    border-radius: 0;
+    overflow: hidden;
 }
 
 .filter-button,
 .sort-button {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 15px;
+    background: #fff;
+    border: none;
+    border-right: 1px solid #d8cbb6;
+    border-radius: 0;
     font-size: 1.5rem;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background-color 0.3s, border-color 0.3s;
+    color: #a8906b;
+    padding: 10px 28px;
+    min-width: 100px;
+    height: 44px;
+    box-sizing: border-box;
+    transition: background 0.2s;
 }
 
-.filter-button:hover,
-.sort-button:hover {
-    background-color: #f0f0f0;
-    border-color: #aaa;
+.sort-button {
+    border-right: none;
+}
+
+.filter-button:active,
+.sort-button:active {
+    background: #f5f5f5;
 }
 
 .display-mode-buttons {
     display: flex;
-    gap: 5px;
+    align-items: center;
+    margin-left: 16px;
+    gap: 0;
 }
 
 .display-mode-buttons button {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #fff;
+    border: none;
+    color: #a8906b;
+    width: 32px;
+    height: 32px;
     font-size: 1.8rem;
-    color: #555;
-    transition: background-color 0.3s, border-color 0.3s;
+    margin-left: 4px;
+    border-radius: 0;
+    transition: background 0.2s;
 }
 
 .display-mode-buttons button.active {
-    background-color: #A0522D;
-    border-color: #A0522D;
+    background: #bfa77a;
     color: #fff;
-}
-
-.display-mode-buttons button:hover:not(.active) {
-    background-color: #f0f0f0;
-    border-color: #aaa;
 }
 
 /* Overlay for Filter and Sort Panels */
@@ -581,12 +584,12 @@ main {
 }
 
 .product-card__title {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 10px;
-    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;       /* 2行でカット */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .product-card__volume {
@@ -914,28 +917,42 @@ main {
     }
 
     .controls-section {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-        padding: 10px 20px; /* コントロールセクションに左右パディングを追加 */
-        margin-bottom: 20px; /* 下部マージンを調整 */
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #d8cbb6;
+        border-bottom: 1px solid #d8cbb6;
+        background: #fff;
+        position: relative;
     }
 
     .filter-sort-buttons {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .filter-button,
-    .sort-button {
-        flex-grow: 1;
-        justify-content: center;
-        padding: 12px 15px; /* ボタンのパディング調整 */
+        display: flex;
+        align-items: center;
+        border: 1px solid #d8cbb6;
+        border-radius: 0;
+        overflow: hidden;
+        background: #fff;
+        height: 100%;
+        border-left: none !important;
+        border-top: 1px solid #d8cbb6;
+        border-bottom: 1px solid #d8cbb6;
+        border-right: 1px solid #d8cbb6;
     }
 
     .display-mode-buttons {
-        width: 100%;
-        justify-content: flex-end;
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        gap: 0;
     }
 
     /* 商品グリッドのモバイル表示 (2カラム、横幅いっぱい) */
@@ -1084,4 +1101,48 @@ main {
     margin-top: 1px;
     line-height: 1.1;
     padding: 1px 4px;
+}
+
+@media (max-width: 767px) {
+    .controls-section {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #d8cbb6;
+        border-bottom: 1px solid #d8cbb6;
+        background: #fff;
+        position: relative;
+    }
+    .filter-sort-buttons {
+        display: flex;
+        align-items: center;
+        border: 1px solid #d8cbb6;
+        border-radius: 0;
+        overflow: hidden;
+        background: #fff;
+        height: 100%;
+        border-left: none !important;
+        border-top: 1px solid #d8cbb6;
+        border-bottom: 1px solid #d8cbb6;
+        border-right: 1px solid #d8cbb6;
+    }
+    .display-mode-buttons {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        gap: 0;
+    }
+
+    .display-mode-buttons button.active {
+        background: #fff; /* アクティブ時も通常と同じ背景色に */
+        color: #a8906b;   /* アクティブ時も通常と同じ文字色に */
+    }
 }
