@@ -3,29 +3,19 @@
  * ----------------------------------------
  */
 .faq-hero {
-    background-image: url('../img/osake.png'); /* トップページのスライダー画像から流用 */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+    background: #fff;
+    color: #333;
     text-align: center;
-    padding: 100px 20px; /* 上下の余白 */
-    margin-top: 60px; /* ヘッダーの高さ分 */
+    padding: 24px 10px 0 10px; /* 上下左右の余白をマイページ風に */
+    margin-top: 60px; /* ヘッダー分だけ確保 */
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40vh; /* 高さの調整 */
+    display: block;
+    height: auto;
+    min-height: 0;
 }
 
 .faq-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* 画像の可読性を上げるためのオーバーレイ */
-    z-index: 1;
+    display: none; /* オーバーレイも消す */
 }
 
 .faq-hero__content {
@@ -35,34 +25,35 @@
     margin: 0 auto;
 }
 
-.faq-hero__title {
+.section-title {
     font-family: 'Zen Old Mincho', serif;
     font-weight: 500;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* 文字に影をつけて見やすく */
+    margin-bottom: 0;
 }
 
-.faq-hero__title .en {
+.section-title .en {
     display: block;
-    font-size: 4rem; /* PC向けサイズを基本に、スマホで調整 */
+    font-size: 3.2rem; /* マイページと合わせる */
+    color: #000;
     letter-spacing: 0.1em;
     margin-bottom: 5px;
 }
 
-.faq-hero__title .ja {
+.section-title .ja {
     display: block;
-    font-size: 2rem; /* PC向けサイズを基本に、スマホで調整 */
+    font-size: 1.8rem; /* マイページと合わせる */
+    color: #333;
     letter-spacing: 0.05em;
     position: relative;
     padding-bottom: 10px;
 }
 
-.faq-hero__title .ja::after {
+.section-title .ja::after {
     content: '';
     display: block;
-    width: 60px; /* 下線の長さ */
-    height: 1px; /* 下線の太さ */
-    background-color: #C0C0C0; /* 下線の色 */
+    width: 30px;
+    height: 1px;
+    background-color: #C0C0C0;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -70,19 +61,16 @@
 }
 
 .faq-hero__text {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    margin-top: 30px;
+    margin-top: 8px; /* タイトルとの間の余白をさらに詰める */
 }
-
 
 /*
  * faq-section (Q&Aコンテンツ本体)
  * ----------------------------------------
  */
 .faq-section {
-    padding: 60px 0; /* 上下の余白 */
-    background-color: #fff; /* 背景色 */
+    padding: 24px 0 60px 0; /* 上余白を減らす */
+    background-color: #fff;
 }
 
 .faq-section__inner {
@@ -103,10 +91,11 @@
 
 .faq-category__title {
     font-family: 'Zen Old Mincho', serif;
-    font-size: 2.8rem; /* カテゴリ見出しのサイズ */
+    font-size: 2.2rem; /* マイページと合わせるなら調整 */
     font-weight: 700;
-    color: #A0522D; /* ブランドカラーを参考に */
+    color: #A0522D;
     margin-bottom: 30px;
+    margin-top: 0; /* 上余白をなくす */
     padding-bottom: 10px;
     border-bottom: 1px solid #eee; /* 下線 */
 }
@@ -242,47 +231,19 @@
  */
 @media (min-width: 768px) {
     .faq-hero {
-        height: 50vh; /* PCでの高さ調整 */
-        padding: 150px 20px;
+        padding: 40px 20px 0 20px;
+        margin-top: 80px;
     }
-
-    .faq-hero__title .en {
-        font-size: 6rem;
+    .section-title .en {
+        font-size: 4rem; /* マイページPCと合わせる */
     }
-
-    .faq-hero__title .ja {
-        font-size: 2.8rem;
-    }
-
-    .faq-section {
-        padding: 100px 0;
-    }
-
-    .faq-category {
-        margin-bottom: 80px;
-    }
-
-    .faq-category__title {
-        font-size: 3.6rem;
-        margin-bottom: 40px;
-    }
-
-    .faq-item__question {
-        padding: 20px 30px;
+    .section-title .ja {
         font-size: 2rem;
     }
-
-    .faq-item__question .q-mark {
-        font-size: 2.8rem;
+    .section-title .ja::after {
+        width: 60px;
     }
-
-    .faq-item__answer {
-        padding: 0 30px 30px;
-        font-size: 1.7rem;
-    }
-
-    .faq-contact-info {
-        margin-top: 100px;
-        padding-top: 60px;
+    .faq-category__title {
+        font-size: 2.4rem;
     }
 }
