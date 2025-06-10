@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
             spMenu.classList.toggle('is-active');
             // メニューが開いているときはスクロールを無効にする
             document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
+
+            // メニューの開閉に合わせてクラスを追加/削除
+            if (spMenu.classList.contains('is-active')) {
+                document.body.classList.add('menu-open');   // 開くとき
+            } else {
+                document.body.classList.remove('menu-open'); // 閉じるとき
+            }
         });
     }
 

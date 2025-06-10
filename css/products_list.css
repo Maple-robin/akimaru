@@ -313,7 +313,7 @@ main {
     align-items: center;
     padding: 40px 20px;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow: visible !important;
 }
 
 /* Ranking Page Specific Styles */
@@ -932,6 +932,18 @@ main {
         border-bottom: 1px solid #d8cbb6;
         background: #fff;
         position: relative;
+        z-index: 10;
+    }
+
+    .controls-section.sticky-fixed {
+        position: fixed !important;
+        top: 90px; /* ヘッダーの高さ(60px)＋余白(30px) */
+        left: 0;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        z-index: 999;
+        background: #fff;
     }
 
     .filter-sort-buttons {
@@ -1120,6 +1132,17 @@ main {
         border-bottom: 1px solid #d8cbb6;
         background: #fff;
         position: relative;
+        z-index: 10;
+    }
+    .controls-section.sticky-fixed {
+        position: fixed !important;
+        top: 90px; /* ヘッダーの高さ(60px)＋余白(30px) */
+        left: 0;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        z-index: 999;
+        background: #fff;
     }
     .filter-sort-buttons {
         display: flex;
@@ -1144,5 +1167,9 @@ main {
     .display-mode-buttons button.active {
         background: #fff; /* アクティブ時も通常と同じ背景色に */
         color: #a8906b;   /* アクティブ時も通常と同じ文字色に */
+    }
+
+    .menu-open .controls-section.sticky-fixed {
+        display: none !important;
     }
 }
