@@ -5,22 +5,17 @@
  */
 
 .contact-section {
-    padding: 80px 0;
-    /* 上下の余白 */
-    background-color: #f8f8f8;
-    /* 背景色をデフォルトに合わせる */
+    padding-top: 120px;
+    padding-bottom: 120px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .contact-form-container {
-    width: 100%;
-    max-width: 800px;
-    /* フォームの最大幅 */
-    margin: 60px auto 0;
-    /* ヘッダーの高さ分調整 + 中央寄せ + 下の余白はセクションのpaddingに任せる */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* section-titleはtop.cssに定義済みのためここでは不要 */
@@ -116,7 +111,8 @@
 /* PC (min-width: 768px) */
 @media (min-width: 768px) {
     .contact-section {
-        padding: 120px 0;
+        padding-top: 160px;
+        padding-bottom: 160px;
     }
 
     .contact-form-container {
@@ -142,7 +138,8 @@
 /* スマートフォンでの調整 (max-width: 767px) */
 @media (max-width: 767px) {
     .contact-section {
-        padding: 40px 0;
+        padding-top: 55px;
+        padding-bottom: 55px;
         /* スマホでのセクションパディング調整 */
     }
 
