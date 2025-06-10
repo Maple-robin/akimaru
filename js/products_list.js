@@ -184,8 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // ウイスキー
         {
             id: 12,
-            name: 'シングルモルト 〇〇',
-            image: 'https://placehold.co/300x200/2F4F4F/FFFFFF?text=Whisky',
+            name: 'シングルモルト 〇〇aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            image: '../img/berry.png',
             volume: '700ml',
             price: 4000,
             tags: ['本格派', '熟成'],

@@ -1060,3 +1060,28 @@ main {
         margin-top: 0; /* 上部マージンを調整 */
     }
 }
+
+.product-list-item .product-card__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;       /* 2行でカット */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.product-list-item .product-card__volume {
+    margin-bottom: 1px;
+    line-height: 1.1;
+}
+
+.product-list-item .product-card__price {
+    margin-bottom: 8px;  /* 値段とタグの間に余白を追加 */
+    line-height: 1.1;
+}
+
+.product-list-item .product-card__tag {
+    margin-top: 1px;
+    line-height: 1.1;
+    padding: 1px 4px;
+}
