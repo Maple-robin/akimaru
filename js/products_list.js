@@ -372,33 +372,50 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
             }
         }
-        // 次にカテゴリフィルターが適用されている場合 (「すべて」以外)
+        // ▼▼▼ ここをカテゴリ10種に統一 ▼▼▼
         else if (currentFilters.categories.length === 1 && currentFilters.categories[0] !== 'すべて') {
             const selectedCategory = currentFilters.categories[0];
             switch (selectedCategory) {
-                case 'ビール':
-                    enTitle = "BEER LIST";
-                    jaTitle = "( ビール一覧 )";
+                case '日本酒':
+                    enTitle = "SAKE LIST";
+                    jaTitle = "( 日本酒一覧 )";
                     break;
-                case 'ハイボール':
-                    enTitle = "HIGHBALL LIST";
-                    jaTitle = "( ハイボール一覧 )";
+                case '中国酒':
+                    enTitle = "CHINESE LIQUOR LIST";
+                    jaTitle = "( 中国酒一覧 )";
                     break;
-                case 'カクテル':
-                    enTitle = "COCKTAIL LIST";
-                    jaTitle = "( カクテル一覧 )";
+                case '梅酒':
+                    enTitle = "UMESHU LIST";
+                    jaTitle = "( 梅酒一覧 )";
+                    break;
+                case '缶チューハイ':
+                    enTitle = "CHU-HI LIST";
+                    jaTitle = "( 缶チューハイ一覧 )";
+                    break;
+                case '焼酎':
+                    enTitle = "SHOCHU LIST";
+                    jaTitle = "( 焼酎一覧 )";
+                    break;
+                case 'ウィスキー':
+                case 'ウイスキー': // どちらも対応
+                    enTitle = "WHISKY LIST";
+                    jaTitle = "( ウィスキー一覧 )";
+                    break;
+                case 'スピリッツ':
+                    enTitle = "SPIRITS LIST";
+                    jaTitle = "( スピリッツ一覧 )";
+                    break;
+                case 'リキュール':
+                    enTitle = "LIQUEUR LIST";
+                    jaTitle = "( リキュール一覧 )";
                     break;
                 case 'ワイン':
                     enTitle = "WINE LIST";
                     jaTitle = "( ワイン一覧 )";
                     break;
-                case '日本酒':
-                    enTitle = "SAKE LIST";
-                    jaTitle = "( 日本酒一覧 )";
-                    break;
-                case 'ウイスキー':
-                    enTitle = "WHISKY LIST";
-                    jaTitle = "( ウイスキー一覧 )";
+                case 'ビール':
+                    enTitle = "BEER LIST";
+                    jaTitle = "( ビール一覧 )";
                     break;
                 default:
                     enTitle = "PRODUCTS LIST";
@@ -406,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
             }
         }
-        // その他の場合 (複数選択、またはデフォルトの「すべて」でランキング以外のソート)
+        // ▲▲▲ ここまで ▲▲▲
         else {
             enTitle = "PRODUCTS LIST";
             jaTitle = "( 商品一覧 )";
