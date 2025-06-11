@@ -1,0 +1,967 @@
+/* base */
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ハンバーガーメニューが開いたときにスクロールを無効にするためのクラス */
+body.no-scroll {
+    overflow: hidden;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input, textarea, button {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.6rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* utility */
+.pc-only {
+    display: none;
+}
+
+/* common */
+.header,
+.footer__inner {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* header */
+.header {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.header__logo a {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.header__nav .nav__list {
+    display: none; /* スマホでは非表示 */
+}
+
+/* ヘッダーアイコンリンクのホバー・アクティブ状態 */
+.header__icon-link .fas {
+    color: #555; /* デフォルトの色 */
+    transition: color 0.3s ease;
+}
+
+.header__icon-link:hover .fas {
+    color: #A0522D; /* ホバー時の色 */
+}
+
+.header__icon-link.active .fas {
+    color: #A0522D; /* アクティブなページのアイコン色 */
+}
+
+
+/* ハンバーガーメニューアイコン */
+.hamburger-menu {
+    display: block; /* スマホで表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 6px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.hamburger-menu span:last-child {
+    margin-bottom: 0;
+}
+
+/* ハンバーガーメニューのアクティブ状態 */
+.hamburger-menu.is-active span:nth-of-type(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.is-active span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.is-active span:nth-of-type(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* モバイル用メニュー (ドロワーメニュー) */
+.sp-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 990;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+    transform: translateX(100%);
+    padding: 110px 0 20px;
+    overflow-y: auto; /* メニュー内容がはみ出た場合にスクロール可能にする */
+}
+
+/* メニューのアクティブ状態 */
+.sp-menu.is-active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 各要素の幅とパディングを調整 */
+.sp-menu__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 40px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sp-menu__login {
+    font-size: 2rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sp-menu__login .fas {
+    font-size: 2.4rem;
+    color: #555;
+}
+
+.sp-menu__search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 40px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sp-menu__search input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 1.8rem;
+    background-color: transparent;
+    color: #333;
+}
+
+.sp-menu__search button {
+    background: none;
+    border: none;
+    padding: 8px 10px;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.sp-menu__list {
+    text-align: left;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.sp-menu__list--bottom {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.sp-menu__list li {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+    display: block;
+    padding: 0;
+    border-bottom: none;
+}
+
+.sp-menu__list li:last-child {
+    margin-bottom: 0;
+}
+
+.sp-menu__list li a {
+    display: block;
+    padding: 10px 0;
+    color: #333;
+}
+
+.sp-menu__list li a:hover {
+    color: #A0522D;
+}
+
+.sp-menu__category-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.sp-menu__category-toggle .category-icon {
+    font-size: 1.6rem;
+    transition: transform 0.3s ease;
+}
+
+.sp-menu__category-toggle.is-open .category-icon {
+    transform: rotate(180deg);
+}
+
+.sp-menu__sub-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.sp-menu__sub-list.is-open {
+    max-height: 200px; /* サブリストの高さに応じて調整 */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sp-menu__sub-list li {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    border-bottom: none;
+}
+
+.sp-menu__sub-list li:last-child {
+    margin-bottom: 0;
+}
+
+.sp-menu__sub-list li a {
+    color: #555;
+}
+
+.sp-menu__sub-list li a:hover {
+    color: #A0522D;
+}
+
+.sp-menu__divider {
+    display: none;
+}
+
+/* main content adjustment */
+main {
+    margin-top: 60px; /* ヘッダーの高さ分 */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    overflow: visible !important;
+}
+
+/* Ranking Page Specific Styles (名称はそのまま使用し、内容をお気に入り用に調整) */
+.ranking-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* ページタイトル (マイページと同じスタイル) */
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+}
+
+.page-title .en {
+    display: block;
+    font-size: 2.8rem;
+    color: #000;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
+.page-title .ja {
+    display: block;
+    font-size: 1.6rem;
+    color: #555;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.page-title .ja::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background-color: #C0C0C0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+/* Controls Section (Display Mode only for Favorites) */
+.controls-section {
+    display: flex;
+    justify-content: flex-end; /* 右寄せ */
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    padding: 0;
+    background: #fff;
+}
+
+/* フィルター・ソートボタンは削除されたため、関連スタイルも削除 */
+.filter-sort-buttons {
+    display: none; /* お気に入りページでは非表示 */
+}
+
+.display-mode-buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 0; /* 右寄せのためマージン調整 */
+    gap: 0;
+}
+
+.display-mode-buttons button {
+    background: #fff;
+    border: none;
+    color: #a8906b;
+    width: 32px;
+    height: 32px;
+    font-size: 1.8rem;
+    margin-left: 4px;
+    border-radius: 0;
+    transition: background 0.2s;
+}
+
+.display-mode-buttons button.active {
+    background: #bfa77a;
+    color: #fff;
+}
+
+/* Overlay for Filter and Sort Panels は削除 */
+.overlay {
+    display: none; /* お気に入りページでは非表示 */
+}
+
+/* Product Grid and Card (MyPage.cssの投稿カードをベースに調整) */
+.product-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    padding-bottom: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+    position: relative; /* ハートアイコン配置のため追加 */
+}
+
+.product-card__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px; /* Slightly smaller radius than card */
+    margin-bottom: 15px;
+    background-color: #eee; /* Placeholder background */
+}
+
+.product-card__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 2行でカット */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    white-space: normal;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.product-card__volume {
+    font-size: 1.4rem;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.product-card__price {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: #A0522D; /* Accent color for price */
+    margin-bottom: 15px;
+}
+
+.product-card__price span {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #555;
+    margin-left: 5px;
+}
+
+.product-card__tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #555;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-top: auto; /* Push tag to bottom */
+    align-self: flex-start;
+}
+
+/* Product List View Specific Styles */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.product-list-item {
+    display: flex;
+    flex-direction: row; /* Change to row for list view */
+    align-items: flex-start; /* 画像とテキストの先頭を揃える */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    position: relative; /* ハートアイコン配置のため追加 */
+}
+
+.product-list-item .product-card__image {
+    width: 120px; /* Smaller image in list view */
+    height: 120px;
+    margin-right: 15px; /* 画像とテキストの間に余白 */
+    margin-bottom: 0; /* Remove bottom margin */
+    flex-shrink: 0; /* Prevent image from shrinking */
+    border-radius: 8px;
+}
+
+.product-list-item .product-card__details {
+    flex-grow: 1; /* Allow details to take remaining space */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between; /* 要素間のスペースを均等にする */
+}
+
+.product-list-item .product-card__title {
+    font-size: 1.7rem; /* リスト表示でのタイトルサイズ調整 */
+    margin-bottom: 5px;
+    text-align: left;
+    line-height: 1.4; /* 行高さを調整 */
+}
+
+.product-list-item .product-card__volume {
+    font-size: 1.3rem; /* リスト表示でのボリュームサイズ調整 */
+    color: #777;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.product-list-item .product-card__price {
+    font-size: 1.9rem; /* リスト表示での価格サイズ調整 */
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.product-list-item .product-card__price span {
+    font-size: 1.3rem; /* リスト表示での価格の「税込」サイズ調整 */
+}
+
+.product-list-item .product-card__tag {
+    align-self: flex-start; /* タグを左揃えに */
+    margin-top: 5px; /* 上部との余白 */
+    font-size: 1.1rem; /* リスト表示でのタグサイズ調整 */
+    padding: 4px 8px;
+}
+
+/* ハートアイコンのスタイル */
+.product-card__favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2.4rem;
+    color: #ccc; /* デフォルトは薄い色 */
+    cursor: pointer;
+    transition: color 0.2s ease;
+    z-index: 10;
+}
+
+.product-card__favorite.is-favorite {
+    color: #ff6347; /* お気に入り時は赤色 */
+}
+
+
+/* footer */
+.footer {
+    background-color: #eeeeee;
+    padding: 50px 0 30px;
+}
+
+.footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.footer__nav li {
+    margin: 5px 15px;
+}
+
+.footer__nav li a {
+    font-size: 1.4rem;
+    color: #444;
+    transition: color 0.3s ease;
+}
+
+.footer__nav li a:hover {
+    color: #000;
+}
+
+/* SNSセクションのスタイル */
+.footer__sns {
+    margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer__sns a {
+    display: inline-block;
+}
+
+.footer__sns img {
+    width: 28px;
+    height: 28px;
+    transition: opacity 0.3s ease;
+}
+
+.footer__sns img:hover {
+    opacity: 0.7;
+}
+
+.footer__copyright {
+    font-size: 1.2rem;
+    color: #666;
+    width: 100%;
+}
+
+
+/* PC (min-width: 768px) */
+@media (min-width: 768px) {
+    /* utility */
+    .pc-only {
+        display: inline;
+    }
+
+    /* header */
+    .header__nav .nav__list {
+        display: flex;
+        gap: 40px;
+    }
+
+    .header__nav .nav__list li a {
+        font-size: 1.5rem;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+
+    /* PCではスマホメニューを非表示に */
+    .sp-menu {
+        display: none;
+    }
+
+    /* footer */
+    .footer {
+        padding: 80px 0;
+    }
+
+    .footer__nav li {
+        margin: 0 20px;
+    }
+
+    /* PC時のページタイトル調整 */
+    .page-title {
+        margin-bottom: 80px;
+    }
+
+    .page-title .en {
+        font-size: 4.8rem;
+    }
+
+    .page-title .ja {
+        font-size: 2.2rem;
+    }
+
+    .page-title .ja::after {
+        width: 60px;
+    }
+
+    /* PCでは常にグリッド表示 */
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for 4 columns on large screens */
+        gap: 40px;
+    }
+
+    /* PCではリスト表示ボタンが押されてもグリッド表示を維持 */
+    .product-list {
+        display: grid; /* PCではリスト表示でもグリッドを維持 */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 複数カラムでグリッド */
+        gap: 40px;
+    }
+    
+    .product-list-item { /* PCでリスト表示でもカード形式の見た目を維持 */
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-list-item .product-card__image {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .product-list-item .product-card__details {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: space-between;
+        width: 100%; /* 詳細エリアの幅を確保 */
+    }
+
+    .product-list-item .product-card__title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .product-list-item .product-card__volume {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .product-list-item .product-card__price {
+        font-size: 2.0rem;
+        margin-bottom: 15px;
+    }
+
+    .product-list-item .product-card__price span {
+        font-size: 1.4rem;
+    }
+
+    .product-list-item .product-card__tag {
+        align-self: flex-start;
+        margin-top: auto; /* 下部に配置 */
+        font-size: 1.2rem;
+        padding: 5px 10px;
+    }
+}
+
+/* スマートフォン向けの調整 (max-width: 767px) - ブレークポイントをPCと合わせる */
+@media (max-width: 767px) {
+    .ranking-container {
+        padding: 0; /* 画面幅いっぱいに広げるためパディングを0に */
+    }
+
+    /* モバイル時のページタイトル調整 */
+    .page-title {
+        font-size: 2.8rem;
+        margin-bottom: 30px;
+    }
+
+    .page-title .en {
+        font-size: 2.8rem;
+    }
+
+    .page-title .ja {
+        font-size: 1.6rem;
+    }
+
+    .controls-section {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end; /* 右寄せ */
+        border-top: 1px solid #d8cbb6;
+        border-bottom: 1px solid #d8cbb6;
+        background: #fff;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* .controls-section.sticky-fixed はsticky-controls.jsで処理 */
+    .controls-section.sticky-fixed {
+        position: fixed !important;
+        top: 90px; /* ヘッダーの高さ(60px)＋余白(30px) */
+        left: 0;
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        z-index: 999;
+        background: #fff;
+    }
+
+    .display-mode-buttons {
+        display: flex;
+        align-items: center;
+        margin-left: 0;
+        gap: 0;
+    }
+
+    .display-mode-buttons button.active {
+        background: #fff; /* アクティブ時も通常と同じ背景色に */
+        color: #a8906b;  /* アクティブ時も通常と同じ文字色に */
+    }
+
+    /* 商品グリッドのモバイル表示 (2カラム、横幅いっぱい) */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2カラム表示 */
+        gap: 15px; /* カード間の隙間 */
+        padding: 0 15px; /* 左右パディングを調整 */
+    }
+
+    .product-card {
+        padding: 0; /* カード自体のパディングを0に */
+        border-radius: 0; /* 角丸をなくす */
+        box-shadow: none; /* 影をなくす */
+    }
+
+    .product-card__image {
+        width: 100%; /* 親要素の幅いっぱいに */
+        aspect-ratio: 1 / 1; /* 正方形を維持 */
+        border-radius: 0; /* 角丸をなくす */
+        margin-bottom: 0; /* 画像下のマージンを0に */
+        background-color: #eee;
+    }
+
+    .product-card__details {
+        padding: 15px 10px 10px; /* 画像の下のテキスト部分にパディングを追加 */
+        text-align: left; /* テキストは左寄せ */
+    }
+
+    .product-card__title {
+        font-size: 1.6rem; /* タイトルサイズ調整 */
+        margin-bottom: 5px; /* マージン調整 */
+        line-height: 1.4;
+    }
+
+    .product-card__volume {
+        font-size: 1.2rem; /* ボリュームサイズ調整 */
+        margin-bottom: 5px; /* マージン調整 */
+    }
+
+    .product-card__price {
+        font-size: 1.8rem; /* 価格サイズ調整 */
+        margin-bottom: 10px; /* マージン調整 */
+    }
+
+    .product-card__price span {
+        font-size: 1.2rem; /* 「税込」サイズ調整 */
+    }
+
+    .product-card__tag {
+        font-size: 1.0rem; /* タグサイズ調整 */
+        padding: 4px 8px;
+        margin-top: 0; /* 上部マージンを調整 */
+    }
+
+    /* ハートアイコンのモバイル表示 */
+    .product-card__favorite {
+        font-size: 2.4rem; /* 画像サイズに合わせて大きく */
+        top: 10px; /* 画像からの距離を調整 */
+        right: 10px; /* 画像からの距離を調整 */
+        color: rgba(255, 255, 255, 0.8); /* 画像に重ねるため白色系に */
+        text-shadow: 0 0 5px rgba(0,0,0,0.3); /* 視認性向上のための影 */
+    }
+
+    .product-card__favorite.is-favorite {
+        color: #ff6347; /* お気に入り時は赤色 */
+        text-shadow: none; /* お気に入り時の影をなくす */
+    }
+
+    /* モバイルでのリスト表示スタイル (元の状態に戻す) */
+    .product-list {
+        display: grid; /* リストボタンが押されてもグリッドで表示 */
+        grid-template-columns: 1fr; /* 1カラム表示に固定 */
+        gap: 20px; /* カード間の隙間 */
+        padding: 0 0px; /* 横幅いっぱいに広げるため左右パディングを調整 */
+    }
+
+    .product-list-item {
+        flex-direction: column; /* 強制的に縦積みに */
+        align-items: center; /* 中央寄せ */
+        padding: 0; /* カード自体のパディングを0に */
+        border-radius: 0; /* 角丸をなくす */
+        box-shadow: none; /* 影をなくす */
+    }
+
+    .product-list-item .product-card__image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .product-list-item .product-card__details {
+        width: 100%;
+        padding: 15px 20px 20px;
+        text-align: left;
+    }
+
+    .product-list-item .product-card__title {
+        font-size: 1.8rem; /* タイトルサイズ調整 */
+        margin-bottom: 5px; /* マージン調整 */
+        line-height: 1.4;
+    }
+
+    .product-list-item .product-card__volume {
+        font-size: 1.4rem; /* ボリュームサイズ調整 */
+        margin-bottom: 5px; /* マージン調整 */
+    }
+
+    .product-list-item .product-card__price {
+        font-size: 2.0rem; /* 価格サイズ調整 */
+        margin-bottom: 10px; /* マージン調整 */
+    }
+
+    .product-list-item .product-card__price span {
+        font-size: 1.4rem; /* 「税込」サイズ調整 */
+    }
+
+    .product-list-item .product-card__tag {
+        font-size: 1.2rem; /* タグサイズ調整 */
+        padding: 5px 10px;
+        margin-top: 0; /* 上部マージンを調整 */
+    }
+    
+    .menu-open .controls-section.sticky-fixed {
+        display: none !important;
+    }
+
+    /* モバイル・PC両方でリスト表示の角丸をなくす */
+    .product-list-item,
+    .product-list-item .product-card__image {
+        border-radius: 0 !important;
+    }
+}
