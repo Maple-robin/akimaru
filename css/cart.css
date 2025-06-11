@@ -31,13 +31,14 @@
 }
 
 .section-title {
-    font-family: 'Noto Sans JP', sans-serif; /* 画像に合わせてフォントを変更 */
-    font-size: 2.2rem; /* セクション見出しサイズ */
-    font-weight: 500; /* 太さ調整 */
-    color: #333;
+    margin-top: 20px; /* ウィッシュリストと同じ余白に調整 */
+    margin-bottom: 40px; /* 下部の余白も統一 */
+    font-family: 'Zen Old Mincho', serif; /* フォントを統一 */
+    font-weight: 500; /* 太さを統一 */
+    font-size: 2.8rem; /* サイズを統一 */
     text-align: center;
-    margin-bottom: 30px; /* 下マージン調整 */
-    border-bottom: none; /* 下線削除 */
+    color: #000; /* 色を統一 */
+    letter-spacing: 0.1em; /* 文字間隔を統一 */
 }
 
 /* 「お買い物を続ける」ボタン（上部）のラッパーと線 */
@@ -337,6 +338,12 @@
     background-color: #8B4513;
 }
 
+
+/* タイトル下の線を一本にするスタイル */
+hr {
+    margin: 0; /* 線の間隔を調整 */
+    border: 1px solid #ccc; /* 必要に応じて線のスタイルを変更 */
+}
 
 /* PC (min-width: 768px) */
 @media (min-width: 768px) {
