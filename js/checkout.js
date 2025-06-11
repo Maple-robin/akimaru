@@ -264,6 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // ここに実際の決済処理ロジック（サーバーサイド連携など）を追加します
                 // 例: fetch('/api/process-payment', { method: 'POST', body: JSON.stringify(formData) })
                 // window.location.href = 'confirmation.html'; // 決済成功後のページ遷移
+                window.location.href = 'thanks.html';
             } else {
                 console.log('入力情報に誤りがあります。');
             }
