@@ -17,18 +17,30 @@
 
     <header class="header">
         <div class="header__inner">
+            <!-- ハンバーガーメニューを左端に配置 -->
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ロゴを中央に配置 -->
             <h1 class="header__logo">
                 <a href="index.html">OUR BRAND</a>
             </h1>
+            <!-- ナビゲーションとアイコンを右端に配置 -->
             <nav class="header__nav">
                 <ul class="nav__list pc-only">
-                    <li><a href="products.html">商品一覧</a></li>
-                    <li><a href="otumami.html">おつまみ一覧</a></li> </ul>
-                <button class="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -63,27 +75,6 @@
                     <li><a href="products_list.html?tag=辛口">辛口</a></li>
                     <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
                     <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
-                </ul>
-            </li>
-            <li class="sp-menu__category-toggle">
-                おつまみカテゴリ <i class="fas fa-chevron-down category-icon"></i>
-                <ul class="sp-menu__sub-list">
-                    <li><a href="otumami_list.html?category=和食">和食</a></li>
-                    <li><a href="otumami_list.html?category=洋食">洋食</a></li>
-                    <li><a href="otumami_list.html?category=中華">中華</a></li>
-                    <li><a href="otumami_list.html?category=チーズ">チーズ</a></li>
-                    <li><a href="otumami_list.html?category=魚介">魚介</a></li>
-                    <li><a href="otumami_list.html?category=肉">肉</a></li>
-                </ul>
-            </li>
-            <li class="sp-menu__category-toggle">
-                おつまみタグ <i class="fas fa-chevron-down category-icon"></i>
-                <ul class="sp-menu__sub-list">
-                    <li><a href="otumami_list.html?tag=簡単">簡単</a></li>
-                    <li><a href="otumami_list.html?tag=ヘルシー">ヘルシー</a></li>
-                    <li><a href="otumami_list.html?tag=おもてなし">おもてなし</a></li>
-                    <li><a href="otumami_list.html?tag=辛い">辛い</a></li>
-                    <li><a href="otumami_list.html?tag=濃厚">濃厚</a></li>
                 </ul>
             </li>
             <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
