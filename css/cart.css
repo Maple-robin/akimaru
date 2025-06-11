@@ -481,3 +481,9 @@
         font-size: 2rem;
     }
 }
+
+/* アクティブなアイコンリンクのスタイル */
+.header__icon-link.active {
+    color: #A0522D; /* ブランドカラーに合わせた色 */
+    font-weight: bold; /* 強調表示 */
+}
