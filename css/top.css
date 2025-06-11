@@ -97,9 +97,9 @@ ul {
     z-index: 999;
 }
 .header__inner {
-    display: flex; /* Flexboxを有効にする */
-    justify-content: space-between; /* 子要素を両端に配置し、間にスペースを均等に分配 */
-    align-items: center; /* 垂直方向の中央揃え */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
 }
 .header__logo {
@@ -107,39 +107,35 @@ ul {
     font-size: 2.4rem;
     font-weight: bold;
     color: #333;
-    flex-grow: 1; /* 残りのスペースを埋めるように拡張 */
-    text-align: center; /* ロゴのテキストを中央に寄せる */
+    flex-grow: 1;
+    text-align: center;
 }
 .header__logo a {
     color: #333;
 }
-
-/* ヘッダーナビゲーションのスタイル */
 .header__nav {
-    display: flex; /* ナビゲーションリストとアイコンを横並びにする */
+    display: flex;
     align-items: center;
-    gap: 15px; /* アイコンとPCナビ間のスペース */
+    gap: 15px;
 }
 .header__nav .nav__list {
-    display: none; /* デフォルトで非表示 (スマホ用) */
+    display: none;
 }
-/* ヘッダーアイコンのコンテナ */
 .header__icons {
     display: flex;
     align-items: center;
-    gap: 15px; /* アイコン間のスペース */
+    gap: 15px;
 }
 .header__icon-link {
     color: #333;
-    font-size: 2.0rem; /* アイコンサイズを調整 */
+    font-size: 2.0rem;
     transition: color 0.3s ease;
 }
 .header__icon-link:hover {
-    color: #A0522D; /* ホバー時の色 */
+    color: #A0522D;
 }
-
 .hamburger-menu {
-    display: block; /* デフォルトで表示 (スマホ用) */
+    display: block;
     background: none;
     border: none;
     cursor: pointer;
@@ -178,8 +174,8 @@ ul {
 ----------------------------------------*/
 .sp-menu {
     position: fixed;
-    top: 0; /* Changed from right:0 to left:0 */
-    left: 0; /* Changed from right:0 to left:0 */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     background-color: rgba(255,255,255,0.95);
@@ -190,7 +186,7 @@ ul {
     visibility: hidden;
     opacity: 0;
     transition: all 0.4s ease;
-    transform: translateX(-100%); /* Leftからスライドインするように変更 */
+    transform: translateX(-100%);
     padding: 110px 0 20px;
 }
 .sp-menu.is-active {
@@ -297,7 +293,7 @@ ul {
     padding-top: 15px;
 }
 .sp-menu__sub-list.is-open {
-    max-height: 200px; /* 必要に応じて調整 */
+    max-height: 200px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -434,68 +430,69 @@ ul {
 .categories__inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* カテゴリーリスト（スマホ2列、PC4列） */
 .category-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    justify-items: stretch;
-    align-items: stretch;
-    padding: 0;
-    margin: 0;
-}
-.category-list__item {
-    aspect-ratio: 1/1;
+    gap: 8px;
     width: 100%;
-    min-width: 0;
-    display: flex;
-    align-items: stretch;
+    margin: 0;
     padding: 0;
-    list-style: none;
 }
+@media (min-width: 768px) {
+    .category-list {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+}
+
+/* カード全体 */
 .category-card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
+    background: #f2f7f5;
+    border-radius: 0;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
+    box-shadow: none;
     text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: transform 0.2s;
-    position: relative;
-    color: #fff;
-    align-items: center;
-}
-.category-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    transition: background 0.3s;
-    z-index: 0;
-}
-.category-card:hover { transform: scale(1.04); }
-.category-card:hover::before { background: rgba(0,0,0,0.6); }
-.category-card__name {
-    position: relative;
-    z-index: 1;
-    font-family: 'Zen Old Mincho', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    background: rgba(255,255,255,0.85);
     color: #333;
+    padding: 0;
+    min-height: 0;
+    border: none;
+}
+
+/* カテゴリーカード画像 */
+.category-card__img {
     width: 100%;
-    text-align: center;
-    padding: 12px 0;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
     margin: 0;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    background: #eee;
+}
+
+/* カテゴリー名 */
+.category-card__name {
+    color: #333;
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 18px 0 14px 0;
+    margin: 0;
+    border-radius: 0;
+    background: #f2f7f5;
+}
+@media (min-width: 768px) {
+    .category-card__name {
+        font-size: 1.7rem;
+        padding: 22px 0 16px 0;
+    }
 }
 
 /*----------------------------------------
@@ -558,15 +555,15 @@ ul {
     .section-title .ja::after { width: 60px; }
 
     .header__nav .nav__list {
-        display: flex; /* PCではナビゲーションリストを表示 */
+        display: flex;
         gap: 40px;
     }
     .header__icons {
-        display: flex; /* PCでもアイコンを表示 */
+        display: flex;
         gap: 25px;
     }
-    .hamburger-menu { display: none; } /* PCではハンバーガーメニューを非表示 */
-    .sp-menu { display: none; } /* PCではスマホメニューを非表示 */
+    .hamburger-menu { display: none; }
+    .sp-menu { display: none; }
     .main-visual { height: 80vh; }
     .products { padding: 120px 0; }
     .products .swiper {
@@ -580,9 +577,9 @@ ul {
     .btn-all-products { margin-top: 60px; }
     .footer { padding: 80px 0; }
     .footer__nav li { margin: 0 20px; }
-    /* カテゴリーリストPC4列 */
     .category-list {
         grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
     }
 }
 
@@ -592,10 +589,8 @@ ul {
 @media (max-width: 767px) {
     .category-list {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 8px;
     }
-    /* スマホ版では、header__innerのFlexboxによって自動的に配置されるため、
-       明示的なorderプロパティは不要になりました。 */
 }
 
 /* 商品名・価格・タグを同じ位置で左揃えに */
@@ -606,4 +601,10 @@ ul {
     padding-right: 15px;
     text-align: left;
     box-sizing: border-box;
+}
+
+/* カテゴリーカードの枠線をなくす */
+.category-card {
+    border: none !important;
+    box-shadow: none !important;
 }
