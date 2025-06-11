@@ -98,19 +98,22 @@
                 <span class="ja">( お気に入り一覧 )</span>
             </h1>
 
+            <!-- controls-sectionごと削除してOK（またはdisplay-mode-buttonsだけ削除でもOK） -->
+            <!--
             <div class="controls-section">
-                <!-- お気に入りページでは絞り込み・並び替えボタンは削除 -->
                 <div class="display-mode-buttons">
                     <button class="display-grid" id="display-grid"><i class="fas fa-th-large"></i></button>
                     <button class="display-list active" id="display-list"><i class="fas fa-list"></i></button>
                 </div>
             </div>
+            -->
 
             <!-- フィルター・ソートのオーバーレイは削除 -->
 
             <section class="ranking-list-section"> <!-- products_list.htmlと同じセクション名を使用 -->
                 <!-- product-list には、JavaScriptで生成されるお気に入り商品カードが挿入されます -->
-                <div class="product-list" id="product-list">
+                <div class="product-grid" id="product-list">
+                    <!-- ここに商品カードがJSで追加される -->
                 </div>
             </section>
         </div>
@@ -134,7 +137,6 @@
 
     <!-- JavaScriptファイルをfavorite.jsに更新 -->
     <script src="../js/wishlist.js"></script>
-    <script src="../js/sticky-controls.js"></script>
 </body>
 
 </html>

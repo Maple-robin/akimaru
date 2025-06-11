@@ -452,7 +452,7 @@ main {
     width: 100%;
     object-fit: cover;
     border-radius: 8px; /* Slightly smaller radius than card */
-    margin-bottom: 15px;
+    margin-bottom: 6px; /* 例: 15px→6pxなど、好みで調整 */
     background-color: #eee; /* Placeholder background */
 }
 
@@ -855,7 +855,7 @@ main {
     }
 
     .product-card__details {
-        padding: 15px 10px 10px; /* 画像の下のテキスト部分にパディングを追加 */
+        padding: 8px 5px 0px 10px; /* ←お好みで小さめに調整 */
         text-align: left; /* テキストは左寄せ */
     }
 
