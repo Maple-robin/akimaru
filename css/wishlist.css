@@ -965,3 +965,19 @@ main {
         border-radius: 0 !important;
     }
 }
+
+/* 「お気に入りの商品はありません。」メッセージのスタイル */
+.no-favorites-message {
+    width: 100%;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px 16px;
+    text-align: center;
+    font-size: 1.7rem;
+    background: #ffffff;
+    border-radius: 8px;
+    word-break: keep-all;
+    white-space: normal;
+    line-height: 1.7;
+    box-sizing: border-box;
+}

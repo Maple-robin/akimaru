@@ -205,14 +205,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 商品をレンダリングする関数
     function renderProducts(productsToRender, displayMode) {
-        productList.innerHTML = ''; // 既存の内容をクリア
-        productList.className = ''; // クラスをリセット
-        
-        // 常にグリッド表示
+        productList.innerHTML = '';
+        productList.className = '';
         productList.classList.add('product-grid');
 
+        // 既存のメッセージを削除
+        const oldMsg = document.querySelector('.no-favorites-message');
+        if (oldMsg) oldMsg.remove();
+
         if (productsToRender.length === 0) {
-            productList.innerHTML = '<p style="text-align: center; color: #555; font-size: 1.8rem; padding: 50px;">お気に入りの商品はありません。</p>';
+            // グリッドの外にメッセージを追加
+            const msg = document.createElement('div');
+            msg.className = 'no-favorites-message';
+            msg.textContent = 'お気に入りの商品はありません。';
+            productList.parentNode.insertBefore(msg, productList.nextSibling);
             return;
         }
 
