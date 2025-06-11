@@ -212,42 +212,44 @@
     border-bottom: 1px solid #eee; /* 最後のアイテムに下線 */
 }
 
-/* アコーディオンアイコン */
+/* アコーディオンアイコンの基本スタイル */
 .accordion-icon {
     position: relative;
     width: 20px;
     height: 20px;
+    margin-right: 10px; /* 右側に余白を追加 */
 }
+
+/* 横棒と縦棒のスタイル */
 .accordion-icon::before,
 .accordion-icon::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #A0522D;
-    transition: transform 0.3s ease;
+    background-color: #A0522D; /* アイコンの色 */
+    transition: transform 0.3s ease; /* 回転アニメーションを追加 */
 }
+
+/* 横棒のスタイル */
 .accordion-icon::before {
-    width: 12px;
+    top: 50%;
+    left: 0;
+    width: 100%;
     height: 2px;
+    transform: translateY(-50%);
 }
+
+/* 縦棒のスタイル */
 .accordion-icon::after {
+    top: 0;
+    left: 50%;
     width: 2px;
-    height: 12px;
+    height: 100%;
+    transform: translateX(-50%);
 }
 
-/* 閉じている状態でのアイコン */
-.product-accordion-item.is-closed .accordion-icon::before {
-    transform: translate(-50%, -50%) rotate(0deg); /* 横棒 */
-}
-.product-accordion-item.is-closed .accordion-icon::after {
-    transform: translate(-50%, -50%) rotate(90deg); /* 縦棒 (横棒と重ねてプラス記号) */
-}
-
-/* 開いている状態でのアイコン */
+/* 開いている状態でのアイコン（－） */
 .product-accordion-item:not(.is-closed) .accordion-icon::after {
-    transform: translate(-50%, -50%) rotate(0deg) scaleY(0); /* 縦棒を非表示 */
+    transform: translateX(-50%) rotate(90deg); /* 縦棒を回転させて横棒にする */
 }
 
 
