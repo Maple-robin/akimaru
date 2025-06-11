@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let products = [
         {
             id: 1,
-            name: '【新発売】ベリーベリー カシス',
-            image: 'https://placehold.co/300x200/F08080/000000?text=AleBeer',
+            name: '【新発売】ベリーベリー カシスaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            image: '../img/berry.png', // このパスは仮です。実際に画像があるか確認してください
             volume: '200ml/720ml',
             price: 1750,
             tags: ['新発売', '甘口', '初心者向け'],
@@ -208,13 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
         productList.innerHTML = ''; // 既存の内容をクリア
         productList.className = ''; // クラスをリセット
         
-        // PCでは常にグリッド表示、スマホでは選択されたモードに
-        if (window.innerWidth > 767) { // PCのブレークポイント (768px以上)
-            productList.classList.add('product-grid');
-            productList.classList.remove('product-list');
-        } else { // スマホの場合 (767px以下)
-            productList.classList.add(`product-${displayMode}`);
-        }
+        // 常にグリッド表示
+        productList.classList.add('product-grid');
 
         if (productsToRender.length === 0) {
             productList.innerHTML = '<p style="text-align: center; color: #555; font-size: 1.8rem; padding: 50px;">お気に入りの商品はありません。</p>';
@@ -224,11 +219,6 @@ document.addEventListener('DOMContentLoaded', function() {
         productsToRender.forEach(product => {
             const productCard = document.createElement('div');
             productCard.classList.add('product-card');
-
-            // スマホのリスト表示時にのみ 'product-list-item' クラスを追加
-            if (displayMode === 'list' && window.innerWidth <= 767) {
-                productCard.classList.add('product-list-item');
-            }
 
             // ハートアイコンのクラスを動的に設定 (お気に入りページでは常にfas fa-heart)
             // お気に入りページでは、isFavoriteは常にtrue（表示されているから）
@@ -277,49 +267,56 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 表示モードボタン（グリッド）
-    displayGridButton.addEventListener('click', () => {
-        displayGridButton.classList.add('active');
-        displayListButton.classList.remove('active');
-        currentDisplayMode = 'grid'; // 表示モードを更新
-        renderCurrentFavorites();
-    });
+    if (displayGridButton && displayListButton) {
+        displayGridButton.addEventListener('click', () => {
+            displayGridButton.classList.add('active');
+            displayListButton.classList.remove('active');
+            currentDisplayMode = 'grid';
+            renderCurrentFavorites();
+        });
 
-    // 表示モードボタン（リスト）
-    displayListButton.addEventListener('click', () => {
-        displayListButton.classList.add('active');
-        displayGridButton.classList.remove('active');
-        currentDisplayMode = 'list'; // 表示モードを更新
-        renderCurrentFavorites();
-    });
+        // 表示モードボタン（リスト）
+        displayListButton.addEventListener('click', () => {
+            displayListButton.classList.add('active');
+            displayGridButton.classList.remove('active');
+            currentDisplayMode = 'list';
+            renderCurrentFavorites();
+        });
 
-    // 初期表示モードを決定
-    if (window.innerWidth > 767) { // PCの場合
-        displayGridButton.classList.add('active');
-        displayListButton.classList.remove('active');
-        currentDisplayMode = 'grid'; // PCなので常にグリッド
-    } else { // スマホの場合
-        displayListButton.classList.add('active'); // スマホの初期はリストに設定
-        displayGridButton.classList.remove('active');
-        currentDisplayMode = 'list'; // スマホなのでリスト表示
-    }
-
-    // ウィンドウのリサイズ時に適用されるロジックを追加し、表示モードを調整
-    window.addEventListener('resize', () => {
-        renderCurrentFavorites(); // リサイズ時にもお気に入り商品を再描画
-        // リサイズ時にPC/スマホの切り替えでボタンのアクティブ状態も調整
+        // 初期表示モードを決定
         if (window.innerWidth > 767) {
             displayGridButton.classList.add('active');
             displayListButton.classList.remove('active');
-            currentDisplayMode = 'grid'; // PCになったらグリッドに強制
+            currentDisplayMode = 'grid';
         } else {
-            // スマホの場合、現在のcurrentDisplayModeを維持 (ボタンクリックで切り替わった状態)
-            if (currentDisplayMode === 'grid') {
+            displayListButton.classList.add('active');
+            displayGridButton.classList.remove('active');
+            currentDisplayMode = 'list';
+        }
+    } else {
+        // ボタンがない場合は常にグリッド表示にする
+        currentDisplayMode = 'grid';
+    }
+
+    // ウィンドウのリサイズ時に適用されるロジックも修正
+    window.addEventListener('resize', () => {
+        renderCurrentFavorites();
+        if (displayGridButton && displayListButton) {
+            if (window.innerWidth > 767) {
                 displayGridButton.classList.add('active');
                 displayListButton.classList.remove('active');
+                currentDisplayMode = 'grid';
             } else {
-                displayListButton.classList.add('active');
-                displayGridButton.classList.remove('active');
+                if (currentDisplayMode === 'grid') {
+                    displayGridButton.classList.add('active');
+                    displayListButton.classList.remove('active');
+                } else {
+                    displayListButton.classList.add('active');
+                    displayGridButton.classList.remove('active');
+                }
             }
+        } else {
+            currentDisplayMode = (window.innerWidth > 767) ? 'grid' : 'list';
         }
     });
 
