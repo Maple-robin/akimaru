@@ -113,30 +113,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-
-
-    // ハンバーガーメニューの要素を取得
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const spMenu = document.querySelector('.sp-menu');
-
-    // ハンバーガーメニューの開閉
-    if (hamburgerMenu && spMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            hamburgerMenu.classList.toggle('is-active');
-            spMenu.classList.toggle('is-active');
-            document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
-        });
-    }
-
-    // 複数カテゴリトグル対応
-    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
-    spCategoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            this.classList.toggle('is-open');
-            const subList = this.querySelector('.sp-menu__sub-list');
-            if (subList) {
-                subList.classList.toggle('is-open');
-            }
-        });
-    });
 });

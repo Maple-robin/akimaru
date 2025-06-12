@@ -1,27 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- ハンバーガーメニューとSPメニューの制御 (MyPage.jsから移植) ---
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const spMenu = document.querySelector('.sp-menu');
-
-    if (hamburgerMenu && spMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            hamburgerMenu.classList.toggle('is-active');
-            spMenu.classList.toggle('is-active');
-            // SPメニューが開いている時はbodyのスクロールを制御
-            document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
-        });
-    }
-
-    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
-    spCategoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            this.classList.toggle('is-open');
-            const subList = this.querySelector('.sp-menu__sub-list');
-            if (subList) {
-                subList.classList.toggle('is-open');
-            }
-        });
-    });
 
     // --- 通報フォームのロジック (既存のロジックを統合) ---
     const reportForm = document.getElementById('report-form');
