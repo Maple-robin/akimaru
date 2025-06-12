@@ -348,7 +348,8 @@ main {
 /* ページタイトル (マイページと同じスタイル) */
 .page-title {
     text-align: center;
-    margin-bottom: 40px;
+    margin-top: 0; /* 上の余白を削除 */
+    margin-bottom: 40px; /* 下の余白はそのまま */
     font-family: 'Zen Old Mincho', serif;
     font-weight: 500;
 }
