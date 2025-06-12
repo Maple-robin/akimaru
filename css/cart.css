@@ -19,7 +19,7 @@
 /* 共通のインナー幅やヘッダー、フッターなどはtop.cssやproduct.cssで定義されています */
 
 .cart-section {
-    padding: 80px 0 30px; /* スマホ時の上部の余白を増やし、下部は維持 */
+        padding: 80px 0 30px; /* スマホ時の上部の余白を増やし、下部は維持 */
     background-color: #fff; /* 全体の背景色を純粋な白に変更 */
 }
 
@@ -68,7 +68,7 @@
 .cart-main-container {
     background-color: #fff; /* 背景色を統一 */
     border: none; /* 枠線を削除 */
-    border-radius: 8px; /* 角丸を統一 */
+    border-radius: 0; /* 角丸を削除して線をまっすぐに */
     margin-bottom: 30px;
     overflow: hidden; /* 角丸に合わせたはみ出し対策 */
     border-top: 1px solid #ccc; /* 商品のカードの上に線を#cccに調整 */
