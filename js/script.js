@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const subList = this.querySelector('.sp-menu__sub-list');
             if (subList) {
                 subList.classList.toggle('is-open');
+                // サブリストを閉じるときはスクロール位置をリセット
+                if (!subList.classList.contains('is-open')) {
+                    subList.scrollTop = 0;
+                }
             }
         });
     });

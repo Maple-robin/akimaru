@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>純米大吟醸 麗し乃雫 | OUR BRAND</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../css/top.css">
     <link rel="stylesheet" href="../css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
 
     <!-- 共通ヘッダー：index.htmlからコピー -->
-<header class="header">
-    <div class="header__inner">
-        <!-- ハンバーガーメニューを左端に配置 -->
-        <button class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <!-- ロゴを中央に配置 -->
-        <h1 class="header__logo">
-            <a href="index.html">OUR BRAND</a>
-        </h1>
-        <!-- ナビゲーションとアイコンを右端に配置 -->
-        <nav class="header__nav">
-            <ul class="nav__list pc-only">
-                <li><a href="products_list.html">商品一覧</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-            <div class="header__icons">
-                <a href="wishlist.html" class="header__icon-link">
-                    <i class="fas fa-heart"></i>
-                </a>
-                <a href="cart.html" class="header__icon-link">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-        </nav>
-    </div>
-</header>
+    <header class="header">
+        <div class="header__inner">
+            <!-- ハンバーガーメニューを左端に配置 -->
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ロゴを中央に配置 -->
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <!-- ナビゲーションとアイコンを右端に配置 -->
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <nav class="sp-menu">
         <div class="sp-menu__header">
@@ -126,7 +130,8 @@
                             <div class="product-quantity-add-to-cart">
                                 <div class="product-quantity-controls">
                                     <button class="quantity-minus" data-id="product-detail-qty">-</button>
-                                    <input type="number" class="quantity-input" value="1" min="1" data-id="product-detail-qty">
+                                    <input type="number" class="quantity-input" value="1" min="1"
+                                        data-id="product-detail-qty">
                                     <button class="quantity-plus" data-id="product-detail-qty">+</button>
                                 </div>
                                 <button id="add-to-cart-btn" class="btn-to-ec-site">
@@ -149,7 +154,8 @@
                 </div>
 
                 <div class="product-accordion-item is-closed">
-                    <h3 class="product-accordion-item__title product-description__title">商品の特徴<span class="accordion-icon"></span></h3>
+                    <h3 class="product-accordion-item__title product-description__title">商品の特徴<span
+                            class="accordion-icon"></span></h3>
                     <div class="product-accordion-item__content">
                         <p>
                             伊勢の清らかな伏流水と、契約農家で大切に育てられた最高級の酒米「山田錦」を贅沢に使用し、手間暇かけて醸し上げました。
@@ -165,7 +171,8 @@
                 </div>
 
                 <div class="product-accordion-item is-closed">
-                    <h3 class="product-accordion-item__title product-description__title">おすすめの飲み方<span class="accordion-icon"></span></h3>
+                    <h3 class="product-accordion-item__title product-description__title">おすすめの飲み方<span
+                            class="accordion-icon"></span></h3>
                     <div class="product-accordion-item__content">
                         <p>
                             「純米大吟醸 麗し乃雫」を最大限に楽しむためには、冷酒でお召し上がりいただくのがおすすめです。特に、ワイングラスを使用することで、華やかな吟醸香がより一層引き立ちます。
@@ -241,7 +248,7 @@
 
     </main>
 
-        <footer class="footer">
+    <footer class="footer">
         <div class="footer__inner">
             <ul class="footer__nav">
                 <li>
@@ -278,7 +285,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Swiper初期化（既存）
             const pairedSwiper = new Swiper('.paired-snacks-swiper', {
                 slidesPerView: 1.2,
@@ -321,19 +328,19 @@
             const quantityInput = document.querySelector('.product-quantity-controls .quantity-input');
 
             if (quantityMinusBtn && quantityPlusBtn && quantityInput) {
-                quantityMinusBtn.addEventListener('click', function() {
+                quantityMinusBtn.addEventListener('click', function () {
                     let quantity = parseInt(quantityInput.value);
                     if (quantity > 1) {
                         quantityInput.value = quantity - 1;
                     }
                 });
 
-                quantityPlusBtn.addEventListener('click', function() {
+                quantityPlusBtn.addEventListener('click', function () {
                     let quantity = parseInt(quantityInput.value);
                     quantityInput.value = quantity + 1;
                 });
 
-                quantityInput.addEventListener('change', function() {
+                quantityInput.addEventListener('change', function () {
                     let quantity = parseInt(this.value);
                     if (isNaN(quantity) || quantity < 1) {
                         this.value = 1;
@@ -344,7 +351,7 @@
             // 「カートに入れる」ボタンのクリックイベント
             const addToCartBtn = document.getElementById('add-to-cart-btn');
             if (addToCartBtn) {
-                addToCartBtn.addEventListener('click', function() {
+                addToCartBtn.addEventListener('click', function () {
                     const selectedQuantity = parseInt(quantityInput.value);
                     // alert(`「純米大吟醸 麗し乃雫」を${selectedQuantity}個カートに追加しました！`); // ポップアップ削除
                     // 実際にはカートに商品と数量を追加する処理（例: LocalStorageへの保存）を行います。
@@ -355,7 +362,7 @@
             const mainImg = document.querySelector('.product-gallery__main img');
             const thumbs = document.querySelectorAll('.product-gallery__thumbnails img');
             thumbs.forEach(thumb => {
-                thumb.addEventListener('click', function() {
+                thumb.addEventListener('click', function () {
                     // メイン画像をサムネイル画像に切り替え
                     mainImg.src = this.src;
                     mainImg.alt = this.alt;
@@ -368,7 +375,7 @@
             // ★修正済み：お気に入りボタンのクリックイベント (alert削除済み)
             const favoriteBtn = document.querySelector('.btn-favorite');
             if (favoriteBtn) {
-                favoriteBtn.addEventListener('click', function() {
+                favoriteBtn.addEventListener('click', function () {
                     this.classList.toggle('is-favorited');
                     const icon = this.querySelector('i');
                     const favoriteTextSpan = this.querySelector('.favorite-text'); // span要素を取得
@@ -380,17 +387,19 @@
                             favoriteTextSpan.textContent = 'お気に入り済み'; // spanのテキストを更新
                         } else {
                             // 万が一spanが見つからない場合のフォールバック
-                            this.innerHTML = '<i class="fas fa-heart"></i> <span class="favorite-text">お気に入り済み</span>';
+                            this.innerHTML =
+                                '<i class="fas fa-heart"></i> <span class="favorite-text">お気に入り済み</span>';
                         }
                         // alert('お気に入りに登録しました！'); // ポップアップ削除
                     } else {
                         icon.classList.remove('fas');
                         icon.classList.add('far');
-                         if (favoriteTextSpan) { // span要素が見つかった場合
+                        if (favoriteTextSpan) { // span要素が見つかった場合
                             favoriteTextSpan.textContent = 'お気に入りに追加'; // spanのテキストを更新
                         } else {
                             // 万が一spanが見つからない場合のフォールバック
-                            this.innerHTML = '<i class="far fa-heart"></i> <span class="favorite-text">お気に入りに追加</span>';
+                            this.innerHTML =
+                                '<i class="far fa-heart"></i> <span class="favorite-text">お気に入りに追加</span>';
                         }
                         // alert('お気に入りから削除しました。'); // ポップアップ削除
                     }
@@ -399,4 +408,5 @@
         });
     </script>
 </body>
+
 </html>

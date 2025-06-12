@@ -1,55 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マイページ | OUR BRAND</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/MyPage.css">
     <link rel="stylesheet" href="../css/top.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <!-- 共通ヘッダー：index.htmlからコピー -->
-<header class="header">
-    <div class="header__inner">
-        <!-- ハンバーガーメニューを左端に配置 -->
-        <button class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <!-- ロゴを中央に配置 -->
-        <h1 class="header__logo">
-            <a href="index.html">OUR BRAND</a>
-        </h1>
-        <!-- ナビゲーションとアイコンを右端に配置 -->
-        <nav class="header__nav">
-            <ul class="nav__list pc-only">
-                <li><a href="products_list.html">商品一覧</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-            <div class="header__icons">
-                <a href="wishlist.html" class="header__icon-link">
-                    <i class="fas fa-heart"></i>
-                </a>
-                <a href="cart.html" class="header__icon-link">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-        </nav>
-    </div>
-</header>
+    <header class="header">
+        <div class="header__inner">
+            <!-- ハンバーガーメニューを左端に配置 -->
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ロゴを中央に配置 -->
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <!-- ナビゲーションとアイコンを右端に配置 -->
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<!-- スマホ用メニューも必要なら同様に -->
-<nav class="sp-menu">
+    <!-- スマホ用メニューも必要なら同様に -->
+    <nav class="sp-menu">
         <div class="sp-menu__header">
             <div class="sp-menu__login">
                 <i class="fas fa-user-circle"></i> ログイン
             </div>
-            </div>
+        </div>
         <div class="sp-menu__search">
             <input type="text" placeholder="検索...">
             <button type="submit"><i class="fas fa-search"></i></button>
@@ -123,17 +127,17 @@
                 </div>
                 <div id="my-posts-content" class="tab-content active">
                     <div class="posts-list">
-                        </div>
+                    </div>
                 </div>
                 <div id="liked-posts-content" class="tab-content">
                     <div class="posts-list">
-                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
 
-        <footer class="footer">
+    <footer class="footer">
         <div class="footer__inner">
             <ul class="footer__nav">
                 <li>
@@ -170,38 +174,39 @@
     <script src="../js/script.js"></script>
     <script src="../js/MyPage.js"></script>
     <script>
-document.querySelector('.edit-profile-button').addEventListener('click', function() {
-    window.location.href = 'profile_edit.html';
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // ハンバーガーメニュー
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const spMenu = document.querySelector('.sp-menu');
-    if (hamburgerMenu && spMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            hamburgerMenu.classList.toggle('is-active');
-            spMenu.classList.toggle('is-active');
+        document.querySelector('.edit-profile-button').addEventListener('click', function () {
+            window.location.href = 'profile_edit.html';
         });
-    }
 
-    // カテゴリ・タグの開閉
-    document.querySelectorAll('.sp-menu__category-toggle').forEach(function(toggle) {
-        toggle.addEventListener('click', function(e) {
-            // アイコンやli以外のクリックは無視
-            if (e.target.tagName === 'A') return;
-            const subList = this.querySelector('.sp-menu__sub-list');
-            if (subList) {
-                subList.classList.toggle('is-open');
+        document.addEventListener('DOMContentLoaded', function () {
+            // ハンバーガーメニュー
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const spMenu = document.querySelector('.sp-menu');
+            if (hamburgerMenu && spMenu) {
+                hamburgerMenu.addEventListener('click', function () {
+                    hamburgerMenu.classList.toggle('is-active');
+                    spMenu.classList.toggle('is-active');
+                });
             }
-            // アイコンの向きも切り替え
-            const icon = this.querySelector('.category-icon');
-            if (icon) {
-                icon.classList.toggle('open');
-            }
+
+            // カテゴリ・タグの開閉
+            document.querySelectorAll('.sp-menu__category-toggle').forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    // アイコンやli以外のクリックは無視
+                    if (e.target.tagName === 'A') return;
+                    const subList = this.querySelector('.sp-menu__sub-list');
+                    if (subList) {
+                        subList.classList.toggle('is-open');
+                    }
+                    // アイコンの向きも切り替え
+                    const icon = this.querySelector('.category-icon');
+                    if (icon) {
+                        icon.classList.toggle('open');
+                    }
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 </body>
+
 </html>
