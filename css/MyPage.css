@@ -35,9 +35,11 @@ input {
 }
 
 button {
-    font-family: 'Noto Sans JP', sans-serif; /* ボタンのフォント */
-    font-size: 1.6rem;
-    cursor: pointer; /* カーソルをポインターに */
+    padding: 10px 20px; /* ボタンの内側余白を統一 */
+    font-size: 1.6rem; /* フォントサイズを統一 */
+    border-radius: 5px; /* 角丸を統一 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 ul {
@@ -426,11 +428,7 @@ body.no-scroll {
 .edit-profile-button {
     background-color: #555;
     color: #fff;
-    padding: 10px 20px;
     border: none;
-    border-radius: 8px; /* ← ここを20pxから8pxに変更（おつまみ・編集ページと統一） */
-    font-size: 1.5rem;
-    transition: background-color 0.3s ease;
 }
 
 .edit-profile-button:hover {
@@ -845,4 +843,46 @@ body.no-scroll {
     .reaction-button span {
         font-size: 1.3rem;
     }
+}
+
+/* 購入履歴ボタンのスタイル */
+.history-button {
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin: 20px auto;
+    width: 200px; /* ボタンの幅を固定 */
+    height: 50px; /* ボタンの高さを固定 */
+    font-size: 1.4rem; /* フォントサイズを統一 */
+    color: #fff;
+    background-color: #555; /* 編集ボタンと同じ色に統一 */
+    border: none;
+    border-radius: 5px; /* 角丸を統一 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.history-button:hover {
+    background-color: #333; /* 編集ボタンと同じホバー色に統一 */
+}
+
+/* 編集ボタンのスタイル */
+.edit-profile-button {
+    display: flex; /* フレックスボックスを使用 */
+    justify-content: center; /* 水平方向に中央揃え */
+    align-items: center; /* 垂直方向に中央揃え */
+    margin: 20px auto;
+    width: 200px; /* ボタンの幅を固定 */
+    height: 50px; /* ボタンの高さを固定 */
+    font-size: 1.4rem; /* フォントサイズを統一 */
+    color: #fff;
+    background-color: #555; /* 色を統一 */
+    border: none;
+    border-radius: 5px; /* 角丸を統一 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-profile-button:hover {
+    background-color: #333; /* ホバー色を統一 */
 }
