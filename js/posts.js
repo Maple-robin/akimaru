@@ -233,39 +233,4 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         document.head.appendChild(style);
     }
-
-
-    // ハンバーガーメニューの要素を取得
-    const hamburger = document.querySelector('.hamburger-menu');
-    const spMenu = document.querySelector('.sp-menu');
-
-    // ハンバーガーアイコンがクリックされた時の処理
-    if (hamburger && spMenu) {
-        hamburger.addEventListener('click', function () {
-            hamburger.classList.toggle('is-active');
-            spMenu.classList.toggle('is-active');
-            // document.body.classList.toggle('no-scroll');
-        });
-
-        const spMenuItems = document.querySelectorAll('.sp-menu__list a');
-        spMenuItems.forEach(item => {
-            item.addEventListener('click', function () {
-                hamburger.classList.remove('is-active');
-                spMenu.classList.remove('is-active');
-                // document.body.classList.remove('no-scroll');
-            });
-        });
-    }
-
-    // 商品カテゴリのサブメニュー開閉
-    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
-    spCategoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            this.classList.toggle('is-open');
-            const subList = this.querySelector('.sp-menu__sub-list');
-            if (subList) {
-                subList.classList.toggle('is-open');
-            }
-        });
-    });
 });

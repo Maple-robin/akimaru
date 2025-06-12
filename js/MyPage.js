@@ -1,26 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const spMenu = document.querySelector('.sp-menu');
-
-    if (hamburgerMenu && spMenu) {
-        hamburgerMenu.addEventListener('click', function () {
-            hamburgerMenu.classList.toggle('is-active'); // メニューアイコンの状態を切り替え
-            spMenu.classList.toggle('is-active'); // メニューの表示/非表示を切り替え
-        });
-    }
-
-    // 複数カテゴリトグル対応
-    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
-    spCategoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function () {
-            this.classList.toggle('is-open');
-            const subList = this.querySelector('.sp-menu__sub-list');
-            if (subList) {
-                subList.classList.toggle('is-open');
-            }
-        });
-    });
-
     // タブ切り替え機能 (既存のまま)
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');

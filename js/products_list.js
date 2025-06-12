@@ -1,39 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- ハンバーガーメニューとSPメニューの制御 ---
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const spMenu = document.querySelector('.sp-menu');
-
-    if (hamburgerMenu && spMenu) {
-        hamburgerMenu.addEventListener('click', function() {
-            hamburgerMenu.classList.toggle('is-active');
-            spMenu.classList.toggle('is-active');
-            // メニューが開いているときはスクロールを無効にする
-            document.body.classList.toggle('no-scroll', spMenu.classList.contains('is-active'));
-
-            // メニューの開閉に合わせてクラスを追加/削除
-            if (spMenu.classList.contains('is-active')) {
-                document.body.classList.add('menu-open');   // 開くとき
-            } else {
-                document.body.classList.remove('menu-open'); // 閉じるとき
-            }
-        });
-    }
-
-    // SPメニューのカテゴリトグル機能
-    const spCategoryToggles = document.querySelectorAll('.sp-menu__category-toggle');
-    spCategoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            // クリックされた要素がトグル自体か、その中のアイコンの場合のみ処理
-            if (e.target === this || e.target.classList.contains('category-icon')) {
-                this.classList.toggle('is-open');
-                const subList = this.querySelector('.sp-menu__sub-list');
-                if (subList) {
-                    subList.classList.toggle('is-open');
-                }
-            }
-        });
-    });
-
     // --- ランキングページ固有のロジック ---
     const filterButton = document.getElementById('filter-button');
     const sortButton = document.getElementById('sort-button');
