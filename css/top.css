@@ -276,6 +276,7 @@ ul {
     color: #333;
     cursor: pointer;
     padding: 10px 0;
+    position: relative; /* 追加：サブリストの絶対配置の基準にする */
 }
 .sp-menu__category-toggle .category-icon {
     font-size: 1.6rem;
@@ -293,6 +294,9 @@ ul {
     margin-top: 15px;
     border-top: 1px solid #eee;
     padding-top: 15px;
+    position: static;      /* ←ここをstaticに戻す */
+    background: transparent;
+    z-index: 10;
 }
 .sp-menu__sub-list.is-open {
     max-height: 200px;

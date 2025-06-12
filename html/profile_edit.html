@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プロフィール編集 | OUR BRAND</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/MyPage.css"> <link rel="stylesheet" href="../css/profile_edit.css"> <link rel="stylesheet" href="../css/top.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> </head>
-<body>
-<!-- 共通ヘッダー：index.htmlからコピー -->
-<header class="header">
-    <div class="header__inner">
-        <!-- ハンバーガーメニューを左端に配置 -->
-        <button class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <!-- ロゴを中央に配置 -->
-        <h1 class="header__logo">
-            <a href="index.html">OUR BRAND</a>
-        </h1>
-        <!-- ナビゲーションとアイコンを右端に配置 -->
-        <nav class="header__nav">
-            <ul class="nav__list pc-only">
-                <li><a href="products_list.html">商品一覧</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
-            </ul>
-            <div class="header__icons">
-                <a href="wishlist.html" class="header__icon-link">
-                    <i class="fas fa-heart"></i>
-                </a>
-                <a href="cart.html" class="header__icon-link">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
-        </nav>
-    </div>
-</header>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/MyPage.css">
+    <link rel="stylesheet" href="../css/profile_edit.css">
+    <link rel="stylesheet" href="../css/top.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
-<nav class="sp-menu">
+<body>
+    <!-- 共通ヘッダー：index.htmlからコピー -->
+    <header class="header">
+        <div class="header__inner">
+            <!-- ハンバーガーメニューを左端に配置 -->
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ロゴを中央に配置 -->
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <!-- ナビゲーションとアイコンを右端に配置 -->
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
         <div class="sp-menu__header">
             <div class="sp-menu__login">
                 <i class="fas fa-user-circle"></i> ログイン
@@ -89,16 +97,17 @@
     </nav>
 
     <main>
-    <div class="mypage-container">
-        <h1 class="page-title">
-            <span class="en">EDIT PROFILE</span>
-            <span class="ja">( プロフィール編集 )</span>
-        </h1>
+        <div class="mypage-container">
+            <h1 class="page-title">
+                <span class="en">EDIT PROFILE</span>
+                <span class="ja">( プロフィール編集 )</span>
+            </h1>
 
-        <div class="profile-edit-inner">
+            <div class="profile-edit-inner">
                 <div class="profile-edit-item profile-edit-icon">
                     <label for="user-icon">
-                        <img src="https://placehold.co/150x150/FFD700/000000?text=USER" alt="ユーザーアイコン" class="profile-icon-preview">
+                        <img src="https://placehold.co/150x150/FFD700/000000?text=USER" alt="ユーザーアイコン"
+                            class="profile-icon-preview">
                         <input type="file" id="user-icon" accept="image/*" style="display: none;">
                         <button type="button" class="btn-change-icon">アイコンを変更</button>
                     </label>
@@ -112,7 +121,8 @@
 
                 <div class="profile-edit-item">
                     <label for="bio" class="edit-label">自己紹介</label>
-                    <textarea id="bio" class="edit-textarea" rows="5" placeholder="自己紹介を入力してください。">お酒と美味しい料理をこよなく愛するサンプル太郎です。特に日本酒の奥深さに魅了されており、週末は新しい銘柄を探しに出かけるのが趣味です。皆さんとお酒に関する情報交換ができたら嬉しいです！</textarea>
+                    <textarea id="bio" class="edit-textarea" rows="5"
+                        placeholder="自己紹介を入力してください。">お酒と美味しい料理をこよなく愛するサンプル太郎です。特に日本酒の奥深さに魅了されており、週末は新しい銘柄を探しに出かけるのが趣味です。皆さんとお酒に関する情報交換ができたら嬉しいです！</textarea>
                     <p class="char-count"><span id="bio-current-char"></span> / 200文字</p>
                 </div>
 
@@ -158,5 +168,9 @@
         </div>
     </footer>
 
-    <script src="../js/MyPage.js"></script> <script src="../js/profile_edit.js"></script> </body>
+    <script src="../js/MyPage.js"></script>
+    <script src="../js/profile_edit.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
 </html>
