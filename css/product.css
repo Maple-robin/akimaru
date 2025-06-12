@@ -667,3 +667,27 @@
         }
     }
 }
+
+/* メインコンテンツに左右の余白を追加 */
+main {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 共通の内側余白を適用する場合 */
+.common-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* 必要に応じて、レスポンシブ対応 */
+@media (min-width: 768px) {
+    main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .common-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
