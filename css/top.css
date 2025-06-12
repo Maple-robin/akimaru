@@ -12,6 +12,8 @@ body {
     font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0; /* body全体の余白を削除 */
+    padding: 0; /* body全体の内側余白を削除 */
 }
 body.no-scroll {
     overflow: hidden;
@@ -423,14 +425,15 @@ ul {
   categories（カテゴリーリスト）
 ----------------------------------------*/
 .categories {
-    padding: 80px 0;
+    padding: 80px 0; /* 上下に余白を追加 */
     text-align: center;
     background-color: #f2f7f5;
+    margin-top: 40px; /* 上部に空白を追加 */
 }
 .categories__inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 5px; /* 左右に余白を追加 */
     box-sizing: border-box;
 }
 
@@ -500,7 +503,8 @@ ul {
 ----------------------------------------*/
 .footer {
     background-color: #eeeeee;
-    padding: 50px 0 30px;
+    padding: 50px 0 30px; /* 必要に応じて調整 */
+    margin: 0; /* 外側の余白を削除 */
 }
 .footer__inner {
     display: flex;
