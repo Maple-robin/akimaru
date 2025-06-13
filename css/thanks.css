@@ -611,12 +611,14 @@ ul {
     justify-content: center;
     text-align: center;
     background-color: #f2f7f5; /* 背景色 */
+    margin-top: 60px; /* ヘッダーの高さ分を指定 */
 }
 @media (min-width: 768px) {
     .thank-you-section {
         /* PC版のパディング調整 */
         padding: 120px 20px 80px; /* 上120px, 左右20px, 下80px */
         min-height: calc(100vh - 80px - 140px); /* PC版のヘッダー高さに調整 */
+        margin-top: 80px; /* PC版のヘッダー高さに合わせて調整 */
     }
 }
 
