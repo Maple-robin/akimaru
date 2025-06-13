@@ -173,40 +173,6 @@
 
     <script src="../js/script.js"></script>
     <script src="../js/MyPage.js"></script>
-    <script>
-        document.querySelector('.edit-profile-button').addEventListener('click', function () {
-            window.location.href = 'profile_edit.html';
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // ハンバーガーメニュー
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const spMenu = document.querySelector('.sp-menu');
-            if (hamburgerMenu && spMenu) {
-                hamburgerMenu.addEventListener('click', function () {
-                    hamburgerMenu.classList.toggle('is-active');
-                    spMenu.classList.toggle('is-active');
-                });
-            }
-
-            // カテゴリ・タグの開閉
-            document.querySelectorAll('.sp-menu__category-toggle').forEach(function (toggle) {
-                toggle.addEventListener('click', function (e) {
-                    // アイコンやli以外のクリックは無視
-                    if (e.target.tagName === 'A') return;
-                    const subList = this.querySelector('.sp-menu__sub-list');
-                    if (subList) {
-                        subList.classList.toggle('is-open');
-                    }
-                    // アイコンの向きも切り替え
-                    const icon = this.querySelector('.category-icon');
-                    if (icon) {
-                        icon.classList.toggle('open');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
