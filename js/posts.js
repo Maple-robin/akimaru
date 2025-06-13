@@ -1,14 +1,13 @@
 // DOMContentLoadedは、HTMLの読み込みが完了したときに実行されます。
 document.addEventListener('DOMContentLoaded', function() {
-    // ダミーの投稿データ
     const postsData = [
         {
             id: 1,
-            icon: 'https://placehold.co/40x40/FF5733/FFFFFF?text=A', // ユーザーアイコンのプレースホルダー
+            icon: 'https://placehold.co/40x40/FF5733/FFFFFF?text=A',
             title: '新商品のワインレビュー',
             content: '先日発売されたばかりの限定ワインを試しました！フルーティーで口当たりが良く、デザートにも合う素晴らしい一本でした。おすすめ度：★★★★★\n#ワイン #限定品 #レビュー',
             likes: 15,
-            dislikes: 2,
+            hearts: 2, // dislikes → hearts
         },
         {
             id: 2,
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: '週末のテイスティングイベント',
             content: '今週末、〇〇酒造で開催されるテイスティングイベントに参加します！新しい日本酒に出会えるのが楽しみです。皆さんのおすすめ銘柄はありますか？\n#日本酒 #イベント #テイスティング',
             likes: 8,
-            dislikes: 0,
+            hearts: 0, // dislikes → hearts
         },
         {
             id: 3,
@@ -24,15 +23,15 @@ document.addEventListener('DOMContentLoaded', function() {
             title: '自宅でカクテル作り',
             content: '最近ジンにはまっていて、自宅で色々なカクテルを作るのに挑戦中です。おすすめのジンベースカクテルレシピがあれば教えてください！マティーニとジントニック以外で！\n#カクテル #ジン #おうち時間',
             likes: 22,
-            dislikes: 5,
+            hearts: 5, // dislikes → hearts
         },
         {
             id: 4,
             icon: 'https://placehold.co/40x40/FF33CC/FFFFFF?text=D',
             title: 'ウィスキーの熟成について',
-            content: '長期熟成ウィスキーの奥深さに感動しています。樽の種類や熟成期間によってこんなにも味が変わるなんて驚きです。特に〇〇の熟成ウィスキーが最高でした。皆さんの好きな熟成ウィスキーは？\n#ウィスキー #熟成 #酒好き\n\nこれは長い投稿の例です。より多くのテキストが含まれており、カードの高さがどのように調整されるかを確認できます。Twitterの文字数制限を意識する場合、このような長いテキストは表示時に省略されることがあります。ここでは、`white-space: pre-wrap;`と`word-break: break-word;`で自然な改行をさせています。',
+            content: '長期熟成ウィスキーの奥深さに感動しています。樽の種類や熟成期間によってこんなにも味が変わるなんて驚きです。特に〇〇の熟成ウィスキーが最高でした。皆さんの好きな熟成ウィスキーは？\n#ウィスキー #熟成 #酒好き',
             likes: 10,
-            dislikes: 1,
+            hearts: 1, // dislikes → hearts
         }
     ];
 
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <ul>
                             <li><a href="" class="report-action" data-post-id="${post.id}">通報する</a></li>
                             <li><a href="#">シェア</a></li>
-                            </ul>
+                        </ul>
                     </div>
                 </div>
                 <p class="post-content">${post.content}</p>
@@ -63,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <button class="reaction-button good" data-reaction="good">
                         👍 <span class="like-count">${post.likes}</span>
                     </button>
-                    <button class="reaction-button bad" data-reaction="bad">
-                        👎 <span class="dislike-count">${post.dislikes}</span>
+                    <button class="reaction-button heart" data-reaction="heart">
+                        ❤️ <span class="heart-count">${post.hearts}</span>
                     </button>
                 </div>
             `;
@@ -125,9 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 同じ投稿内のGood/Badボタンを全て取得
                 const goodButton = postCard.querySelector('.reaction-button.good');
-                const badButton = postCard.querySelector('.reaction-button.bad');
+                const heartButton = postCard.querySelector('.reaction-button.heart');
                 const likeCountSpan = postCard.querySelector('.like-count');
-                const dislikeCountSpan = postCard.querySelector('.dislike-count');
+                const heartCountSpan = postCard.querySelector('.heart-count');
 
                 if (reactionType === 'good') {
                     if (this.classList.contains('active')) {
@@ -139,19 +138,19 @@ document.addEventListener('DOMContentLoaded', function() {
                         post.likes++;
                         this.classList.add('active');
                         // もし「よくないね」済みなら取り消し
-                        if (badButton.classList.contains('active')) {
-                            post.dislikes--;
-                            badButton.classList.remove('active');
+                        if (heartButton.classList.contains('active')) {
+                            post.hearts--;
+                            heartButton.classList.remove('active');
                         }
                     }
-                } else if (reactionType === 'bad') {
+                } else if (reactionType === 'heart') {
                     if (this.classList.contains('active')) {
                         // 既に「よくないね」済みなら取り消し
-                        post.dislikes--;
+                        post.hearts--;
                         this.classList.remove('active');
                     } else {
                         // 「よくないね」
-                        post.dislikes++;
+                        post.hearts++;
                         this.classList.add('active');
                         // もし「いいね」済みなら取り消し
                         if (goodButton.classList.contains('active')) {
@@ -163,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // カウントを更新
                 likeCountSpan.textContent = post.likes;
-                dislikeCountSpan.textContent = post.dislikes;
+                heartCountSpan.textContent = post.hearts;
 
                 // 実際のアプリケーションでは、ここでサーバーサイドにリアクションを送信
             });
@@ -232,5 +231,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         `;
         document.head.appendChild(style);
+    }
+
+    function renderPost(post) {
+        return `
+            <div class="post-card">
+                <div class="post-header">
+                    <img src="${post.userIcon}" alt="${post.userName}" class="post-user-icon">
+                    <h3 class="post-title">${post.title}</h3>
+                </div>
+                <div class="post-content">${post.content}</div>
+                <div class="post-actions">
+                    <button class="reaction-button good">
+                        <span class="islike-count">${post.likes}</span> 👍
+                    </button>
+                    <button class="reaction-button heart">
+                        <span class="isheart-count">${post.hearts}</span> ❤️
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    function updateReaction(post) {
+        const postElement = document.querySelector(`#post-${post.id}`);
+        postElement.querySelector('.islike-count').textContent = post.likes;
+        postElement.querySelector('.isheart-count').textContent = post.hearts; // dislikes → hearts
     }
 });

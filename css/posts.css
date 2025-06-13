@@ -509,7 +509,7 @@ main {
     color: #A0522D;
 }
 
-/* グッド・バッドボタン */
+/* グッド・ハートボタン */
 .reaction-button {
     background: none;
     border: 1px solid #ccc;
@@ -524,7 +524,7 @@ main {
 }
 
 .reaction-button.good {
-    color: #28a745; /* 緑色 */
+    color: #28a745;
     border-color: #28a745;
 }
 .reaction-button.good:hover {
@@ -536,16 +536,15 @@ main {
     color: #fff;
 }
 
-
-.reaction-button.bad {
-    color: #dc3545; /* 赤色 */
+.reaction-button.heart {
+    color: #dc3545;
     border-color: #dc3545;
 }
-.reaction-button.bad:hover {
+.reaction-button.heart:hover {
     background-color: #dc3545;
     color: #fff;
 }
-.reaction-button.bad.active {
+.reaction-button.heart.active {
     background-color: #dc3545;
     color: #fff;
 }
