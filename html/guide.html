@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本酒ガイド | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/guide.css">
+    <link rel="stylesheet" href="../css/top.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/guide.js" defer></script>
+</head>
+
+<body class="guide-page">
+    <header class="header">
+        <div class="header__inner">
+            <!-- ハンバーガーメニューを左端に配置 -->
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ロゴを中央に配置 -->
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <!-- ナビゲーションとアイコンを右端に配置 -->
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul class="sp-menu__list">
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                    <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                    <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                    <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                    <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                    <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                    <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                    <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                    <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                    <li><a href="products_list.html?category=ビール">ビール</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__category-toggle">
+                商品タグ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
+                    <li><a href="products_list.html?tag=甘口">甘口</a></li>
+                    <li><a href="products_list.html?tag=辛口">辛口</a></li>
+                    <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
+                    <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
+        </ul>
+
+        <div class="sp-menu__divider"></div>
+
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="faq.html">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-title">
+            <h2 class="section-title">
+                <span class="en">SAKE GUIDE</span>
+                <span class="ja">(日本酒ガイド)</span>
+            </h2>
+        </section>
+
+        <section class="sake-description">
+            <h3>日本酒とは？</h3>
+            <p>
+                日本酒は米と水を原料とし、発酵によって作られる伝統的な日本のアルコール飲料です。
+                醸造方法や使用する米の種類によって、味わいや香りが異なり、幅広い楽しみ方があります。
+            </p>
+        </section>
+
+        <section class="sake-recommendation">
+            <h3>おすすめの飲み方</h3>
+            <ul>
+                <li>
+                    <strong>そのまま：</strong> 日本酒本来の味わいを堪能。
+                    <p>そのまま飲むことで、米の旨味や日本酒の繊細な香りをダイレクトに楽しむことができます。</p>
+                    <ol>
+                        <li>日本酒を室温で保管します。</li>
+                        <li>グラスに注ぎ、香りを楽しみます。</li>
+                        <li>そのままゆっくりと味わいます。</li>
+                    </ol>
+                </li>
+                <li>
+                    <strong>冷して飲む：</strong> フルーティーな香りを楽しむ。
+                    <p>冷やすことで、爽やかな酸味やフルーティーな香りが際立ち、軽やかな飲み口になります。子の飲み方を冷酒と言います</p>
+                    <ol>
+                        <li>日本酒を冷蔵庫で2〜3時間冷やします。</li>
+                        <li>冷えた日本酒をグラスに注ぎます。</li>
+                        <li>香りを楽しみながら飲みます。</li>
+                    </ol>
+                </li>
+                <li>
+                    <strong>温めて飲む：</strong> 寒い季節にぴったり。
+                    <p>温めることで、甘味や旨味が引き立ち、まろやかな味わいを楽しむことができます。この飲み方を熱燗と言います。</p>
+                    <ol>
+                        <li>日本酒を徳利に入れます。</li>
+                        <li>湯煎で約40〜50℃に温めます。</li>
+                        <li>温めた日本酒をお猪口に注ぎます。</li>
+                        <li>温かい香りと味わいを楽しみます。</li>
+                    </ol>
+                </li>
+            </ul>
+        </section>
+
+        <section class="beginner-sake">
+            <h3>初心者におすすめの日本酒</h3>
+            <div class="swiper beginner-sake-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide sake-item">
+                        <img src="../img/sake.png" alt="初心者向け日本酒1">
+                        <h4>純米大吟醸 麗し乃雫</h4>
+                        <p>フルーティーで飲みやすい味わい。</p>
+                    </div>
+                    <div class="swiper-slide sake-item">
+                        <img src="../img/paypal.png" alt="初心者向け日本酒2">
+                        <h4>月桂冠 スパークリング</h4>
+                        <p>初心者にぴったりの軽い飲み口。</p>
+                    </div>
+                    <div class="swiper-slide sake-item">
+                        <img src="../img/osake.png" alt="初心者向け日本酒3">
+                        <h4>北海道ワイン おたる 赤 甘口</h4>
+                        <p>甘口で飲みやすい日本酒。</p>
+                    </div>
+                </div>
+                <!-- カルーセルのナビゲーション -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li>
+                    <span class="footer__nav-title">商品一覧</span>
+                    <ul class="footer__subnav">
+                        <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                        <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                        <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                        <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                        <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                        <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                        <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                        <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                        <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                        <li><a href="products_list.html?category=ビール">ビール</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">よくあるご質問／お問合せ</a></li>
+                <li><a href="MyPage.html">会員登録・ログイン</a></li>
+                <li><a href="history.html">購入履歴</a></li>
+                <li><a href="cart.html">買い物かごを見る</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+            </ul>
+            <div class="footer__logo" style="margin: 24px 0 12px;">
+                <a href="index.html">
+                    <img src="../img/logo.png" alt="OUR BRAND" style="height:32px;">
+                </a>
+            </div>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

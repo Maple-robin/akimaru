@@ -1,0 +1,97 @@
+.page-title {
+    text-align: center;
+    margin: 100px 0 40px; /* ヘッダーの高さ分余白を追加 */
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.page-title .section-title {
+    margin-top: 20px; /* cart.cssに合わせて調整 */
+    margin-bottom: 40px; /* cart.cssに合わせて調整 */
+    font-weight: 500; /* cart.cssに合わせて太さを統一 */
+    font-size: 2.8rem; /* cart.cssに合わせてサイズを統一 */
+    text-align: center;
+    color: #000; /* cart.cssに合わせて色を統一 */
+    letter-spacing: 0.1em; /* cart.cssに合わせて文字間隔を統一 */
+}
+
+
+.sake-description,
+.sake-recommendation,
+.beginner-sake {
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+
+    border-radius: 8px;
+}
+
+.sake-description h3,
+.sake-recommendation h3,
+.beginner-sake h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sake-description p,
+.sake-recommendation ul {
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+
+.sake-recommendation ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.sake-recommendation ul li {
+    margin-bottom: 40px; /* 各飲み方の間に空白を追加 */
+}
+
+.sake-recommendation ul li:last-child {
+    margin-bottom: 0; /* 最後の項目の余白をなくす */
+}
+
+.sake-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sake-item {
+    text-align: center;
+}
+
+.sake-item img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.sake-item h4 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+.sake-item p {
+    font-size: 1.4rem;
+    color: #555;
+}
+
+/* Swiperのナビゲーションボタン */
+.swiper-button-prev,
+.swiper-button-next {
+    display: none !important;
+}
+
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.beginner-sake-swiper {
+    width: 100%;
+    padding: 20px 0;
+}
