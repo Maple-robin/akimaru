@@ -1,97 +1,452 @@
-.page-title {
-    text-align: center;
-    margin: 100px 0 40px; /* ヘッダーの高さ分余白を追加 */
-    font-size: 2.4rem;
-    font-weight: bold;
+/*----------------------------------------
+  guide.css - お酒ガイドページ固有のスタイル
+----------------------------------------*/
+
+/* メインコンテンツ全体の余白調整 */
+main {
+    padding-top: 60px; /* ヘッダーの高さ分だけ下にずらす */
 }
 
-.page-title .section-title {
-    margin-top: 20px; /* cart.cssに合わせて調整 */
-    margin-bottom: 40px; /* cart.cssに合わせて調整 */
-    font-weight: 500; /* cart.cssに合わせて太さを統一 */
-    font-size: 2.8rem; /* cart.cssに合わせてサイズを統一 */
-    text-align: center;
-    color: #000; /* cart.cssに合わせて色を統一 */
-    letter-spacing: 0.1em; /* cart.cssに合わせて文字間隔を統一 */
-}
-
-
-.sake-description,
-.sake-recommendation,
-.beginner-sake {
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 20px;
-
-    border-radius: 8px;
-}
-
-.sake-description h3,
-.sake-recommendation h3,
-.beginner-sake h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.sake-description p,
-.sake-recommendation ul {
-    font-size: 1.6rem;
-    line-height: 1.8;
-}
-
-.sake-recommendation ul {
-    list-style: disc;
-    padding-left: 20px;
-}
-
-.sake-recommendation ul li {
-    margin-bottom: 40px; /* 各飲み方の間に空白を追加 */
-}
-
-.sake-recommendation ul li:last-child {
-    margin-bottom: 0; /* 最後の項目の余白をなくす */
-}
-
-.sake-list {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.sake-item {
-    text-align: center;
-}
-
-.sake-item img {
+/* ヒーローセクション */
+.guide-hero {
+    position: relative;
     width: 100%;
-    max-width: 250px;
+    height: 40vh; /* 画面の高さの40% */
+    background: url('../img/sake.png') no-repeat center center/cover; /* 背景画像を設定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 80px; /* 下に余白 */
+}
+
+/* オーバーレイを追加して文字を目立たせる */
+.guide-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 半透明の黒色オーバーレイ */
+    z-index: 1;
+}
+
+/* ヒーローセクション内の文字 */
+.guide-hero__inner {
+    position: relative;
+    z-index: 2; /* オーバーレイより前面に表示 */
+    padding: 0 20px;
+}
+
+.guide-hero__title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 文字に影を追加して視認性を向上 */
+}
+
+.guide-hero__subtitle {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* 文字に影を追加して視認性を向上 */
+}
+
+/* 各セクション共通スタイル */
+.guide-section {
+    padding: 80px 0; /* 上下の余白 */
+    overflow: hidden;
+}
+
+.guide-section:nth-of-type(odd) { /* 奇数番目のセクションの背景色 */
+    background-color: #fff; /* 白色に変更 */
+}
+
+.guide-section:nth-of-type(even) { /* 偶数番目のセクションの背景色 */
+    background-color: #fff; /* 白色に変更 */
+}
+
+.section-inner {
+    max-width: 960px; /* コンテンツの最大幅 */
+    margin: 0 auto;
+    padding: 0 20px; /* 左右の余白 */
+}
+
+/* 日本酒とは？セクション */
+.sake-basics__content {
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 60px;
+    background-color: #fff; /* 白色に変更 */
+}
+
+.sake-basics__text {
+    flex: 1;
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.sake-basics__text p {
+    margin-bottom: 1.5em;
+}
+
+.sake-basics__image {
+    flex: 1;
+    max-width: 400px;
     border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sake-basics__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.sake-types {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.sake-types h4 {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.sake-types h4::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: #A0522D;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.sake-types__list {
+    display: grid;
+    grid-template-columns: 1fr; /* スマホでは1列 */
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.sake-type-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sake-type-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.sake-type-item h5 {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: #A0522D;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0e6e0;
+    padding-bottom: 8px;
+}
+
+.sake-type-item p {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* おすすめの飲み方セクション */
+.enjoy-methods {
+    display: grid;
+    grid-template-columns: 1fr; /* スマホでは1列 */
+    gap: 40px;
+    margin-bottom: 60px;
+    background-color: #fff; /* 白色に変更 */
+}
+
+.method-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.method-card img {
+    width: 100%;
+    height: 220px; /* 画像の高さを固定 */
+    object-fit: cover;
+    display: block;
+}
+
+.method-card h4 {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #A0522D;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.method-card p {
+    font-size: 1.6rem;
+    color: #555;
+    line-height: 1.7;
+    padding: 0 25px 25px;
+}
+
+.pairing-tips {
+    text-align: center;
+}
+
+.pairing-tips h4 {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.pairing-tips h4::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background-color: #A0522D;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+.pairing-list {
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-.sake-item h4 {
+.pairing-list li {
+    background-color: #fff; /* 白色に変更 */
+    border: 1px solid #eee;
+    border-left: none; /* アクセントラインを削除 */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pairing-list li .fas {
+    font-size: 2.8rem;
+    color: #A0522D;
+    min-width: 28px; /* アイコンの幅を固定 */
+    text-align: center;
+}
+
+.pairing-list li strong {
+    font-size: 1.7rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.pairing-list li p {
+    font-size: 1.5rem;
+    color: #666;
+    margin: 0;
+}
+
+/* 初心者におすすめの日本酒セクション */
+.beginner-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブなグリッド */
+    gap: 30px;
+    margin-bottom: 60px;
+    background-color: #fff; /* 白色に変更 */
+}
+
+/* 既存のproduct-itemスタイルを上書きまたは調整 */
+.guide-section .product-item {
+    border: none; /* 元のボーダーを削除 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* 新しい影を追加 */
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    padding-bottom: 20px; /* 下部の余白を調整 */
+}
+
+.guide-section .product-item a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.guide-section .product-item__img-wrap {
+    height: 200px; /* 画像の高さを固定 */
+    margin-bottom: 15px;
+}
+
+.guide-section .product-item__name {
     font-size: 1.8rem;
-    margin: 10px 0;
+    font-family: 'Zen Old Mincho', serif;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    padding: 0 15px; /* 左右のパディング */
+    text-align: left;
+    flex-grow: 1; /* 名前が長い場合にスペースを埋める */
 }
 
-.sake-item p {
-    font-size: 1.4rem;
-    color: #555;
+.guide-section .product-item__price {
+    font-size: 2.0rem; /* フォントサイズを少し大きく */
+    font-weight: bold;
+    color: #A0522D;
+    margin-bottom: 5px;
+    padding: 0 15px;
+    text-align: left;
 }
 
-/* Swiperのナビゲーションボタン */
-.swiper-button-prev,
-.swiper-button-next {
-    display: none !important;
+.guide-section .product-item__price span {
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #666;
 }
 
-.swiper-pagination {
-    bottom: 10px;
+.guide-section .product-item__tag {
+    font-size: 1.4rem; /* フォントサイズを少し大きく */
+    color: #888;
+    padding: 0 15px;
+    text-align: left;
 }
 
-.beginner-sake-swiper {
-    width: 100%;
-    padding: 20px 0;
+/* すべての商品を見るボタンの調整 */
+.guide-section .btn-all-products {
+    margin-top: 40px; /* 上部の余白 */
+}
+
+
+/*----------------------------------------
+  PC用メディアクエリ (768px以上)
+----------------------------------------*/
+@media (min-width: 768px) {
+    .guide-hero {
+        height: 50vh; /* PCでは高さを少し高く */
+        margin-top: 80px; /* ヘッダーの高さ分 */
+    }
+
+    .guide-hero__title {
+        font-size: 6.4rem;
+    }
+
+    .guide-hero__subtitle {
+        font-size: 2.6rem;
+    }
+
+    .guide-section {
+        padding: 100px 0;
+    }
+
+    .sake-basics__content {
+        flex-direction: row; /* PCでは横並び */
+        gap: 60px;
+    }
+
+    .sake-types__list {
+        grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+        padding: 0;
+    }
+
+    .sake-type-item {
+        padding: 40px;
+    }
+
+    .enjoy-methods {
+        grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+    }
+
+    .method-card img {
+        height: 250px; /* PCでは画像の高さを少し高く */
+    }
+
+    .pairing-list {
+        flex-direction: row; /* PCでは横並び */
+        gap: 30px;
+        max-width: none; /* 最大幅を解除 */
+    }
+
+    .pairing-list li {
+        flex: 1; /* 等幅にする */
+        padding: 25px;
+        flex-direction: column; /* アイコンとテキストを縦並び */
+        gap: 10px;
+        justify-content: center; /* 縦方向中央揃え */
+        align-items: center; /* 横方向中央揃え */
+    }
+
+    .pairing-list li .fas {
+        font-size: 3.6rem;
+        margin-bottom: 5px; /* アイコンの下に少し余白 */
+        min-width: unset; /* 幅の固定を解除 */
+    }
+
+    .pairing-list li strong {
+        font-size: 1.8rem;
+    }
+
+    .pairing-list li p {
+        font-size: 1.6rem;
+        text-align: center; /* テキストを中央揃え */
+    }
+
+    .beginner-recommendations {
+        grid-template-columns: repeat(3, 1fr); /* PCでは3列 */
+        gap: 40px;
+    }
+
+    .guide-section .product-item__name,
+    .guide-section .product-item__price,
+    .guide-section .product-item__tag {
+        padding-left: 20px; /* PCでの左右パディング調整 */
+        padding-right: 20px;
+    }
+
+    .guide-section .btn-all-products {
+        margin-top: 60px;
+    }
 }

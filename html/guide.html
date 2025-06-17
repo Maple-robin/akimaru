@@ -4,36 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本酒ガイド | OUR BRAND</title>
+    <title>お酒ガイド | OUR BRAND</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link rel="stylesheet" href="../css/guide.css">
+    <link rel="stylesheet" href="../css/guide.css"> 
+
     <link rel="stylesheet" href="../css/top.css">
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
-    <script src="../js/script.js" defer></script>
-    <script src="../js/guide.js" defer></script>
+
 </head>
 
-<body class="guide-page">
+<body>
     <header class="header">
         <div class="header__inner">
-            <!-- ハンバーガーメニューを左端に配置 -->
             <button class="hamburger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <!-- ロゴを中央に配置 -->
             <h1 class="header__logo">
                 <a href="index.html">OUR BRAND</a>
             </h1>
-            <!-- ナビゲーションとアイコンを右端に配置 -->
             <nav class="header__nav">
                 <ul class="nav__list pc-only">
                     <li><a href="products_list.html">商品一覧</a></li>
@@ -101,81 +97,145 @@
     </nav>
 
     <main>
-        <section class="page-title">
-            <h2 class="section-title">
-                <span class="en">SAKE GUIDE</span>
-                <span class="ja">(日本酒ガイド)</span>
-            </h2>
-        </section>
-
-        <section class="sake-description">
-            <h3>日本酒とは？</h3>
-            <p>
-                日本酒は米と水を原料とし、発酵によって作られる伝統的な日本のアルコール飲料です。
-                醸造方法や使用する米の種類によって、味わいや香りが異なり、幅広い楽しみ方があります。
-            </p>
-        </section>
-
-        <section class="sake-recommendation">
-            <h3>おすすめの飲み方</h3>
-            <ul>
-                <li>
-                    <strong>そのまま：</strong> 日本酒本来の味わいを堪能。
-                    <p>そのまま飲むことで、米の旨味や日本酒の繊細な香りをダイレクトに楽しむことができます。</p>
-                    <ol>
-                        <li>日本酒を室温で保管します。</li>
-                        <li>グラスに注ぎ、香りを楽しみます。</li>
-                        <li>そのままゆっくりと味わいます。</li>
-                    </ol>
-                </li>
-                <li>
-                    <strong>冷して飲む：</strong> フルーティーな香りを楽しむ。
-                    <p>冷やすことで、爽やかな酸味やフルーティーな香りが際立ち、軽やかな飲み口になります。子の飲み方を冷酒と言います</p>
-                    <ol>
-                        <li>日本酒を冷蔵庫で2〜3時間冷やします。</li>
-                        <li>冷えた日本酒をグラスに注ぎます。</li>
-                        <li>香りを楽しみながら飲みます。</li>
-                    </ol>
-                </li>
-                <li>
-                    <strong>温めて飲む：</strong> 寒い季節にぴったり。
-                    <p>温めることで、甘味や旨味が引き立ち、まろやかな味わいを楽しむことができます。この飲み方を熱燗と言います。</p>
-                    <ol>
-                        <li>日本酒を徳利に入れます。</li>
-                        <li>湯煎で約40〜50℃に温めます。</li>
-                        <li>温めた日本酒をお猪口に注ぎます。</li>
-                        <li>温かい香りと味わいを楽しみます。</li>
-                    </ol>
-                </li>
-            </ul>
-        </section>
-
-        <section class="beginner-sake">
-            <h3>初心者におすすめの日本酒</h3>
-            <div class="swiper beginner-sake-swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide sake-item">
-                        <img src="../img/sake.png" alt="初心者向け日本酒1">
-                        <h4>純米大吟醸 麗し乃雫</h4>
-                        <p>フルーティーで飲みやすい味わい。</p>
-                    </div>
-                    <div class="swiper-slide sake-item">
-                        <img src="../img/paypal.png" alt="初心者向け日本酒2">
-                        <h4>月桂冠 スパークリング</h4>
-                        <p>初心者にぴったりの軽い飲み口。</p>
-                    </div>
-                    <div class="swiper-slide sake-item">
-                        <img src="../img/osake.png" alt="初心者向け日本酒3">
-                        <h4>北海道ワイン おたる 赤 甘口</h4>
-                        <p>甘口で飲みやすい日本酒。</p>
-                    </div>
-                </div>
-                <!-- カルーセルのナビゲーション -->
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+        <section class="guide-hero">
+            <div class="guide-hero__inner">
+                <h2 class="guide-hero__title">日本酒ガイド</h2>
+                <p class="guide-hero__subtitle">日本酒の魅力と楽しみ方を知る</p>
             </div>
         </section>
+
+        <section class="guide-section sake-basics">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">SAKE BASICS</span>
+                    <span class="ja">日本酒とは？</span>
+                </h3>
+                <div class="sake-basics__content">
+                    <div class="sake-basics__text">
+                        <p>日本酒は、米と米麹、そして水のみを原料として作られる、日本固有の醸造酒です。その歴史は古く、日本の文化や食生活と深く結びついています。多様な風味と香りが特徴で、近年では海外でも高い評価を受けています。</p>
+                        <p>純米酒、吟醸酒、大吟醸酒など、精米歩合や製造方法によって様々な種類があり、それぞれ異なる個性を持っています。</p>
+                    </div>
+                    <div class="sake-basics__image">
+                        <img src="../img/osake.png" alt="日本酒の紹介画像">
+                    </div>
+                </div>
+
+                <div class="sake-types">
+                    <div class="sake-types__inner">
+                        <h2 class="section-title">
+                            <span class="en">TYPES OF SAKE</span>
+                            <span class="ja">( 日本酒の主な種類 )</span>
+                        </h2>
+                        <ul class="sake-types__list">
+                            <li class="sake-type-item">
+                                <h5>純米酒</h5>
+                                <p>米、米麹、水のみで造られ、米本来の旨味を味わえます。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>吟醸酒・大吟醸酒</h5>
+                                <p>低温で時間をかけて発酵させ、華やかな香りが特徴です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>本醸造酒</h5>
+                                <p>醸造アルコールを少量添加し、すっきりとした味わいです。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section how-to-enjoy">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">HOW TO ENJOY</span>
+                    <span class="ja">おすすめの飲み方</span>
+                </h3>
+                <div class="enjoy-methods">
+                    <div class="method-card">
+                        <img src="../img/冷酒サンプル.png" alt="冷酒">
+                        <h4>冷酒</h4>
+                        <p>5〜10℃程度に冷やして。華やかな香りの吟醸酒や大吟醸酒におすすめです。すっきりと楽しめます。</p>
+                    </div>
+                    <div class="method-card">
+                        <img src="../img/sake-roomtemp.jpg" alt="常温">
+                        <h4>常温</h4>
+                        <p>20℃前後で。米の旨味や香りが最も感じやすい温度帯です。純米酒などで試してみてください。</p>
+                    </div>
+                    <div class="method-card">
+                        <img src="../img/sake-warm.jpg" alt="燗酒">
+                        <h4>
+                            <ruby>
+                                燗酒<rt>かんざけ</rt>
+                            </ruby>
+                        </h4>
+                        <p>30〜55℃程度に温めて。香りが引き立ち、まろやかな口当たりになります。本醸造酒や純米酒が合います。</p>
+                    </div>
+                </div>
+
+                <div class="pairing-tips">
+                    <h4 class="section-title">
+                        <span class="en">PAIRING TIPS</span>
+                        <span class="ja">（ペアリングのヒント）</span>
+                    </h4>
+                    <ul class="pairing-list">
+                        <li><i class="fas fa-fish"></i> **魚料理**: 淡麗辛口の日本酒と相性抜群。</li>
+                        <li><i class="fas fa-utensils"></i> **和食全般**: 純米酒や本醸造酒が料理の味を引き立てます。</li>
+                        <li><i class="fas fa-cheese"></i> **チーズ**: 意外な組み合わせですが、熟成タイプの日本酒とよく合います。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="products beginner-friendly">
+            <div class="products__inner">
+                <h2 class="section-title">
+                    <span class="en">FOR BEGINNERS</span>
+                    <span class="ja">( 初めての方へおすすめの一杯 )</span>
+                </h2>
+                <div class="swiper mySwiperBeginners">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/gingerale.png" alt="初心者向け商品１">
+                                </div>
+                                <h3 class="product-item__name">月桂冠 スパークリング</h3>
+                                <p class="product-item__price">¥ 1,500<span>(税込)</span></p>
+                                <p class="product-item__tag">#日本酒 #甘口 #飲みやすい</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/osake.png" alt="初心者向け商品２">
+                                </div>
+                                <h3 class="product-item__name">白桃とレモングラスの果実酒</h3>
+                                <p class="product-item__price">¥ 2,800<span>(税込)</span></p>
+                                <p class="product-item__tag">#果実酒 #フルーティー #女性に人気</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/sake.png" alt="初心者向け商品３">
+                                </div>
+                                <h3 class="product-item__name">サントリー ほろよい</h3>
+                                <p class="product-item__price">¥ 200<span>(税込)</span></p>
+                                <p class="product-item__tag">#低アルコール #お手軽 #家飲み</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <a href="products_list.html?tag=初心者向け" class="btn-all-products">初心者向け一覧を見る</a>
+            </div>
+        </section>
+
+        
+    </div>
+</section>
     </main>
 
     <footer class="footer">
@@ -211,6 +271,11 @@
             <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script src="../js/guide.js"></script>
 </body>
 
 </html>

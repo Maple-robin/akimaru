@@ -42,12 +42,12 @@
                 <form action="#" method="post" enctype="multipart/form-data" class="admin-form">
                     <div class="form-group">
                         <label for="product_name">商品名 <span class="required">必須</span></label>
-                        <input type="text" id="product_name" name="product_name" required maxlength="32">
+                        <input type="text" id="product_name" name="product_name" required maxlength="32" value="既存の商品名">
                     </div>
 
                     <div class="form-group">
                         <label for="main_image">メイン画像 <span class="required">必須</span></label>
-                        <input type="file" id="main_image" name="main_image" accept="image/*" required>
+                        <input type="file" id="main_image" name="main_image" accept="image/*">
                     </div>
 
                     <div class="form-group">
@@ -66,35 +66,53 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="product_type">種類 <span class="required">必須</span></label>
-                        <select id="product_type" name="product_type" required>
+                        <label for="product_category">カテゴリ <span class="required">必須</span></label>
+                        <select id="product_category" name="product_category" required>
                             <option value="">選択してください</option>
-                            <option value="ビール">ビール</option>
-                            <option value="ハイボール">ハイボール</option>
-                            <option value="カクテル">カクテル</option>
-                            <option value="ワイン">ワイン</option>
                             <option value="日本酒">日本酒</option>
-                            <option value="ウイスキー">ウイスキー</option>
+                            <option value="中国酒">中国酒</option>
+                            <option value="梅酒">梅酒</option>
+                            <option value="缶チューハイ">缶チューハイ</option>
+                            <option value="焼酎">焼酎</option>
+                            <option value="ウィスキー">ウィスキー</option>
+                            <option value="スピリッツ">スピリッツ</option>
+                            <option value="リキュール">リキュール</option>
+                            <option value="ワイン">ワイン</option>
+                            <option value="ビール">ビール</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="product_category">カテゴリ <span class="required">必須</span></label>
-                        <select id="product_category" name="product_category" required>
+                        <label for="product_tag">タグ <span class="required">必須</span></label>
+                        <select id="product_tag" name="product_tag" required>
                             <option value="">選択してください</option>
                             <option value="初心者向け">初心者向け</option>
                             <option value="甘口">甘口</option>
                             <option value="辛口">辛口</option>
+                            <option value="度数低め">度数低め</option>
+                            <option value="度数高め">度数高め</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="product_description">商品説明 <span class="required">必須</span></label>
-                        <textarea id="product_description" name="product_description" rows="6" maxlength="256"></textarea>
+                        <textarea id="product_description" name="product_description" rows="6" maxlength="256">既存の商品説明</textarea>
+                    </div>
+
+                    <!-- 特徴の入力欄を追加 -->
+                    <div class="form-group">
+                        <label for="product_features">特徴 <span class="required">必須</span></label>
+                        <textarea id="product_features" name="product_features" rows="4" maxlength="256" required>既存の特徴</textarea>
+                    </div>
+
+                    <!-- おすすめの飲み方の入力欄を追加 -->
+                    <div class="form-group">
+                        <label for="product_recommendation">おすすめの飲み方 <span class="required">必須</span></label>
+                        <textarea id="product_recommendation" name="product_recommendation" rows="4" maxlength="256" required>既存のおすすめの飲み方</textarea>
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary btn-lg">変更を保存</button>
+                        <button type="submit" class="btn btn-primary btn-lg">この内容で保存する</button>
                     </div>
                 </form>
             </section>

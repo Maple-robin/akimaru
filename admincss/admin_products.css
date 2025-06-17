@@ -40,7 +40,7 @@
     width: 100%;
     border-collapse: collapse; /* ボーダーの結合 */
     font-size: var(--font-size-base);
-    min-width: 1200px; /* ★変更: テーブルの最小幅を増やしました。必要に応じて調整してください。 */
+    min-width: 1400px; /* ★変更: テーブルの最小幅を増やしました。必要に応じて調整してください。 */
 }
 
 .data-table th,
@@ -219,4 +219,10 @@
     .btn-icon {
         margin-right: 8px;
     }
+}
+
+/* 操作列の幅を広げる */
+.data-table th:last-child,
+.data-table td:last-child {
+    width: 200px; /* 操作列の幅を広げる */
 }
