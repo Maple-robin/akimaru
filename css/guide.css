@@ -47,6 +47,7 @@ main {
     margin-bottom: 10px;
     letter-spacing: 0.1em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* 文字に影を追加して視認性を向上 */
+    padding-top: 0; /* 上のパディングを0に設定 */
 }
 
 .guide-hero__subtitle {
@@ -59,7 +60,7 @@ main {
 
 /* 各セクション共通スタイル */
 .guide-section {
-    padding: 80px 0; /* 上下の余白 */
+    padding: 0 0 80px 0; /* 上のパディングを削除し、下だけに設定 */
     overflow: hidden;
 }
 
@@ -113,7 +114,7 @@ main {
 }
 
 .sake-types {
-    margin-top: 60px;
+    margin-top: 80px;
     text-align: center;
 }
 
@@ -157,25 +158,21 @@ main {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.sake-type-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
 .sake-type-item h5 {
     font-family: 'Zen Old Mincho', serif;
     font-size: 2.0rem;
     font-weight: 700;
     color: #A0522D;
-    margin-bottom: 15px;
+    margin-top: 0px; /* 上マージンを下と同じ値に設定 */
+    margin-bottom: 0px; /* 既存の値を維持 */
     border-bottom: 2px solid #f0e6e0;
     padding-bottom: 8px;
 }
 
+/* sake-type-item内の文の上下余白を調整 */
 .sake-type-item p {
-    font-size: 1.6rem;
-    color: #555;
-    line-height: 1.7;
+    margin-top: 0px; /* 上余白を少なく */
+    margin-bottom: 0px; /* 下余白を少なく */
 }
 
 /* おすすめの飲み方セクション */
@@ -251,45 +248,44 @@ main {
     bottom: 0;
 }
 
+/* ペアリングリストのスタイル調整 */
 .pairing-list {
     display: flex;
-    flex-direction: column; /* スマホでは縦並び */
-    gap: 20px;
-    padding: 0 20px;
-    max-width: 600px;
-    margin: 0 auto;
+    flex-direction: column; /* モバイルでは縦並び */
+    gap: 20px; /* アイテム間の余白を設定 */
+    padding: 0 15px; /* 左右の余白を少し狭く */
+    max-width: 100%; /* 最大幅を画面幅に合わせる */
+    margin: 0 auto; /* 中央揃え */
 }
 
 .pairing-list li {
-    background-color: #fff; /* 白色に変更 */
-    border: 1px solid #eee;
-    border-left: none; /* アクセントラインを削除 */
-    border-radius: 8px;
-    padding: 20px;
-    text-align: left;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column; /* アイコン、タイトル、説明を縦並びにする */
+    align-items: center; /* 中央揃え */
+    gap: 10px; /* 各要素間の余白を設定 */
+    background-color: #fff; /* 背景色を白に設定 */
+    border: 1px solid #eee; /* ボーダーを設定 */
+    border-radius: 8px; /* 角を丸くする */
+    padding: 15px; /* 内側の余白を設定 */
+    text-align: center; /* テキストを中央揃えにする */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* 影を追加 */
 }
 
 .pairing-list li .fas {
-    font-size: 2.8rem;
-    color: #A0522D;
-    min-width: 28px; /* アイコンの幅を固定 */
-    text-align: center;
+    font-size: 2.4rem; /* アイコンのサイズを調整 */
+    color: #A0522D; /* アイコンの色を設定 */
 }
 
 .pairing-list li strong {
-    font-size: 1.7rem;
-    color: #333;
-    font-weight: 500;
+    font-size: 1.6rem; /* タイトルのサイズを調整 */
+    color: #333; /* タイトルの色を設定 */
+    font-weight: 500; /* タイトルの太さを設定 */
 }
 
 .pairing-list li p {
-    font-size: 1.5rem;
-    color: #666;
-    margin: 0;
+    font-size: 1.3rem; /* 説明のサイズを調整 */
+    color: #666; /* 説明の色を設定 */
+    margin: 0; /* 説明の余白を削除 */
 }
 
 /* 初心者におすすめの日本酒セクション */
@@ -360,6 +356,15 @@ main {
     margin-top: 40px; /* 上部の余白 */
 }
 
+/* フォアビギナーズセクションの上のパディングを削除 */
+.products.beginner-friendly {
+    padding-top: 0; /* 上のパディングを削除 */
+}
+
+/* 酒ベーシックスセクションの上のパディングを削除 */
+.guide-section.sake-basics {
+    padding-top: 0; /* 上のパディングを削除 */
+}
 
 /*----------------------------------------
   PC用メディアクエリ (768px以上)
@@ -406,32 +411,31 @@ main {
 
     .pairing-list {
         flex-direction: row; /* PCでは横並び */
-        gap: 30px;
+        gap: 30px; /* アイテム間の余白を広げる */
         max-width: none; /* 最大幅を解除 */
     }
 
     .pairing-list li {
-        flex: 1; /* 等幅にする */
-        padding: 25px;
-        flex-direction: column; /* アイコンとテキストを縦並び */
-        gap: 10px;
+        flex: 1; /* アイテムを等幅にする */
+        padding: 25px; /* 内側の余白を広げる */
+        flex-direction: column; /* アイコン、タイトル、説明を縦並びにする */
+        gap: 10px; /* 各要素間の余白を設定 */
         justify-content: center; /* 縦方向中央揃え */
         align-items: center; /* 横方向中央揃え */
+        text-align: center; /* テキストを中央揃えにする */
     }
 
     .pairing-list li .fas {
-        font-size: 3.6rem;
-        margin-bottom: 5px; /* アイコンの下に少し余白 */
-        min-width: unset; /* 幅の固定を解除 */
+        font-size: 3.6rem; /* アイコンのサイズを大きくする */
+        margin-bottom: 5px; /* アイコンの下に余白を追加 */
     }
 
     .pairing-list li strong {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* タイトルのサイズを大きくする */
     }
 
     .pairing-list li p {
-        font-size: 1.6rem;
-        text-align: center; /* テキストを中央揃え */
+        font-size: 1.6rem; /* 説明のサイズを大きくする */
     }
 
     .beginner-recommendations {
@@ -444,9 +448,63 @@ main {
     .guide-section .product-item__tag {
         padding-left: 20px; /* PCでの左右パディング調整 */
         padding-right: 20px;
-    }
+    }    .guide-section .btn-all-products {        margin-top: 60px;    }}
 
     .guide-section .btn-all-products {
         margin-top: 60px;
+    }
+
+    /* guide.css に追加または調整 */
+
+.method-steps {
+    padding: 0 20px 20px; /* パディング調整 */
+    text-align: left; /* テキストを左揃えに */
+}
+
+.method-steps .step-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #A0522D; /* 強調色 */
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.method-steps p {
+    font-size: 1.5rem; /* 本文のフォントサイズ調整 */
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0.5em;
+}
+
+/* PC用の調整（メディアクエリ内） */
+@media (min-width: 768px) {
+    .method-card h4 {
+        margin-bottom: 15px; /* PCでの見出し下余白 */
+    }
+    .method-card p {
+        padding: 0 30px 30px; /* PCでのパディング調整 */
+    }
+    .method-steps {
+        padding: 0 30px 30px; /* PCでのパディング調整 */
+    }
+    .method-steps .step-title {
+        font-size: 1.6rem;
+        margin-top: 20px;
+    }
+    .method-steps p {
+        font-size: 1.55rem;
+    }
+
+    .pairing-list li {
+        /* アイコンとテキストを縦並びにした場合の微調整 */
+        padding: 25px;
+        flex-direction: column; /* アイコンとテキストを縦並び */
+        gap: 10px;
+        justify-content: center; /* 縦方向中央揃え */
+        align-items: center; /* 横方向中央揃え */
+        text-align: center; /* テキストを中央揃え */
+    }
+    .pairing-list li .fas {
+        margin-bottom: 5px; /* アイコンの下に少し余白 */
     }
 }
