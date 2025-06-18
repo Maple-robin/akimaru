@@ -65,3 +65,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+function renderPost(post) {
+  let imagesHtml = '';
+  const imgs = post.images || [];
+  if (imgs.length === 1) {
+    imagesHtml = `<div class="post-images one"><img src="${imgs[0]}" alt=""></div>`;
+  } else if (imgs.length === 2) {
+    imagesHtml = `
+      <div class="post-images two">
+        <img src="${imgs[0]}" alt="">
+        <img src="${imgs[1]}" alt="">
+      </div>`;
+  } else if (imgs.length === 3) {
+    imagesHtml = `
+      <div class="post-images three">
+        <div><img src="${imgs[0]}" alt=""></div>
+        <div>
+          <img src="${imgs[1]}" alt="">
+          <img src="${imgs[2]}" alt="">
+        </div>
+      </div>`;
+  } else if (imgs.length === 4) {
+    imagesHtml = `
+      <div class="post-images four">
+        <img src="${imgs[0]}" alt="">
+        <img src="${imgs[1]}" alt="">
+        <img src="${imgs[2]}" alt="">
+        <img src="${imgs[3]}" alt="">
+      </div>`;
+  }
+  return `
+    <div class="post-card">
+      <div class="post-header">
+        <img src="${post.userIcon}" alt="${post.userName}" class="post-user-icon">
+        <h3 class="post-title">${post.title}</h3>
+      </div>
+      <div class="post-content">${post.content}</div>
+      ${imagesHtml}
+      <div class="post-actions">
+        <!-- いいね等のボタン -->
+      </div>
+    </div>
+  `;
+}

@@ -1,41 +1,63 @@
 // DOMContentLoadedは、HTMLの読み込みが完了したときに実行されます。
 document.addEventListener('DOMContentLoaded', function() {
-    const postsData = [
+    // テスト用の投稿データ
+    const testPosts = [
         {
-            id: 1,
-            icon: 'https://placehold.co/40x40/FF5733/FFFFFF?text=A',
-            title: '新商品のワインレビュー',
-            content: '先日発売されたばかりの限定ワインを試しました！フルーティーで口当たりが良く、デザートにも合う素晴らしい一本でした。おすすめ度：★★★★★\n#ワイン #限定品 #レビュー',
-            likes: 15,
-            hearts: 2, // dislikes → hearts
+            userIcon: "https://placehold.co/40x40/FF5733/FFFFFF?text=A",
+            userName: "ユーザーA",
+            title: "画像1枚",
+            content: "これは画像1枚の投稿です。",
+            images: [
+                "https://placehold.co/600x320/87CEFA/000000?text=1"
+            ]
         },
         {
-            id: 2,
-            icon: 'https://placehold.co/40x40/33A8FF/FFFFFF?text=B',
-            title: '週末のテイスティングイベント',
-            content: '今週末、〇〇酒造で開催されるテイスティングイベントに参加します！新しい日本酒に出会えるのが楽しみです。皆さんのおすすめ銘柄はありますか？\n#日本酒 #イベント #テイスティング',
-            likes: 8,
-            hearts: 0, // dislikes → hearts
+            userIcon: "https://placehold.co/40x40/33A8FF/FFFFFF?text=B",
+            userName: "ユーザーB",
+            title: "画像2枚",
+            content: "これは画像2枚の投稿です。",
+            images: [
+                "https://placehold.co/300x200/F08080/000000?text=1",
+                "https://placehold.co/300x200/FFDAB9/000000?text=2"
+            ]
         },
         {
-            id: 3,
-            icon: 'https://placehold.co/40x40/33FF57/FFFFFF?text=C',
-            title: '自宅でカクテル作り',
-            content: '最近ジンにはまっていて、自宅で色々なカクテルを作るのに挑戦中です。おすすめのジンベースカクテルレシピがあれば教えてください！マティーニとジントニック以外で！\n#カクテル #ジン #おうち時間',
-            likes: 22,
-            hearts: 5, // dislikes → hearts
+            userIcon: "https://placehold.co/40x40/33FF57/FFFFFF?text=C",
+            userName: "ユーザーC",
+            title: "画像3枚",
+            content: "これは画像3枚の投稿です。",
+            images: [
+                "https://placehold.co/300x200/8B4513/FFFFFF?text=1",
+                "https://placehold.co/150x98/6A5ACD/FFFFFF?text=2",
+                "https://placehold.co/150x98/F5DEB3/000000?text=3"
+            ]
         },
         {
-            id: 4,
-            icon: 'https://placehold.co/40x40/FF33CC/FFFFFF?text=D',
-            title: 'ウィスキーの熟成について',
-            content: '長期熟成ウィスキーの奥深さに感動しています。樽の種類や熟成期間によってこんなにも味が変わるなんて驚きです。特に〇〇の熟成ウィスキーが最高でした。皆さんの好きな熟成ウィスキーは？\n#ウィスキー #熟成 #酒好き',
-            likes: 10,
-            hearts: 1, // dislikes → hearts
+            userIcon: "https://placehold.co/40x40/FF33CC/FFFFFF?text=D",
+            userName: "ユーザーD",
+            title: "画像4枚",
+            content: "これは画像4枚の投稿です。",
+            images: [
+                "https://placehold.co/150x98/8B0000/FFFFFF?text=1",
+                "https://placehold.co/150x98/87CEFA/000000?text=2",
+                "https://placehold.co/150x98/FFDAB9/000000?text=3",
+                "https://placehold.co/150x98/F08080/000000?text=4"
+            ]
+        },
+        {
+            userIcon: "https://placehold.co/40x40/AAAAAA/FFFFFF?text=E",
+            userName: "ユーザーE",
+            title: "画像なし",
+            content: "これは画像なしの投稿です。",
+            images: []
         }
     ];
 
-    const postsList = document.getElementById('posts-list');
+    // 投稿カードを生成して表示
+    const postsContainer = document.getElementById('posts-container');
+    if (postsContainer) {
+        postsContainer.innerHTML = testPosts.map(renderPost).join('');
+    }
 
     // 投稿データを元にカードを作成し表示する関数
     function renderPosts() {
@@ -58,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 <p class="post-content">${post.content}</p>
+                <div class="post-images">
+                    ${post.images.map(img => `<img src="${img}" alt="投稿画像" class="post-image">`).join('')}
+                </div>
                 <div class="post-actions">
                     <button class="reaction-button good" data-reaction="good">
                         👍 <span class="like-count">${post.likes}</span>
@@ -234,23 +259,47 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function renderPost(post) {
+        let imagesHtml = '';
+        const imgs = post.images || [];
+        if (imgs.length === 1) {
+            imagesHtml = `<div class="post-images one"><img src="${imgs[0]}" alt=""></div>`;
+        } else if (imgs.length === 2) {
+            imagesHtml = `
+      <div class="post-images two">
+        <img src="${imgs[0]}" alt="">
+        <img src="${imgs[1]}" alt="">
+      </div>`;
+        } else if (imgs.length === 3) {
+            imagesHtml = `
+      <div class="post-images three">
+        <div><img src="${imgs[0]}" alt=""></div>
+        <div>
+          <img src="${imgs[1]}" alt="">
+          <img src="${imgs[2]}" alt="">
+        </div>
+      </div>`;
+        } else if (imgs.length === 4) {
+            imagesHtml = `
+      <div class="post-images four">
+        <img src="${imgs[0]}" alt="">
+        <img src="${imgs[1]}" alt="">
+        <img src="${imgs[2]}" alt="">
+        <img src="${imgs[3]}" alt="">
+      </div>`;
+        }
         return `
-            <div class="post-card">
-                <div class="post-header">
-                    <img src="${post.userIcon}" alt="${post.userName}" class="post-user-icon">
-                    <h3 class="post-title">${post.title}</h3>
-                </div>
-                <div class="post-content">${post.content}</div>
-                <div class="post-actions">
-                    <button class="reaction-button good">
-                        <span class="islike-count">${post.likes}</span> 👍
-                    </button>
-                    <button class="reaction-button heart">
-                        <span class="isheart-count">${post.hearts}</span> ❤️
-                    </button>
-                </div>
-            </div>
-        `;
+    <div class="post-card">
+      <div class="post-header">
+        <img src="${post.userIcon}" alt="${post.userName}" class="post-user-icon">
+        <h3 class="post-title">${post.title}</h3>
+      </div>
+      <div class="post-content">${post.content}</div>
+      ${imagesHtml}
+      <div class="post-actions">
+        <!-- いいね等のボタン -->
+      </div>
+    </div>
+  `;
     }
 
     function updateReaction(post) {
