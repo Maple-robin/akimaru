@@ -104,6 +104,128 @@
     background-color: #bbb;
 }
 
+/* 画像プレビュー */
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.image-preview img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+}
+
+.image-preview img:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* モダンな画像プレビュー */
+.image-preview-modern {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.image-preview-modern img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(80,120,180,0.07);
+  transition: box-shadow 0.2s, border 0.2s;
+  background: #fff;
+}
+
+.image-preview-modern img:hover {
+  box-shadow: 0 4px 16px rgba(80,120,180,0.18);
+  border-color: #7b93b3;
+}
+
+/* カスタムファイルラベル */
+.custom-file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #f8fafc 60%, #e0e7ef 100%);
+  color: #333;
+  border: 1.5px solid #a0aec0;
+  border-radius: 24px;
+  padding: 10px 22px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  margin-bottom: 12px;
+}
+
+.custom-file-label:hover {
+  background: linear-gradient(90deg, #e0e7ef 60%, #f8fafc 100%);
+  border-color: #7b93b3;
+}
+
+.custom-file-label .icon {
+  font-size: 1.4em;
+}
+
+/* 画像アップロードラベル */
+.image-upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f7f7;
+  color: #444;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.image-upload-label:hover {
+  background: #ececec;
+  border-color: #bdbdbd;
+}
+
+.image-upload-icon {
+  font-size: 1.2em;
+  color: #888;
+}
+
+/* シンプルな画像プレビュー */
+.image-preview-simple {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.image-preview-simple img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, border 0.2s;
+}
+
+.image-preview-simple img:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border-color: #bdbdbd;
+}
+
 /* PC (min-width: 768px) */
 @media (min-width: 768px) {
     .post-creation-section {

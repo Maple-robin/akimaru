@@ -40,4 +40,28 @@ document.addEventListener('DOMContentLoaded', function () {
             postForm.reset(); // フォームをクリア
         });
     }
+
+    const imageInput = document.getElementById('post-images');
+    const previewArea = document.getElementById('image-preview');
+    const maxFiles = 4; // 最大4枚に変更
+
+    if (imageInput && previewArea) {
+        imageInput.addEventListener('change', function() {
+            previewArea.innerHTML = '';
+            const files = Array.from(this.files).slice(0, maxFiles);
+            files.forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    previewArea.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+            if (this.files.length > maxFiles) {
+                alert('画像は最大4枚まで選択できます。');
+            }
+        });
+    }
 });
