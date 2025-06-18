@@ -39,52 +39,52 @@
             </h2>
 
             <section class="admin-section admin-liquor-add-form">
-                <form action="#" method="post" enctype="multipart/form-data" class="admin-form">
+                <form action="admin_products_add_submit.html" method="post" enctype="multipart/form-data" class="admin-form">
                     <div class="form-group">
-                        <label for="product_name">商品名 <span class="required">必須</span></label>
-                        <input type="text" id="product_name" name="product_name" required maxlength="32">
+                        <label for="product-name">商品名 <span class="required">必須</span></label>
+                        <input type="text" id="product-name" name="product_name" required maxlength="32">
                     </div>
 
                     <div class="form-group">
-                        <label for="main_image">メイン画像 <span class="required">必須</span></label>
-                        <input type="file" id="main_image" name="main_image" accept="image/*" required>
+                        <label for="main-image">メイン画像 <span class="required">必須</span></label>
+                        <input type="file" id="main-image" name="main_image" accept="image/*" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="sub_image_1">サブ画像1</label>
-                        <input type="file" id="sub_image_1" name="sub_image_1" accept="image/*">
+                        <label for="sub-image1">サブ画像1</label>
+                        <input type="file" id="sub-image1" name="sub_image1" accept="image/*">
                     </div>
 
                     <div class="form-group">
-                        <label for="sub_image_2">サブ画像2</label>
-                        <input type="file" id="sub_image_2" name="sub_image_2" accept="image/*">
+                        <label for="sub-image2">サブ画像2</label>
+                        <input type="file" id="sub-image2" name="sub_image2" accept="image/*">
                     </div>
 
                     <div class="form-group">
-                        <label for="sub_image_3">サブ画像3</label>
-                        <input type="file" id="sub_image_3" name="sub_image_3" accept="image/*">
+                        <label for="sub-image3">サブ画像3</label>
+                        <input type="file" id="sub-image3" name="sub_image3" accept="image/*">
                     </div>
 
                     <div class="form-group">
-                        <label for="product_category">カテゴリ <span class="required">必須</span></label>
-                        <select id="product_category" name="product_category" required>
+                        <label for="category">カテゴリ <span class="required">必須</span></label>
+                        <select id="category" name="category" required>
                             <option value="">選択してください</option>
+                            <option value="ビール">ビール</option>
+                            <option value="ウイスキー">ウイスキー</option>
                             <option value="日本酒">日本酒</option>
                             <option value="中国酒">中国酒</option>
                             <option value="梅酒">梅酒</option>
                             <option value="缶チューハイ">缶チューハイ</option>
                             <option value="焼酎">焼酎</option>
-                            <option value="ウィスキー">ウィスキー</option>
                             <option value="スピリッツ">スピリッツ</option>
                             <option value="リキュール">リキュール</option>
                             <option value="ワイン">ワイン</option>
-                            <option value="ビール">ビール</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="product_tag">タグ <span class="required">必須</span></label>
-                        <select id="product_tag" name="product_tag" required>
+                        <label for="tags">タグ <span class="required">必須</span></label>
+                        <select id="tags" name="tags" required>
                             <option value="">選択してください</option>
                             <option value="初心者向け">初心者向け</option>
                             <option value="甘口">甘口</option>
@@ -95,20 +95,23 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="product_description">商品説明 <span class="required">必須</span></label>
-                        <textarea id="product_description" name="product_description" rows="6" maxlength="256"></textarea>
+                        <label for="description">商品説明 <span class="required">必須</span></label>
+                        <textarea id="description" name="description" rows="4" required maxlength="256"></textarea>
                     </div>
 
-                    <!-- 特徴の入力欄を追加 -->
                     <div class="form-group">
-                        <label for="product_features">特徴 <span class="required">必須</span></label>
-                        <textarea id="product_features" name="product_features" rows="4" maxlength="256" required></textarea>
+                        <label for="volume">内容量 <span class="required">必須</span></label> <!-- 新規追加 -->
+                        <input type="text" id="volume" name="volume" placeholder="例: 350ml, 700ml" required>
                     </div>
 
-                    <!-- おすすめの飲み方の入力欄を追加 -->
                     <div class="form-group">
-                        <label for="product_recommendation">おすすめの飲み方 <span class="required">必須</span></label>
-                        <textarea id="product_recommendation" name="product_recommendation" rows="4" maxlength="256" required></textarea>
+                        <label for="features">特徴</label>
+                        <textarea id="features" name="features" rows="4" maxlength="256"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recommendation">おすすめ飲み方</label>
+                        <textarea id="recommendation" name="recommendation" rows="4" maxlength="256"></textarea>
                     </div>
 
                     <div class="form-actions">

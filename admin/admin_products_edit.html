@@ -99,7 +99,11 @@
                         <textarea id="product_description" name="product_description" rows="6" maxlength="256">既存の商品説明</textarea>
                     </div>
 
-                    <!-- 特徴の入力欄を追加 -->
+                    <div class="form-group">
+                        <label for="product_volume">内容量 <span class="required">必須</span></label> <!-- 新規追加 -->
+                        <input type="text" id="product_volume" name="product_volume" required maxlength="32" value="既存の内容量">
+                    </div>
+
                     <div class="form-group">
                         <label for="product_features">特徴 <span class="required">必須</span></label>
                         <textarea id="product_features" name="product_features" rows="4" maxlength="256" required>既存の特徴</textarea>
