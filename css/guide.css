@@ -211,14 +211,14 @@ main {
     font-weight: 700;
     color: #A0522D;
     margin-top: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
+/* 冷酒の説明の文字サイズを調整 */
 .method-card p {
-    font-size: 1.6rem;
-    color: #555;
-    line-height: 1.7;
-    padding: 0 25px 25px;
+    font-size: 1.8rem; /* 文字サイズを少し大きく */
+    line-height: 1.8; /* 行間を調整 */
+    color: #555; /* 文字色を維持 */
 }
 
 .pairing-tips {
@@ -470,8 +470,8 @@ main {
 }
 
 .method-steps p {
-    font-size: 1.5rem; /* 本文のフォントサイズ調整 */
-    line-height: 1.6;
+    font-size: 1.6rem; /* 本文のフォントサイズ調整 */
+    line-height: 1.8;
     color: #555;
     margin-bottom: 0.5em;
 }
