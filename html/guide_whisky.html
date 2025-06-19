@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お酒ガイド | ウイスキー | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/guide.css">
+    <link rel="stylesheet" href="../css/top.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul class="sp-menu__list">
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                    <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                    <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                    <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                    <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                    <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                    <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                    <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                    <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                    <li><a href="products_list.html?category=ビール">ビール</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__category-toggle">
+                商品タグ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
+                    <li><a href="products_list.html?tag=甘口">甘口</a></li>
+                    <li><a href="products_list.html?tag=辛口">辛口</a></li>
+                    <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
+                    <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
+        </ul>
+
+        <div class="sp-menu__divider"></div>
+
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="faq.html">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="guide-hero" style="background-image: url('../img/whisky-hero.png');">
+            <div class="guide-hero__inner">
+                <h2 class="guide-hero__title">ウイスキーガイド</h2>
+                <p class="guide-hero__subtitle">ウイスキーの魅力と楽しみ方</p>
+            </div>
+        </section>
+
+        <section class="guide-section sake-basics">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">WHISKY BASICS</span>
+                    <span class="ja">ウイスキーとは？</span>
+                </h3>
+                <div class="sake-basics__content">
+                    <div class="sake-basics__text">
+                        <p>ウイスキーは、穀物を原料とし、糖化、発酵、蒸留を経て、木樽で熟成させた蒸留酒です。その起源は古く、世界中で様々な種類のウイスキーが造られています。</p>
+                        <p>熟成による複雑な香りと味わいが特徴で、シングルモルト、ブレンデッドなど多種多様な銘柄があり、その奥深さは多くの人々を魅了しています。</p>
+                    </div>
+                    <div class="sake-basics__image">
+                        <img src="../img/whisky.png" alt="ウイスキーの紹介画像">
+                    </div>
+                </div>
+
+                <div class="sake-types">
+                    <div class="sake-types__inner">
+                        <h2 class="section-title">
+                            <span class="en">TYPES OF WHISKY</span>
+                            <span class="ja">( ウイスキーの主な種類 )</span>
+                        </h2>
+                        <ul class="sake-types__list">
+                            <li class="sake-type-item">
+                                <h5>スコッチウイスキー</h5>
+                                <p>スコットランドで造られるウイスキーで、大麦麦芽を主原料とします。ピートの香りが特徴的なものも多く、シングルモルトやブレンデッドがあります。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>アイリッシュウイスキー</h5>
+                                <p>アイルランドで造られ、多くはノンピートのモルトや未発芽の大麦を原料とします。スムーズで軽やかな口当たりが特徴です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>アメリカンウイスキー</h5>
+                                <p>アメリカで造られるウイスキーで、バーボンやライウイスキーが有名です。トウモロコシやライ麦を主原料とします。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>カナディアンウイスキー</h5>
+                                <p>カナダで造られ、ライ麦を主原料とすることが多いです。軽やかで飲みやすく、ブレンド技術が発達しています。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>ジャパニーズウイスキー</h5>
+                                <p>日本の気候風土を活かし、繊細でバランスの取れた味わいが特徴です。世界的な評価も高く、人気を集めています。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section how-to-enjoy">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">HOW TO ENJOY</span>
+                    <span class="ja">おすすめの飲み方</span>
+                </h3>
+                <div class="enjoy-methods">
+                    <div class="method-card">
+                        <img src="../img/whisky-straight.png" alt="ウイスキーストレート">
+                        <h4>ストレート</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-straight.png" alt="ストレートアイコン" class="step-image">
+                            </div>
+                            <p>ウイスキー本来の香り、味、余韻を最もダイレクトに楽しむ飲み方です。常温で少しずつ味わうのがおすすめです。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/whisky-rock.png" alt="ウイスキーロック">
+                        <h4>ロック</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-rock.png" alt="ロックアイコン" class="step-image">
+                            </div>
+                            <p>氷を入れることで冷たさが加わり、香りが引き締まります。ゆっくりと溶ける氷とともに、味わいの変化も楽しめます。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/whisky-highball.png" alt="ウイスキーハイボール">
+                        <h4>ハイボール</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-soda.png" alt="ソーダ割りアイコン" class="step-image">
+                            </div>
+                            <p>ウイスキーをソーダで割る、爽快感のある飲み方です。食事との相性も良く、炭酸が香りを広げます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products beginner-friendly">
+            <div class="products__inner">
+                <h2 class="section-title">
+                    <span class="en">FOR BEGINNERS</span>
+                    <span class="ja">( 初めての方へおすすめの一杯 )</span>
+                </h2>
+                <div class="swiper mySwiperBeginners">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/suntory-kakubin.png" alt="初心者向けウイスキー１">
+                                </div>
+                                <h3 class="product-item__name">サントリー 角瓶</h3>
+                                <p class="product-item__price">¥ 1,800<span>(税込)</span></p>
+                                <p class="product-item__tag">#ジャパニーズ #ハイボール #定番</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/jim-beam.png" alt="初心者向けウイスキー２">
+                                </div>
+                                <h3 class="product-item__name">ジムビーム (バーボン)</h3>
+                                <p class="product-item__price">¥ 1,600<span>(税込)</span></p>
+                                <p class="product-item__tag">#アメリカン #バーボン #飲みやすい</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/chivas-regal.png" alt="初心者向けウイスキー３">
+                                </div>
+                                <h3 class="product-item__name">シーバスリーガル 12年</h3>
+                                <p class="product-item__price">¥ 3,500<span>(税込)</span></p>
+                                <p class="product-item__tag">#スコッチ #ブレンデッド #まろやか</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <a href="products_list.html?tag=ウイスキー初心者向け" class="btn-all-products">初心者向けウイスキー一覧を見る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li>
+                    <span class="footer__nav-title">商品一覧</span>
+                    <ul class="footer__subnav">
+                        <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                        <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                        <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                        <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                        <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                        <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                        <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                        <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                        <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                        <li><a href="products_list.html?category=ビール">ビール</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">よくあるご質問／お問合せ</a></li>
+                <li><a href="MyPage.html">会員登録・ログイン</a></li>
+                <li><a href="history.html">購入履歴</a></li>
+                <li><a href="cart.html">買い物かごを見る</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+            </ul>
+            <div class="footer__logo" style="margin: 24px 0 12px;">
+                <a href="index.html">
+                    <img src="../img/logo.png" alt="OUR BRAND" style="height:32px;">
+                </a>
+            </div>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/guide.js"></script>
+</body>
+
+</html>

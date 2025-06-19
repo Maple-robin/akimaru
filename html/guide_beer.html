@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お酒ガイド | ビール | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/guide.css">
+    <link rel="stylesheet" href="../css/top.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul class="sp-menu__list">
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                    <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                    <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                    <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                    <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                    <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                    <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                    <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                    <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                    <li><a href="products_list.html?category=ビール">ビール</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__category-toggle">
+                商品タグ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
+                    <li><a href="products_list.html?tag=甘口">甘口</a></li>
+                    <li><a href="products_list.html?tag=辛口">辛口</a></li>
+                    <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
+                    <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
+        </ul>
+
+        <div class="sp-menu__divider"></div>
+
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="faq.html">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="guide-hero" style="background-image: url('../img/beer-hero.png');">
+            <div class="guide-hero__inner">
+                <h2 class="guide-hero__title">ビールガイド</h2>
+                <p class="guide-hero__subtitle">ビールの魅力と楽しみ方</p>
+            </div>
+        </section>
+
+        <section class="guide-section sake-basics">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">BEER BASICS</span>
+                    <span class="ja">ビールとは？</span>
+                </h3>
+                <div class="sake-basics__content">
+                    <div class="sake-basics__text">
+                        <p>ビールは、大麦や小麦などの穀物を麦芽にし、ホップと水を加えて発酵させて造られる醸造酒です。世界中で最も広く愛されているお酒の一つであり、その歴史は数千年前にも遡ります。</p>
+                        <p>ラガーやエールといった種類があり、色、香り、苦味、コクなど、その味わいは非常に多様です。食事との相性も抜群で、様々なシーンで楽しまれています。</p>
+                    </div>
+                    <div class="sake-basics__image">
+                        <img src="../img/beer.png" alt="ビールの紹介画像">
+                    </div>
+                </div>
+
+                <div class="sake-types">
+                    <div class="sake-types__inner">
+                        <h2 class="section-title">
+                            <span class="en">TYPES OF BEER</span>
+                            <span class="ja">( ビールの主な種類 )</span>
+                        </h2>
+                        <ul class="sake-types__list">
+                            <li class="sake-type-item">
+                                <h5>ラガー</h5>
+                                <p>下面発酵酵母で低温で時間をかけて発酵させるビール。すっきりとしたクリアな味わいと、のどごしが特徴です。日本の大手ビールに多いタイプ。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>エール</h5>
+                                <p>上面発酵酵母で比較的高温で発酵させるビール。フルーティーな香りと豊かなコクが特徴です。IPAやペールエールなどがあります。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>スタウト</h5>
+                                <p>焙煎した大麦を原料とする黒ビール。コーヒーやチョコレートのような香ばしい風味と、濃厚なコクが特徴です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>ヴァイツェン</h5>
+                                <p>小麦を主原料とするビール。バナナやクローブのような独特の香りと、フルーティーでまろやかな口当たりが特徴です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>サワーエール</h5>
+                                <p>乳酸菌などを用いて酸味を効かせたビール。爽やかな酸味と独特の風味が特徴で、近年人気が高まっています。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section how-to-enjoy">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">HOW TO ENJOY</span>
+                    <span class="ja">おすすめの飲み方</span>
+                </h3>
+                <div class="enjoy-methods">
+                    <div class="method-card">
+                        <img src="../img/beer-chilled.png" alt="ビール冷やして">
+                        <h4>よく冷やして</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-chilled.png" alt="冷やすアイコン" class="step-image">
+                            </div>
+                            <p>一般的なラガービールは、グラスをキンキンに冷やし、ビールを7〜8℃程度に冷やすと、のどごしと爽快感が最も引き立ちます。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/beer-glass.png" alt="ビールグラス">
+                        <h4>グラスにこだわる</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-glass.png" alt="グラスアイコン" class="step-image">
+                            </div>
+                            <p>ビールの種類に合わせた専用グラスを使うと、香りや泡立ちが最適になり、より美味しく楽しめます。泡を立てすぎない注ぎ方もポイントです。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/beer-pairing.png" alt="ビールペアリング">
+                        <h4>料理とのペアリング</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-food-beer.png" alt="食べ物とビールアイコン" class="step-image">
+                            </div>
+                            <p>ビールの種類によって合う料理は様々です。軽やかなラガーは和食やあっさりした料理に、コクのあるエールは肉料理や揚げ物と好相性です。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products beginner-friendly">
+            <div class="products__inner">
+                <h2 class="section-title">
+                    <span class="en">FOR BEGINNERS</span>
+                    <span class="ja">( 初めての方へおすすめの一杯 )</span>
+                </h2>
+                <div class="swiper mySwiperBeginners">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/asahi-superdry.png" alt="初心者向けビール１">
+                                </div>
+                                <h3 class="product-item__name">アサヒスーパードライ</h3>
+                                <p class="product-item__price">¥ 250<span>(税込)</span></p>
+                                <p class="product-item__tag">#定番 #辛口 #のどごし</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/yona-yona-ale.png" alt="初心者向けビール２">
+                                </div>
+                                <h3 class="product-item__name">よなよなエール</h3>
+                                <p class="product-item__price">¥ 300<span>(税込)</span></p>
+                                <p class="product-item__tag">#クラフトビール #エール #フルーティー</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/guinness.png" alt="初心者向けビール３">
+                                </div>
+                                <h3 class="product-item__name">ギネス エクストラスタウト</h3>
+                                <p class="product-item__price">¥ 380<span>(税込)</span></p>
+                                <p class="product-item__tag">#スタウト #黒ビール #濃厚</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <a href="products_list.html?tag=初心者向け" class="btn-all-products">初心者向けビール一覧を見る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li>
+                    <span class="footer__nav-title">商品一覧</span>
+                    <ul class="footer__subnav">
+                        <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                        <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                        <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                        <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                        <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                        <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                        <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                        <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                        <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                        <li><a href="products_list.html?category=ビール">ビール</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">よくあるご質問／お問合せ</a></li>
+                <li><a href="MyPage.html">会員登録・ログイン</a></li>
+                <li><a href="history.html">購入履歴</a></li>
+                <li><a href="cart.html">買い物かごを見る</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+            </ul>
+            <div class="footer__logo" style="margin: 24px 0 12px;">
+                <a href="index.html">
+                    <img src="../img/logo.png" alt="OUR BRAND" style="height:32px;">
+                </a>
+            </div>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/guide.js"></script>
+</body>
+
+</html>

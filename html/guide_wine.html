@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お酒ガイド | ワイン | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/guide.css">
+    <link rel="stylesheet" href="../css/top.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul class="sp-menu__list">
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                    <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                    <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                    <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                    <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                    <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                    <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                    <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                    <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                    <li><a href="products_list.html?category=ビール">ビール</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__category-toggle">
+                商品タグ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
+                    <li><a href="products_list.html?tag=甘口">甘口</a></li>
+                    <li><a href="products_list.html?tag=辛口">辛口</a></li>
+                    <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
+                    <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
+        </ul>
+
+        <div class="sp-menu__divider"></div>
+
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="faq.html">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="guide-hero" style="background-image: url('../img/wine-hero.png');">
+            <div class="guide-hero__inner">
+                <h2 class="guide-hero__title">ワインガイド</h2>
+                <p class="guide-hero__subtitle">ワインの魅力と楽しみ方</p>
+            </div>
+        </section>
+
+        <section class="guide-section sake-basics">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">WINE BASICS</span>
+                    <span class="ja">ワインとは？</span>
+                </h3>
+                <div class="sake-basics__content">
+                    <div class="sake-basics__text">
+                        <p>ワインは、ブドウの果汁を発酵させて造られる醸造酒です。その歴史は数千年にもわたり、世界各地で独自のワイン文化が育まれてきました。ブドウの品種、産地、醸造方法によって驚くほど多様な味わいがあります。</p>
+                        <p>食事との相性が非常に良く、食卓を豊かにするだけでなく、熟成によってさらに風味が増すのも魅力の一つです。</p>
+                    </div>
+                    <div class="sake-basics__image">
+                        <img src="../img/wine.png" alt="ワインの紹介画像">
+                    </div>
+                </div>
+
+                <div class="sake-types">
+                    <div class="sake-types__inner">
+                        <h2 class="section-title">
+                            <span class="en">TYPES OF WINE</span>
+                            <span class="ja">( ワインの主な種類 )</span>
+                        </h2>
+                        <ul class="sake-types__list">
+                            <li class="sake-type-item">
+                                <h5>赤ワイン</h5>
+                                <p>黒ブドウを皮や種ごと発酵させて造られます。タンニン（渋み）があり、肉料理などと相性が良いです。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>白ワイン</h5>
+                                <p>白ブドウ（または黒ブドウの皮を取り除いたもの）を発酵させて造られます。酸味が特徴で、魚料理や鶏肉と合います。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>ロゼワイン</h5>
+                                <p>赤ワインと白ワインの中間のような色合いで、軽やかな口当たりとフルーティーな香りが特徴。幅広い料理に合います。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>スパークリングワイン</h5>
+                                <p>炭酸ガスを含んだ発泡性のワイン。シャンパンやプロセッコなどがあり、祝杯や食前酒に最適です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>デザートワイン</h5>
+                                <p>甘口のワインで、貴腐ワインやアイスワインなどが有名です。食後のデザートとして楽しめます。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section how-to-enjoy">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">HOW TO ENJOY</span>
+                    <span class="ja">おすすめの飲み方</span>
+                </h3>
+                <div class="enjoy-methods">
+                    <div class="method-card">
+                        <img src="../img/wine-temperature.png" alt="ワイン適温">
+                        <h4>適温で</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-temperature.png" alt="温度計アイコン" class="step-image">
+                            </div>
+                            <p>赤ワインは室温（16〜18℃）、白ワインやスパークリングワインは冷やして（6〜10℃）が基本です。適温で飲むことで、ワイン本来の美味しさが引き立ちます。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/wine-decanting.png" alt="ワインデキャンタージュ">
+                        <h4>デキャンタージュ</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-decant.png" alt="デキャンタアイコン" class="step-image">
+                            </div>
+                            <p>特に熟成した赤ワインは、デキャンタに移して空気に触れさせることで、香りが開いたり、沈殿物を取り除いたりできます。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/wine-pairing.png" alt="ワインペアリング">
+                        <h4>ペアリングを楽しむ</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-food-wine.png" alt="食べ物とワインアイコン" class="step-image">
+                            </div>
+                            <p>ワインは料理との組み合わせでさらに美味しくなります。赤は肉、白は魚が基本ですが、様々なペアリングを試して、お好みの組み合わせを見つけましょう。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products beginner-friendly">
+            <div class="products__inner">
+                <h2 class="section-title">
+                    <span class="en">FOR BEGINNERS</span>
+                    <span class="ja">( 初めての方へおすすめの一杯 )</span>
+                </h2>
+                <div class="swiper mySwiperBeginners">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/red-wine-cabernet.png" alt="初心者向けワイン１">
+                                </div>
+                                <h3 class="product-item__name">カベルネ・ソーヴィニヨン (赤)</h3>
+                                <p class="product-item__price">¥ 2,000<span>(税込)</span></p>
+                                <p class="product-item__tag">#赤ワイン #フルボディ #肉料理</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/white-wine-chardonnay.png" alt="初心者向けワイン２">
+                                </div>
+                                <h3 class="product-item__name">シャルドネ (白)</h3>
+                                <p class="product-item__price">¥ 1,800<span>(税込)</span></p>
+                                <p class="product-item__tag">#白ワイン #辛口 #魚料理</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/sparkling-wine-prosecco.png" alt="初心者向けワイン３">
+                                </div>
+                                <h3 class="product-item__name">プロセッコ (スパークリング)</h3>
+                                <p class="product-item__price">¥ 2,500<span>(税込)</span></p>
+                                <p class="product-item__tag">#スパークリング #乾杯 #フルーティー</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <a href="products_list.html?tag=初心者向け" class="btn-all-products">初心者向けワイン一覧を見る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li>
+                    <span class="footer__nav-title">商品一覧</span>
+                    <ul class="footer__subnav">
+                        <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                        <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                        <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                        <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                        <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                        <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                        <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                        <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                        <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                        <li><a href="products_list.html?category=ビール">ビール</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">よくあるご質問／お問合せ</a></li>
+                <li><a href="MyPage.html">会員登録・ログイン</a></li>
+                <li><a href="history.html">購入履歴</a></li>
+                <li><a href="cart.html">買い物かごを見る</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+            </ul>
+            <div class="footer__logo" style="margin: 24px 0 12px;">
+                <a href="index.html">
+                    <img src="../img/logo.png" alt="OUR BRAND" style="height:32px;">
+                </a>
+            </div>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/guide.js"></script>
+</body>
+
+</html>

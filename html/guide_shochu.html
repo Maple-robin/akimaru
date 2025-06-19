@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お酒ガイド | 焼酎 | OUR BRAND</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/guide.css">
+    <link rel="stylesheet" href="../css/top.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner">
+            <button class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1 class="header__logo">
+                <a href="index.html">OUR BRAND</a>
+            </h1>
+            <nav class="header__nav">
+                <ul class="nav__list pc-only">
+                    <li><a href="products_list.html">商品一覧</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+                <div class="header__icons">
+                    <a href="wishlist.html" class="header__icon-link">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="cart.html" class="header__icon-link">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sp-menu">
+        <div class="sp-menu__header">
+            <div class="sp-menu__login">
+                <i class="fas fa-user-circle"></i> ログイン
+            </div>
+        </div>
+        <div class="sp-menu__search">
+            <input type="text" placeholder="検索...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul class="sp-menu__list">
+            <li class="sp-menu__category-toggle">
+                商品カテゴリ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                    <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                    <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                    <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                    <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                    <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                    <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                    <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                    <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                    <li><a href="products_list.html?category=ビール">ビール</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__category-toggle">
+                商品タグ <i class="fas fa-chevron-down category-icon"></i>
+                <ul class="sp-menu__sub-list">
+                    <li><a href="products_list.html?tag=初心者向け">初心者向け</a></li>
+                    <li><a href="products_list.html?tag=甘口">甘口</a></li>
+                    <li><a href="products_list.html?tag=辛口">辛口</a></li>
+                    <li><a href="products_list.html?tag=度数低め">度数低め</a></li>
+                    <li><a href="products_list.html?tag=度数高め">度数高め</a></li>
+                </ul>
+            </li>
+            <li class="sp-menu__item"><a href="posts.html">投稿ページ</a></li>
+            <li class="sp-menu__item"><a href="MyPage.html">マイページ</a></li>
+        </ul>
+
+        <div class="sp-menu__divider"></div>
+
+        <ul class="sp-menu__list sp-menu__list--bottom">
+            <li class="sp-menu__item"><a href="faq.html">よくある質問</a></li>
+            <li class="sp-menu__item"><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="guide-hero" style="background-image: url('../img/shochu-hero.png');">
+            <div class="guide-hero__inner">
+                <h2 class="guide-hero__title">焼酎ガイド</h2>
+                <p class="guide-hero__subtitle">焼酎の魅力と楽しみ方</p>
+            </div>
+        </section>
+
+        <section class="guide-section sake-basics">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">SHOCHU BASICS</span>
+                    <span class="ja">焼酎とは？</span>
+                </h3>
+                <div class="sake-basics__content">
+                    <div class="sake-basics__text">
+                        <p>焼酎は、日本固有の蒸留酒で、米、麦、芋、そばなど様々な穀物や芋類を原料としています。原料や製法によって、その風味や香りは多岐にわたり、地域ごとの特色も豊かです。</p>
+                        <p>和食はもちろん、様々な料理との相性が良く、ロック、水割り、お湯割りなど、飲み方も自由に選べることから、幅広い世代に愛されています。</p>
+                    </div>
+                    <div class="sake-basics__image">
+                        <img src="../img/shochu.png" alt="焼酎の紹介画像">
+                    </div>
+                </div>
+
+                <div class="sake-types">
+                    <div class="sake-types__inner">
+                        <h2 class="section-title">
+                            <span class="en">TYPES OF SHOCHU</span>
+                            <span class="ja">( 焼酎の主な種類 )</span>
+                        </h2>
+                        <ul class="sake-types__list">
+                            <li class="sake-type-item">
+                                <h5>芋焼酎</h5>
+                                <p>サツマイモを原料とし、独特の甘みと香ばしい風味が特徴です。濃厚な味わいのものが多く、お湯割りが人気です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>麦焼酎</h5>
+                                <p>大麦を原料とし、すっきりとした軽やかな味わいが特徴です。クセが少なく、ロックや水割りで幅広く楽しめます。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>米焼酎</h5>
+                                <p>米を原料とし、日本酒に近いフルーティーでまろやかな香りが特徴です。繊細な料理との相性も良いです。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>黒糖焼酎</h5>
+                                <p>奄美群島のみで製造が許されている焼酎で、黒糖を原料とします。芳醇な香りとほのかな甘みが特徴です。</p>
+                            </li>
+                            <li class="sake-type-item">
+                                <h5>そば焼酎</h5>
+                                <p>そばを原料とし、そば特有の香ばしい風味とすっきりとした後味が特徴です。</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="guide-section how-to-enjoy">
+            <div class="section-inner">
+                <h3 class="section-title">
+                    <span class="en">HOW TO ENJOY</span>
+                    <span class="ja">おすすめの飲み方</span>
+                </h3>
+                <div class="enjoy-methods">
+                    <div class="method-card">
+                        <img src="../img/shochu-rock.png" alt="焼酎ロック">
+                        <h4>ロック</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-rock.png" alt="ロックアイコン" class="step-image">
+                            </div>
+                            <p>焼酎本来の風味とコクをじっくりと味わいたい方におすすめです。大きめの氷を使うと、ゆっくり溶けて味がまろやかになります。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/shochu-mizuwari.png" alt="焼酎水割り">
+                        <h4>水割り</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-water.png" alt="水割りアイコン" class="step-image">
+                            </div>
+                            <p>焼酎の香りを引き立てつつ、まろやかに飲める定番のスタイルです。焼酎と水の割合は、お好みで調整してください（6:4が一般的）。</p>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <img src="../img/shochu-oyuwari.png" alt="焼酎お湯割り">
+                        <h4>お湯割り</h4>
+                        <div class="method-steps">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="../img/icon-hot.png" alt="お湯割りアイコン" class="step-image">
+                            </div>
+                            <p>特に芋焼酎などで香りを楽しみたい時に最適です。お湯を先にグラスに注ぎ、その後に焼酎を加えるのがポイントです。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products beginner-friendly">
+            <div class="products__inner">
+                <h2 class="section-title">
+                    <span class="en">FOR BEGINNERS</span>
+                    <span class="ja">( 初めての方へおすすめの一杯 )</span>
+                </h2>
+                <div class="swiper mySwiperBeginners">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/iichiko.png" alt="初心者向け焼酎１">
+                                </div>
+                                <h3 class="product-item__name">いいちこ (麦焼酎)</h3>
+                                <p class="product-item__price">¥ 1,300<span>(税込)</span></p>
+                                <p class="product-item__tag">#麦焼酎 #すっきり #定番</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/kurokirishima.png" alt="初心者向け焼酎２">
+                                </div>
+                                <h3 class="product-item__name">黒霧島 (芋焼酎)</h3>
+                                <p class="product-item__price">¥ 1,500<span>(税込)</span></p>
+                                <p class="product-item__tag">#芋焼酎 #コク深い #まろやか</p>
+                            </a>
+                        </div>
+                        <div class="swiper-slide product-item">
+                            <a href="product.html">
+                                <div class="product-item__img-wrap">
+                                    <img src="../img/ginrei-shochu.png" alt="初心者向け焼酎３">
+                                </div>
+                                <h3 class="product-item__name">銀麗しろ (米焼酎)</h3>
+                                <p class="product-item__price">¥ 1,800<span>(税込)</span></p>
+                                <p class="product-item__tag">#米焼酎 #フルーティー #上品</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <a href="products_list.html" class="btn-all-products">初心者向け焼酎一覧を見る</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <ul class="footer__nav">
+                <li>
+                    <span class="footer__nav-title">商品一覧</span>
+                    <ul class="footer__subnav">
+                        <li><a href="products_list.html?category=日本酒">日本酒</a></li>
+                        <li><a href="products_list.html?category=中国酒">中国酒</a></li>
+                        <li><a href="products_list.html?category=梅酒">梅酒</a></li>
+                        <li><a href="products_list.html?category=缶チューハイ">缶チューハイ</a></li>
+                        <li><a href="products_list.html?category=焼酎">焼酎</a></li>
+                        <li><a href="products_list.html?category=ウィスキー">ウィスキー</a></li>
+                        <li><a href="products_list.html?category=スピリッツ">スピリッツ</a></li>
+                        <li><a href="products_list.html?category=リキュール">リキュール</a></li>
+                        <li><a href="products_list.html?category=ワイン">ワイン</a></li>
+                        <li><a href="products_list.html?category=ビール">ビール</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">よくあるご質問／お問合せ</a></li>
+                <li><a href="MyPage.html">会員登録・ログイン</a></li>
+                <li><a href="history.html">購入履歴</a></li>
+                <li><a href="cart.html">買い物かごを見る</a></li>
+                <li><a href="privacy.html">プライバシーポリシー</a></li>
+                <li><a href="terms.html">利用規約</a></li>
+            </ul>
+            <div class="footer__logo" style="margin: 24px 0 12px;">
+                <a href="index.html">
+                    <img src="../img/logo.png" alt="OUR BRAND" style="height:32px;">
+                </a>
+            </div>
+            <p class="footer__copyright">© OUR BRAND All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/guide.js"></script>
+</body>
+
+</html>
