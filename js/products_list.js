@@ -296,14 +296,71 @@ document.addEventListener('DOMContentLoaded', function() {
     function updatePageTitle() {
         let enTitle = "PRODUCTS LIST";
         let jaTitle = "( 商品一覧 )";
+        let guideLink = "#"; // デフォルトのリンク先
 
-        // 最も優先度の高いタイトル設定: ランキング順かつフィルターなしの場合
-        if (currentSortOrder === 'ranking' && currentFilters.tags.length === 0 && 
-            (currentFilters.categories.length === 0 || (currentFilters.categories.length === 1 && currentFilters.categories.includes('すべて')))) {
-            enTitle = "RANKING";
-            jaTitle = "( ランキング一覧 )";
+        // カテゴリが選択されている場合（カテゴリを優先）
+        if (currentFilters.categories.length === 1 && currentFilters.categories[0] !== 'すべて') {
+            const selectedCategory = currentFilters.categories[0];
+            switch (selectedCategory) {
+                case '日本酒':
+                    enTitle = "SAKE LIST";
+                    jaTitle = "( 日本酒一覧 )";
+                    guideLink = "guide_sake.html";
+                    break;
+                case 'リキュール':
+                    enTitle = "LIQUEUR LIST";
+                    jaTitle = "( リキュール一覧 )";
+                    guideLink = "guide_liquor.html";
+                    break;
+                case 'ビール':
+                    enTitle = "BEER LIST";
+                    jaTitle = "( ビール一覧 )";
+                    guideLink = "guide_beer.html";
+                    break;
+                case 'ワイン':
+                    enTitle = "WINE LIST";
+                    jaTitle = "( ワイン一覧 )";
+                    guideLink = "guide_wine.html";
+                    break;
+                case '焼酎':
+                    enTitle = "SHOCHU LIST";
+                    jaTitle = "( 焼酎一覧 )";
+                    guideLink = "guide_shochu.html";
+                    break;
+                case 'ウィスキー':
+                case 'ウイスキー': // どちらも対応
+                    enTitle = "WHISKY LIST";
+                    jaTitle = "( ウィスキー一覧 )";
+                    guideLink = "guide_whisky.html";
+                    break;
+                case 'スピリッツ':
+                    enTitle = "SPIRITS LIST";
+                    jaTitle = "( スピリッツ一覧 )";
+                    guideLink = "guide_spirits.html";
+                    break;
+                case '梅酒':
+                    enTitle = "UMESHU LIST";
+                    jaTitle = "( 梅酒一覧 )";
+                    guideLink = "guide_umeshu.html";
+                    break;
+                case '缶チューハイ':
+                    enTitle = "CHUHAI LIST";
+                    jaTitle = "( 缶チューハイ一覧 )";
+                    guideLink = "guide_chuhai.html";
+                    break;
+                case '中国酒':
+                    enTitle = "CHINESE LIQUOR LIST";
+                    jaTitle = "( 中国酒一覧 )";
+                    guideLink = "guide_chinese_liquor.html";
+                    break;
+                default:
+                    enTitle = "PRODUCTS LIST";
+                    jaTitle = "( 商品一覧 )";
+                    guideLink = "#";
+                    break;
+            }
         }
-        // 次にタグフィルターが適用されている場合
+        // タグが選択されている場合（カテゴリが選択されていない場合のみ適用）
         else if (currentFilters.tags.length === 1) {
             const selectedTag = currentFilters.tags[0];
             switch (selectedTag) {
@@ -337,58 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     break;
             }
         }
-        // ▼▼▼ ここをカテゴリ10種に統一 ▼▼▼
-        else if (currentFilters.categories.length === 1 && currentFilters.categories[0] !== 'すべて') {
-            const selectedCategory = currentFilters.categories[0];
-            switch (selectedCategory) {
-                case '日本酒':
-                    enTitle = "SAKE LIST";
-                    jaTitle = "( 日本酒一覧 )";
-                    break;
-                case '中国酒':
-                    enTitle = "CHINESE LIQUOR LIST";
-                    jaTitle = "( 中国酒一覧 )";
-                    break;
-                case '梅酒':
-                    enTitle = "UMESHU LIST";
-                    jaTitle = "( 梅酒一覧 )";
-                    break;
-                case '缶チューハイ':
-                    enTitle = "CHU-HI LIST";
-                    jaTitle = "( 缶チューハイ一覧 )";
-                    break;
-                case '焼酎':
-                    enTitle = "SHOCHU LIST";
-                    jaTitle = "( 焼酎一覧 )";
-                    break;
-                case 'ウィスキー':
-                case 'ウイスキー': // どちらも対応
-                    enTitle = "WHISKY LIST";
-                    jaTitle = "( ウィスキー一覧 )";
-                    break;
-                case 'スピリッツ':
-                    enTitle = "SPIRITS LIST";
-                    jaTitle = "( スピリッツ一覧 )";
-                    break;
-                case 'リキュール':
-                    enTitle = "LIQUEUR LIST";
-                    jaTitle = "( リキュール一覧 )";
-                    break;
-                case 'ワイン':
-                    enTitle = "WINE LIST";
-                    jaTitle = "( ワイン一覧 )";
-                    break;
-                case 'ビール':
-                    enTitle = "BEER LIST";
-                    jaTitle = "( ビール一覧 )";
-                    break;
-                default:
-                    enTitle = "PRODUCTS LIST";
-                    jaTitle = "( 商品一覧 )";
-                    break;
-            }
-        }
-        // ▲▲▲ ここまで ▲▲▲
+        // デフォルトのタイトル
         else {
             enTitle = "PRODUCTS LIST";
             jaTitle = "( 商品一覧 )";
@@ -396,6 +402,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         pageTitleEn.textContent = enTitle;
         pageTitleJa.textContent = jaTitle;
+
+        // お酒ガイドボタンのリンクを更新
+        const guideButton = document.getElementById('guide-button');
+        if (guideButton) {
+            guideButton.href = guideLink;
+
+            // リンクが反応しない場合は非表示にする
+            if (guideLink === "#") {
+                guideButton.style.display = "none";
+            } else {
+                guideButton.style.display = "inline-block";
+            }
+        }
     }
 
     // フィルターボタンクリック時の処理

@@ -773,6 +773,27 @@ main {
     width: 100%;
 }
 
+/* お酒ガイドへの遷移ボタンのスタイル */
+.guide-button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.guide-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #A0522D;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.guide-button:hover {
+    background-color: #8B4513;
+}
 
 /* PC (min-width: 768px) */
 @media (min-width: 768px) {
