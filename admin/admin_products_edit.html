@@ -19,12 +19,13 @@
             </h1>
             <nav class="admin-header__nav">
                 <ul class="admin-nav__list">
-                    <li><a href="admin_products.html" >お酒管理</a></li>
+                    <li><a href="admin_products.html">お酒管理</a></li>
                     <li><a href="admin_otsumami.html">おつまみ管理</a></li>
-                    <li><a href="admin_users.html">ユーザー管理</a></li>
+                    <li><a href="admin_users.html">一般ユーザー管理</a></li>
+                    <li><a href="admin_client_users.html">企業ユーザー管理</a></li>
                     <li><a href="admin_posts.html">投稿管理</a></li>
                     <li><a href="admin_inquiries.html">お問い合わせ管理</a></li>
-                    <li><a href="admin_faq.html">FAQ登録</a></li>
+                    <li><a href="admin_faq.html">FAQ管理</a></li>
                     <li><a href="admin_reports.html">通報管理</a></li>
                 </ul>
             </nav>
@@ -34,7 +35,7 @@
     <main class="admin-main">
         <div class="admin-main__inner">
             <h2 class="admin-page-title">
-                <span class="en">EDIT LIQUOR</span>
+                <span class="en">EDIT PRODUCT</span>
                 <span class="ja">( お酒データ編集 )</span>
             </h2>
 
@@ -100,7 +101,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="product_volume">内容量 <span class="required">必須</span></label> <!-- 新規追加 -->
+                        <label for="product_volume">内容量 <span class="required">必須</span></label>
                         <input type="text" id="product_volume" name="product_volume" required maxlength="32" value="既存の内容量">
                     </div>
 
@@ -109,7 +110,6 @@
                         <textarea id="product_features" name="product_features" rows="4" maxlength="256" required>既存の特徴</textarea>
                     </div>
 
-                    <!-- おすすめの飲み方の入力欄を追加 -->
                     <div class="form-group">
                         <label for="product_recommendation">おすすめの飲み方 <span class="required">必須</span></label>
                         <textarea id="product_recommendation" name="product_recommendation" rows="4" maxlength="256" required>既存のおすすめの飲み方</textarea>

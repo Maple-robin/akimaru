@@ -1,0 +1,74 @@
+/*
+ * admin_client_users.css
+ * 企業ユーザー管理一覧ページ固有のスタイル
+ */
+
+/* データテーブルセクション */
+.admin-table-section {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 600px;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color-light);
+    font-size: var(--font-size-base);
+    vertical-align: middle;
+}
+
+.data-table th {
+    background-color: var(--background-color-light);
+    font-weight: 600;
+    color: var(--text-color-dark);
+    white-space: nowrap;
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--background-color-hover);
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 操作ボタン */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.btn-sm {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: var(--font-size-button-sm);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn-delete {
+    background-color: var(--delete-button-color);
+    color: var(--text-color-light);
+}
+
+.btn.btn-sm.btn-delete:hover,
+button.btn.btn-sm.btn-delete:hover {
+    background-color: #c82333 !important;
+}
