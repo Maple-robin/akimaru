@@ -1,0 +1,227 @@
+/*----------------------------------------
+  base (client.css) - 全ての管理者ページに適用される基本スタイル
+----------------------------------------*/
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1.6rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+}
+
+/* ログインページ専用のbodyスタイル */
+body.login-page-body { /* login.htmlのbodyにこのクラスを付与してください */
+    background-color: #f2f7f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 管理者画面本体のbodyに付与するスタイル */
+body.admin-page-layout { /* client_top.htmlなどの管理者画面本体のbodyに付与 */
+    background-color: #f8f8f8; /* 管理画面の背景色 */
+    min-height: 100vh; /* 少なくともビューポートの高さは確保 */
+    display: flex; /* ヘッダー・メイン・フッターを縦に並べるためにFlexboxを使用 */
+    flex-direction: column;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*----------------------------------------
+  Admin/Client Page Common Styles (PC Only)
+  ※ ヘッダーとフッターのみ残し、他は削除
+----------------------------------------*/
+
+/* 管理者ヘッダー */
+.admin-header {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px 30px;
+    flex-shrink: 0; /* ヘッダーが縮まないように */
+}
+
+.admin-header__inner {
+    width: 100%;
+    max-width: 1400px; /* PC用なので少し広めに */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header__logo {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.6rem; /* 少し大きめに */
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+    margin-right: 30px; /* ナビとの間隔 */
+}
+
+.admin-header__logo a {
+    color: #333;
+}
+
+.admin-header__nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* ナビが利用可能なスペースを埋める */
+    justify-content: space-between; /* ナビリストとアクションを両端に */
+}
+
+.admin-nav__list {
+    list-style: none; /* 点を削除 */
+    padding: 0; /* 不要な余白を削除 */
+    margin: 0; /* 不要な余白を削除 */
+    display: flex; /* 横並びにする */
+    gap: 35px; /* 各ナビ項目間のスペース */
+}
+
+.admin-nav__list li a {
+    font-size: 1.7rem; /* 少し大きめに */
+    color: #555;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.admin-nav__list li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #A0522D;
+    transition: width 0.3s ease;
+}
+
+.admin-nav__list li a:hover,
+.admin-nav__list li a.is-active { /* 現在表示中のページに適用するクラス */
+    color: #A0522D;
+}
+
+.admin-nav__list li a:hover::after,
+.admin-nav__list li a.is-active::after {
+    width: 100%;
+}
+
+.admin-header__actions {
+    margin-left: 30px;
+}
+
+.admin-header__logout {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem; /* 少し大きめに */
+    color: #A0522D;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+    white-space: nowrap; /* テキストが改行されないように */
+}
+
+.admin-header__logout:hover {
+    opacity: 0.7;
+}
+
+/* メインコンテンツエリアの共通ラッパー */
+.admin-main {
+    padding: 40px 20px;
+    flex-grow: 1; /* 残りのスペースを埋める */
+}
+
+.admin-container {
+    max-width: 1400px; /* ヘッダーに合わせる */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px; /* パディングを少し増やす */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 各セクションのタイトル */
+.admin-section-title {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 3.6rem; /* PC用なので大きめに */
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px; /* 間隔を広げる */
+    position: relative;
+    padding-bottom: 20px; /* 下線との間隔 */
+}
+
+.admin-section-title::after {
+    content: '';
+    display: block;
+    width: 100px; /* 下線の長さを調整 */
+    height: 2px;
+    background-color: #A0522D;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+/* 共通ボタン */
+.admin-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px; /* 少し大きめに */
+    border-radius: 5px;
+    font-size: 1.6rem; /* 少し大きめに */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.admin-button--primary {
+    background-color: #A0522D;
+    color: #fff;
+    border: 1px solid #A0522D;
+}
+
+.admin-button--primary:hover {
+    background-color: #8B4513;
+    border-color: #8B4513;
+}
+
+.admin-button--secondary { /* キャンセルボタンなどのための二次的なボタン */
+    background-color: #6c757d;
+    color: #fff;
+    border: 1px solid #6c757d;
+}
+
+.admin-button--secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+
+/* 管理者フッター */
+.admin-footer {
+    background-color: #333;
+    color: #bbb;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.3rem; /* 少し大きめに */
+    flex-shrink: 0; /* フッターが縮まないように */
+}

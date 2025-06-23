@@ -1,0 +1,88 @@
+/*----------------------------------------
+  client_add_product.css - お酒追加ページ固有のスタイル
+----------------------------------------*/
+
+.add-product-form {
+    max-width: 800px; /* フォーム全体の最大幅を制限 */
+    margin: 0 auto; /* フォームを中央に配置 */
+    padding: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 25px; /* 各フォームグループの下部の余白 */
+}
+
+.form-group label {
+    display: block; /* ラベルをブロック要素にして独立させる */
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 10px; /* ラベルと入力欄の間の余白 */
+    text-align: left; /* ラベルを左揃えに */
+}
+
+.form-group .required {
+    color: #dc3545; /* 必須項目の色を赤に */
+    font-size: 1.3rem;
+    margin-left: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%; /* 入力欄の幅を100%に */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff; /* 明示的に背景色を指定 */
+}
+
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 12px 0; /* fileタイプはpaddingの適用が異なる場合がある */
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #A0522D; /* フォーカス時のボーダー色 */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(160, 82, 45, 0.2); /* フォーカス時のシャドウ */
+}
+
+.form-group textarea {
+    resize: vertical; /* 垂直方向のみリサイズ可能にする */
+    min-height: 100px; /* テキストエリアの最小高さを設定 */
+}
+
+
+.form-help-text {
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.form-actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.form-actions .admin-button {
+    margin: 0 10px; /* ボタン間の余白 */
+    min-width: 150px; /* ボタンの最小幅を確保 */
+}
+
+/* 小さな画面向けの調整（PC用ですが、念のため） */
+@media (max-width: 900px) {
+    .add-product-form {
+        max-width: 95%; /* 画面幅に合わせて少し広げる */
+        padding: 15px;
+    }
+}

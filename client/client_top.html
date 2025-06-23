@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品一覧 | OUR BRAND 管理者画面</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../clientcss/client.css"> 
+    <link rel="stylesheet" href="../clientcss/client_top.css"> 
+</head>
+<body class="admin-page-layout"> <header class="admin-header">
+        <div class="admin-header__inner">
+            <h1 class="admin-header__logo">
+                <a href="client_top.html">OUR BRAND 管理者画面</a>
+            </h1>
+            <nav class="admin-header__nav">
+                <ul class="admin-nav__list">
+                    <li><a href="client_top.html" class="is-active">商品一覧</a></li> <li><a href="client_add_product.html">お酒追加</a></li>
+                    <li><a href="client_preview.html">プレビュー</a></li>
+                    <li><a href="client_analytics.html">情報確認</a></li>
+                </ul>
+                <div class="admin-header__actions">
+                    <a href="login.html" class="admin-header__logout">
+                        <i class="fas fa-sign-out-alt"></i> ログアウト
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-container">
+            <h2 class="admin-section-title">商品一覧</h2>
+            <div class="admin-toolbar">
+                <a href="client_add_product.html" class="admin-button admin-button--primary">
+                    <i class="fas fa-plus-circle"></i> 新しいお酒を追加
+                </a>
+                <div class="admin-search">
+                    <input type="text" placeholder="商品名を検索...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="admin-table-wrapper">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>画像</th>
+                            <th>商品名</th>
+                            <th>価格 (税込)</th>
+                            <th>カテゴリ</th>
+                            <th>タグ</th>
+                            <th>在庫</th>
+                            <th>ステータス</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><img src="../img/gingerale.png" alt="純米大吟醸 麗し乃雫" class="admin-table__img"></td>
+                            <td>純米大吟醸 麗し乃雫</td>
+                            <td>¥ 5,800</td>
+                            <td>日本酒</td>
+                            <td>#日本酒, #華やか, #ギフト</td>
+                            <td>100</td>
+                            <td>公開中</td>
+                            <td>
+                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><img src="../img/osake.png" alt="果実酒 桃源郷の誘い" class="admin-table__img"></td>
+                            <td>果実酒 桃源郷の誘い</td>
+                            <td>¥ 3,200</td>
+                            <td>梅酒</td>
+                            <td>#果実酒, #甘口, #女子会</td>
+                            <td>50</td>
+                            <td>公開中</td>
+                            <td>
+                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><img src="../img/sake.png" alt="スパークリングワイン 煌" class="admin-table__img"></td>
+                            <td>スパークリングワイン 煌</td>
+                            <td>¥ 4,500</td>
+                            <td>ワイン</td>
+                            <td>#ワイン, #スパークリング, #パーティー</td>
+                            <td>20</td>
+                            <td>公開中</td>
+                            <td>
+                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><img src="../img/chuhai.png" alt="サントリー ほろよい" class="admin-table__img"></td>
+                            <td>サントリー ほろよい</td>
+                            <td>¥ 200</td>
+                            <td>缶チューハイ</td>
+                            <td>#低アルコール, #お手軽, #家飲み</td>
+                            <td>300</td>
+                            <td>非公開</td>
+                            <td>
+                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="page-link">&laquo; 前へ</a>
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">次へ &raquo;</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="admin-footer">
+        <p class="admin-footer__copyright">© OUR BRAND Admin All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
