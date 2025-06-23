@@ -67,6 +67,13 @@
     white-space: nowrap; /* テーブルセル内のテキストが改行されないように */
 }
 
+/* テーブル内の文章を改行するスタイル */
+.admin-table td {
+    word-wrap: break-word; /* 単語を折り返す */
+    white-space: normal; /* 改行を許可 */
+    max-width: 300px; /* 最大幅を設定 */
+}
+
 .admin-table th {
     background-color: #f5f5f5; /* ヘッダーの背景色 */
     font-weight: 600; /* 太さ調整 */
@@ -130,3 +137,15 @@
     background-color: #8B4513; /* ホバー時の色変更 */
     border-color: #8B4513;
 }
+
+/* ボタンの幅をプレビューに合わせる */
+.admin-action-button {
+    display: inline-block;
+    width: 120px; /* プレビューに合わせた幅 */
+    text-align: center;
+    padding: 10px 15px; /* ボタン内の余白を調整 */
+    font-size: 1.4rem; /* ボタンの文字サイズ */
+    border-radius: 5px; /* ボタンの角を丸くする */
+    transition: background-color 0.3s ease; /* ホバー時のエフェクト */
+}
+
