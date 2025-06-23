@@ -1,0 +1,560 @@
+/*----------------------------------------
+  client_preview.css - プレビューページ固有のスタイル（スマホ表示に特化）
+  ※ admin-container内での表示を想定
+----------------------------------------*/
+
+.preview-explanation {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #fff;
+}
+
+/* 商品選択プルダウンのスタイル */
+.product-select-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 10px 0;
+}
+
+.product-select-wrapper .select-label {
+    display: block;
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.admin-select {
+    width: 100%;
+    max-width: 380px;
+    padding: 12px 15px;
+    border: 1px solid #A0522D;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+    
+    
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.admin-select:focus {
+    outline: none;
+    border-color: #8B4513;
+    box-shadow: 0 0 0 2px rgba(160, 82, 45, 0.2);
+}
+
+/* プレースホルダーメッセージのスタイル */
+.preview-placeholder-message {
+    text-align: center;
+    padding: 50px 20px;
+    color: #666;
+    font-size: 1.8rem;
+    background-color: #f7f7f7;
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.preview-placeholder-message .fas {
+    font-size: 4.0rem;
+    color: #A0522D;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------
+  商品詳細ページのモックアップ (product.cssのスマホスタイルを抽出)
+  ※ admin-container内での表示を想定
+---------------------------------------- */
+.product-detail-section {
+    padding: 30px 0; /* admin-container内部なので、少し控えめ */
+    background-color: #fff; /* プレビュー領域の背景色 */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 0 auto;
+    max-width: 420px; /* ★スマホの画面幅をシミュレートする最大幅★ */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* プレビュー画面の枠であることを示す影 */
+    overflow: hidden; /* スライダーのはみ出し対策 */
+}
+
+/* common-innerに相当するpreview-mock-innerのスタイル */
+.preview-mock-inner {
+    padding: 0 15px; /* product.cssのスマホ時のcommon-innerパディングを再現 */
+}
+
+.product-detail-content {
+    display: flex;
+    flex-direction: column; /* スマホでは縦並び */
+    gap: 40px; /* product.cssからコピー */
+    margin-bottom: 60px; /* product.cssからコピー */
+}
+
+/* Product Gallery (メインビジュアルエリア) */
+.product-gallery {
+    width: 100%; /* product.cssからコピー */
+}
+
+.product-gallery__main {
+    width: 100%; /* product.cssからコピー */
+    max-width: 400px; /* product.cssからコピー */
+    height: 500px; /* product.cssからコピー */
+    background: #faf7f3; /* product.cssからコピー */
+    display: flex; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    justify-content: center; /* product.cssからコピー */
+    overflow: hidden; /* product.cssからコピー */
+    margin: 0 auto 20px auto; /* product.cssからコピー */
+}
+
+.product-gallery__main img {
+    width: 100%; /* product.cssからコピー */
+    height: 100%; /* product.cssからコピー */
+    object-fit: cover; /* product.cssからコピー */
+    display: block; /* product.cssからコピー */
+    background: #faf7f3; /* product.cssからコピー */
+}
+
+.product-gallery__thumbnails {
+    display: flex; /* product.cssからコピー */
+    gap: 10px; /* product.cssからコピー */
+    overflow-x: auto; /* product.cssからコピー */
+    padding-bottom: 10px; /* product.cssからコピー */
+    -webkit-overflow-scrolling: touch; /* product.cssからコピー */
+    justify-content: center; /* 中央寄せ - プレビュー用追加 */
+}
+
+.product-gallery__thumbnails img {
+    width: 80px; /* product.cssからコピー */
+    height: 80px; /* product.cssからコピー */
+    object-fit: cover; /* product.cssからコピー */
+    border: 1px solid #eee; /* product.cssからコピー */
+    cursor: pointer; /* product.cssからコピー */
+    transition: all 0.2s ease; /* product.cssからコピー */
+    flex-shrink: 0; /* product.cssからコピー */
+}
+
+.product-gallery__thumbnails img:hover,
+.product-gallery__thumbnails img.is-active {
+    border-color: #A0522D; /* product.cssからコピー */
+    box-shadow: 0 0 5px rgba(160, 82, 45, 0.5); /* product.cssからコピー */
+}
+
+/* Product Info (商品情報概要エリア) */
+.product-info {
+    width: 100%; /* product.cssからコピー */
+}
+
+.product-info__name {
+    font-family: 'Zen Old Mincho', serif; /* product.cssからコピー */
+    font-size: 2.8rem; /* product.cssからコピー */
+    font-weight: 700; /* product.cssからコピー */
+    line-height: 1.3; /* product.cssからコピー */
+    color: #333; /* product.cssからコピー */
+    margin-bottom: 10px; /* product.cssからコピー */
+}
+
+.product-info__type {
+    display: inline-block; /* product.cssからコピー */
+    font-size: 1.6rem; /* product.cssからコピー */
+    font-weight: 600; /* product.cssからコピー */
+    color: #fff; /* product.cssからコピー */
+    background-color: #A0522D; /* product.cssからコピー */
+    border: 1px solid #A0522D; /* product.cssからコピー */
+    padding: 7px 15px; /* product.cssからコピー */
+    border-radius: 5px; /* product.cssからコピー */
+    margin-bottom: 15px; /* product.cssからコピー */
+    line-height: 1.2; /* product.cssからコピー */
+}
+
+.product-info__catchcopy {
+    font-size: 1.6rem; /* product.cssからコピー */
+    color: #555; /* product.cssからコピー */
+    line-height: 1.6; /* product.cssからコピー */
+    margin-bottom: 15px; /* product.cssからコピー */
+}
+
+.product-info__price {
+    font-size: 3.2rem; /* product.cssからコピー */
+    font-weight: bold; /* product.cssからコピー */
+    color: #A0522D; /* product.cssからコピー */
+    margin-bottom: 5px; /* product.cssからコピー */
+}
+
+.product-info__price span {
+    font-size: 1.6rem; /* product.cssからコピー */
+    font-weight: normal; /* product.cssからコピー */
+    color: #666; /* product.cssからコピー */
+}
+
+.product-info__tax-note {
+    font-size: 1.2rem; /* product.cssからコピー */
+    color: #888; /* product.cssからコピー */
+    margin-bottom: 25px; /* product.cssからコピー */
+}
+
+/* 数量コントロールとカートに入れるボタンのコンテナ */
+.product-info__buttons {
+    display: flex; /* product.cssからコピー */
+    flex-direction: column; /* product.cssからコピー */
+    gap: 14px; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    width: 100%; /* product.cssからコピー */
+    max-width: 350px; /* product.cssからコピー */
+    margin: 0 auto 30px auto; /* product.cssからコピー */
+}
+
+/* 数量コントロール */
+.product-quantity-controls {
+    display: flex; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    gap: 0; /* product.cssからコピー */
+    border: 1px solid #A0522D; /* product.cssからコピー */
+    border-radius: 4px; /* product.cssからコピー */
+    width: 100%; /* product.cssからコピー */
+    max-width: 350px; /* product.cssからコピー */
+    margin-bottom: 20px;
+}
+
+.product-quantity-controls .quantity-minus,
+.product-quantity-controls .quantity-plus {
+    background-color: #fff; /* product.cssからコピー */
+    border: none; /* product.cssからコピー */
+    width: 40px; /* product.cssからコピー */
+    height: 40px; /* product.cssからコピー */
+    font-size: 2.2rem; /* product.cssからコピー */
+    font-weight: normal; /* product.cssからコピー */
+    color: #333; /* product.cssからコピー */
+    cursor: pointer; /* product.cssからコピー */
+    display: flex; /* product.cssからコピー */
+    justify-content: center; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    transition: background-color 0.2s ease; /* product.cssからコピー */
+}
+
+.product-quantity-controls .quantity-minus:hover,
+.product-quantity-controls .quantity-plus:hover {
+    background-color: #f0f0f0; /* product.cssからコピー */
+}
+
+.product-quantity-controls .quantity-input {
+    flex-grow: 1; /* product.cssからコピー */
+    padding: 0; /* product.cssからコピー */
+    height: 40px; /* product.cssからコピー */
+    text-align: center; /* product.cssからコピー */
+    border: none; /* product.cssからコピー */
+    border-left: 1px solid #A0522D; /* product.cssからコピー */
+    border-right: 1px solid #A0522D; /* product.cssからコピー */
+    font-size: 1.8rem; /* product.cssからコピー */
+    -moz-appearance: textfield; /* product.cssからコピー */
+    outline: none; /* product.cssからコピー */
+}
+.product-quantity-controls .quantity-input::-webkit-outer-spin-button,
+.product-quantity-controls .quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* product.cssからコピー */
+    margin: 0; /* product.cssからコピー */
+}
+
+/* カートに入れるボタン */
+.btn-to-ec-site {
+    display: flex; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    justify-content: center; /* product.cssからコピー */
+    gap: 8px; /* product.cssからコピー */
+    width: 350px; /* product.cssからコピー */
+    padding: 15px 30px; /* product.cssからコピー */
+    background-color: #A0522D; /* product.cssからコピー */
+    color: #fff; /* product.cssからコピー */
+    font-size: 1.7rem; /* product.cssからコピー */
+    font-weight: 500; /* product.cssからコピー */
+    border: 1px solid #A0522D; /* product.cssからコピー */
+    border-radius: 5px; /* product.cssからコピー */
+    cursor: pointer; /* product.cssからコピー */
+    transition: background-color 0.3s ease; /* product.cssからコピー */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* product.cssからコピー */
+}
+.btn-to-ec-site:hover {
+    background-color: #8B4513; /* product.cssからコピー */
+}
+
+/* お気に入りボタン */
+.product-info__favorite {
+    width: 350px; /* product.cssからコピー */
+}
+.btn-favorite {
+    display: flex; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    justify-content: center; /* product.cssからコピー */
+    gap: 8px; /* product.cssからコピー */
+    width: 100%; /* product.cssからコピー */
+    padding: 15px 30px; /* product.cssからコピー */
+    background-color: #A0522D; /* product.cssからコピー */
+    color: #fff; /* product.cssからコピー */
+    font-size: 1.7rem; /* product.cssからコピー */
+    font-weight: 500; /* product.cssからコピー */
+    border: 1px solid #A0522D; /* product.cssからコピー */
+    border-radius: 5px; /* product.cssからコピー */
+    cursor: pointer; /* product.cssからコピー */
+    text-align: center; /* product.cssからコピー */
+    transition: background-color 0.3s ease; /* product.cssからコピー */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* product.cssからコピー */
+}
+.btn-favorite i {
+    font-size: 1.8rem; /* product.cssからコピー */
+    color: inherit; /* product.cssからコピー */
+    width: 20px; /* product.cssからコピー */
+    text-align: center; /* product.cssからコピー */
+    vertical-align: middle; /* product.cssからコピー */
+    margin-right: 8px; /* product.cssからコピー */
+}
+.btn-favorite:not(.is-favorited):hover {
+    background-color: #8B4513; /* product.cssからコピー */
+    color: #fff; /* product.cssからコピー */
+}
+.btn-favorite.is-favorited {
+    background-color: #fff; /* product.cssからコピー */
+    color: #A0522D; /* product.cssからコピー */
+    border-color: #A0522D; /* product.cssからコピー */
+}
+.btn-favorite.is-favorited:hover {
+    background-color: #F8F8F8; /* product.cssからコピー */
+    color: #A0522D; /* product.cssからコピー */
+    border-color: #A0522D; /* product.cssからコピー */
+}
+
+
+.product-info__tags {
+    display: flex; /* product.cssからコピー */
+    flex-wrap: wrap; /* product.cssからコピー */
+    gap: 10px; /* product.cssからコピー */
+    margin-bottom: 30px; /* product.cssからコピー */
+    justify-content: center; /* product.cssからコピー */
+    list-style: none; /* リストの点を非表示にする */
+    padding: 0; /* 不要な余白を削除 */
+    margin: 0; /* 不要な余白を削除 */
+}
+
+.product-info__tags li {
+    font-size: 1.3rem; /* product.cssからコピー */
+    color: #888; /* product.cssからコピー */
+    border: 1px solid #ddd; /* product.cssからコピー */
+    padding: 5px 10px; /* product.cssからコピー */
+    border-radius: 3px; /* product.cssからコピー */
+    background-color: #f5f5f5; /* product.cssからコピー */
+}
+
+
+/* Product Description (商品詳細説明エリア) / アコーディオン */
+.product-accordion-item {
+    margin-bottom: 20px; /* product.cssからコピー */
+    background-color: #fff; /* product.cssからコピー */
+    border-radius: 8px; /* product.cssからコピー */
+    box-shadow: none; /* シャドウを消す */
+}
+
+.product-accordion-item__title {
+    font-family: 'Zen Old Mincho', serif; /* product.cssからコピー */
+    font-size: 2.4rem; /* product.cssからコピー */
+    font-weight: 700; /* product.cssからコピー */
+    color: #333; /* product.cssからコピー */
+    cursor: pointer; /* product.cssからコピー */
+    display: flex; /* product.cssからコピー */
+    justify-content: space-between; /* product.cssからコピー */
+    align-items: center; /* product.cssからコピー */
+    padding: 15px 0; /* product.cssからコピー */
+    border-top: 1px solid #eee; /* product.cssからコピー */
+    border-bottom: none; /* product.cssからコピー */ /* デフォルトで下線なし */
+}
+/* product.cssの is-closedによるborder-bottom制御はJavaScriptで管理されるため、ここでは不要 */
+
+
+/* アコーディオンアイコンの基本スタイル */
+.accordion-icon {
+    position: relative; /* product.cssからコピー */
+    width: 20px; /* product.cssからコピー */
+    height: 20px; /* product.cssからコピー */
+    margin-right: 10px; /* product.cssからコピー */
+    flex-shrink: 0; /* product.cssからコピー */
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+    content: ''; /* product.cssからコピー */
+    position: absolute; /* product.cssからコピー */
+    background-color: #A0522D; /* product.cssからコピー */
+    transition: transform 0.3s ease; /* product.cssからコピー */
+}
+
+.accordion-icon::before {
+    top: 50%; /* product.cssからコピー */
+    left: 0; /* product.cssからコピー */
+    width: 100%; /* product.cssからコピー */
+    height: 2px; /* product.cssからコピー */
+    transform: translateY(-50%); /* product.cssからコピー */
+}
+
+.accordion-icon::after {
+    top: 0; /* product.cssからコピー */
+    left: 50%; /* product.cssからコピー */
+    width: 2px; /* product.cssからコピー */
+    height: 100%; /* product.cssからコピー */
+    transform: translateX(-50%); /* product.cssからコピー */
+}
+
+/* 開いている状態でのアイコン（－） */
+/* product.cssからコピー */
+.product-accordion-item:not(.is-closed) .accordion-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+}
+
+/* アコーディオンコンテンツ */
+.product-accordion-item__content {
+    padding-top: 10px; /* product.cssからコピー */
+    padding-bottom: 20px; /* product.cssからコピー */
+    overflow: hidden; /* product.cssからコピー */
+    transition: height 0.3s ease-out; /* product.cssからコピー */
+}
+
+.product-accordion-item__content p {
+    font-size: 1.6rem; /* product.cssからコピー */
+    line-height: 1.8; /* product.cssからコピー */
+    color: #555; /* product.cssからコピー */
+    margin-bottom: 20px; /* product.cssからコピー */
+}
+.product-accordion-item__content p:last-of-type {
+    margin-bottom: 0; /* product.cssからコピー */
+}
+
+
+/* Paired Snacks (相性のいいおつまみエリア) */
+.paired-snacks {
+    margin-top: 60px; /* product.cssからコピー */
+    margin-bottom: 60px; /* product.cssからコピー */
+    position: relative; /* product.cssからコピー */
+    padding: 0 15px; /* プレビュー用調整 */
+}
+
+.paired-snacks__title {
+    font-family: 'Zen Old Mincho', serif; /* product.cssからコピー */
+    font-size: 2.4rem; /* product.cssからコピー */
+    font-weight: 700; /* product.cssからコピー */
+    color: #333; /* product.cssからコピー */
+    text-align: center; /* product.cssからコピー */
+    margin-bottom: 25px; /* product.cssからコピー */
+    padding-bottom: 10px; /* product.cssからコピー */
+    border-bottom: 1px solid #eee; /* product.cssからコピー */
+}
+
+/* Swiperコンテナの余白調整 */
+.paired-snacks-swiper {
+    padding: 0; /* product.cssからコピー */
+}
+
+/* 各スライド（商品アイテム）のスタイル */
+.paired-snacks-swiper .swiper-slide {
+    height: auto; /* product.cssからコピー */
+    display: flex; /* product.cssからコピー */
+    justify-content: center; /* product.cssからコピー */
+    align-items: flex-start; /* product.cssからコピー */
+}
+
+.paired-snacks-swiper .product-item {
+    width: 100%; /* product.cssからコピー */
+    height: 100%; /* product.cssからコピー */
+    background-color: #fff; /* product.cssからコピー */
+    border: 1px solid #eee; /* product.cssからコピー */
+    border-radius: 5px; /* product.cssからコピー */
+    overflow: hidden; /* product.cssからコピー */
+    padding-bottom: 15px; /* product.cssからコピー */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* product.cssからコピー */
+}
+.paired-snacks-swiper .product-item__img-wrap {
+    width: 100%; /* product.cssからコピー */
+    height: 200px; /* product.cssからコピー */
+    overflow: hidden; /* product.cssからコピー */
+    margin-bottom: 15px; /* product.cssからコピー */
+}
+.paired-snacks-swiper .product-item__img-wrap img {
+    width: 100%; /* product.cssからコピー */
+    height: 100%; /* product.cssからコピー */
+    object-fit: cover; /* product.cssからコピー */
+    transition: transform 0.3s ease; /* product.cssからコピー */
+}
+.paired-snacks-swiper .product-item__name {
+    font-size: 1.7rem; /* product.cssからコピー */
+    font-family: 'Zen Old Mincho', serif; /* product.cssからコピー */
+    font-weight: 500; /* product.cssからコピー */
+    color: #333; /* product.cssからコピー */
+    margin-bottom: 8px; /* product.cssからコピー */
+    padding: 0 15px; /* product.cssからコピー */
+}
+.paired-snacks-swiper .product-item__price {
+    font-size: 1.8rem; /* product.cssからコピー */
+    font-weight: bold; /* product.cssからコピー */
+    color: #A0522D; /* product.cssからコピー */
+    margin-bottom: 5px; /* product.cssからコピー */
+    padding: 0 15px; /* product.cssからコピー */
+}
+.paired-snacks-swiper .product-item__price span {
+    font-size: 1.2rem; /* product.cssからコピー */
+    font-weight: normal; /* product.cssからコピー */
+    color: #666; /* product.cssからコピー */
+}
+.paired-snacks-swiper .product-item__tag {
+    font-size: 1.3rem; /* product.cssからコピー */
+    color: #888; /* product.cssからコピー */
+    padding: 0 15px; /* product.cssからコピー */
+}
+
+/* Swiperナビゲーションボタン（矢印）のスタイルを非表示に */
+.paired-snacks .swiper-button-prev,
+.paired-snacks .swiper-button-next {
+    display: none; /* product.cssからコピー */
+}
+
+/* Swiperページネーション（ドット）のスタイル調整 */
+.paired-snacks .swiper-pagination {
+    position: relative; /* product.cssからコピー */
+    margin-top: 30px; /* product.cssからコピー */
+    bottom: auto; /* product.cssからコピー */
+    top: auto; /* product.cssからコピー */
+    transform: none; /* product.cssからコピー */
+}
+
+.paired-snacks .swiper-pagination-bullet {
+    background-color: #ccc; /* product.cssからコピー */
+    opacity: 1; /* product.cssからコピー */
+    width: 8px; /* product.cssからコピー */
+    height: 8px; /* product.cssからコピー */
+    margin: 0 4px !important; /* product.cssからコピー */
+}
+
+.paired-snacks .swiper-pagination-bullet-active {
+    background-color: #A0522D; /* product.cssからコピー */
+}
+
+/* ページ下部の管理者向けアクションボタン */
+.preview-actions {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.preview-actions .admin-button {
+    min-width: 200px;
+    text-align: center;
+    justify-content: center;
+}
+
+/* PC向けのメディアクエリは不要なので削除 */

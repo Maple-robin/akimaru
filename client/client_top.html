@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="../clientcss/client.css"> 
     <link rel="stylesheet" href="../clientcss/client_top.css"> 
 </head>
-<body class="admin-page-layout"> <header class="admin-header">
+<body class="admin-page-layout">
+    <header class="admin-header">
         <div class="admin-header__inner">
             <h1 class="admin-header__logo">
                 <a href="client_top.html">OUR BRAND 管理者画面</a>
             </h1>
             <nav class="admin-header__nav">
                 <ul class="admin-nav__list">
-                    <li><a href="client_top.html" class="is-active">商品一覧</a></li> <li><a href="client_add_product.html">お酒追加</a></li>
-                    <li><a href="client_preview.html">プレビュー</a></li>
-                    <li><a href="client_analytics.html">情報確認</a></li>
+                    <li><a href="client_top.html" class="is-active">商品一覧</a></li>
+                    <li><a href="client_add_product.html">お酒追加</a></li>
+                    <li><a href="client_preview.html">プレビュー</a></li> <li><a href="client_analytics.html">情報確認</a></li>
                 </ul>
                 <div class="admin-header__actions">
                     <a href="login.html" class="admin-header__logout">
@@ -70,8 +71,11 @@
                             <td>100</td>
                             <td>公開中</td>
                             <td>
-                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
-                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                <div class="admin-action-buttons-group">
+                                    <a href="client_add_product.html?id=1" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                    <a href="client_preview.html?id=1" class="admin-action-button admin-action-button--preview"><i class="fas fa-eye"></i> プレビュー</a>
+                                    <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -84,8 +88,11 @@
                             <td>50</td>
                             <td>公開中</td>
                             <td>
-                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
-                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                <div class="admin-action-buttons-group">
+                                    <a href="client_add_product.html?id=2" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                    <a href="client_preview.html?id=2" class="admin-action-button admin-action-button--preview"><i class="fas fa-eye"></i> プレビュー</a>
+                                    <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -98,8 +105,11 @@
                             <td>20</td>
                             <td>公開中</td>
                             <td>
-                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
-                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                <div class="admin-action-buttons-group">
+                                    <a href="client_add_product.html?id=3" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                    <a href="client_preview.html?id=3" class="admin-action-button admin-action-button--preview"><i class="fas fa-eye"></i> プレビュー</a>
+                                    <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -112,8 +122,11 @@
                             <td>300</td>
                             <td>非公開</td>
                             <td>
-                                <a href="#" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
-                                <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                <div class="admin-action-buttons-group">
+                                    <a href="client_add_product.html?id=4" class="admin-action-button admin-action-button--edit"><i class="fas fa-edit"></i> 編集</a>
+                                    <a href="client_preview.html?id=4" class="admin-action-button admin-action-button--preview"><i class="fas fa-eye"></i> プレビュー</a>
+                                    <a href="#" class="admin-action-button admin-action-button--delete"><i class="fas fa-trash-alt"></i> 削除</a>
+                                </div>
                             </td>
                         </tr>
                         </tbody>

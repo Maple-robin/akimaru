@@ -1,0 +1,108 @@
+/*----------------------------------------
+  client_analytics.css - 情報確認ページ固有のスタイル
+----------------------------------------*/
+
+.analytics-content {
+    padding: 20px 0;
+}
+
+.analytics-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px; /* 各セクション間の余白 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* admin-containerより少し控えめな影 */
+}
+
+.analytics-section h3 {
+    font-family: 'Zen Old Mincho', serif;
+    font-size: 2.4rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex; /* アイコンとテキストを横並びにするため */
+    align-items: center;
+    gap: 10px; /* アイコンとテキストの間隔 */
+}
+
+.analytics-section h3 .fas {
+    color: #A0522D; /* アイコンの色をブランドカラーに */
+    font-size: 2.2rem;
+}
+
+/* 統計リストのスタイル */
+.stats-list {
+    list-style: none; /* リストの点を削除 */
+    padding: 0; /* リストのパディングをリセット */
+    margin: 0;
+}
+
+.stats-list li {
+    font-size: 1.6rem;
+    color: #555;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee; /* 各項目の区切り線 */
+}
+
+.stats-list li:last-child {
+    border-bottom: none; /* 最後の項目は下線なし */
+}
+
+.stats-list li strong {
+    color: #333;
+    min-width: 150px; /* 値のブレを抑えるため、キーの最小幅を設定 */
+    display: inline-block; /* strongをインラインブロックにして幅を適用 */
+}
+
+/* 売上ランキングテーブルの調整 (client.cssのadmin-tableを上書き/補強) */
+.analytics-table.admin-table th,
+.analytics-table.admin-table td {
+    font-size: 1.5rem; /* テーブルの文字サイズを少し大きめに */
+    white-space: nowrap; /* テーブルセル内のテキストが改行されないように */
+}
+
+.analytics-table.admin-table th:first-child,
+.analytics-table.admin-table td:first-child {
+    width: 80px; /* 順位の列幅を固定 */
+    text-align: center;
+}
+
+.analytics-table.admin-table th:nth-child(3), /* 販売数 */
+.analytics-table.admin-table td:nth-child(3) {
+    width: 120px;
+    text-align: right; /* 数値を右揃えに */
+}
+
+.analytics-table.admin-table th:nth-child(4), /* 売上 */
+.analytics-table.admin-table td:nth-child(4) {
+    width: 150px;
+    text-align: right; /* 数値を右揃えに */
+    font-weight: bold; /* 売上を強調 */
+    color: #A0522D;
+}
+
+/* フィルタリング機能のプレースホルダー */
+.analytics-filter {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f0f8f5; /* 少し異なる背景色で目立たせる */
+    border: 1px dashed #c1d9cc;
+    border-radius: 8px;
+}
+
+.analytics-filter .form-help-text {
+    font-size: 1.4rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 0;
+}
+
+.analytics-filter .form-help-text .fas {
+    color: #5cb85c; /* 緑系の色で情報アイコンを強調 */
+}

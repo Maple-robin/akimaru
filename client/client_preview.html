@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品プレビュー | OUR BRAND 管理者画面</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="../clientcss/client.css"> 
+    <link rel="stylesheet" href="../clientcss/client_preview.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body class="admin-page-layout">
+    <header class="admin-header">
+        <div class="admin-header__inner">
+            <h1 class="admin-header__logo">
+                <a href="client_top.html">OUR BRAND 管理者画面</a>
+            </h1>
+            <nav class="admin-header__nav">
+                <ul class="admin-nav__list">
+                    <li><a href="client_top.html">商品一覧</a></li>
+                    <li><a href="client_add_product.html">お酒追加</a></li>
+                    <li><a href="client_preview.html" class="is-active">プレビュー</a></li>
+                    <li><a href="client_analytics.html">情報確認</a></li>
+                </ul>
+                <div class="admin-header__actions">
+                    <a href="login.html" class="admin-header__logout">
+                        <i class="fas fa-sign-out-alt"></i> ログアウト
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-container">
+            <h2 class="admin-section-title">商品プレビュー</h2>
+            <div class="preview-explanation">
+                <p>このセクションは、登録されたお酒が**お客様向けサイトでどのように表示されるか**を示すプレビューです。</p>
+            </div>
+
+            <div class="product-select-wrapper">
+                <label for="product-select" class="select-label">プレビューする商品を選択:</label>
+                <select id="product-select" class="admin-select">
+                    <option value="">-- 商品を選択してください --</option>
+                </select>
+            </div>
+
+            <div id="preview-content-area" class="product-detail-section">
+                <div class="preview-placeholder-message">
+                    <p><i class="fas fa-info-circle"></i> 上のプルダウンから商品を選択してください。</p>
+                </div>
+            </div>
+            <div class="form-actions preview-actions">
+                <a href="client_top.html" class="admin-button admin-button--secondary"><i class="fas fa-arrow-alt-circle-left"></i> 商品一覧に戻る</a>
+                <button type="button" class="admin-button admin-button--primary"><i class="fas fa-check-circle"></i> この内容で公開 (仮)</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="admin-footer">
+        <p class="admin-footer__copyright">© OUR BRAND Admin All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../clientjs/client_preview.js"></script> 
+</body>
+</html>
