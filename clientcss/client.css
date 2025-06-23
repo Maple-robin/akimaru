@@ -27,7 +27,7 @@ body.login-page-body { /* login.htmlのbodyにこのクラスを付与してく�
 
 /* 管理者画面本体のbodyに付与するスタイル */
 body.admin-page-layout { /* client_top.htmlなどの管理者画面本体のbodyに付与 */
-    background-color: #f8f8f8; /* 管理画面の背景色 */
+    background-color: #fff; /* 管理画面の背景色 */
     min-height: 100vh; /* 少なくともビューポートの高さは確保 */
     display: flex; /* ヘッダー・メイン・フッターを縦に並べるためにFlexboxを使用 */
     flex-direction: column;
@@ -256,7 +256,7 @@ a {
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: none; /* 枠線を消す */
 }
 
 /* 各セクションのタイトル */
@@ -454,8 +454,8 @@ a {
 
 /* 管理者フッター */
 .admin-footer {
-    background-color: #333;
-    color: #bbb;
+    background-color: #f8f8f8; /* フッターの背景色を白に変更 */
+    color: #333; /* テキストの色を濃いグレーに変更 */
     text-align: center;
     padding: 20px 0;
     font-size: 1.3rem;

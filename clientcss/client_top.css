@@ -47,6 +47,8 @@
 
 /* テーブル */
 .admin-table-wrapper {
+    border: 1px solid #ddd; /* テーブル全体を囲む枠線 */
+    border-radius: 5px; /* 枠線の角を丸くする */
     overflow-x: auto; /* 横スクロールを許可 */
     margin-bottom: 30px; /* テーブル下に余白を追加 */
 }
@@ -84,8 +86,18 @@
     background-color: #fafafa; /* 偶数行の背景色 */
 }
 
+/* ホバー時の背景色を偶数行と奇数行に合わせる */
 .admin-table tbody tr:hover {
-    background-color: #f0faff; /* ホバー時の背景色 */
+    background-color: initial; /* デフォルトの背景色を維持 */
+}
+
+/* 偶数行と奇数行の背景色をホバー時に維持 */
+.admin-table tbody tr:nth-child(even):hover {
+    background-color: #fafafa; /* 偶数行の背景色を維持 */
+}
+
+.admin-table tbody tr:nth-child(odd):hover {
+    background-color: #fff; /* 奇数行の背景色を維持 */
 }
 
 .admin-table__img {
