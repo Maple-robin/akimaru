@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- 1. 商品データの拡充（プレビュー用ダミーデータ） ---
     // 実際には、商品一覧ページから渡されたIDに基づいて、サーバーから商品データを取得します。
     // ここでは、URLのクエリパラメータから商品IDを取得し、それに合わせてダミーデータを表示します。
-    const dummyProducts = {
-        '1': {
+    const dummyProducts = {        '1': {
             id: '1',
             name: '純米大吟醸 麗し乃雫',
             category: '日本酒',
+            company: '三重酒造株式会社',
             catchcopy: '伊勢の豊かな水と厳選米が織りなす、<br>芳醇な香りと透明感のある味わい。',
             price: '5,800',
             tags: ['華やか', 'ギフト', '純米大吟醸'],
@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function () {
             drinkMethod: `「純米大吟醸 麗し乃雫」を最大限に楽しむためには、冷酒でお召し上がりいただくのがおすすめです。特に、ワイングラスを使用することで、華やかな吟醸香がより一層引き立ちます。
             <br><br>食事とのペアリングでは、白身魚の刺身や軽めの和食と相性抜群です。また、チーズやナッツなどの洋風のおつまみともよく合います。特別な日の乾杯酒としても最適です。
             <br><br>冷蔵庫でしっかり冷やした後、グラスに注ぎ、ゆっくりと香りを楽しみながら味わってください。温度が少し上がると、米の旨味がさらに引き立つので、温度変化も楽しめます。`
-        },
-        '2': {
+        },        '2': {
             id: '2',
             name: '果実酒 桃源郷の誘い',
             category: '梅酒',
+            company: '伊勢フルーツワイナリー',
             catchcopy: '甘くフルーティーな香りが特徴。<br>デザート感覚で楽しめる一杯。',
             price: '3,200',
             tags: ['果実酒', '甘口', '女子会'],
@@ -39,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
             ],
             description: `国産の新鮮な桃を贅沢に使用した、芳醇な香りとまろやかな甘みが特徴の果実酒です。食前酒やデザートワインとして、またロックやソーダ割りでも美味しくお楽しみいただけます。<br><br>内容量：500ml<br>アルコール度数：8度`,
             drinkMethod: `冷やしてストレートで、またはロックで。ソーダで割ると、より一層爽やかな味わいが楽しめます。カクテルのベースとしてもおすすめです。`
-        },
-        '3': {
+        },        '3': {
             id: '3',
             name: 'スパークリングワイン 煌',
             category: 'ワイン',
+            company: '志摩ワイナリー株式会社',
             catchcopy: '繊細な泡立ちとフルーティーな香り。<br>パーティーシーンを華やかに彩る一本。',
             price: '4,500',
             tags: ['ワイン', 'スパークリング', 'パーティー'],
@@ -55,11 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
             ],
             description: `シャルドネ種を主体に醸造された、きめ細やかな泡立ちが特徴の辛口スパークリングワインです。フレッシュな果実味と、かすかに感じられるトーストの香りが絶妙なハーモニーを奏でます。`,
             drinkMethod: `よく冷やしてお召し上がりください。食前酒としてはもちろん、魚介類や軽めのチーズとの相性も抜群です。`
-        },
-        '4': {
+        },        '4': {
             id: '4',
             name: 'サントリー ほろよい',
             category: '缶チューハイ',
+            company: 'サントリー株式会社',
             catchcopy: 'やさしい甘さとアルコール3%。<br>シーンを選ばず楽しめる、軽やかな味わい。',
             price: '200',
             tags: ['低アルコール', 'お手軽', '家飲み'],
@@ -263,11 +263,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="product-gallery__thumbnails" id="preview-thumbnails">
                             </div>
-                    </div>
-
-                    <div class="product-info">
+                    </div>                    <div class="product-info">
                         <h2 class="product-info__name" id="preview-product-name">${product.name}</h2>
                         <p class="product-info__type" id="preview-product-category">${product.category}</p>
+                        <p class="product-info__company">${product.company}</p>
                         <p class="product-info__catchcopy" id="preview-product-catchcopy">${product.catchcopy}</p>
                         <p class="product-info__price" id="preview-product-price">¥ ${product.price}<span>(税込)</span></p>
                         <p class="product-info__tax-note">※送料別途</p>
