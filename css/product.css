@@ -99,6 +99,15 @@
     line-height: 1.2; /* 高さの調整 */
 }
 
+/* 企業名 */
+.product-info__company {
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 20px;
+    padding-left: 2px; /* 左に少しパディングを追加して、他の要素との整列感を出す */
+}
+
 
 .product-info__catchcopy {
     font-size: 1.6rem;
